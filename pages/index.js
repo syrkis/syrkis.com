@@ -1,0 +1,56 @@
+import Link from "next/link";
+import Layout from "../components/layout";
+import Header from "../components/header";
+import Tile from "../components/tile";
+
+export default () => (
+  <main>
+    <Layout>
+      <Header />
+      <section>
+        <div className="content">
+        {/* <Link href="/methylorange">
+            <a>
+            <Tile image={`url('https://file-dwykxyyikh.now.sh')`}  titleHuge0="METHYL" titleHuge1="ORANGE" titleLine0="or" titleLine1="MY LOVE IN" titleLine3="SUPERPOSIT1ON" tileTextColor="white"/>
+            </a>
+          </Link>
+          <br/> */}
+          <Link href="/bciioi">
+            <a>
+              <Tile image={`url('https://images.syrkis.com/bciioi/untitled_5.jpg')`} titleLine0="the" titleLine1="BCIIOI" titleLine4="series" tileTextColor="white" />
+            </a>
+          </Link>
+	<br/>
+           <Link href="/harmattan">
+            <a>
+            <Tile image={`url('https://images.syrkis.com/harmattan/girl.jpg')`}  titleLine0="the" titleLine1="HARMATTAN" titleLine4="series" tileTextColor="white"/>
+            </a>
+          </Link>
+        </div>
+      </section>
+    </Layout>
+    <style jsx>{`
+
+
+      h1 {
+        font-size: 2em;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+      }
+      a, a:visited, a:focus, a:active, a:link, a:hover {
+        color: inherit;
+        text-decoration: none;
+      }
+      
+      .content {
+        padding-top: 90vh;
+        width: 100%;
+        margin: auto;
+        text-align: center;
+        position: relative;
+      }  
+      
+    `}</style>
+  </main>
+);
