@@ -36,9 +36,9 @@ class HarmattanPage extends Component {
 <div className='summary'>
 				<p id='lorem'>
 					
-						Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of <a href='/methyl'><i>Methyl Orange</i></a>.
-						Presented over the course of nine limited edition prints, the series is available for purchase by contact through <i><a href="mailto:contact@syrkis.com">email</a></i>.
-						Proceeds are donated to the <i><a href="https://schistosomiasiscontrolinitiative.org/">SCI Foundation</a></i>.
+						Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of <a href='/methyl'><i><b>Methyl Orange</b></i></a>.
+						Presented over the course of nine limited edition prints, the series is available for purchase by contact through <i><b><a href="mailto:contact@syrkis.com?subject=Harmattan inquiry">email</a></b></i>.
+						Proceeds are donated to the <i><a href="https://schistosomiasiscontrolinitiative.org/"><b>SCI Foundation</b></a></i>.
 				</p>
 </div>
                     <div>
@@ -125,4 +125,4 @@ class HarmattanPage extends Component {
   }
 }
 
-export default withTitle({component: HarmattanPage, title: 'The Harmattan Series', description: 'Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of Methyl Orange.' });
+export default withTitle({component: HarmattanPage, title: 'The Harmattan Series | Noah Syrkis', description: 'Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of Methyl Orange.' });
