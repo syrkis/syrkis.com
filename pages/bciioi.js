@@ -30,10 +30,10 @@ class BciioiPage extends Component {
                     </div>
                     <div>
 		<div className='summary'>
-						<p>
+						<p id='lorem'>
 							{`
 								The photo series BCIIOI is a 2016 study of the relationship and the merger of the natural with the digital.
-								Presented over the course of five limited edition prints, the series is available for purchase by contact through email.
+								Presented over the course of five limited edition prints, the series is available for purchase by contact through`} <i><a href="mailto:contact@syrkis.com">email</a></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org'>Virian Project</a></i>
 						</p>

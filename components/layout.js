@@ -14,7 +14,7 @@ export default (props) => (
     <div>
       <Head>
 	<title>Noah Syrkis</title>
-	<meta name='description' content='Official website of Noah Syrkis; Writer, photographer, data scientist and cross-class capitalist.' />
+	<meta name='description' content='Join writer, photographer, computer scientist, and cross-class capitalist Noah Syrkis as he explores a world of experiences and ideas.' />
 
        <meta charSet="UTF-8" />
        <meta name="revisit-after" content="30 days" />
@@ -25,6 +25,7 @@ export default (props) => (
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet" / >
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  />
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous" key="fontawesome" />
+	<link rel="stylesheet" href="/static/text_align_last.js" />
       </Head>
       {props.children}
     </div>

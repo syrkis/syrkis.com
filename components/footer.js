@@ -15,7 +15,7 @@ export default () => (
             <a href='https://twitter.com/noahsyrkis' target='_blank' className='fab fa-twitter'></a>
             <a href="https://medium.com/@syrkis" target="_blank" className="fab fa-medium social"></a>
             <a href='https://instagram.com/noahsyrkis' target='_blank' className='fab fa-instagram'></a>
-	    	<a href="https://keybase.io/syrkis" target="_blank" className="fas fa-key"></a>
+	    	<a href="https://twitch.tv/noahsyrkis" target="_blank" className="fab fa-twitch"></a>
         </div>
       </p>
     </div>

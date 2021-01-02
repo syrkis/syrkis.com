@@ -1,3 +1,4 @@
+import {Helmet} from "react-helmet";
 import { TitleComponent } from '../components/title.js'
 import { Component } from 'react'
 import Link from 'next/link'
@@ -21,6 +22,10 @@ class HarmattanPage extends Component {
     return (
       <main>
         <Layout>
+		            <Helmet>
+	                  <script src="/static/text_align_last.js" type="text/javascript" />
+
+	              </Helmet>
             <section>
                 <div className="content">
                     <div className="header">
@@ -29,10 +34,10 @@ class HarmattanPage extends Component {
                         </h1>
                     </div>
 <div className='summary'>
-				<p>
+				<p id='lorem'>
 					
 						Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of <a href='/methyl'><i>Methyl Orange</i></a>.
-						Presented over the course of nine limited edition prints, the series is available for purchase by contact through email.
+						Presented over the course of nine limited edition prints, the series is available for purchase by contact through <i><a href="mailto:contact@syrkis.com">email</a></i>.
 						Proceeds are donated to the <i><a href="https://schistosomiasiscontrolinitiative.org/">SCI Foundation</a></i>.
 				</p>
 </div>
@@ -48,7 +53,7 @@ class HarmattanPage extends Component {
                         <img src="https://images.syrkis.com/harmattan/model.jpg" alt="The Model"/>
 						<p><i>{`The Model`}</i>, {`2015, 59 x 84 cm, 300 €, 7 of 9 prints remain available.`}</p>
                         <img src="https://images.syrkis.com/harmattan/night.jpg" alt="The Night"/>
-						<p><i>{`The Night`}</i>, {`2015, 59 x 84 cm, 400 €, 5 of 9 prints remain available.`}</p>
+						<p><i>{`The Night`}</i>, {`2015, 59 x 84 cm, 300 €, 5 of 9 prints remain available.`}</p>
                         <img src="https://images.syrkis.com/harmattan/man.jpg" alt="The Man"/>
 						<p><i>{`The Man`}</i>, {`2015, 59 x 84 cm, 300 €, 4 of 9 prints remain available.`}</p>
                         <img src="https://images.syrkis.com/harmattan/day.jpg" alt="The Girl"/>
@@ -62,6 +67,22 @@ class HarmattanPage extends Component {
             </section>
         </Layout>
         <style jsx>{`
+		#lorem, .clone {
+		    line-height: 1.95em;
+		      font: 1.3em;
+			max-width: 95%;
+			}
+
+			#lorem {
+			  text-align: justify;
+			    overflow: hidden;
+			      background: white;
+			      }
+
+			      .clone {
+			        text-align: center;
+				}
+
 
              .header {
                 padding: 42vh 0vh 22vh 0vh;
