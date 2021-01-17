@@ -33,9 +33,9 @@ export default (props) => (
     <Footer />
 	<style jsx global>{`
 	.lorem, .clone {
-	  position: absolute;
-	        width: 600px;
-		max-width: 95%; 
+		margin:auto;
+	  	position: absolute;
+%;
 		}
 
 		.lorem {
@@ -50,7 +50,8 @@ export default (props) => (
 			}
 		p {
 			font-size: 1.3em;
-			letter-spacing: 0.05em;
+			letter-spacing: 0.01em;
+			margin: auto;
 			}
 
 		img {

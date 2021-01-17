@@ -50,6 +50,7 @@ class HarmattanPage extends Component {
 						Proceeds are donated to the <i><a href="https://schistosomiasiscontrolinitiative.org/"><b>SCI Foundation</b></a></i>.
 				</p>
 </div>
+	   <br/><br/><br/> 
                     <div>
                         <img src="https://images.syrkis.com/harmattan/girl.jpg" alt="The Girl"/>
 						<p><i>{`The Girl`}</i>, {`2015, 59 x 84 cm, 300 €, 6 of 9 prints remain available.`}</p>
@@ -102,12 +103,13 @@ class HarmattanPage extends Component {
 			
 			
 			.summary {
+				position: relative;
+				width: 95%;
+				max-width: 600px;
 				margin: auto;
 				text-align: justify;
-				width: 600px;
-				max-width: 90%;
 				text-align-last: center;
-			
+				marin-top: 100px;	
 			}
 			
 			a {

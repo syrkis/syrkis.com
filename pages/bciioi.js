@@ -47,7 +47,7 @@ class BciioiPage extends Component {
 							`}<i><a href='https://virian.org'><b>Virian Project</b></a></i>.
 						</p>
 		</div>
-		<br/>
+		<br/><br/><br/>
                         <dev className='fuckoff2'>
 						<img src="https://images.syrkis.com/bciioi/untitled_1.jpg" alt="watch your head! she said"/>
                         <dev className='fuckoff'><p><i>{`"watch your head! she said"`}</i>{`, BCIIOI 1, 59 x 84 cm, 300 €, 2 of 5 prints remain available.`}</p></dev></dev>
@@ -99,10 +99,10 @@ class BciioiPage extends Component {
 			.summary {
 				margin: auto;
 				text-align: justify;
-				width: 600px;
-				max-width: 90%;
+				width: 95%;
+				max-width: 600px;
 				text-align-last: center;
-			
+				position: relative;
 			}
 			
 			a {
