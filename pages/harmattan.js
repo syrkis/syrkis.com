@@ -6,6 +6,15 @@ import Layout from '../components/layout'
 
 const withTitle = ({ component: Component, title, description}) => {
 	return class Title extends Component {
+	componentDidMount() {
+	var para = document.querySelectorAll('.lorem');
+		para.forEach((p) => {
+			const clone = p.cloneNode(true);
+			clone.className= 'clone';
+			p.parentNode.insertBefore(clone, p);
+			p.style.height= p.offsetHeight - 28 + 'px';	
+		})
+	}
 		render() {
 			return (
 				<React.Fragment>
@@ -34,7 +43,7 @@ class HarmattanPage extends Component {
                         </h1>
                     </div>
 <div className='summary'>
-				<p id='lorem'>
+				<p className='lorem'>
 					
 						Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of <a href='/methyl'><i><b>Methyl Orange</b></i></a>.
 						Presented over the course of nine limited edition prints, the series is available for purchase by contact through <i><b><a href="mailto:contact@syrkis.com?subject=Harmattan inquiry">email</a></b></i>.
@@ -67,21 +76,6 @@ class HarmattanPage extends Component {
             </section>
         </Layout>
         <style jsx>{`
-		#lorem, .clone {
-		    line-height: 1.95em;
-		      font: 1.3em;
-			max-width: 95%;
-			}
-
-			#lorem {
-			  text-align: justify;
-			    overflow: hidden;
-			      background: white;
-			      }
-
-			      .clone {
-			        text-align: center;
-				}
 
 
              .header {

@@ -17,6 +17,15 @@ const withTitle = ({ component: Component, title, description}) => {
 };
 
 class BciioiPage extends Component {
+	componentDidMount() {
+	var para = document.querySelectorAll('.lorem');
+		para.forEach((p) => {
+			const clone = p.cloneNode(true);
+			clone.className= 'clone';
+			p.parentNode.insertBefore(clone, p);
+			p.style.height= p.offsetHeight - 14 + 'px';	
+		})
+	}
   render() {
     return (
       <main>
@@ -30,7 +39,7 @@ class BciioiPage extends Component {
                     </div>
                     <div>
 		<div className='summary'>
-						<p id='lorem'>
+						<p className='lorem'>
 							{`
 								The photo series BCIIOI is a 2016 study of the relationship and the merger of the natural with the digital.
 								Presented over the course of five limited edition prints, the series is available for purchase by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=BCIIOI inquiry">email</a></b></i>{`.
@@ -71,21 +80,11 @@ class BciioiPage extends Component {
                 width: 1400px;
                 max-width: 80%;
                 padding-top: 200px;
+		z-index: -100;
                 padding-bottom: 50px;
 				
             }
 			
-			.fuckoff {
-				text-align: center;
-			}
-			
-			.fuckoff2 {
-				pos
-                width: 1400px;
-                max-width: 75%;
-				margin: auto;
-				position: relative;
-			}
 
             p {
                 font-size: 1.3em;

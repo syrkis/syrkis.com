@@ -26,10 +26,36 @@ export default (props) => (
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet" / >
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  />
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous" key="fontawesome" />
-	<link rel="stylesheet" href="/static/text_align_last.js" />
+	<link href="/static/script.js" type="text/javascript"/>
       </Head>
       {props.children}
     </div>
     <Footer />
+	<style jsx global>{`
+	.lorem, .clone {
+	  position: absolute;
+	        width: 600px;
+		max-width: 95%; 
+		}
+
+		.lorem {
+		  text-align: justify;
+		    overflow: hidden;
+		      background: white;
+		      }
+
+		      .clone {
+		        text-align: center;
+			font-size: 1.3em;
+			}
+		p {
+			font-size: 1.3em;
+			letter-spacing: 0.05em;
+			}
+
+		img {
+		z-index:-100;}
+
+			`}</style>
   </div>
 )
