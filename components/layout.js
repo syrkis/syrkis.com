@@ -21,7 +21,7 @@ export default (props) => (
        <meta name="revisit-after" content="30 days" />
        <meta name="author" content="Noah Syrkis" />
        <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-       <link rel="shortcut icon" type="image/png" href="/static/favicon.png" />
+       <link rel="shortcut icon" type="image/png" href="https://files-pdrfbjewg.vercel.app" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" />
 	<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet" / >
        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"  />
