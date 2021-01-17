@@ -26,6 +26,7 @@ export default () => (
           text-decoration: none !important;
           padding: 0 12px 0 12px;
           line-height: 2.5em;
+	  font-size: 0.8em;
         }
 
         .footer {
@@ -34,7 +35,7 @@ export default () => (
           text-align: center;
           letter-spacing: 0.1em;
           padding: 0 0 1em 0;
-          font-size: 1.15em;
+          font-size: 1em;
 
         }
 
