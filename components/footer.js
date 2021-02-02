@@ -10,14 +10,12 @@ export default () => (
 		contact@syrkis.com
 	</a>
         <br />
-        <div>
         	<a href='https://github.com/syrkis' target='_blank' className='fab fa-github'></a>
             <a href='https://twitter.com/noahsyrkis' target='_blank' className='fab fa-twitter'></a>
             <a href="https://www.youtube.com/channel/UCjhko_G0E9BT7-ustIvsEoA" target="_blank" className="fab fa-youtube"></a>
             <a href='https://instagram.com/noahsyrkis' target='_blank' className='fab fa-instagram'></a>
 	    	<a href="https://twitch.tv/noahsyrkis" target="_blank" className="fab fa-twitch"></a>
 	<br />
-        </div>
       </p>
     </div>
     <style jsx>

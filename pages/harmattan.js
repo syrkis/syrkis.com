@@ -6,15 +6,6 @@ import Layout from '../components/layout'
 
 const withTitle = ({ component: Component, title, description}) => {
 	return class Title extends Component {
-	componentDidMount() {
-	var para = document.querySelectorAll('.lorem');
-		para.forEach((p) => {
-			const clone = p.cloneNode(true);
-			clone.className= 'clone';
-			p.parentNode.insertBefore(clone, p);
-			p.style.height= p.offsetHeight - 28 + 'px';	
-		})
-	}
 		render() {
 			return (
 				<React.Fragment>
@@ -26,7 +17,16 @@ const withTitle = ({ component: Component, title, description}) => {
 	};
 };
 
-class HarmattanPage extends Component {
+class HarmattanPage extends Component {	
+	componentDidMount() {
+	var para = document.querySelectorAll('.lorem');
+		para.forEach((p) => {
+			const clone = p.cloneNode(true);
+			clone.className= 'clone';
+			p.parentNode.insertBefore(clone, p);
+			p.style.height= p.offsetHeight - 28 + 'px';	
+		})
+	}
   render() {
     return (
       <main>
@@ -53,23 +53,23 @@ class HarmattanPage extends Component {
 	   <br/><br/><br/> 
                     <div>
                         <img src="https://images.syrkis.com/harmattan/girl.jpg" alt="The Girl"/>
-						<p><i>{`The Girl`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Girl`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/family.jpg" alt="The Day"/>
-						<p><i>{`The Family`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Family`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/boy.jpg" alt="The Boy"/>
-						<p><i>{`The Boy`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Boy`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/girls.jpg" alt="The Girls"/>
-						<p><i>{`The Girls`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Girls`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/model.jpg" alt="The Model"/>
-						<p><i>{`The Model`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Model`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/night.jpg" alt="The Night"/>
-						<p><i>{`The Night`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Night`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/man.jpg" alt="The Man"/>
-						<p><i>{`The Man`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Man`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/day.jpg" alt="The Girl"/>
-						<p><i>{`The Day`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Day`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
                         <img src="https://images.syrkis.com/harmattan/scout.jpg" alt="The Scout"/>
-						<p><i>{`The Scout`}</i>, {`2015, 59 x 84 cm, 300 €, limited edition of 5.`}</p>
+						<p><i>{`The Scout`}</i>, {`2015, 59 x 84 cm, limited edition of 5.`}</p>
 						<br/><br/><br/><br/><br/><br/><br/><br/>
 						
                     </div>

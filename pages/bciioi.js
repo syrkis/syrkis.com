@@ -50,19 +50,19 @@ class BciioiPage extends Component {
 		<br/><br/><br/>
                         <dev className='fuckoff2'>
 						<img src="https://images.syrkis.com/bciioi/untitled_1.jpg" alt="watch your head! she said"/>
-                        <dev className='fuckoff'><p><i>{`Watch your head! she said`}</i>{`, BCIIOI 1, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Watch your head! she said`}</i>{`, BCIIOI 1, 59 x 84 cm, limited edition of 5.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://images.syrkis.com/bciioi/untitled_2.jpg" alt="look at what's inside"/>
-                        <dev className='fuckoff'><p><i>{`Look at what's inside`}</i>{`, BCIIOI 2, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Look at what's inside`}</i>{`, BCIIOI 2, 59 x 84 cm, limited edition of 5.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://images.syrkis.com/bciioi/untitled_3.jpg" alt="it's full of rods and wires"/>
-                        <dev className='fuckoff'><p><i>{`It's full of rods and wires`}</i>{`, BCIIOI 3, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`It's full of rods and wires`}</i>{`, BCIIOI 3, 59 x 84 cm, limited edition of 5.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://images.syrkis.com/bciioi/untitled_4.jpg" alt="they're coming out of your neck"/>
-                        <dev className='fuckoff'><p><i>{`They're coming out of your neck`}</i>{`, BCIIOI 4, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`They're coming out of your neck`}</i>{`, BCIIOI 4, 59 x 84 cm, limited edition of 5.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://images.syrkis.com/bciioi/untitled_5.jpg" alt="Untitled"/>
-                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, BCIIOI 5, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, BCIIOI 5, 59 x 84 cm, limited edition of 5.`}</p></dev></dev>
 						<br/><br/><br/><br/><br/><br/><br/><br/>
 					
                     </div>
