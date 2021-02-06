@@ -4,7 +4,7 @@ import Particles from 'react-particles-js';
 
 export default (props) => (
   <div style={{paddingBottom: '15vh'}}>
-    <Tilt className="Tilt" options={{ max : 3, scale: 1.05, speed: 3000 }} style={{
+    <Tilt className="Tilt" options={{ max : 3, scale: 1.05, speed: 3000, glare : true, maxGlare: 1.0}} style={{
         transformStyle: 'preserve-3d',
         height: '750px',
         maxHeight: '80vh',
@@ -21,10 +21,11 @@ export default (props) => (
         justifyContent: 'center'
 
       }} >
-            <div className='background'>
+            <div className='background particles-js'>
                 {
                         props.particles &&
-                        <Particles params={{
+                        <div width='100%' height='100%'>
+                        <Particles height='100% !important' className='background' params={{
                             fpsLimit: 48,
                             particles: {
                                 color: {
@@ -36,8 +37,11 @@ export default (props) => (
                                 },
                                 move: {
                                     speed: 1
-                                }
-                        }}}/>
+                                },
+                                    number: {
+                                        value: 150
+                                    }
+                        }}}/></div>
                 }
             </div>
 
@@ -66,14 +70,17 @@ export default (props) => (
     </Tilt>
     <style jsx>{`
 
-
+        Particles, tsparticles-canvas-el {
+            width: 100% !important;
+            height: 100% !important;
+        }
 
         .background{
             position: absolute;
             top: 0;
             width: 100%;
-            height: 100%;
             left: 0;
+            height: 750px;
             z-index: -100;
         }
 

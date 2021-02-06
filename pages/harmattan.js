@@ -32,7 +32,6 @@ class HarmattanPage extends Component {
       <main>
         <Layout>
 		            <Helmet>
-	                  <script src="/static/text_align_last.js" type="text/javascript" />
 
 	              </Helmet>
             <section>
