@@ -14,7 +14,7 @@ export default (props) => (
     <div>
       <Head>
 	<title>Noah Syrkis | Methyl Orange, Harmattan, BCIIOI</title>
-	<meta name='description' content='Tastelessly self-idolizing portfolio site of writer, photographer, data scientist, and cross-class capitalist (a capitalist brutally exploiting himself) Noah Syrkis.' />
+	<meta name='description' content='Portfolio site of writer, photographer, data scientist, and cross-class capitalist Noah Syrkis.' />
 
 
        <meta charSet="UTF-8" />
