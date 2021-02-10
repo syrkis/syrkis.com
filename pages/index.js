@@ -22,9 +22,9 @@ export default () => (
           </Link>
 	<br/>
                     <a href='https://virian.org' target='_blank'>
-              <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="black" />
+              <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
             </a>
-<br/> 
+	<br/> 
            <Link href="/harmattan">
             <a>
             <Tile image={`url('https://images.syrkis.com/harmattan/girl.jpg')`}  titleLine0="the" titleLine1="HARMATTAN" titleLine4="series" tileTextColor="white"/>

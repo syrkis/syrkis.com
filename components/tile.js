@@ -6,11 +6,12 @@ export default (props) => (
   <div style={{paddingBottom: '15vh'}}>
     <Tilt className="Tilt" options={{ max : 3, scale: 1.05, speed: 3000, glare : true, maxGlare: 1.0}} style={{
         transformStyle: 'preserve-3d',
-        height: '750px',
-        maxHeight: '80vh',
-        width: '1400px',
-        maxWidth: '90%',
-        background: props.image,
+        maxHeight: '750px',
+        height: '80vh',
+        maxWidth: '1400px',
+        width: '90%',
+        backgroundImage: props.image,
+        backgroundColor: 'black',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         borderRadius: '20px',
@@ -19,20 +20,19 @@ export default (props) => (
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center'
-
       }} >
-            <div className='background particles-js'>
                 {
                         props.particles &&
-                        <div width='100%' height='100%'>
-                        <Particles height='100% !important' className='background' params={{
+                        <Particles className='background' style={{
+                            width: '100%', height: '200px', position: 'absolute', top: 0, left: 0}} params={{
+                            retinaDetect: true,
                             fpsLimit: 48,
                             particles: {
                                 color: {
-                                    value: '#000'
+                                    value: '#fff'
                                 },
                                 links: {
-                                    color: '#000',
+                                    color: '#fff',
                                     distance: 50
                                 },
                                 move: {
@@ -41,9 +41,8 @@ export default (props) => (
                                     number: {
                                         value: 150
                                     }
-                        }}}/></div>
+                        }}}/>
                 }
-            </div>
 
 
 
@@ -70,18 +69,11 @@ export default (props) => (
     </Tilt>
     <style jsx>{`
 
-        Particles, tsparticles-canvas-el {
-            width: 100% !important;
-            height: 100% !important;
-        }
 
         .background{
             position: absolute;
             top: 0;
-            width: 100%;
             left: 0;
-            height: 750px;
-            z-index: -100;
         }
 
         .Tilt-inner {
