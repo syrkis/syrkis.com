@@ -3942,6 +3942,11 @@
   "resolved" "https://registry.npmjs.org/path-parse/-/path-parse-1.0.6.tgz"
   "version" "1.0.6"
 
+"pathseg@^1.2.0":
+  "integrity" "sha512-+pQS7lTaoVIXhaCW7R3Wd/165APzZHWzYVqe7dxzdupxQwebgpBaCmf0/XZwmoA/rkDq3qvzO0qv4d5oFVrBRw=="
+  "resolved" "https://registry.npmjs.org/pathseg/-/pathseg-1.2.0.tgz"
+  "version" "1.2.0"
+
 "pbkdf2@^3.0.3":
   "integrity" "sha512-U/il5MsrZp7mGg3mSQfn742na2T+1/vHDCG5/iTI3X9MKUuYUZVLQhyRsg06mCgDBTd57TxzgZt7P+fYfjRLtA=="
   "resolved" "https://registry.npmjs.org/pbkdf2/-/pbkdf2-3.0.17.tgz"
@@ -4502,6 +4507,14 @@
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   "version" "16.13.1"
 
+"react-particles-js@^3.4.1":
+  "integrity" "sha512-c3+vITUMN9RlgbERZYd9Kzvjmf49ENp07+9+NDLvE1Jf9euabrJi/q6gCCcv5foxGHBYjHnGs47Tusmrl0/+GQ=="
+  "resolved" "https://registry.npmjs.org/react-particles-js/-/react-particles-js-3.4.1.tgz"
+  "version" "3.4.1"
+  dependencies:
+    "lodash" "^4.17.11"
+    "tsparticles" "^1.18.10"
+
 "react-refresh@0.8.2":
   "integrity" "sha512-n8GXxo3DwM2KtFEL69DAVhGc4A1THn2qjmfvSo3nze0NLCoPbywazeJPqdp0RdSGLmyhQzeyA+XPXOobbYlkzg=="
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.8.2.tgz"
@@ -4517,7 +4530,7 @@
   "resolved" "https://registry.npmjs.org/react-tilt/-/react-tilt-0.1.4.tgz"
   "version" "0.1.4"
 
-"react@^16.3.0 || ^17.0.0", "react@>=16.3.0", "react@latest":
+"react@^16.0.0", "react@^16.3.0 || ^17.0.0", "react@>=16.3.0", "react@latest":
   "integrity" "sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w=="
   "resolved" "https://registry.npmjs.org/react/-/react-16.13.1.tgz"
   "version" "16.13.1"
@@ -5289,6 +5302,15 @@
   "integrity" "sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.13.0.tgz"
   "version" "1.13.0"
+
+"tsparticles@^1.18.10":
+  "integrity" "sha512-7WY31HckCzzaiuudQlIeCE3Y5C4AslnJsuM/aeSDMErx7p7GjXzfUIO5qpzwyoJ7KRNURxIhADTXSDEtqkJFxw=="
+  "resolved" "https://registry.npmjs.org/tsparticles/-/tsparticles-1.18.12.tgz"
+  "version" "1.18.12"
+  dependencies:
+    "pathseg" "^1.2.0"
+  optionalDependencies:
+    "pathseg" "^1.2.0"
 
 "tty-browserify@0.0.0":
   "integrity" "sha1-oVe6QC2iTpv5V/mqadUk7tQpAaY="

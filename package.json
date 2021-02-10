@@ -8,6 +8,7 @@
     "react": "latest",
     "react-dom": "latest",
     "react-helmet": "^6.1.0",
+    "react-particles-js": "^3.4.1",
     "react-tilt": "latest"
   }
 }
