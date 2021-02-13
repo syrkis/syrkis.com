@@ -15,17 +15,17 @@ export default () => (
             </a>
           </Link>
           <br/> */}
+                     <a href='https://virian.org' target='_blank'>
+              <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
+            </a>
+	<br/> 
           <Link href="/bciioi">
             <a>
               <Tile image={`url('https://images.syrkis.com/bciioi/untitled_5.jpg')`} titleLine0="the" titleLine1="BCIIOI" titleLine4="series" tileTextColor="white" />
             </a>
           </Link>
 	<br/>
-                    <a href='https://virian.org' target='_blank'>
-              <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
-            </a>
-	<br/> 
-           <Link href="/harmattan">
+          <Link href="/harmattan">
             <a>
             <Tile image={`url('https://images.syrkis.com/harmattan/girl.jpg')`}  titleLine0="the" titleLine1="HARMATTAN" titleLine4="series" tileTextColor="white"/>
             </a>
