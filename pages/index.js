@@ -25,6 +25,12 @@ export default () => (
             </a>
           </Link>
 	<br/>
+          <Link href="/aurelian">
+            <a>
+              <Tile image={`url('https://images.syrkis.com/static/bright.jpg')`} titleLine0="the" titleLine1="AURELIAN" titleLine4="series" tileTextColor="black" />
+            </a>
+          </Link>
+	<br/>
           <Link href="/harmattan">
             <a>
             <Tile image={`url('https://images.syrkis.com/harmattan/girl.jpg')`}  titleLine0="the" titleLine1="HARMATTAN" titleLine4="series" tileTextColor="white"/>

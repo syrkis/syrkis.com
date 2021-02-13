@@ -16,7 +16,7 @@ const withTitle = ({ component: Component, title, description}) => {
 	};
 };
 
-class BciioiPage extends Component {
+class AurelianPage extends Component {
 	componentDidMount() {
 	var para = document.querySelectorAll('.lorem');
 		para.forEach((p) => {
@@ -41,28 +41,27 @@ class BciioiPage extends Component {
 		<div className='summary'>
 						<p className='lorem'>
 							{`
-								The photo series BCIIOI is a 2016 study of the relationship and the merger of the natural with the digital.
-								Presented over the course of five limited edition prints, the series is available for purchase by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=BCIIOI inquiry">email</a></b></i>{`.
+								Aurelian is a 2016 photo series, exploring the texture of butterfly wings. Prints are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=BCIIOI inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org'><b>Virian Project</b></a></i>.
 						</p>
 		</div>
 		<br/><br/><br/>
                         <dev className='fuckoff2'>
-						<img src="https://images.syrkis.com/bciioi/untitled_1.jpg" alt="watch your head! she said"/>
-                        <dev className='fuckoff'><p><i>{`Watch your head! she said`}</i>{`, BCIIOI 1, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+						<img src="https://files-ll15vh3lu.vercel.app" alt="Aurelian 2"/>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 1, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
-						<img src="https://images.syrkis.com/bciioi/untitled_2.jpg" alt="look at what's inside"/>
-                        <dev className='fuckoff'><p><i>{`Look at what's inside`}</i>{`, BCIIOI 2, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+						<img src="https://files-d9fpcwewz.vercel.app" alt="Aurelian 3"/>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 2, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
-						<img src="https://images.syrkis.com/bciioi/untitled_3.jpg" alt="it's full of rods and wires"/>
-                        <dev className='fuckoff'><p><i>{`It's full of rods and wires`}</i>{`, BCIIOI 3, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+						<img src="https://files-iyvowzcfl.vercel.app" alt="Aurelain 1"/>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 3, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
-						<img src="https://images.syrkis.com/bciioi/untitled_4.jpg" alt="they're coming out of your neck"/>
-                        <dev className='fuckoff'><p><i>{`They're coming out of your neck`}</i>{`, BCIIOI 4, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+						<img src="https://files-lg2h88aah.vercel.app" alt="Aurelian 3"/>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 4, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
-						<img src="https://images.syrkis.com/bciioi/untitled_5.jpg" alt="Untitled"/>
-                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, BCIIOI 5, 59 x 84 cm, 300 €, limited edition of 5.`}</p></dev></dev>
+						<img src="https://files-np4lf6cc0.vercel.app" alt="Aurelian 3"/>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 5, 59 x 84 cm, 2016`}</p></dev></dev>
 						<br/><br/><br/><br/><br/><br/><br/><br/>
 					
                     </div>
@@ -114,4 +113,4 @@ class BciioiPage extends Component {
   }
 }
 
-export default withTitle({component: BciioiPage, title: 'The Aurelian Series | Noah Syrkis', description: 'The photo series BCIIOI is a 2016 study of the relationship and the merger of the natural with the digital.'});
+export default withTitle({component: AurelianPage, title: 'The Aurelian Series | Noah Syrkis', description: 'Aurelian is a 2016 photo series, exploring the texture of butterfly wings.'});
