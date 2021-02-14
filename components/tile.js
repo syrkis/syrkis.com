@@ -36,10 +36,10 @@ export default (props) => (
                                     distance: 50
                                 },
                                 move: {
-                                    speed: 0.4
+                                    speed: 0.2
                                 },
                                     number: {
-                                        value: 150
+                                        value: 100
                                     }
                         }}}/>
                 }
