@@ -41,7 +41,7 @@ class AurelianPage extends Component {
 		<div className='summary'>
 						<p className='lorem'>
 							{`
-								Aurelian is a 2016 photo series, exploring the texture of butterfly wings. Prints are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Aurelian inquiry">email</a></b></i>{`.
+								Aurelian is a 2018 photo collection, exploring the textures of butterfly wings. Prints are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Aurelian inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org'><b>Virian Project</b></a></i>.
 						</p>
@@ -113,4 +113,4 @@ class AurelianPage extends Component {
   }
 }
 
-export default withTitle({component: AurelianPage, title: 'The Aurelian Series | Noah Syrkis', description: 'Aurelian is a 2016 photo series, exploring the texture of butterfly wings.'});
+export default withTitle({component: AurelianPage, title: 'The Aurelian Series | Noah Syrkis', description: 'Aurelian is a 2018 photo series, exploring the texture of butterfly wings.'});

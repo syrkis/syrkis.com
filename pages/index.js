@@ -27,7 +27,7 @@ export default () => (
 	<br/>
           <Link href="/aurelian">
             <a>
-              <Tile image={`url('https://images.syrkis.com/static/bright.jpg')`} titleLine0="the" titleLine1="AURELIAN" titleLine4="series" tileTextColor="black" />
+              <Tile image={`url('https://images.syrkis.com/static/bright.jpg')`} titleLine0="the" titleLine1="AURELIAN" titleLine4="collection" tileTextColor="black" />
             </a>
           </Link>
 	<br/>
