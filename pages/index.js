@@ -9,12 +9,6 @@ export default () => (
       <Header />
       <section>
         <div className="content">
-        {/* <Link href="/methylorange">
-            <a>
-            <Tile image={`url('https://file-dwykxyyikh.now.sh')`}  titleHuge0="METHYL" titleHuge1="ORANGE" titleLine0="or" titleLine1="MY LOVE IN" titleLine3="SUPERPOSIT1ON" tileTextColor="white"/>
-            </a>
-          </Link>
-          <br/> */}
                      <a href='https://virian.org' target='_blank'>
               <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
             </a>
@@ -36,6 +30,11 @@ export default () => (
             <Tile image={`url('https://images.syrkis.com/harmattan/girl.jpg')`}  titleLine0="the" titleLine1="HARMATTAN" titleLine4="series" tileTextColor="white"/>
             </a>
           </Link>
+            <br/>
+            <a href='https://methylorange.com'>
+            <Tile image={`url('https://files-iyvowzcfl.vercel.app')`}  titleHuge0="METHYL" titleHuge1="ORANGE" titleLine0="or" titleLine1="MY LOVE IN" titleLine3="SUPERPOSIT1ON" tileTextColor="white"/>
+            </a>
+          <br/>
         </div>
       </section>
     </Layout>
