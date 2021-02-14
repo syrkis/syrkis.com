@@ -55,8 +55,8 @@ export default (props) => (
           }}>
 
     <div className='content'>
-          <h1>{props.titleHuge0}</h1>
-          <h1>{props.titleHuge1}</h1>
+          <h2>{props.titleHuge0}</h2>
+          <h2>{props.titleHuge1}</h2>
           <h4>{props.titleLine0}</h4>
           <h2>{props.titleLine1}</h2>
           <h4>{props.titleLine2}</h4>
