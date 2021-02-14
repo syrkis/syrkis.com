@@ -41,7 +41,7 @@ class AurelianPage extends Component {
 		<div className='summary'>
 						<p className='lorem'>
 							{`
-								Aurelian is a 2016 photo series, exploring the texture of butterfly wings. Prints are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=BCIIOI inquiry">email</a></b></i>{`.
+								Aurelian is a 2016 photo series, exploring the texture of butterfly wings. Prints are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Aurelian inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org'><b>Virian Project</b></a></i>.
 						</p>
@@ -49,19 +49,19 @@ class AurelianPage extends Component {
 		<br/><br/><br/>
                         <dev className='fuckoff2'>
 						<img src="https://files-ll15vh3lu.vercel.app" alt="Aurelian 2"/>
-                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 1, 59 x 84 cm, 2016`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian Series No. 1, 59 x 84 cm, Copenhagen 2018.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://files-lg2h88aah.vercel.app" alt="Aurelian 3"/>
-                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 2, 59 x 84 cm, 2016`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian Series No. 2, 59 x 84 cm, Copenhagen 2018.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://files-iyvowzcfl.vercel.app" alt="Aurelain 1"/>
-                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 3, 59 x 84 cm, 2016`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian Series No. 3, 59 x 84 cm, Copenhagen 2018.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://files-d9fpcwewz.vercel.app" alt="Aurelian 3"/>
-                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 4, 59 x 84 cm, 2016`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian Series No. 4, 59 x 84 cm, Copenhagen 2018.`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://files-np4lf6cc0.vercel.app" alt="Aurelian 3"/>
-                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 5, 59 x 84 cm, 2016`}</p></dev></dev>
+                        <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian series No. 5, 59 x 84 cm, Copenhagen 2018.`}</p></dev></dev>
 						<br/><br/><br/><br/><br/><br/><br/><br/>
 					
                     </div>
