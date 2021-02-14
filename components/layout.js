@@ -13,7 +13,7 @@ export default (props) => (
   <div style={layoutStyle}>
     <div>
       <Head>
-	<title>Noah Syrkis | Methyl Orange, Harmattan, BCIIOI</title>
+	<title>Noah Syrkis | Aurelian, BCIIOI, Virian</title>
 	<meta name='description' content='Portfolio site of writer, photographer, data scientist, and cross-class capitalist Noah Syrkis.' />
 
 
