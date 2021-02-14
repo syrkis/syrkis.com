@@ -51,13 +51,13 @@ class AurelianPage extends Component {
 						<img src="https://files-ll15vh3lu.vercel.app" alt="Aurelian 2"/>
                         <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 1, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
-						<img src="https://files-d9fpcwewz.vercel.app" alt="Aurelian 3"/>
+						<img src="https://files-lg2h88aah.vercel.app" alt="Aurelian 3"/>
                         <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 2, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://files-iyvowzcfl.vercel.app" alt="Aurelain 1"/>
                         <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 3, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
-						<img src="https://files-lg2h88aah.vercel.app" alt="Aurelian 3"/>
+						<img src="https://files-d9fpcwewz.vercel.app" alt="Aurelian 3"/>
                         <dev className='fuckoff'><p><i>{`Untitled`}</i>{`, Aurelian 4, 59 x 84 cm, 2016`}</p></dev></dev>
                         <dev className='fuckoff2'>
 						<img src="https://files-np4lf6cc0.vercel.app" alt="Aurelian 3"/>
