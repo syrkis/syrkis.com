@@ -6,9 +6,7 @@ export default (props) => (
   <div style={{paddingBottom: '15vh'}}>
     <Tilt className="Tilt" options={{ max : 3, scale: 1.05, speed: 3000, glare : true, maxGlare: 1.0}} style={{
         transformStyle: 'preserve-3d',
-        maxHeight: '750px',
         height: '80vh',
-        maxWidth: '1400px',
         width: '90%',
         backgroundImage: props.image,
         backgroundColor: 'black',
@@ -39,6 +37,11 @@ export default (props) => (
                                     speed: 0.3
                                 },
                                     number: {
+                                        density: {
+                                            area: 800,
+                                                enable: true,
+                                                factor: 750
+                                        },
                                         value: 100
                                     }
                         }}}/>
