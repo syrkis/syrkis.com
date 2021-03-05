@@ -15,6 +15,10 @@ export default () => (
             </a>
           </Link>
 	<br/>
+            <a href='https://methylorange.com' target='_blank'>
+            <Tile image={`url('https://files-iyvowzcfl.vercel.app')`}  titleHuge0="METHYL ORANGE" titleLine0="or" titleLine1="MY LOVE IN" titleLine3="SUPERPOSIT1ON" tileTextColor="white"/>
+            </a>
+          <br/>
                      <a href='https://virian.org' target='_blank'>
               <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
             </a>
@@ -31,10 +35,6 @@ export default () => (
             </a>
           </Link>
             <br/>
-            <a href='https://methylorange.com' target='_blank'>
-            <Tile image={`url('https://files-iyvowzcfl.vercel.app')`}  titleHuge0="METHYL ORANGE" titleLine0="or" titleLine1="MY LOVE IN" titleLine3="SUPERPOSIT1ON" tileTextColor="white"/>
-            </a>
-          <br/>
         </div>
       </section>
     </Layout>
