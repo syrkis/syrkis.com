@@ -15,9 +15,9 @@ export default () => (
             </a>
     </Link>
           <br/>
-          <Link href="/bciioi">
+          <Link href="/aurelian">
             <a>
-              <Tile image={`url('https://images.syrkis.com/bciioi/untitled_5.jpg')`} titleLine0="the" titleLine1="BCIIOI" titleLine4="series" tileTextColor="white" />
+              <Tile image={`url('https://images.syrkis.com/static/bright.jpg')`} titleLine0="the" titleLine1="AURELIAN" titleLine4="collection" tileTextColor="black" />
             </a>
           </Link>
 	<br/>
@@ -25,9 +25,9 @@ export default () => (
               <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
             </a>
 	<br/> 
-          <Link href="/aurelian">
+          <Link href="/bciioi">
             <a>
-              <Tile image={`url('https://images.syrkis.com/static/bright.jpg')`} titleLine0="the" titleLine1="AURELIAN" titleLine4="collection" tileTextColor="black" />
+              <Tile image={`url('https://images.syrkis.com/bciioi/untitled_5.jpg')`} titleLine0="the" titleLine1="BCIIOI" titleLine4="series" tileTextColor="white" />
             </a>
           </Link>
 	<br/>
