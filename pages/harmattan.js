@@ -84,8 +84,7 @@ class HarmattanPage extends Component {
             }
             
             img {
-                width: 1400px;
-                max-width: 80%;
+                width: 80%;
                 padding-top: 200px;
                 padding-bottom: 50px;
             }

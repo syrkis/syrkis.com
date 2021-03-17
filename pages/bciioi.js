@@ -77,8 +77,7 @@ class BciioiPage extends Component {
             }
             
             img {
-                width: 1400px;
-                max-width: 80%;
+                width: 80%;
                 padding-top: 200px;
 		z-index: -100;
                 padding-bottom: 50px;
