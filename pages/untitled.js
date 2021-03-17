@@ -16,7 +16,7 @@ const withTitle = ({ component: Component, title, description}) => {
 	};
 };
 
-class AurelianPage extends Component {
+class UntitledPage extends Component {
 	componentDidMount() {
 	var para = document.querySelectorAll('.lorem');
 		para.forEach((p) => {
@@ -40,7 +40,7 @@ class AurelianPage extends Component {
             <div className='summary'>
 						<p className='lorem'>
 							
-						<i>Untitled or Angle and Flow in Green</i> {`is a photograph from 2019, made in Lisabon. It's available for purchase by contact through `} <i><b><a href="mailto:contact@syrkis.com?subject=Aurelian inquiry">email</a></b></i>{`.
+						<i>Untitled or Angle and Flow in Green</i> {`is a photograph from 2019, made in Lisabon. It's available for purchase by contact through `} <i><b><a href="mailto:contact@syrkis.com?subject=Untitled inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org' target='_blank'><b>Virian Project</b></a></i>.
 						</p>
@@ -100,4 +100,4 @@ class AurelianPage extends Component {
   }
 }
 
-export default withTitle({component: AurelianPage, title: 'The Aurelian Series | Noah Syrkis', description: 'Aurelian is a 2018 photo series, exploring the texture of butterfly wings.'});
+export default withTitle({component: UntitledPage, title: 'An Untitled Image | Noah Syrkis', description: 'Untitled or Angle and Flow in Green is a 2019 photo from Lisabon.'});
