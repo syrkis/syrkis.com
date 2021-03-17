@@ -46,7 +46,7 @@ class HarmattanPage extends Component {
 					
 						Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of <a href='https://methylorange.com' target='_blank'><i><b>Methyl Orange</b></i></a>.
 						Presented over the course of nine limited edition prints, the series is available for purchase by contact through <i><b><a href="mailto:contact@syrkis.com?subject=Harmattan inquiry">email</a></b></i>.
-						Proceeds are donated to the <i><a href="https://schistosomiasiscontrolinitiative.org/" target='_blank'><b>SCI Foundation</b></a></i>.
+						Proceeds fo to the development of the <i><a href="https://virian.org" target='_blank'><b>Virian Project</b></a></i>.
 				</p>
 </div>
 	   <br/><br/><br/> 
