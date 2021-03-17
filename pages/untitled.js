@@ -34,7 +34,7 @@ class UntitledPage extends Component {
                 <div className="content">
                     <div className="header">
                         <h1>
-                        UNTITELED
+                        UNTITLED
                         </h1>
                     </div>
             <div className='summary'>
