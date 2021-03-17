@@ -9,6 +9,12 @@ export default () => (
       <Header />
       <section>
         <div className="content">
+    <Link href='untitled'>
+            <a>
+            <Tile image={`url('https://files-htkutq83v-syrkis1.vercel.app')`} titleLine0='an' titleLine1="UNTITLED" titleLine4="IMAGE" tileTextColor="white"/>
+            </a>
+    </Link>
+          <br/>
           <Link href="/bciioi">
             <a>
               <Tile image={`url('https://images.syrkis.com/bciioi/untitled_5.jpg')`} titleLine0="the" titleLine1="BCIIOI" titleLine4="series" tileTextColor="white" />
@@ -34,12 +40,6 @@ export default () => (
             <a href='https://methylorange.com' target='_blank'>
             <Tile image={`url('https://files-iyvowzcfl.vercel.app')`}  titleHuge0="METHYL ORANGE" titleLine0="or" titleLine1="MY LOVE IN" titleLine3="SUPERPOSIT1ON" tileTextColor="white"/>
             </a>
-          <br/>
-    <Link href='untitled'>
-            <a>
-            <Tile image={`url('https://files-htkutq83v-syrkis1.vercel.app')`} titleLine0='an' titleLine1="UNTITLED" titleLine4="IMAGE" tileTextColor="white"/>
-            </a>
-    </Link>
           <br/>
         </div>
       </section>
