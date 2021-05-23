@@ -32,7 +32,8 @@ export default (props) => (
                                 },
                                 links: {
                                     color: '#fff',
-                                    distance: 50
+                                    distance: 50,
+                                    width: 2
                                 },
                                 move: {
                                     speed: 0.3
@@ -43,7 +44,7 @@ export default (props) => (
                                                 enable: true,
                                                 factor: 750
                                         },
-                                        value: 100
+                                        value: 150
                                     }
                         }}}/>
                 }
