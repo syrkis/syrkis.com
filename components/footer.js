@@ -11,7 +11,7 @@ export default () => (
 	</a>
         <br />
         	<a href='https://github.com/syrkis' target='_blank' className='fab fa-github'></a>
-            <a href='https://medium.com/syrkis' target='_blank' className='fab fa-medium'></a>
+            <a href='https://app.literal.club/noah' target='_blank' className='fa fa-asterisk'></a>
 	    	<a href="https://twitch.tv/noahsyrkis" target="_blank" className="fab fa-twitch"></a>
             <a href='https://twitter.com/noahsyrkis' target='_blank' className='fab fa-twitter'></a>
             <a href="https://www.youtube.com/channel/UCjhko_G0E9BT7-ustIvsEoA" target="_blank" className="fab fa-youtube"></a>
@@ -26,6 +26,11 @@ export default () => (
           line-height: 2.5em;
 	  font-size: 0.8em;
         }
+        
+    .fa-asterisk {
+          padding: 0 12px 0 12px;
+        font-size: 0.7em;
+}
 
         .footer {
           position: relative;

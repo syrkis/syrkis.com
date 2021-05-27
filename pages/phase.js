@@ -41,7 +41,7 @@ class AurelianPage extends Component {
 		<div className='summary'>
 						<p className='lorem'>
 							{`
-								The Phase Trans illustrations explore the emergence of a largest component in Erdős-Rényi networks. The illustrations are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Phase Trans Illustrations inquiry">email</a></b></i>{`.
+								The Phase Trans illustrations explore the emergence of a largest component in `}<a href="http://networksciencebook.com/chapter/3" target="_blank"><b><i>{`Erdős-Rényi networks`}</i></b></a>{`. The illustrations are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Phase Trans Illustrations inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org' target='_blank'><b>Virian Project</b></a></i>.
 						</p>
