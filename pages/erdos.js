@@ -41,7 +41,7 @@ class AurelianPage extends Component {
 		<div className='summary'>
 						<p className='lorem'>
 							{`
-								The Erdős-Rényi illustrations explore the emergence of a largest component in `}<a href="http://networksciencebook.com/chapter/3" target="_blank"><b><i>{`Erdős-Rényi networks`}</i></b></a>{`. The illustrations are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Phase Trans Illustrations inquiry">email</a></b></i>{`.
+								The Erdős-Rényi illustrations explore the emergence of a largest component in `}<a href="http://networksciencebook.com/chapter/3" target="_blank"><b><i>{`Erdős-Rényi networks`}</i></b></a>{` seen in this `}<a href="https://youtu.be/YcgdItYO8kM" target='_blank'><b><i>video</i></b></a> {`. They are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Phase Trans Illustrations inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org' target='_blank'><b>Virian Project</b></a></i>.
 						</p>
