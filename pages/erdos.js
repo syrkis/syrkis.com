@@ -34,30 +34,30 @@ class AurelianPage extends Component {
                 <div className="content">
                     <div className="header">
                         <h1>
-                        PHASE TRANS
+                            ERDŐS-RÉNYI
                         </h1>
                     </div>
                     <div>
 		<div className='summary'>
 						<p className='lorem'>
 							{`
-								The Phase Trans illustrations explore the emergence of a largest component in `}<a href="http://networksciencebook.com/chapter/3" target="_blank"><b><i>{`Erdős-Rényi networks`}</i></b></a>{`. The illustrations are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Phase Trans Illustrations inquiry">email</a></b></i>{`.
+								The Erdős-Rényi illustrations explore the emergence of a largest component in `}<a href="http://networksciencebook.com/chapter/3" target="_blank"><b><i>{`Erdős-Rényi networks`}</i></b></a>{`. The illustrations are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Phase Trans Illustrations inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org' target='_blank'><b>Virian Project</b></a></i>.
 						</p>
 		</div>
 		<br/><br/><br/>
                         <dev className='fuckoff2'>
-						<img src="https://files-71mbgmskj-syrkis1.vercel.app" alt="Phase One"/>
+						<img src="https://files-638x7sj2q-syrkis1.vercel.app" alt="Phase One"/>
                         </dev>
                         <dev className='fuckoff2'>
-						<img src="https://files-obhycihf1-syrkis1.vercel.app" alt="Phase Two"/>
+						<img src="https://files-lpphy36ds-syrkis1.vercel.app" alt="Phase Two"/>
                         </dev>
                         <dev className='fuckoff2'>
-						<img src="https://files-27ttnlu2z-syrkis1.vercel.app" alt="Phase Three"/>
+						<img src="https://files-dumt8x3xd-syrkis1.vercel.app" alt="Phase Three"/>
                         </dev>
                         <dev className='fuckoff2'>
-						<img src="https://files-5omhb2xby-syrkis1.vercel.app" alt="Aurelian 3"/>
+						<img src="https://files-6onc9mafc-syrkis1.vercel.app" alt="Aurelian 3"/>
                         </dev>
 						<br/><br/><br/><br/><br/><br/><br/><br/>
 					

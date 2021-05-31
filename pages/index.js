@@ -19,9 +19,9 @@ export default () => (
             </a>
           </Link>
 	<br/>
-          <Link href="/phase">
+          <Link href="/erdos">
             <a>
-              <Tile image={`url('https://files-rl98undy7-syrkis1.vercel.app')`} titleLine0="the" titleLine1="PHASE TRANS" titleLine4="illustrations" tileTextColor="white" />
+              <Tile image={`url('https://files-rl98undy7-syrkis1.vercel.app')`} titleLine0="the" titleLine1="Erdős-Rényi" titleLine4="ILLUSTRATIONS" tileTextColor="white" />
             </a>
           </Link>
 	<br/>
