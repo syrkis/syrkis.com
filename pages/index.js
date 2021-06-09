@@ -43,10 +43,6 @@ export default () => (
             </a>
     </Link>
           <br/>
-            <a href='https://methylorange.com' target='_blank'>
-            <Tile image={`url('https://files-iyvowzcfl.vercel.app')`}  titleHuge0="METHYL ORANGE" titleLine0="or" titleLine1="MY LOVE IN" titleLine3="SUPERPOSIT1ON" tileTextColor="white"/>
-            </a>
-          <br/>
         </div>
       </section>
     </Layout>
