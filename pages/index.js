@@ -8,6 +8,7 @@ export default () => (
     <Layout>
       <Header />
       <section>
+        <div className="content">
           <Link href="/erdos">
             <a>
               <Tile image={`url('https://files-rl98undy7-syrkis1.vercel.app')`} titleLine0="the" titleLine1="Erdős-Rényi" titleLine4="ILLUSTRATIONS" tileTextColor="white" />
@@ -20,7 +21,6 @@ export default () => (
             </a>
           </Link>
 	<br/>
-        <div className="content">
              <a href='https://virian.org' target='_blank'>
               <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
             </a>
