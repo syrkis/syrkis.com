@@ -8,23 +8,23 @@ export default () => (
     <Layout>
       <Header />
       <section>
-        <div className="content">
-             <a href='https://virian.org' target='_blank'>
-              <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
-            </a>
-	<br/> 
-          <Link href="/bciioi">
-            <a>
-              <Tile image={`url('https://images.syrkis.com/bciioi/untitled_5.jpg')`} titleLine0="the" titleLine1="BCIIOI" titleLine4="series" tileTextColor="white" />
-            </a>
-          </Link>
-	<br/>
           <Link href="/erdos">
             <a>
               <Tile image={`url('https://files-rl98undy7-syrkis1.vercel.app')`} titleLine0="the" titleLine1="Erdős-Rényi" titleLine4="ILLUSTRATIONS" tileTextColor="white" />
             </a>
           </Link>
 	<br/>
+          <Link href="/bciioi">
+            <a>
+              <Tile image={`url('https://images.syrkis.com/bciioi/untitled_5.jpg')`} titleLine0="the" titleLine1="BCIIOI" titleLine4="series" tileTextColor="white" />
+            </a>
+          </Link>
+	<br/>
+        <div className="content">
+             <a href='https://virian.org' target='_blank'>
+              <Tile particles={true} titleLine0="the" titleLine1="VIRIAN" titleLine4="project" tileTextColor="white" />
+            </a>
+	<br/> 
           <Link href="/aurelian">
             <a>
               <Tile image={`url('https://images.syrkis.com/static/bright.jpg')`} titleLine0="the" titleLine1="AURELIAN" titleLine4="collection" tileTextColor="black" />
