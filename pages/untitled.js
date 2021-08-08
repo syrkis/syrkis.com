@@ -40,7 +40,7 @@ class UntitledPage extends Component {
             <div className='summary'>
 						<p className='lorem'>
 							
-						<i>Untitled or Angle and Flow in Green</i> {`is a photograph from 2019, made in Lisabon. It's available for purchase by contact through `} <i><b><a href="mailto:contact@syrkis.com?subject=Untitled inquiry">email</a></b></i>{`.
+						<i>Untitled</i> {`is a 2019 photograph from Lisbon, Portugal. Limited edition prints are available for purchase through `} <i><b><a href="mailto:contact@syrkis.com?subject=Untitled inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org' target='_blank'><b>Virian Project</b></a></i>.
 						</p>

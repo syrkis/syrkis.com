@@ -41,7 +41,7 @@ class AurelianPage extends Component {
 		<div className='summary'>
 						<p className='lorem'>
 							{`
-								Aurelian is a 2018 photo collection, exploring the textures of butterfly wings. Prints are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Aurelian inquiry">email</a></b></i>{`.
+								Aurelian is a 2018 photo collection based on the microscopic textures of butterfly wings. Limited edition prints are available upon request by contact through`} <i><b><a href="mailto:contact@syrkis.com?subject=Aurelian inquiry">email</a></b></i>{`.
 								Proceeds go to the development of the
 							`}<i><a href='https://virian.org' target='_blank'><b>Virian Project</b></a></i>.
 						</p>

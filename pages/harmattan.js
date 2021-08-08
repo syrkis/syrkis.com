@@ -44,9 +44,9 @@ class HarmattanPage extends Component {
 <div className='summary'>
 				<p className='lorem'>
 					
-						Harmattan is a 2015 photos series shot and edited from the perspective of the main charcater of <a href='https://methylorange.com' target='_blank'><i><b>Methyl Orange</b></i></a>.
-						Presented over the course of nine limited edition prints, the series is available for purchase by contact through <i><b><a href="mailto:contact@syrkis.com?subject=Harmattan inquiry">email</a></b></i>.
-						Proceeds go to the development of the <i><a href="https://virian.org" target='_blank'><b>Virian Project</b></a></i>.
+						Harmattan is a 2015 photo series shot and edited from the perspective of the <a href='https://methylorange.com' target='_blank'><i><b>Methyl Orange</b></i></a> main character.
+						It consists of nine limited edition prints available for purchase through <i><b><a href="mailto:contact@syrkis.com?subject=Harmattan inquiry">email</a></b></i>.
+						Proceeds go to the <i><a href="https://virian.org" target='_blank'><b>Virian Project</b></a></i>.
 				</p>
 </div>
 	   <br/><br/><br/> 
