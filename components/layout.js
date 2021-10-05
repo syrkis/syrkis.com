@@ -14,9 +14,7 @@ export default (props) => (
     <div>
       <Head>
 	<title>Noah Syrkis | Aurelian, BCIIOI, Virian</title>
-	<meta name='description' content='Portfolio site of writer, photographer, data scientist, and cross-class capitalist Noah Syrkis.' />
-
-
+        <meta name='description' content='Portfolio of masturbatory cross-class capitalist Noah Syrkis (a self employed capitalist brutally exploting himself).' />
        <meta charSet="UTF-8" />
        <meta name="revisit-after" content="30 days" />
        <meta name="author" content="Noah Syrkis" />
