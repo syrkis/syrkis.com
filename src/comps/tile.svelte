@@ -17,8 +17,8 @@
             color: { value: "#ddd", },
             size: { value: 1 },
             links: { enable: true,color: "#ddd",distance: 30,width: 2 },
-            move: { enable: true, speed: 0.3 },
-            number: { density: { area: 300, enable: true, factor: 1000 } },
+            move: { enable: true, speed: 0.2 },
+            number: { density: { area: 300, enable: true, factor: 1250 } },
         } };
 
 </script>
