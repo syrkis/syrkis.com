@@ -9,7 +9,7 @@
     let works = "";
 
     onMount(async () => {
-        data = await fetch(`/${project.toLowerCase()}.json`).then(x => x.json());
+        data = await fetch(`dirs/${project.toLowerCase()}.json`).then(x => x.json());
         works = data.works;
     });
 

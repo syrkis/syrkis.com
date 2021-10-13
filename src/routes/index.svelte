@@ -4,7 +4,7 @@
 
     let data = "";
     onMount(async () => {
-        data = await fetch('/index.json').then(x => x.json());
+        data = await fetch('/dirs/index.json').then(x => x.json());
     });
 </script>
 
