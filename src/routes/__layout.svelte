@@ -22,8 +22,12 @@
         padding-bottom: 10px;
     }
 
-    .fab, .fas {
+    .fab {
         padding: 0 8px 0 8px;
         font-size: 0.8em;
+    }
+    a {
+        font-style: normal;
+        font-weight: 100;
     }
 </style>
