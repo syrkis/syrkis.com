@@ -1,14 +1,18 @@
 {
+  "name": "syrkis.new",
+  "version": "0.0.1",
   "scripts": {
-    "now-build": "next build && next export -o dist",
-    "now-dev": "next -p $PORT"
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview"
   },
+  "devDependencies": {
+    "@sveltejs/kit": "next",
+    "svelte": "^3.42.6"
+  },
+  "type": "module",
   "dependencies": {
-    "next": "latest",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-helmet": "^6.1.0",
-    "react-particles-js": "^3.4.1",
-    "react-tilt": "latest"
+    "svelte-particles": "^1.18.4",
+    "vanilla-tilt": "^1.7.2"
   }
 }
