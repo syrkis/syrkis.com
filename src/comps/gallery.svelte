@@ -36,7 +36,7 @@
 </div>
 
 <svelte:head>
-    <title>{project} | Noah Syrkis</title>
+    <title>{data.project} | Noah Syrkis</title>
 </svelte:head>
 
 <style>
