@@ -16,7 +16,7 @@
     let particlesConfig = { particles: {
             color: { value: "#ddd", },
             size: { value: 1 },
-            links: { enable: true,color: "#ddd",distance: 50, width: 2 },
+            links: { enable: true,color: "#ddd",distance: 40, width: 2 },
             move: { enable: true, speed: 0.2 },
             number: { density: { area: 300, enable: true, factor: 1250 } },
         } };
