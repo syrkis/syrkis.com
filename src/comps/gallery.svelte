@@ -18,12 +18,14 @@
 </script>
 
 <div class='wrapper'>
-    <div class='description'><p>{@html text}</p></div>
+    <div class='description'>
+        <p>{@html text}</p>
+    </div>
     <div>
         {#await works then works}
             {#each works as work, i}
                 <div>
-                    <img src="{baseurl}/{project.toLowerCase()}/{work.file}.jpg" />
+                    <img src="{baseurl}/{project.toLowerCase()}/{work.file}.jpg" alt="{work.title}, {data.project} {i + 1}" />
                 </div>
                 <div class="tagline">
                     <i>{work.title}</i>, {data.project} {i + 1}, {data.year}, {data.dims}
@@ -41,8 +43,10 @@
 
     .description {
         text-align: center;
+
         text-align-last: center;
         max-width: 600px;
+        width: 90%;
         margin:auto;
     }
 
