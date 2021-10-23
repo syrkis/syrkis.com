@@ -9,7 +9,7 @@
             <a href='https://twitter.com/noahsyrkis' target='_blank' class='fab fa-twitter' />
             <a href="https://www.youtube.com/channel/UCjhko_G0E9BT7-ustIvsEoA" target="_blank" class="fab fa-youtube" />
             <a href='https://instagram.com/noahsyrkis' target='_blank' class='fab fa-instagram' />
-            <a href="https://twitch.tv/noahsyrkis" target="_blank" class="fab fa-twitch" />
+            <a href="https://twitch.tv/syrkis" target="_blank" class="fab fa-twitch" />
         </div>
     </div>
 </div>
