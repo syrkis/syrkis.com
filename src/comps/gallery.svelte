@@ -4,7 +4,7 @@
     import { onMount } from 'svelte';
 
 
-    let baseurl = "https://syrkis.ams3.cdn.digitaloceanspaces.com/noa/noah"
+    let baseurl = "https://syrkis.ams3.cdn.digitaloceanspaces.com/noah"
     let data = "";
     let works = "";
 
