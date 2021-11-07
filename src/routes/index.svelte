@@ -33,7 +33,7 @@
         height: 110vh;
         z-index: -1;
         position: absolute;
-        background:linear-gradient(to top, rgba(255, 255, 255, 255) 0%, rgba(255, 255, 255, 0) 75%, rgba(0, 0, 0, 0) 100%), url('https://syrkis.ams3.cdn.digitaloceanspaces.com/aurelian/bright.jpg');
+        background:linear-gradient(to top, rgba(255, 255, 255, 255) 0%, rgba(255, 255, 255, 0) 75%, rgba(0, 0, 0, 0) 100%), url('https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/aurelian/bright.jpg');
         background-position: center;
         background-size: cover;
         width: 100%;
