@@ -13,7 +13,7 @@
         works = data.works;
     });
 
-    text = `${text} Limited edition prints can be bought by <a href='mailto:contact@syrkis.com'>email</a>. Proceeds go to the development of the <a href="https://virian.org" target=_blank>Virian Project</a>.`
+    text = `${text} Limited edition prints can be bought by <a href='mailto:contact@syrkis.com'>email</a>. Proceeds go to the <a href="https://virian.org" target=_blank>Virian Project</a>.`
 
 </script>
 
