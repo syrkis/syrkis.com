@@ -28,6 +28,15 @@
     },
     {
         "color": "white",
+        "id": "dielibel",
+        "url": "https://dielibel.com",
+        "title": "[Die]Libel",
+        "pre": "—|—|—|—|—",
+        "suf": "—|—|—|—|—",
+        "bg": "logo"
+    },
+    {
+        "color": "white",
         "id": "methyl",
         "url": "https://methylorange.com",
         "title": "Methyl Orange",
@@ -43,15 +52,6 @@
         "pre": "The",
         "suf": "Series",
         "bg": "girl"
-    },
-    {
-        "color": "white",
-        "id": "dielibel",
-        "url": "https://dielibel.com",
-        "title": "[Die]Libel",
-        "pre": "—|—|—|—|—",
-        "suf": "—|—|—|—|—",
-        "bg": "logo"
     },
     {
         "color": "black",
