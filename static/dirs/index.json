@@ -45,6 +45,15 @@
         "bg": "girl"
     },
     {
+        "color": "white",
+        "id": "dielibel",
+        "url": "https://dielibel.com",
+        "title": "[Die]Libel",
+        "pre": "—|—|—|—|—",
+        "suf": "—|—|—|—|—",
+        "bg": "logo"
+    },
+    {
         "color": "black",
         "id": "aurelian",
         "url": "/aurelian",
