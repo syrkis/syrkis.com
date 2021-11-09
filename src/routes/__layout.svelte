@@ -1,3 +1,12 @@
+<script>
+    let links = [
+        ["github", "syrkis"],
+        ["twitter", "noahsyrkis"],
+        ["youtube", "channel/UCjhko_G0E9BT7-ustIvsEoA"],
+        ["instagram", "noahsyrkis"],
+        ["twitch", "syrkis"]
+    ];
+</script>
 
 <div>
     <slot />
@@ -5,11 +14,9 @@
         <div>for any inquiries write</div>
         <div><a href="mailto:contact@syrkis.com">contact@syrkis.com</a></div> 
         <div class='social'>
-            <a href='https://github.com/syrkis' target='_blank' class='fab fa-github' />
-            <a href='https://twitter.com/noahsyrkis' target='_blank' class='fab fa-twitter' />
-            <a href="https://www.youtube.com/channel/UCjhko_G0E9BT7-ustIvsEoA" target="_blank" class="fab fa-youtube" />
-            <a href='https://instagram.com/noahsyrkis' target='_blank' class='fab fa-instagram' />
-            <a href="https://twitch.tv/syrkis" target="_blank" class="fab fa-twitch" />
+            {#each links as link}
+                <a href="https://{link[0]}.com/{link[1]}" target="_blank" class="fab fa-{link[0]}" />
+            {/each}
         </div>
     </div>
 </div>
