@@ -1,7 +1,7 @@
 <script>
     import Gallery from '../comps/gallery.svelte'; 
 
-    let text = `Aurelian is a 2018 photo collection based on the microscopic textures of butterfly wings.`
+    let text = `Aurelian is a collection of images of butterfly wings captured through a microscopic lens.`
 
 </script>
 
