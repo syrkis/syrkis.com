@@ -1,12 +1,13 @@
 [
+
     {
         "color": "white",
-        "id": "virian",
-        "url": "https://virian.org",
-        "title": "Virian",
+        "id": "erdos",
+        "url": "/erdos",
+        "title": "Erdős-Rényi",
         "pre": "The",
-        "suf": "Project",
-        "particles": true
+        "suf": "Illustrations",
+        "bg": "5"
     },
     {
         "color": "white",
@@ -19,12 +20,12 @@
     },
     {
         "color": "white",
-        "id": "erdos",
-        "url": "/erdos",
-        "title": "Erdős-Rényi",
+        "id": "virian",
+        "url": "https://virian.org",
+        "title": "Virian",
         "pre": "The",
-        "suf": "Illustrations",
-        "bg": "5"
+        "suf": "Project",
+        "particles": true
     },
     {
         "color": "white",
