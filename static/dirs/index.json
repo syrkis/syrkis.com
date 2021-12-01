@@ -10,12 +10,12 @@
     },
     {
         "color": "white",
-        "id": "bciioi",
-        "url": "/bciioi",
-        "title": "BCIIOI",
-        "pre": "The",
-        "suf": "Series",
-        "bg": "5"
+        "id": "dielibel",
+        "url": "https://dielibel.com",
+        "title": "DIE LIBEL",
+        "pre": "",
+        "suf": "",
+        "bg": "logo"
     },
     {
         "color": "white",
@@ -28,12 +28,12 @@
     },
     {
         "color": "white",
-        "id": "dielibel",
-        "url": "https://dielibel.com",
-        "title": "DIE LIBEL",
-        "pre": "",
-        "suf": "",
-        "bg": "logo"
+        "id": "bciioi",
+        "url": "/bciioi",
+        "title": "BCIIOI",
+        "pre": "The",
+        "suf": "Series",
+        "bg": "5"
     },
     {
         "color": "white",
