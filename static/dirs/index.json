@@ -28,6 +28,15 @@
     },
     {
         "color": "white",
+        "id": "dielibel",
+        "url": "https://dielibel.com",
+        "title": "DIE LIBEL",
+        "pre": "",
+        "suf": "",
+        "bg": "logo"
+    },
+    {
+        "color": "white",
         "id": "methyl",
         "url": "https://methylorange.com",
         "title": "Methyl Orange",
