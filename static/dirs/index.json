@@ -12,10 +12,10 @@
         "color": "white",
         "id": "dielibel",
         "url": "https://dielibel.com",
-        "title": "DIE LIBEL",
-        "pre": ".",
-        "suf": "publishing",
-        "bg": "folke"
+        "title": "die libel",
+        "pre": "",
+        "suf": "prose || image",
+        "bg": "dielibel"
     },
     {
         "color": "white",
@@ -24,7 +24,16 @@
         "title": "Erdős-Rényi",
         "pre": "The",
         "suf": "Illustrations",
-        "bg": "5"
+        "bg": "erdos"
+    },
+    {
+        "color": "white",
+        "id": "mech",
+        "url": "/mech",
+        "title": "Mechanical Turk",
+        "pre": "The",
+        "suf": "A Short Story",
+        "bg": "mech"
     },
     {
         "color": "white",
@@ -33,7 +42,7 @@
         "title": "BCIIOI",
         "pre": "The",
         "suf": "Series",
-        "bg": "5"
+        "bg": "bciioi"
     },
     {
         "color": "white",
@@ -42,7 +51,7 @@
         "title": "Methyl Orange",
         "pre": "",
         "suf": "a novel",
-        "bg": "marine"
+        "bg": "methyl"
     },
     {
         "color": "white",
@@ -51,7 +60,7 @@
         "title": "Harmattan",
         "pre": "The",
         "suf": "Series",
-        "bg": "girl"
+        "bg": "harmattan"
     },
     {
         "color": "black",
@@ -60,6 +69,6 @@
         "title": "Aurelian",
         "pre": "The",
         "suf": "Collection",
-        "bg": "bright"
+        "bg": "aurelian"
     }
 ]

@@ -10,8 +10,8 @@
         VanillaTilt.init(element, { max: 3, scale: 1.03, speed: 2000 });
     });
 
-    let baseurl = "https://syrkis.ams3.cdn.digitaloceanspaces.com/noah";
-    let bg = `${baseurl}/${project.id}/${project.bg}.jpg`;
+    let baseurl = "https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/tiles";
+    let bg = `${baseurl}/${project.bg}.jpg`;
 
     let particlesConfig = { particles: {
             color: { value: "#ddd", },
