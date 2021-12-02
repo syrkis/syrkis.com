@@ -13,8 +13,8 @@
         "id": "dielibel",
         "url": "https://dielibel.com",
         "title": "die libel",
-        "pre": "",
-        "suf": "prose || image",
+        "pre": "Δ",
+        "suf": "publishing",
         "bg": "dielibel"
     },
     {
