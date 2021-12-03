@@ -30,9 +30,9 @@
         "color": "white",
         "id": "mech",
         "url": "/mech",
-        "title": "",
-        "pre": "The Mechanical Turk",
-        "suf": "A Short Story",
+        "title": "Mechanical",
+        "pre": "The",
+        "suf": "Turk",
         "bg": "mech"
     },
     {
