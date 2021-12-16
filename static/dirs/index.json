@@ -1,24 +1,6 @@
 [
     {
         "color": "white",
-        "id": "virian",
-        "url": "https://virian.com",
-        "title": "Virian",
-        "pre": "The",
-        "suf": "Project",
-        "particles": true
-    },
-    {
-        "color": "white",
-        "id": "dielibel",
-        "url": "https://dielibel.com",
-        "title": "die libel",
-        "pre": "Δ",
-        "suf": "publishing",
-        "bg": "dielibel"
-    },
-    {
-        "color": "white",
         "id": "erdos",
         "url": "/erdos",
         "title": "Erdős-Rényi",
@@ -61,6 +43,24 @@
         "pre": "The",
         "suf": "Series",
         "bg": "harmattan"
+    },
+    {
+        "color": "white",
+        "id": "virian",
+        "url": "https://virian.com",
+        "title": "Virian",
+        "pre": "The",
+        "suf": "Project",
+        "particles": true
+    },
+    {
+        "color": "white",
+        "id": "dielibel",
+        "url": "https://dielibel.com",
+        "title": "die libel",
+        "pre": "Δ",
+        "suf": "publishing",
+        "bg": "dielibel"
     },
     {
         "color": "black",
