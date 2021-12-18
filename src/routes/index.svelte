@@ -14,6 +14,8 @@
 <div class='wrapper'>
     <div class='bg' />
         <h1>
+            <div style='font-size:0.5em;'>the works of</div>
+            <br/>
             {#each letters as letter}
                 {letter}
             {/each}
