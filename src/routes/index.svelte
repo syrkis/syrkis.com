@@ -6,11 +6,18 @@
     onMount(async () => {
         data = await fetch('/dirs/index.json').then(x => x.json());
     });
+
+    let letters = "Noah Syrkis".split("").sort(() => Math.random() - 0.5);
+
 </script>
 
 <div class='wrapper'>
     <div class='bg' />
-        <h1>Noah Syrkis</h1>
+        <h1>
+            {#each letters as letter}
+                {letter}
+            {/each}
+        </h1>
     <div class='tiles'>
         {#await data then projects}
             {#each projects as project}
