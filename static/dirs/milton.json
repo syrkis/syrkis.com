@@ -1,0 +1,43 @@
+{
+    "year": 2021,
+    "project": "Milton",
+    "dims": "dimensions upon request",
+    "works": [
+        {
+            "file": "1",
+            "title": "Untitled"
+        },
+        {
+            "file": "2",
+            "title": "Untitled"
+        },
+        {
+            "file": "3",
+            "title": "Untitled"
+        },
+        {
+            "file": "4",
+            "title": "Untitled"
+        },
+        {
+            "file": "5",
+            "title": "Untitled"
+        },
+        {
+            "file": "6",
+            "title": "Untitled"
+        },
+        {
+            "file": "7",
+            "title": "Untitled"
+        },
+        {
+            "file": "8",
+            "title": "Untitled"
+        },
+        {
+            "file": "9",
+            "title": "Untitled"
+        }        
+    ]
+}

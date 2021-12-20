@@ -1,48 +1,12 @@
 [
     {
         "color": "white",
-        "id": "erdos",
-        "url": "/erdos",
-        "title": "Erdős-Rényi",
+        "id": "milton",
+        "url": "/milton",
+        "title": "Miltion",
         "pre": "The",
-        "suf": "Illustrations",
-        "bg": "erdos"
-    },
-    {
-        "color": "white",
-        "id": "mech",
-        "url": "/mech",
-        "title": "Mechanical",
-        "pre": "The",
-        "suf": "Turk",
-        "bg": "mech"
-    },
-    {
-        "color": "white",
-        "id": "bciioi",
-        "url": "/bciioi",
-        "title": "BCIIOI",
-        "pre": "The",
-        "suf": "Series",
-        "bg": "bciioi"
-    },
-    {
-        "color": "white",
-        "id": "methyl",
-        "url": "https://methylorange.com",
-        "title": "Methyl Orange",
-        "pre": "",
-        "suf": "a novel",
-        "bg": "methyl"
-    },
-    {
-        "color": "white",
-        "id": "harmattan",
-        "url": "/harmattan",
-        "title": "Harmattan",
-        "pre": "The",
-        "suf": "Series",
-        "bg": "harmattan"
+        "suf": "Textures",
+        "bg": "3"
     },
     {
         "color": "white",
@@ -55,12 +19,21 @@
     },
     {
         "color": "white",
-        "id": "dielibel",
-        "url": "https://dielibel.com",
-        "title": "die libel",
-        "pre": "Δ",
-        "suf": "publishing",
-        "bg": "dielibel"
+        "id": "erdos",
+        "url": "/erdos",
+        "title": "Erdős-Rényi",
+        "pre": "The",
+        "suf": "Illustrations",
+        "bg": "erdos"
+    },
+    {
+        "color": "white",
+        "id": "bciioi",
+        "url": "/bciioi",
+        "title": "BCIIOI",
+        "pre": "The",
+        "suf": "Series",
+        "bg": "bciioi"
     },
     {
         "color": "black",
@@ -70,5 +43,41 @@
         "pre": "The",
         "suf": "Collection",
         "bg": "aurelian"
+    },
+    {
+        "color": "white",
+        "id": "harmattan",
+        "url": "/harmattan",
+        "title": "Harmattan",
+        "pre": "The",
+        "suf": "Series",
+        "bg": "harmattan"
+    },
+    {
+        "color": "white",
+        "id": "dielibel",
+        "url": "https://dielibel.com",
+        "title": "die libel",
+        "pre": "Δ",
+        "suf": "publishing",
+        "bg": "dielibel"
+    },
+    {
+        "color": "white",
+        "id": "mech",
+        "url": "/mech",
+        "title": "Mechanical",
+        "pre": "The",
+        "suf": "Turk",
+        "bg": "mech"
+    },
+    {
+        "color": "white",
+        "id": "methyl",
+        "url": "https://methylorange.com",
+        "title": "Methyl Orange",
+        "pre": "",
+        "suf": "a novel",
+        "bg": "methyl"
     }
 ]
