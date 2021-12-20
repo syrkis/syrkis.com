@@ -1,7 +1,7 @@
 <script>
     import Gallery from '../comps/gallery.svelte'; 
 
-    let text = `The Milton Textures were developed by digitally altering photographs of reflections in water at night to look like wood.`
+    let text = `The Milton Textures were developed by digitally altering photographs of reflections in water at night to get a wood-like feel.`
 
 </script>
 
