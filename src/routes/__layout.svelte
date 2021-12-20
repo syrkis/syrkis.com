@@ -11,7 +11,7 @@
 <div>
     <slot />
     <div class='footer'>
-        <div>for any inquiries write</div>
+        <div>for any inquiries, write</div>
         <div><a href="mailto:contact@syrkis.com">contact@syrkis.com</a></div> 
         <div class='social'>
             {#each links as link}
