@@ -7,7 +7,7 @@
 
 <div>
     <div>
-        <h1>THE MILTON TEXTURES</h1>
+        <h1>MILTON</h1>
     </div>
     <Gallery project='Milton' {text} />
 </div>
