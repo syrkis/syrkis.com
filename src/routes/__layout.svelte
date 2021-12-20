@@ -1,10 +1,10 @@
 <script>
     let links = [
-        ["github", "syrkis"],
-        ["twitter", "noahsyrkis"],
-        ["youtube", "channel/UCjhko_G0E9BT7-ustIvsEoA"],
-        ["instagram", "noahsyrkis"],
-        ["twitch", "syrkis"]
+        ["syrkis.substack.com", " far fa-envelope-open"],
+        ["github.com/syrkis", "github"],
+        ["twitter.com/noahsyrkis", "twitter"],
+        ["youtube.com/channel/UCjhko_G0E9BT7-ustIvsEoA", "youtube"],
+        ["twitch.com/syrkis", "twitch"]
     ];
 </script>
 
@@ -15,7 +15,7 @@
         <div><a href="mailto:contact@syrkis.com">contact@syrkis.com</a></div> 
         <div class='social'>
             {#each links as link}
-                <a href="https://{link[0]}.com/{link[1]}" target="_blank" class="fab fa-{link[0]}" />
+                <a href="https://{link[0]}" target="_blank" class="fab fa-{link[1]}" />
             {/each}
         </div>
     </div>
