@@ -1,15 +1,6 @@
 [
     {
         "color": "white",
-        "id": "milton",
-        "url": "/milton",
-        "title": "Milton",
-        "pre": "The",
-        "suf": "Textures",
-        "bg": "milton"
-    },
-    {
-        "color": "white",
         "id": "virian",
         "url": "https://virian.com",
         "title": "Virian",
@@ -19,12 +10,30 @@
     },
     {
         "color": "white",
+        "id": "milton",
+        "url": "/milton",
+        "title": "Milton",
+        "pre": "The",
+        "suf": "Textures",
+        "bg": "milton"
+    },
+    {
+        "color": "white",
         "id": "erdos",
         "url": "/erdos",
         "title": "Erdős-Rényi",
         "pre": "The",
         "suf": "Illustrations",
         "bg": "erdos"
+    },
+    {
+        "color": "white",
+        "id": "harmattan",
+        "url": "/harmattan",
+        "title": "Harmattan",
+        "pre": "The",
+        "suf": "Series",
+        "bg": "harmattan"
     },
     {
         "color": "white",
@@ -41,17 +50,8 @@
         "url": "/aurelian",
         "title": "Aurelian",
         "pre": "The",
-        "suf": "Collection",
+        "suf": "Textures",
         "bg": "aurelian"
-    },
-    {
-        "color": "white",
-        "id": "harmattan",
-        "url": "/harmattan",
-        "title": "Harmattan",
-        "pre": "The",
-        "suf": "Series",
-        "bg": "harmattan"
     },
     {
         "color": "white",
