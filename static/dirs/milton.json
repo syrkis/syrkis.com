@@ -1,5 +1,5 @@
 {
-    "year": 2021,
+    "year": 2022,
     "project": "Milton",
     "dims": "dimensions upon request",
     "works": [
@@ -22,22 +22,6 @@
         {
             "file": "5",
             "title": "Untitled"
-        },
-        {
-            "file": "6",
-            "title": "Untitled"
-        },
-        {
-            "file": "7",
-            "title": "Untitled"
-        },
-        {
-            "file": "8",
-            "title": "Untitled"
-        },
-        {
-            "file": "9",
-            "title": "Untitled"
-        }        
+        }
     ]
 }
