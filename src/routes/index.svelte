@@ -7,7 +7,7 @@
         data = await fetch('/dirs/index.json').then(x => x.json());
     });
 
-    let letters = "Noah Syrkis".split("").sort(() => Math.random() - 0.5);
+    let letters = "Noah Syrkis";/*.split("").sort(() => Math.random() - 0.5);*/
 
 </script>
 
