@@ -55,6 +55,15 @@
     },
     {
         "color": "white",
+        "id": "miscellaneous",
+        "url": "/miscellaneous",
+        "title": "miscellaneous",
+        "pre": "A",
+        "suf": "collection",
+        "bg": "miscellaneous"
+    },
+    {
+        "color": "white",
         "id": "mech",
         "url": "/mech",
         "title": "Mechanical",
