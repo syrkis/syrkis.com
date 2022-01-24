@@ -64,15 +64,6 @@
     },
     {
         "color": "white",
-        "id": "mech",
-        "url": "/mech",
-        "title": "Mechanical",
-        "pre": "The",
-        "suf": "Turk",
-        "bg": "mech"
-    },
-    {
-        "color": "white",
         "id": "virian",
         "url": "https://virian.com",
         "title": "Virian",
