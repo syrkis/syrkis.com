@@ -6,10 +6,5 @@
 </script>
 
 <div>
-    <div>
-        <h1>
-            ERDŐS-RÉNYI
-        </h1>
-    </div>
     <Gallery project='Erdos' {text} />
 </div>

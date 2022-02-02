@@ -6,8 +6,5 @@
 </script>
 
 <div>
-    <div>
-        <h1>Harmattan</h1>
-    </div>
     <Gallery project='Harmattan' {text} />
 </div>

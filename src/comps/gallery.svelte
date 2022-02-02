@@ -43,11 +43,11 @@
 
     .description {
         text-align: center;
-
         text-align-last: center;
         max-width: 600px;
         width: 90%;
         margin:auto;
+        padding: 35vh 0 15vh 0;
     }
 
     .tagline {

@@ -6,10 +6,5 @@
 </script>
 
 <div>
-    <div>
-        <h1>
-            BCIIOI
-        </h1>
-    </div>
     <Gallery project='BCIIOI' {text} />
 </div>
