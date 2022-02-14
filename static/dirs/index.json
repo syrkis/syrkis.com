@@ -1,6 +1,24 @@
 [
     {
         "color": "white",
+        "id": "virian",
+        "url": "https://virian.com",
+        "title": "Virian",
+        "pre": "The",
+        "suf": "Project",
+        "particles": true
+    },
+    {
+        "color": "white",
+        "id": "dielibel",
+        "url": "https://dielibel.com",
+        "title": "die libel",
+        "pre": "the",
+        "suf": "group",
+        "bg": "dielibel"
+    },
+    {
+        "color": "white",
         "id": "milton",
         "url": "/milton",
         "title": "Milton",
@@ -46,30 +64,12 @@
     },
     {
         "color": "white",
-        "id": "dielibel",
-        "url": "https://dielibel.com",
-        "title": "die libel",
-        "pre": "Δ",
-        "suf": "publishing",
-        "bg": "dielibel"
-    },
-    {
-        "color": "white",
         "id": "miscellaneous",
         "url": "/miscellaneous",
         "title": "miscellaneous",
         "pre": "A",
         "suf": "collection",
         "bg": "miscellaneous"
-    },
-    {
-        "color": "white",
-        "id": "virian",
-        "url": "https://virian.com",
-        "title": "Virian",
-        "pre": "The",
-        "suf": "Project",
-        "particles": true
     },
     {
         "color": "white",
