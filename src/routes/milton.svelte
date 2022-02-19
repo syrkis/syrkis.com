@@ -1,7 +1,7 @@
 <script>
     import Gallery from '../comps/gallery.svelte'; 
 
-    let text = `The Milton Textures were developed by using crop and exposure tools on photos quay lights reflected at night to achieve abstract motifs.`
+    let text = `The Milton Textures were developed using crop and exposure tools on photos of reflected quay lights to achieve abstract motifs.`
 
 </script>
 
