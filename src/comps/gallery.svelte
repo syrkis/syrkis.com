@@ -36,7 +36,10 @@
 </div>
 
 <svelte:head>
-    <title>{data.project} | Noah Syrkis</title>
+    <title>{project.id} | Noah Syrkis</title>
+    <meta property="og:image" content="https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/tiles/{project.bg}.jpg" />
+    <meta property="og:title" content="{project.id} | Noah Syrkis" />
+    <meta property="og:url" content="https://syrkis.com/{project.id}" />
 </svelte:head>
 
 <style>
