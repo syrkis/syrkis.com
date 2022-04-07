@@ -29,6 +29,13 @@
     </div>
 </div>
 
+<svelte:head>
+    <title>Noah Syrkis</title>
+    <meta property="og:image" content="https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/tiles/syrkis_com_thumb.png" />
+    <meta property="og:title" content="Noah Syrkis" />
+    <meta property="og:url" content="https://syrkis.com" />
+</svelte:head>
+
 <style>
     .tile {
         width: 90vw;
