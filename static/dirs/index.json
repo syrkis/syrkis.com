@@ -64,15 +64,6 @@
     },
     {
         "color": "white",
-        "id": "miscellaneous",
-        "url": "/miscellaneous",
-        "title": "miscellaneous",
-        "pre": "A",
-        "suf": "collection",
-        "bg": "miscellaneous"
-    },
-    {
-        "color": "white",
         "id": "methyl",
         "url": "https://methylorange.com",
         "title": "Methyl Orange",
