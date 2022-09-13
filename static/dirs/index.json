@@ -28,15 +28,6 @@
     },
     {
         "color": "white",
-        "id": "virian",
-        "url": "https://virian.com",
-        "title": "Virian",
-        "pre": "The",
-        "suf": "Project",
-        "particles": true
-    },
-    {
-        "color": "white",
         "id": "dielibel",
         "url": "https://dielibel.com",
         "title": "die libel",
