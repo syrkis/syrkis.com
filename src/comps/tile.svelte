@@ -29,13 +29,35 @@
         await loadFull(engine);
     };
 
-    let particlesConfig = { particles: {
-            color: { value: "#ddd", },
-            size: { value: 1 },
-            links: { enable: true,color: "#ddd",distance: 40, width: 2 },
-            move: { enable: true, speed: 0.2 },
-            number: { density: { area: 300, enable: true, factor: 1250 } },
-        } };
+let particlesConfig = {
+        fullScreen: { enable: false, zIndex: 0 },
+        detectRetina: true,
+        particles: {
+            color: {
+                value: "#ddd",
+            },
+            size: {
+                value: 1,
+            },
+            links: {
+                enable: true,
+                color: "#ddd",
+                distance: 40,
+                width: 2,
+            },
+            move: {
+                enable: true,
+                speed: 0.1,
+            },
+            number: {
+                value: 42,
+                density : {
+                    enable: true,
+                    value_area: 150
+                }
+            },
+        },
+    };
 
 </script>
 
