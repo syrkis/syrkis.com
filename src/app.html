@@ -2,23 +2,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-        <meta name="author" content="Noah Syrkis">
-        <meta name="description" content="Portfolio of writer, photographer and Virian Project director Noah Syrkis.">
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" href="/favicon.png" />
-		<link rel="stylesheet" href="/layout.css" />
-        <link href="https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap" rel="stylesheet" / >
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous" key="fontawesome" />
-        <title>Noah Syrkis | Virian, Die Libel, Methyl Orange</title>
-        <script
-            src="/stats/js/script.js"
-            data-api="/stats/api/event"
-            data-domain="syrkis.com"
-        ></script>
-
-		%svelte.head%
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		%sveltekit.head%
 	</head>
 	<body>
-		<div id="svelte">%svelte.body%</div>
+		<div>%sveltekit.body%</div>
 	</body>
 </html>
