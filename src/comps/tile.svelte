@@ -8,7 +8,8 @@
     
     onMount(async () => {
         const element = document.querySelectorAll(".js-tilt");
-        VanillaTilt.init(element, { max: 3, scale: 1.03, speed: 2000 });
+        VanillaTilt.init(element, { max: 3, scale: 1.03, speed: 2000,
+        reverse: true });
     });
 
     let baseurl = "https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/tiles";
