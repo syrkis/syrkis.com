@@ -27,6 +27,15 @@
         "bg": "erdos"
     },
     {
+        "color": "black",
+        "id": "aurelian",
+        "url": "/aurelian",
+        "title": "Aurelian",
+        "pre": "The",
+        "suf": "Textures",
+        "bg": "aurelian"
+    },
+    {
         "color": "white",
         "id": "milton",
         "url": "/milton",
@@ -52,15 +61,6 @@
         "pre": "The",
         "suf": "Series",
         "bg": "harmattan"
-    },
-    {
-        "color": "black",
-        "id": "aurelian",
-        "url": "/aurelian",
-        "title": "Aurelian",
-        "pre": "The",
-        "suf": "Textures",
-        "bg": "aurelian"
     },
     {
         "color": "white",

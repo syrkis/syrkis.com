@@ -13,8 +13,7 @@
         works = data.works;
     });
 
-    text = `${text} Limited edition prints of five are priced at $3,000 (click images to buy). All proceeds go to <a href="https://virian.org" target=_blank>Virian</a>.`
-
+    text = `${text} Limited edition prints of five can be bought for $3,000 (click image to buy). All proceeds go to <a href="https://virian.org" target=_blank>Virian</a>.`
 </script>
 
 <div class='wrapper'>
