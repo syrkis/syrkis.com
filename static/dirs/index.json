@@ -10,12 +10,12 @@
     },
     {
         "color": "white",
-        "id": "milton",
-        "url": "/milton",
-        "title": "Milton",
+        "id": "bciioi",
+        "url": "/bciioi",
+        "title": "BCIIOI",
         "pre": "The",
-        "suf": "Textures",
-        "bg": "milton"
+        "suf": "Series",
+        "bg": "bciioi"
     },
     {
         "color": "white",
@@ -28,12 +28,12 @@
     },
     {
         "color": "white",
-        "id": "bciioi",
-        "url": "/bciioi",
-        "title": "BCIIOI",
+        "id": "milton",
+        "url": "/milton",
+        "title": "Milton",
         "pre": "The",
-        "suf": "Series",
-        "bg": "bciioi"
+        "suf": "Textures",
+        "bg": "milton"
     },
     {
         "color": "white",

@@ -2,22 +2,27 @@
     "year": 2021,
     "project": "Erdős-Rényi",
     "dims": "59 x 84 cm",
+    "for_sale": true,
     "works": [
         {
             "file": "1",
-            "title": "Untitled"
+            "title": "Untitled",
+            "payment_url": "https://buy.stripe.com/bIY0395VA8F8ddC5kp"
         },
         {
             "file": "2",
-            "title": "Untitled"
+            "title": "Untitled",
+            "payment_url": "https://buy.stripe.com/3cs17d1Fk1cGc9yaEK"
         },
         {
             "file": "3",
-            "title": "Untitled"
+            "title": "Untitled",
+            "payment_url": "https://buy.stripe.com/cN2g270Bg9JcehGbIP"
         },
         {
             "file": "4",
-            "title": "Untitled"
+            "title": "Untitled",
+            "payment_url": "https://buy.stripe.com/fZeeY397McVo0qQ9AI"
         }        
     ]
 }

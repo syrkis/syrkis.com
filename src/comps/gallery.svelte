@@ -13,7 +13,7 @@
         works = data.works;
     });
 
-    text = `${text} Limited edition prints can be bought by <a href='mailto:contact@syrkis.com'>email</a>. All proceeds go to the <a href="https://virian.org" target=_blank>Virian Project</a>.`
+    text = `${text} Limited edition prints of five are priced at $3,000 (click images to buy). All proceeds go to <a href="https://virian.org" target=_blank>Virian</a>.`
 
 </script>
 
@@ -25,7 +25,13 @@
         {#await works then works}
             {#each works as work, i}
                 <div>
-                    <img src="{baseurl}/{project.toLowerCase()}/{work.file}.jpg" alt="{work.title}, {data.project} {i + 1}" />
+                        {#if data.for_sale}
+                            <a href={work['payment_url']} target="_blank" rel="noreferrer">
+                                <img src="{baseurl}/{project.toLowerCase()}/{work.file}.jpg" alt="{work.title}, {data.project} {i + 1}" />
+                            </a>
+                        {:else}
+                            <img src="{baseurl}/{project.toLowerCase()}/{work.file}.jpg" alt="{work.title}, {data.project} {i + 1}" />
+                        {/if}
                 </div>
                 <div class="tagline">
                     <i>{work.title}</i>, {data.project} {i + 1}, {data.year}, {data.dims}
