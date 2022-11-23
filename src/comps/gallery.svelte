@@ -13,12 +13,16 @@
         works = data.works;
     });
 
-    text = `${text} Limited edition prints of five can be bought for $3,000 (click image to buy). All proceeds go to <a href="https://virian.org" target=_blank>Virian</a>.`
+    let salesText = `Limited edition prints of five can be bought for $3,000 (click image to buy). All proceeds go to <a href="https://virian.org" target=_blank>Virian</a>.`
 </script>
 
 <div class='wrapper'>
     <div class='description'>
-        <p>{@html text}</p>
+        {#if data.for_sale}
+            <p>{@html text} {@html salesText}</p>
+        {:else}
+            <p>{@html text}</p>
+        {/if}
     </div>
     <div>
         {#await works then works}
