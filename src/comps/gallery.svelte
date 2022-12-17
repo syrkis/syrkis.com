@@ -20,7 +20,6 @@
     <div class='description'>
         {#if data.for_sale}
             <p>{@html text}</p>
-            <!--{@html salesText}</p>-->
         {:else}
             <p>{@html text}</p>
         {/if}
@@ -30,9 +29,7 @@
             {#each works as work, i}
                 <div>
                         {#if data.for_sale}
-                            <!--<a href={work['payment_url']} target="_blank" rel="noreferrer">
                                 <img src="{baseurl}/{project.toLowerCase()}/{work.file}.jpg" alt="{work.title}, {data.project} {i + 1}" />
-                            <!--</a>
                         {:else}
                             <img src="{baseurl}/{project.toLowerCase()}/{work.file}.jpg" alt="{work.title}, {data.project} {i + 1}" />
                         {/if}
