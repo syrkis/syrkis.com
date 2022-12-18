@@ -1,0 +1,9 @@
+User-agent: *
+Sitemap: https://syrkis.com/sitemap.xml
+Allow: /
+Allow: /sitemap.xml
+Allow: /bciioi
+Allow: /erdos
+Allow: /aurelian
+Allow: /milton
+Allow: /harmattan
