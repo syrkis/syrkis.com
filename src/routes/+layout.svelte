@@ -1,10 +1,10 @@
 <script>
     let links = [
-        ["instagram.com/noahsyrkis", "instagram"],
-        ["github.com/syrkis", "github"],
-        ["twitter.com/noahsyrkis", "twitter"],
-        ["youtube.com/@syrkis", "youtube"],
-        ["twitch.com/syrkis", "twitch"]
+        ["fab fa-github", "https://github.com/syrkis"],
+        ["fab fa-instagram", "https://instagram.com/noahsyrkis"],
+        ["fab fa-youtube", "https://youtube.com/@syrkis"],
+        ["fab fa-linkedin", "https://linkedin.com/in/syrkis"],
+        ["far fa-circle", "/"],
     ];
 </script>
 
@@ -15,7 +15,11 @@
         <div><a href="mailto:desk@syrkis.com">desk@syrkis.com</a></div>
         <div class='social'>
             {#each links as link}
-                <a href="https://{link[0]}" target="_blank" class="fab fa-{link[1]}"> </a>
+                {#if link[0] === "far fa-circle"}
+                    <a href="{link[1]}" class="{link[0]}"> </a>
+                {:else}
+                    <a href="{link[1]}" target='_blank'  rel='noreferrer' class="{link[0]}"> </a>
+                {/if}
             {/each}
         </div>
     </div>
@@ -24,7 +28,7 @@
 <style>
 
     .footer { text-align: center; line-height: 2em; padding-bottom: 10px; }
-    .fab { padding: 0 8px 0 8px; font-size: 0.8em; }
+    .fab, .far, .fas { padding: 0 8px 0 8px; font-size: 0.8em; }
     a { font-style: normal; font-weight: 100; }
 
     :global(body, html) {
