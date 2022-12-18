@@ -12,7 +12,7 @@
     <slot />
     <div class='footer'>
         <div>for all enquiries, write</div>
-        <div><a href="mailto:contact@syrkis.com">contact@syrkis.com</a></div>
+        <div><a href="mailto:desk@syrkis.com">desk@syrkis.com</a></div>
         <div class='social'>
             {#each links as link}
                 <a href="https://{link[0]}" target="_blank" class="fab fa-{link[1]}"> </a>
