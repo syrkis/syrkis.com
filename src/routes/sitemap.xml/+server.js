@@ -14,32 +14,32 @@ export async function GET() {
     >
       <!-- <url> elements go here -->
        <url>
-            <loc>${page.base}</loc>
+            <loc>https://syrkis.com/</loc>
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>
        </url>
        <url>
-            <loc>${page.base}/bciioi</loc>
+            <loc>https://syrkis.com/bciioi</loc>
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>
         </url> 
        <url>
-            <loc>${page.base}/erdos</loc>
+            <loc>https://syrkis.com/erdos</loc>
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>
         </url> 
        <url>
-            <loc>${page.base}/aurelian</loc>
+            <loc>https://syrkis.com/aurelian</loc>
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>
         </url> 
        <url>
-            <loc>${page.base}/milton</loc>
+            <loc>https://syrkis.com/milton</loc>
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>
         </url> 
        <url>
-            <loc>${page.base}/harmattan</loc>
+            <loc>https://syrkis.com/harmattan</loc>
             <changefreq>weekly</changefreq>
             <priority>0.7</priority>
         </url> 
