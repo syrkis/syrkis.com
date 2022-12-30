@@ -27,7 +27,7 @@
 
 <style>
 
-    .footer { text-align: center; line-height: 2em; padding-bottom: 10px; }
+    .footer { text-align: center; line-height: 2em; padding-bottom: 3rem; }
     .fab, .far, .fas { padding: 0 8px 0 8px; font-size: 0.8em; }
     a { font-style: normal; font-weight: 100; }
 

@@ -16,6 +16,7 @@
     let salesText = `Limited edition prints of five can be bought for $3,000 (click image to buy). All proceeds go to <a href="https://virian.org" target=_blank>Virian</a>.`
 </script>
 
+<div>
 <div class='wrapper'>
     <div class='description'>
         {#if data.for_sale}
@@ -43,6 +44,7 @@
             {/each}
         {/await}
     </div>
+    </div>
 </div>
 
 <svelte:head>
@@ -54,6 +56,12 @@
 </svelte:head>
 
 <style>
+    #home {
+        font-weight: bold;
+        font-style: italic ;
+        padding: 3rem;
+        text-align: center;
+    }
 
     .description {
         text-align: center;
