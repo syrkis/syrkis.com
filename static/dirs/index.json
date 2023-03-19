@@ -70,5 +70,14 @@
         "pre": "",
         "suf": "a novel",
         "bg": "methyl"
+    },
+    {
+        "color": "white",
+        "id": "papers",
+        "url": "https://papers.syrkis.com",
+        "title": "scientific",
+        "pre" : " ",
+        "suf": "works",
+        "bg": "erdos"
     }
 ]
