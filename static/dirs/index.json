@@ -19,12 +19,12 @@
     },
     {
         "color": "white",
-        "id": "erdos",
-        "url": "/erdos",
-        "title": "Erdős-Rényi",
-        "pre": "The",
-        "suf": "Illustrations",
-        "bg": "erdos"
+        "id": "rhos",
+        "url": "/rhos",
+        "title": "rhos",
+        "pre" : "",
+        "suf": "",
+        "bg": "rhos"
     },
     {
         "color": "black",
@@ -37,21 +37,21 @@
     },
     {
         "color": "white",
-        "id": "rhos",
-        "url": "/rhos",
-        "title": "rhos",
-        "pre" : "",
-        "suf": "",
-        "bg": "rhos"
-    },
-    {
-        "color": "white",
         "id": "milton",
         "url": "/milton",
         "title": "Milton",
         "pre": "The",
         "suf": "Textures",
         "bg": "milton"
+    },
+    {
+        "color": "white",
+        "id": "erdos",
+        "url": "/erdos",
+        "title": "Erdős-Rényi",
+        "pre": "The",
+        "suf": "Illustrations",
+        "bg": "erdos"
     },
     {
         "color": "white",
