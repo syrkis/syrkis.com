@@ -7,16 +7,12 @@
         data = await fetch('/dirs/index.json').then(x => x.json());
     });
 
-    let letters = "Noah Syrkis";/*.split("").sort(() => Math.random() - 0.5);*/
-
 </script>
 
 <div class='wrapper'>
     <div class='bg' />
         <h1>
-            {#each letters as letter}
-                {letter}
-            {/each}
+            Noah Syrkis
         </h1>
     <div class='tiles'>
         {#await data then projects}
@@ -37,6 +33,7 @@
 </svelte:head>
 
 <style>
+
     .tile {
         width: 90vw;
         margin:auto;

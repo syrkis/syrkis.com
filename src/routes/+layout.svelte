@@ -1,10 +1,10 @@
 <script>
     let links = [
         ["fab fa-github", "https://github.com/syrkis"],
-        ["fab fa-instagram", "https://instagram.com/noahsyrkis"],
+        ["fab fa-brands fa-x-twitter ", "https://x.com/noahsyrkis"],
+        ["fab fa-brands fa-rss", "https://virian.org/text"],
         ["fab fa-youtube", "https://youtube.com/@syrkis"],
-        ["fab fa-linkedin", "https://linkedin.com/in/syrkis"],
-        ["far fa-circle", "/"],
+        ["fab fa-brands fa-orcid", "https://orcid.org/0000-0002-6553-1115"],
     ];
 </script>
 
@@ -15,11 +15,7 @@
         <div><a href="mailto:desk@syrkis.com">desk@syrkis.com</a></div>
         <div class='social'>
             {#each links as link}
-                {#if link[0] === "far fa-circle"}
-                    <a href="{link[1]}" class="{link[0]}"> </a>
-                {:else}
-                    <a href="{link[1]}" target='_blank'  rel='noreferrer' class="{link[0]}"> </a>
-                {/if}
+                <a href="{link[1]}" target='_blank'  rel='noreferrer' class="{link[0]}"> </a>
             {/each}
         </div>
     </div>
@@ -27,8 +23,8 @@
 
 <style>
 
-    .footer { text-align: center; line-height: 2em; padding-bottom: 3rem; }
-    .fab, .far, .fas { padding: 0 8px 0 8px; font-size: 0.8em; }
+    .footer { text-align: center; line-height: 2em; padding-bottom: 3rem; letter-spacing: 0.02em; }
+    .fab, .far, .fas { padding: 0 10px; font-size: 0.8 em; }
     a { font-style: normal; font-weight: 100; }
 
     :global(body, html) {

@@ -16,7 +16,7 @@ export async function GET() {
        <url>
             <loc>https://syrkis.com/</loc>
             <changefreq>weekly</changefreq>
-            <priority>0.7</priority>
+            <priority>1.0</priority>
        </url>
        <url>
             <loc>https://syrkis.com/bciioi</loc>
