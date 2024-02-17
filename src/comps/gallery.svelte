@@ -49,7 +49,7 @@
 
 <svelte:head>
     <title>{project} | Noah Syrkis</title>
-    <meta name="description" content="{text}">
+    <meta name="description" content="{text}" />
     <meta property="og:image" content="https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/tiles/{project.toLowerCase()}.jpg" />
     <meta property="og:title" content="{project} | Noah Syrkis" />
     <meta property="og:url" content="https://syrkis.com/{project}" />
