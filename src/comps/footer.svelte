@@ -12,11 +12,10 @@
     <footer>
         <nav>
             <ul>
-                <li><a href="/about">about</a></li>
-                <li><a href="/">works</a></li>
+                <li><a href="/about">about/</a></li>
+                <li><a href="/">works/</a></li>
             </ul>
         </nav>
-        —
         <div>for all enquiries, write</div>
         <div><a href="mailto:desk@syrkis.com">desk@syrkis.com</a></div>
         <div class='social'>
@@ -48,7 +47,7 @@
     }
 
     nav li:not(:last-child)::after {
-        content: "|";
+        content: " ";
         margin: 0 10px;
     }
 
