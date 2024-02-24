@@ -12,7 +12,7 @@
 <div class='wrapper'>
     <div class='bg' />
         <h1>
-            Noah Syrkis
+            Nøah Syrkis
         </h1>
     <div class='tiles'>
         {#await data then projects}
