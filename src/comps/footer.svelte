@@ -18,11 +18,6 @@
         </nav>
         <div>for all enquiries, write</div>
         <div><a href="mailto:desk@syrkis.com">desk@syrkis.com</a></div>
-        <div class='social'>
-            {#each links as link}
-                <a href="{link[1]}" target='_blank'  rel='noreferrer'><i class="{link[0]}"></i></a>
-            {/each}
-        </div>
     </footer>
 </div>
 
