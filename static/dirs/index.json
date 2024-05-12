@@ -70,14 +70,5 @@
         "pre": "The",
         "suf": "Series",
         "bg": "harmattan"
-    },
-    {
-        "color": "white",
-        "id": "methyl",
-        "url": "https://methylorange.com",
-        "title": "Methyl Orange",
-        "pre": "",
-        "suf": "a novel",
-        "bg": "methyl"
     }
 ]
