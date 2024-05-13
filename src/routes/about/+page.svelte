@@ -1,11 +1,9 @@
 <div class='wrapper'>
     <p>
-        We are a small, art team, led by Noah Syrkis, exploring themes of cognition, self reference, and technology.
-        Our projects range from high resolution photography capturing the ethereal moments of the natural world,
-        to complex computational models exploring the dynamics of artificial life.
-        Our projects range from: BCIIOI, exploring nano and brain tech; to RHOS, exploring notions of density and rotation;
-        to the Erdős-Rényi illustrations, which plays with communication of science and mathematics;
-        and to the Milton and Aurelian textures.
+        Noah Syrkis leads an art team exploring cognition, self-reference,
+        and technology through projects like BCIIOI (nano and brain tech),
+        RHOS (density and rotation), Erdős-Rényi illustrations (science and math communication),
+        and Milton and Aurelian textures.
     </p>
 </div>
 
