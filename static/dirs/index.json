@@ -55,15 +55,6 @@
     },
     {
         "color": "white",
-        "id": "dielibel",
-        "url": "https://dielibel.com",
-        "title": "die libel",
-        "pre": ".",
-        "suf": ".",
-        "bg": "dielibel"
-    },
-    {
-        "color": "white",
         "id": "harmattan",
         "url": "/harmattan",
         "title": "Harmattan",
