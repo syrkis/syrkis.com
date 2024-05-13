@@ -2,8 +2,8 @@
     <p>
         Noah Syrkis leads an art team exploring cognition, self-reference,
         and technology through projects like BCIIOI (nano and brain tech),
-        RHOS (density and rotation), Erdős-Rényi illustrations (science and math communication),
-        and Milton and Aurelian textures.
+        RHOS (density and rotation), the Erdős-Rényi Illustrations (science and math communication),
+        and the Milton and Aurelian textures.
     </p>
 </div>
 
