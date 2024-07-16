@@ -17,7 +17,7 @@
         margin: 0;
         line-height: 1.5em;
         color: #333;
-        font-family: 'Crimson Text', 'serif';
+        font-family: 'Latin Modern Roman', serif;
         width: 100vw;
     }
 
