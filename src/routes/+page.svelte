@@ -41,10 +41,11 @@
         text-decoration: none;
         /* disable italic */
         font-style: normal;
+        padding: 0 1em;
         font-weight: normal;
     }
     .navigation {
-        font-size: 1.1em;
+        font-size: 1.2em;
         margin: 0 0 2em 0;
         text-align: center;
         padding-bottom: 15vh;
