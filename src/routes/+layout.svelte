@@ -1,6 +1,6 @@
 <script>
-    import Header from '../comps/header.svelte'
-    import Footer from '../comps/footer.svelte'
+    import Header from "../comps/header.svelte";
+    import Footer from "../comps/footer.svelte";
 </script>
 
 <div>
@@ -9,18 +9,14 @@
 </div>
 
 <style>
-
-
-
     :global(body, html) {
         font-size: 1.1em;
         margin: 0;
         line-height: 1.5em;
         color: #333;
-        font-family: 'Latin Modern Roman', serif;
+        font-family: "Latin Modern Roman", serif;
         width: 100vw;
     }
-
 
     :global(h1) {
         text-align: center;
@@ -42,5 +38,4 @@
         font-weight: bold;
         color: #333;
     }
-
 </style>
