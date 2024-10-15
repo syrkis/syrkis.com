@@ -1,49 +1,8 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { fade, fly } from "svelte/transition";
-    import { goto } from "$app/navigation";
-    import { onMount, afterUpdate } from "svelte";
-    import { cubicIn } from "svelte/easing";
 
     $: currentRoute = $page.url.pathname;
-
-    let shouldScrollAfterNav = false;
-
-    onMount(() => {
-        if (shouldScrollAfterNav) {
-            scrollToFirstTile();
-            shouldScrollAfterNav = false;
-        }
-    });
-
-    afterUpdate(() => {
-        if (shouldScrollAfterNav) {
-            scrollToFirstTile();
-            shouldScrollAfterNav = false;
-        }
-    });
-
-    function handleWorksClick(event: MouseEvent) {
-        event.preventDefault();
-        if (currentRoute === "/") {
-            scrollToFirstTile();
-        } else {
-            shouldScrollAfterNav = true;
-            goto("/");
-        }
-    }
-
-    function scrollToFirstTile() {
-        setTimeout(() => {
-            const firstTile = document.getElementById("first-tile");
-            if (firstTile) {
-                const headerHeight = document.querySelector(".container")?.clientHeight || 0;
-                const yOffset = -headerHeight; // Adjust this value if needed
-                const y = firstTile.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                window.scrollTo({ top: y, behavior: "smooth" });
-            }
-        }, 1000); // Increased delay to ensure transitions have completed
-    }
 </script>
 
 <div class="container {currentRoute !== '/' ? 'about' : ''}">
@@ -56,7 +15,7 @@
             <nav>
                 <a href="/about" class:active={currentRoute === "/about"}>about</a>
                 <a href="/">|</a>
-                <a href="/" class:active={currentRoute === "/"} on:click={handleWorksClick}>works</a>
+                <a href="/" class:active={currentRoute === "/"}>works</a>
             </nav>
         </div>
     </div>
