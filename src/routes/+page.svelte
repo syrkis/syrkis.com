@@ -9,16 +9,9 @@
 </script>
 
 <div class="wrapper">
-    <div class="bg" />
-    <h1>Noah Syrkis</h1>
-    <div class="navigation">
-        <a href="/about">about</a>
-        |
-        <a href="/">works</a>
-    </div>
     <div class="tiles">
-        {#each data as project}
-            <div class="tile">
+        {#each data as project, index}
+            <div class="tile" id={index === 0 ? "first-tile" : ""}>
                 <Tile bind:project />
             </div>
         {/each}
@@ -36,42 +29,13 @@
 </svelte:head>
 
 <style>
-    a {
-        color: black;
-        text-decoration: none;
-        /* disable italic */
-        font-style: normal;
-        padding: 0 1em;
-        font-weight: normal;
-    }
-    .navigation {
-        font-size: 1.2em;
-        margin: 0 0 2em 0;
-        text-align: center;
-        padding-bottom: 15vh;
-    }
     .tile {
         width: 90vw;
         margin: auto;
         padding: 10vh 0;
     }
-    .bg {
-        letter-spacing: 0.4em;
-        height: 110vh;
-        z-index: -1;
-        position: absolute;
-        background: linear-gradient(
-                to top,
-                rgba(255, 255, 255, 255) 0%,
-                rgba(255, 255, 255, 0) 75%,
-                rgba(0, 0, 0, 0) 100%
-            ),
-            url("https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/aurelian/bright.jpg");
-        background-position: center;
-        background-size: cover;
-        width: 100%;
-    }
     .wrapper {
         position: relative;
+        padding-top: 20vh; /* Add this line to push the content down */
     }
 </style>

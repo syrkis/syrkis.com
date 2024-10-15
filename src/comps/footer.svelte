@@ -28,26 +28,4 @@
         font-style: normal;
         /* font-weight: 100; */
     }
-
-    nav ul {
-        list-style: none;
-        padding: 0px 10%;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    nav li {
-        display: flex;
-    }
-
-    nav li:not(:last-child)::after {
-        content: " ";
-        margin: 0 10px;
-    }
-
-    nav a {
-        text-decoration: none;
-    }
 </style>

@@ -1,15 +1,22 @@
-<div class='wrapper'>
+<!-- syrkis.com/src/routes/about/+page.svelte -->
+<div class="wrapper">
     <p>
-        Noah Syrkis leads an art team exploring cognition, self-reference,
-        and technology through projects like BCIIOI (nano and brain tech),
-        RHOS (density and rotation), the Erdős-Rényi Illustrations (science and math communication),
-        and the Milton and Aurelian textures.
+        Noah Syrkis creates at the intersection of technology and art. His work transforms complex ideas into visual
+        experiences, from microscopic nanowires to abstract mathematical concepts.
+    </p>
+    <p>
+        Through photography and digital art, Noah explores themes of emergence, cultural dynamics, and the nature of
+        intelligence. His projects, including the Virian Project, blend data science with artistic expression.
+    </p>
+    <p>
+        Noah's background in artificial intelligence informs his unique perspective on creativity and systems thinking.
+        He teaches, researches, and continually seeks new ways to visualize our interconnected world.
     </p>
 </div>
 
 <style>
     .wrapper {
-        padding-top: 30vh;
+        padding-top: 20vh; /* Changed from 30vh to 20vh */
         width: 700px;
         max-width: 95%;
         margin: auto;
@@ -19,6 +26,6 @@
         font-size: 1.2em;
     }
     p {
-        padding: 6vh 0 ;
+        padding: 6vh 0;
     }
 </style>

@@ -1,9 +1,14 @@
+<!-- syrkis.com/src/routes/+layout.svelte -->
 <script>
     import Footer from "../comps/footer.svelte";
+    import Header from "../comps/header.svelte";
 </script>
 
-<div>
-    <slot />
+<div class="layout">
+    <Header />
+    <main>
+        <slot />
+    </main>
     <Footer />
 </div>
 
@@ -11,30 +16,29 @@
     :global(body, html) {
         font-size: 1.1em;
         margin: 0;
+        padding: 0;
         line-height: 1.5em;
         color: #333;
         font-family: "Latin Modern Roman", serif;
-        width: 100vw;
     }
 
-    :global(h1) {
-        text-align: center;
-        padding: 50vh 0 5vh 0;
-        letter-spacing: 0.15em;
-        font-size: 1.9em;
-        font-weight: normal;
-        text-transform: uppercase;
-        margin: 0;
+    .layout {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    main {
+        flex: 1;
+        margin-top: -20vh; /* Add this line to pull the content up */
     }
 
     :global(h2) {
         font-weight: normal;
     }
 
-    :global(a, a.hover, a:visited) {
+    :global(a) {
         text-decoration: none;
-        font-style: italic;
-        /* font-weight: bold; */
         color: #333;
     }
 </style>
