@@ -1,8 +1,24 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { fade, fly } from "svelte/transition";
+    import { goto } from "$app/navigation";
 
     $: currentRoute = $page.url.pathname;
+
+    function handleWorksClick(event) {
+        event.preventDefault();
+        if (currentRoute === "/") {
+            // If we're on the home page, scroll to the first tile
+            window.dispatchEvent(new CustomEvent("scrollToFirstTile"));
+        } else {
+            // If we're not on the home page, navigate to home and then scroll
+            goto("/").then(() => {
+                setTimeout(() => {
+                    window.dispatchEvent(new CustomEvent("scrollToFirstTile"));
+                }, 100);
+            });
+        }
+    }
 </script>
 
 <div class="container {currentRoute !== '/' ? 'about' : ''}">
@@ -15,7 +31,7 @@
             <nav>
                 <a href="/about" class:active={currentRoute === "/about"}>about</a>
                 <a href="/">|</a>
-                <a href="/" class:active={currentRoute === "/"}>works</a>
+                <a href="/#works" class:active={currentRoute === "/"}>works</a>
             </nav>
         </div>
     </div>

@@ -1,7 +1,6 @@
-// syrkis.com/src/utils/scrollTo.ts
-export function scrollTo(selector: string) {
-  const element = document.querySelector(selector);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
+export function scrollToFirstTile() {
+  const firstTile = document.getElementById("first-tile");
+  if (firstTile) {
+    firstTile.scrollIntoView({ behavior: "smooth" });
   }
 }

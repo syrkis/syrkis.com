@@ -1,17 +1,25 @@
 <script>
     import Tile from "../comps/tile.svelte";
     import { onMount } from "svelte";
+    import { goto } from "$app/navigation";
 
     let data = "";
     onMount(async () => {
         data = await fetch("/dirs/index.json").then((x) => x.json());
     });
+
+    export function scrollToFirstTile() {
+        const firstTile = document.getElementById("first-tile");
+        if (firstTile) {
+            firstTile.scrollIntoView({ behavior: "smooth" });
+        }
+    }
 </script>
 
 <div class="wrapper">
     <div class="tiles">
         {#each data as project, index}
-            <div class="tile" id={index === 0 ? "first-tile" : ""}>
+            <div class="tile" id={index === 0 ? "works" : ""}>
                 <Tile bind:project />
             </div>
         {/each}
