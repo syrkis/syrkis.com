@@ -34,7 +34,7 @@
     :global(a, a.hover, a:visited) {
         text-decoration: none;
         font-style: italic;
-        font-weight: bold;
+        /* font-weight: bold; */
         color: #333;
     }
 </style>
