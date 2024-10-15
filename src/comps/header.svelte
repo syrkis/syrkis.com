@@ -3,6 +3,7 @@
     import { fade, fly } from "svelte/transition";
     import { goto } from "$app/navigation";
     import { onMount, afterUpdate } from "svelte";
+    import { cubicIn } from "svelte/easing";
 
     $: currentRoute = $page.url.pathname;
 
@@ -46,9 +47,7 @@
 </script>
 
 <div class="container {currentRoute !== '/' ? 'about' : ''}">
-    {#if currentRoute === "/"}
-        <div class="bg" transition:fade={{ duration: 500 }} />
-    {/if}
+    <div class="bg {currentRoute !== '/' ? 'about' : ''}" transition:fade={{ duration: 500 }} />
     <div class="content">
         <div class="header" class:about={currentRoute !== "/"} transition:fly={{ y: -50, duration: 500 }}>
             <h1>Noah Syrkis</h1>
@@ -108,12 +107,17 @@
     .bg {
         position: absolute;
         top: 0;
+        transition: all 500ms ease-out;
         left: 0;
         width: 100%;
-        height: 110vh; /* Changed from 110vh to 100% */
+        height: 110vh;
         z-index: 0;
         background:
             linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 70%, rgba(0, 0, 0, 0) 100%),
             url("https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/aurelian/bright.jpg") center/cover no-repeat;
+    }
+    .bg.about {
+        height: 35vh;
+        opacity: 0;
     }
 </style>
