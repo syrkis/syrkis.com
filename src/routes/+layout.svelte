@@ -1,5 +1,4 @@
 <script>
-    import Header from "../comps/header.svelte";
     import Footer from "../comps/footer.svelte";
 </script>
 
@@ -20,7 +19,7 @@
 
     :global(h1) {
         text-align: center;
-        padding: 50vh 0 25vh 0;
+        padding: 50vh 0 5vh 0;
         letter-spacing: 0.15em;
         font-size: 1.9em;
         font-weight: normal;

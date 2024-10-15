@@ -73,9 +73,9 @@
     >
         <div class="inner">
             <div class="text" style="color:{project.color};">
-                <p>{project.pre}</p>
+                <p class="meta">{project.pre}</p>
                 <h2>{project.title}</h2>
-                <p>{project.suf}</p>
+                <p class="meta">{project.suf}</p>
             </div>
         </div>
         {#if project.particles}
@@ -98,6 +98,9 @@
     }
     a {
         font-style: normal;
+    }
+    .meta {
+        font-weight: 100;
     }
 
     .inner {

@@ -1,5 +1,5 @@
 <script>
-/*        let links = [
+    /*        let links = [
         ["fab fa-github",                "https://github.com/syrkis"],
         ["fab fa-brands fa-orcid",       "https://orcid.org/0000-0002-6553-1115"],
         ["fab fa-youtube",               "https://youtube.com/@syrkis"],
@@ -8,25 +8,26 @@
     ]; */
 </script>
 
-<div class='footer'>
+<div class="footer">
     <footer>
-        <nav>
-            <ul>
-                <li><a href="/">works/</a></li>
-                <li><a href="/about">about/</a></li>
-            </ul>
-        </nav>
+        —————
         <div>for all enquiries, write</div>
-        <div><a href="mailto:desk@syrkis.com">desk[@]syrkis.com</a></div>
+        <div><a href="mailto:desk@syrkis.com">desk[at]syrkis.com</a></div>
     </footer>
 </div>
 
 <style>
-
-    .footer { text-align: center; line-height: 3em; padding-bottom: 3rem; padding-top: 200px; letter-spacing: 0.02em; }
-    .fab, .far, .fas, .fa { padding: 10px; font-size: 0.8 em; }
-    a { font-style: normal; font-weight: 100; }
-    .social{ padding-top: 5px; }
+    .footer {
+        text-align: center;
+        line-height: 3em;
+        padding-bottom: 3rem;
+        padding-top: 200px;
+        letter-spacing: 0.02em;
+    }
+    a {
+        font-style: normal;
+        /* font-weight: 100; */
+    }
 
     nav ul {
         list-style: none;

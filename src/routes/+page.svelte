@@ -11,6 +11,11 @@
 <div class="wrapper">
     <div class="bg" />
     <h1>Noah Syrkis</h1>
+    <div class="navigation">
+        <a href="/about">about</a>
+        |
+        <a href="/">works</a>
+    </div>
     <div class="tiles">
         {#each data as project}
             <div class="tile">
@@ -31,6 +36,19 @@
 </svelte:head>
 
 <style>
+    a {
+        color: black;
+        text-decoration: none;
+        /* disable italic */
+        font-style: normal;
+        font-weight: normal;
+    }
+    .navigation {
+        font-size: 1.1em;
+        margin: 0 0 2em 0;
+        text-align: center;
+        padding-bottom: 15vh;
+    }
     .tile {
         width: 90vw;
         margin: auto;
