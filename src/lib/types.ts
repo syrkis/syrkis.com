@@ -5,10 +5,13 @@ export interface Work {
   size: string;
 }
 
-export interface Series {
+export interface Group {
   slug: number;
   title: string;
   description: string;
+  image: string;
+  prefix?: string;
+  suffix?: string;
 }
 
 export interface Sale {

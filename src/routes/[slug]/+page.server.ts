@@ -14,7 +14,6 @@ export const load: PageServerLoad = async ({ params }) => {
 
   const works = await getWorksByGroup(slug);
 
-  console.log("group", group);
   return {
     group,
     works,

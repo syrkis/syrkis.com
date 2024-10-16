@@ -14,6 +14,8 @@ collections:
     fields:
       - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-zA-Z0-9-]+$", "Must be URL friendly"] }
       - { label: "Title", name: "title", widget: "string" }
+      - { label: "Prefix", name: "prefix", widget: "string", required: false }
+      - { label: "Suffix", name: "suffix", widget: "string", required: false }
       - { label: "Description", name: "description", widget: "text" }
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Editions", name: "editions", widget: "number", default: 5, min: 1 }

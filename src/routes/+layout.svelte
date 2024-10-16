@@ -36,8 +36,10 @@
         margin-top: -20vh; /* Add this line to pull the content up */
     }
 
-    :global(h2) {
+    :global(h2, h1) {
         font-weight: normal;
+        text-align: center;
+        letter-spacing: 0.2rem;
     }
 
     :global(a) {

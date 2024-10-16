@@ -6,29 +6,46 @@
     export let data: PageData;
 </script>
 
-<h1>Group: {data.group.title}</h1>
+<div class="header">
+    <!-- <h1>{data.group.title}</h1> -->
+    <div class="description">
+        <span>{data.group.description}</span>
+    </div>
+</div>
 
-<h2>Group Details:</h2>
-<pre>{JSON.stringify(data.group, null, 2)}</pre>
-
-<h2>Works in this group:</h2>
-{#if data.works && data.works.length > 0}
-    {#each data.works as work}
-        <div>
+{#each data.works as work}
+    <div>
+        <img src={work.image} alt={work.title} />
+        <div class="tagline">
             <h3>{work.title}</h3>
-            <pre>{JSON.stringify(work, null, 2)}</pre>
         </div>
-    {/each}
-{:else}
-    <p>No works found in this group.</p>
-{/if}
+    </div>
+{/each}
 
 <style>
-    pre {
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-radius: 5px;
-        white-space: pre-wrap;
-        word-wrap: break-word;
+    .description {
+        text-align: center;
+        padding-top: 10vh;
+        width: 600px;
+        max-width: 90vw;
+        margin: auto;
+    }
+    .tagline {
+        text-align: center;
+    }
+    h3 {
+        font-weight: 100;
+    }
+    .header {
+        padding: 28vh 0 16vh 0;
+        text-align: center;
+    }
+    img {
+        width: 100%;
+        height: 100%;
+        max-width: 90vw;
+        padding-top: 20vh;
+        margin: auto;
+        display: block;
     }
 </style>

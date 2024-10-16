@@ -1,8 +1,10 @@
 ---
 slug: aurelian
-title: The Aurelian Textures
-description: blah balh
-image: /img/aurelian-1.jpg`
+prefix: The
+suffix: Textures
+title: Aurelian
+description: The Aurelian Textures is a collection of images of butterfly wings captured through a microscopic lens.
+image: /images/aurelian-1.jpg
 editions: 9
-date: 2020-01-01
+date: "2016-12-01T00:00:00Z"
 ---

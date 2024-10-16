@@ -1,90 +1,89 @@
-<script>
-    export let project;
-    import Particles from "svelte-particles";
-    import { loadFull } from "tsparticles";
+<script lang="ts">
+    import { onMount, afterUpdate } from "svelte";
     import VanillaTilt from "vanilla-tilt";
-    import { onMount } from "svelte";
+    import ColorThief from "colorthief";
+    import type { Group } from "$lib/types";
 
-    onMount(async () => {
-        const element = document.querySelectorAll(".js-tilt");
-        VanillaTilt.init(element, { max: 3, scale: 1.03, speed: 2000, reverse: true });
+    type TiltElement = HTMLElement & {
+        vanillaTilt?: {
+            destroy: () => void;
+        };
+    };
+
+    export let group: Group;
+
+    let textColor = "white"; // Default color
+    let tiltElement: TiltElement;
+
+    function initTilt() {
+        if (tiltElement) {
+            VanillaTilt.init(tiltElement, {
+                max: 2,
+                scale: 1.03,
+                speed: 1000,
+                reverse: true,
+            });
+        }
+    }
+
+    onMount(() => {
+        // Color extraction
+        const img = new Image();
+        img.crossOrigin = "Anonymous";
+        img.src = group.image;
+
+        img.onload = () => {
+            const colorThief = new ColorThief();
+            colorThief
+                .getColor(img)
+                .then((color) => {
+                    textColor = getContrastColor(color);
+                })
+                .catch((err) => {
+                    console.error("Error getting color:", err);
+                });
+        };
+
+        return () => {
+            tiltElement?.vanillaTilt?.destroy();
+        };
     });
 
-    let baseurl = "https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/tiles";
-    let bg = `${baseurl}/${project.bg}.jpg`;
+    afterUpdate(() => {
+        initTilt();
+    });
 
-    let onParticlesLoaded = (event) => {
-        const particlesContainer = event.detail.particles;
-
-        // you can use particlesContainer to call all the Container class
-        // (from the core library) methods like play, pause, refresh, start, stop
-    };
-
-    let particlesInit = async (engine) => {
-        // you can use main to customize the tsParticles instance adding presets or custom shapes
-        // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-        // starting from v2 you can add only the features you need reducing the bundle size
-        await loadFull(engine);
-    };
-
-    let particlesConfig = {
-        fullScreen: { enable: false, zIndex: 0 },
-        detectRetina: true,
-        particles: {
-            color: {
-                value: "#ddd",
-            },
-            size: {
-                value: 1,
-            },
-            links: {
-                enable: true,
-                color: "#ddd",
-                distance: 40,
-                width: 2,
-            },
-            move: {
-                enable: true,
-                speed: 0.1,
-            },
-            number: {
-                value: 42,
-                density: {
-                    enable: true,
-                    value_area: 150,
-                },
-            },
-        },
-    };
+    function getContrastColor(rgb: [number, number, number]): string {
+        const [r, g, b] = rgb;
+        const brightness = Math.round((r * 299 + g * 587 + b * 114) / 1000);
+        return brightness > 100 ? "black" : "white";
+    }
 </script>
 
-<a href={project.url}>
-    <div
-        class="js-tilt bg"
-        style="
+<div
+    bind:this={tiltElement}
+    class="js-tilt bg"
+    style="
         transform-style: preserve-3d;
         transform: perspective(1000px);
         background: black;
-        background-image: url({bg});
+        background-image: url({group.image});
         background-size: cover;
         background-position: center;
         "
-        data-tilt
-    >
-        <div class="inner">
-            <div class="text" style="color:{project.color};">
-                <p class="meta">{project.pre}</p>
-                <h2>{project.title}</h2>
-                <p class="meta">{project.suf}</p>
-            </div>
+>
+    <div class="inner">
+        <div class="text" style="color: {textColor};">
+            {#if group.prefix}
+                <p class="meta">{group.prefix}</p>
+            {/if}
+            <h2>{group.title}</h2>
+            {#if group.suffix}
+                <p class="meta">{group.suffix}</p>
+            {/if}
         </div>
-        {#if project.particles}
-            <div id="tsparticles">
-                <Particles options={particlesConfig} on:particlesLoaded={onParticlesLoaded} {particlesInit} />
-            </div>
-        {/if}
     </div>
-</a>
+</div>
 
 <style>
     .text {
@@ -96,9 +95,7 @@
         margin: 15vh 0;
         transform-style: preserve-3d;
     }
-    a {
-        font-style: normal;
-    }
+
     .meta {
         font-weight: 100;
     }
@@ -112,15 +109,6 @@
         font-weight: regular;
         font-size: 1.2em;
         line-height: 2.5em;
-    }
-
-    #tsparticles {
-        height: 80vh;
-        width: 90vw;
-        bottom: 0;
-        position: absolute;
-        display: block;
-        z-index: -1;
     }
 
     .bg {
