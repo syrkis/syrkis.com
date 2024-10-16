@@ -34,14 +34,19 @@
 
         img.onload = () => {
             const colorThief = new ColorThief();
-            colorThief
-                .getColor(img)
-                .then((color) => {
-                    textColor = getContrastColor(color);
-                })
-                .catch((err) => {
+            const getColorResult = colorThief.getColor(img);
+
+            const processColor = (color: [number, number, number]) => {
+                textColor = getContrastColor(color);
+            };
+
+            if (getColorResult instanceof Promise) {
+                getColorResult.then(processColor).catch((err) => {
                     console.error("Error getting color:", err);
                 });
+            } else {
+                processColor(getColorResult);
+            }
         };
 
         return () => {
