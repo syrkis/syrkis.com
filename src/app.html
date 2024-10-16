@@ -4,6 +4,7 @@
         <title>Noah Syrkis</title>
         <meta charset="utf-8" />
         <meta name="author" content="Noah Syrkis" />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
         <script src="https://kit.fontawesome.com/600458f3da.js" crossorigin="anonymous"></script>
         <link
             rel="stylesheet"
@@ -33,6 +34,17 @@
         <link rel="stylesheet" rel="stylesheet" />
     </head>
     <body>
+        <script>
+            if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", (user) => {
+                    if (!user) {
+                        window.netlifyIdentity.on("login", () => {
+                            document.location.href = "/admin/";
+                        });
+                    }
+                });
+            }
+        </script>
         <div>%sveltekit.body%</div>
     </body>
 </html>
