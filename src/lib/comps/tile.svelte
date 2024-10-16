@@ -61,7 +61,7 @@
     function getContrastColor(rgb: [number, number, number]): string {
         const [r, g, b] = rgb;
         const brightness = Math.round((r * 299 + g * 587 + b * 114) / 1000);
-        return brightness > 100 ? "black" : "white";
+        return brightness > 200 ? "black" : "white";
     }
 </script>
 

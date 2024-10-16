@@ -7,7 +7,6 @@
 </script>
 
 <div class="header">
-    <!-- <h1>{data.group.title}</h1> -->
     <div class="description">
         <span>{data.group.description}</span>
     </div>
@@ -17,7 +16,10 @@
     <div>
         <img src={work.image} alt={work.title} />
         <div class="tagline">
-            <h3>{work.title}</h3>
+            <h3>
+                {work.title},
+                {new Date(data.group.date).getFullYear()}
+            </h3>
         </div>
     </div>
 {/each}
