@@ -18,6 +18,9 @@
         <div class="tagline">
             <h3>
                 {work.title},
+                {#if data.group.material}
+                    {data.group.material},
+                {/if}
                 {new Date(data.group.date).getFullYear()}
             </h3>
         </div>
@@ -31,6 +34,8 @@
         width: 600px;
         max-width: 90vw;
         margin: auto;
+        line-height: 2;
+        font-size: 1.3rem;
     }
     .tagline {
         text-align: center;

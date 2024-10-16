@@ -1,7 +1,7 @@
 ---
 slug: aurelian-3
 group: aurelian
-title: aurelian 3
+title: Aurelian 3
 image: /images/aurelian-3.jpg
 sold: 0
 ---
