@@ -1,7 +1,6 @@
 <script>
-    import Tile from "../comps/tile.svelte";
+    import Tile from "$lib/comps/tile.svelte";
     import { onMount } from "svelte";
-    import { goto } from "$app/navigation";
 
     let data = "";
     onMount(async () => {

@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "static/images"
+public_folder: "/images"
+
+collections:
+  - name: "group"
+    label: "Group"
+    folder: "data/group"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-zA-Z0-9-]+$", "Must be URL friendly"] }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Editions", name: "editions", widget: "number", default: 5, min: 1 }
+      - { label: "Date", name: "date", widget: "datetime" }
+
+  - name: "works"
+    label: "Works"
+    folder: "data/works"
+    create: true
+    slug: "{{group}}/{{slug}}"
+    path: "{{group}}/{{slug}}"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-zA-Z0-9-]+$", "Must be URL friendly"] }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Image", name: "image", widget: "image" }
+      - {
+          label: "Group",
+          name: "group",
+          widget: "relation",
+          collection: "group",
+          value_field: "slug",
+          search_fields: ["title", "slug"],
+        }
+      - { label: "sold", name: "sold", widget: "number", default: 0, min: 0 }
+
+  - name: "sales"
+    label: "Sales"
+    folder: "data/sales"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Slug", name: "slug", widget: "string", pattern: ["^[a-zA-Z0-9-]+$", "Must be URL friendly"] }
+      - { label: "Work", name: "work", widget: "relation", collection: "works" }
+      - { label: "Price", name: "price", widget: "number" }
+      - { label: "Timestamp", name: "timestamp", widget: "datetime" }
