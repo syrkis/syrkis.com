@@ -1,3 +1,4 @@
+<!-- syrkis.com/src/lib/comps/header.svelte -->
 <script lang="ts">
     import { page } from "$app/stores";
     import { fade, fly } from "svelte/transition";
@@ -8,10 +9,8 @@
     function handleWorksClick(event) {
         event.preventDefault();
         if (currentRoute === "/") {
-            // If we're on the home page, scroll to the first tile
             window.dispatchEvent(new CustomEvent("scrollToFirstTile"));
         } else {
-            // If we're not on the home page, navigate to home and then scroll
             goto("/").then(() => {
                 setTimeout(() => {
                     window.dispatchEvent(new CustomEvent("scrollToFirstTile"));
@@ -23,15 +22,15 @@
 
 <div class="container {currentRoute !== '/' ? 'about' : ''}">
     <div class="bg {currentRoute !== '/' ? 'about' : ''}" transition:fade={{ duration: 500 }} />
-    <div class="content">
-        <div class="header" class:about={currentRoute !== "/"} transition:fly={{ y: -50, duration: 500 }}>
+    <div class="content" class:about={currentRoute !== "/"} transition:fly={{ y: -50, duration: 500 }}>
+        <div class="header">
             <h1>Noah Syrkis</h1>
         </div>
         <div class="navigation">
             <nav>
                 <a href="/about" class:active={currentRoute === "/about"}>about</a>
                 <a href="/">|</a>
-                <a href="/#works" class:active={currentRoute === "/"}>works</a>
+                <a href="/#works" on:click={handleWorksClick} class:active={currentRoute === "/"}>works</a>
             </nav>
         </div>
     </div>
@@ -40,7 +39,7 @@
 <style>
     .container {
         position: relative;
-        height: 80vh; /* Reduced from 100vh to 80vh */
+        height: 80vh;
         transition: all 500ms ease-out;
     }
     .container.about {
@@ -49,17 +48,16 @@
     .content {
         position: relative;
         z-index: 1;
+        transition: transform 500ms ease-out;
+    }
+    .content.about {
+        transform: translateY(calc(-100% + 100px)); /* Move up, leaving 50px visible */
     }
     .header {
         text-align: center;
-        padding: 44vh 0 20px 0; /* Adjusted from 44vh to 24vh */
+        padding: 44vh 0 20px 0;
         letter-spacing: 0.15em;
         margin: 0;
-        transition: all 500ms ease-out;
-    }
-    .header.about {
-        padding: 0vh;
-        opacity: 0;
     }
     h1 {
         font-size: 1.9em;
@@ -77,7 +75,7 @@
         font-size: 1.2em;
         margin: 0 0 2em 0;
         text-align: center;
-        padding-bottom: 5vh; /* Reduced from 15vh to 5vh */
+        padding-bottom: 5vh;
     }
     .bg {
         position: absolute;
@@ -92,7 +90,8 @@
             url("https://syrkis.ams3.cdn.digitaloceanspaces.com/noah/aurelian/bright.jpg") center/cover no-repeat;
     }
     .bg.about {
-        height: 35vh;
+        /* // off set 100vh to move up completely */
+        transform: translateY(-50vh);
         opacity: 0;
     }
 </style>

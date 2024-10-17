@@ -16,8 +16,6 @@
     }
 </script>
 
-<h1>All Groups</h1>
-
 <div class="tiles">
     {#if data.groups && data.groups.length > 0}
         {#each data.groups as group}

@@ -1,0 +1,126 @@
+:root {
+    --main-font: "Latin Modern Roman", serif;
+    --main-spacing: 0.15em;
+    --section-padding: 10vh 0;
+}
+
+/* Reset and base styles */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 2;
+    font-family: var(--main-font);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.layout {
+    min-height: 100vh;
+}
+
+/* html { */
+/* scroll-behavior: smooth; */
+/* } */
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 0.2rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Layout */
+
+main {
+    flex: 1;
+    margin-top: -20vh;
+}
+
+/* Container styles */
+.container {
+    position: relative;
+    height: 75vh;
+    transition: all 500ms ease-out;
+}
+
+.container .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 110vh;
+    z-index: 0;
+    transition: all 500ms ease-out;
+    background:
+        linear-gradient(to top, #fff 0%, transparent 70%, transparent 100%),
+        url("/images/aurelian-1.jpg") center/cover no-repeat;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Header and Navigation styles */
+.header,
+.navigation {
+    text-align: center;
+    letter-spacing: var(--main-spacing);
+}
+
+.header {
+    padding: 44vh 0 20px;
+    margin: 0;
+    transition: all 500ms ease-out;
+}
+
+.navigation {
+    font-size: 1.2em;
+    margin: 0 0 2em;
+    padding-bottom: 5vh;
+}
+
+/* Content wrapper */
+.wrapper {
+    width: 700px;
+    max-width: 95%;
+    margin: auto;
+    padding-top: 20vh;
+    text-align: justify;
+    text-align-last: center;
+}
+
+/* Works section */
+#works {
+    min-height: 100vh;
+}
+
+.tile,
+.tiles {
+    padding: var(--section-padding);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    line-height: 3;
+    padding-bottom: 3rem;
+    letter-spacing: 0.02em;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    /* Add responsive styles here */
+}
