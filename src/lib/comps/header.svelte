@@ -2,64 +2,60 @@
     import { page } from "$app/stores";
     import { fade, fly } from "svelte/transition";
     import { onMount } from "svelte";
+    import { browser } from "$app/environment";
 
     let previousRoute = "/";
     let currentRoute = "/";
     let transitioning = false;
+    let mounted = false;
 
     onMount(() => {
+        mounted = true;
         currentRoute = $page.url.pathname;
     });
 
-    $: {
-        if ($page.url.pathname !== currentRoute) {
-            previousRoute = currentRoute;
-            currentRoute = $page.url.pathname;
-            if (
-                (currentRoute === "/" && previousRoute === "/about") ||
-                (currentRoute === "/about" && previousRoute === "/")
-            ) {
-                transitioning = true;
-                scrollToTop();
-            } else {
-                transitioning = false;
-            }
+    $: if (mounted && $page.url.pathname !== currentRoute) {
+        previousRoute = currentRoute;
+        currentRoute = $page.url.pathname;
+        transitioning =
+            (currentRoute === "/" && previousRoute === "/about") ||
+            (currentRoute === "/about" && previousRoute === "/");
+        if (transitioning && browser) {
+            window.scrollTo({ top: 0, behavior: "smooth" });
         }
     }
 
-    function scrollToTop() {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-
-    const shouldTransition = () => transitioning;
+    const shouldTransition = () => mounted && transitioning;
 </script>
 
-<div class="container" class:about={currentRoute !== "/"}>
-    <div
-        class="bg"
-        class:about={currentRoute !== "/"}
-        class:instant={!shouldTransition()}
-        transition:fade={{ duration: shouldTransition() ? 500 : 0 }}
-    />
+{#if mounted}
+    <div class="container" class:about={currentRoute !== "/"}>
+        <div
+            class="bg"
+            class:about={currentRoute !== "/"}
+            class:instant={!shouldTransition()}
+            transition:fade={{ duration: shouldTransition() ? 500 : 0 }}
+        />
 
-    <div
-        class="content"
-        class:about={currentRoute !== "/"}
-        class:instant={!shouldTransition()}
-        transition:fly={{ y: -50, duration: shouldTransition() ? 500 : 0 }}
-    >
-        <div class="header">
-            <h1>Noah Syrkis</h1>
-        </div>
-        <div class="navigation">
-            <nav>
-                <a href="/about" class:active={currentRoute === "/about"}>about</a>
-                <a href="/">|</a>
-                <a href="/" class:active={currentRoute === "/"}>works</a>
-            </nav>
+        <div
+            class="content"
+            class:about={currentRoute !== "/"}
+            class:instant={!shouldTransition()}
+            transition:fly={{ y: -50, duration: shouldTransition() ? 500 : 0 }}
+        >
+            <div class="header">
+                <h1>Noah Syrkis</h1>
+            </div>
+            <div class="navigation">
+                <nav>
+                    <a href="/about" class:active={currentRoute === "/about"}>about</a>
+                    <a href="/">|</a>
+                    <a href="/" class:active={currentRoute === "/"}>works</a>
+                </nav>
+            </div>
         </div>
     </div>
-</div>
+{/if}
 
 <style>
     .container {
