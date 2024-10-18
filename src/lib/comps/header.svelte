@@ -1,28 +1,53 @@
-<!-- syrkis.com/src/lib/comps/header.svelte -->
 <script lang="ts">
     import { page } from "$app/stores";
     import { fade, fly } from "svelte/transition";
-    import { goto } from "$app/navigation";
+    import { onMount } from "svelte";
 
-    $: currentRoute = $page.url.pathname;
+    let previousRoute = "/";
+    let currentRoute = "/";
+    let transitioning = false;
 
-    function handleWorksClick(event) {
-        event.preventDefault();
-        if (currentRoute === "/") {
-            window.dispatchEvent(new CustomEvent("scrollToFirstTile"));
-        } else {
-            goto("/").then(() => {
-                setTimeout(() => {
-                    window.dispatchEvent(new CustomEvent("scrollToFirstTile"));
-                }, 100);
-            });
+    onMount(() => {
+        currentRoute = $page.url.pathname;
+    });
+
+    $: {
+        if ($page.url.pathname !== currentRoute) {
+            previousRoute = currentRoute;
+            currentRoute = $page.url.pathname;
+            if (
+                (currentRoute === "/" && previousRoute === "/about") ||
+                (currentRoute === "/about" && previousRoute === "/")
+            ) {
+                transitioning = true;
+                scrollToTop();
+            } else {
+                transitioning = false;
+            }
         }
     }
+
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    const shouldTransition = () => transitioning;
 </script>
 
-<div class="container {currentRoute !== '/' ? 'about' : ''}">
-    <div class="bg {currentRoute !== '/' ? 'about' : ''}" transition:fade={{ duration: 500 }} />
-    <div class="content" class:about={currentRoute !== "/"} transition:fly={{ y: -50, duration: 500 }}>
+<div class="container" class:about={currentRoute !== "/"}>
+    <div
+        class="bg"
+        class:about={currentRoute !== "/"}
+        class:instant={!shouldTransition()}
+        transition:fade={{ duration: shouldTransition() ? 500 : 0 }}
+    />
+
+    <div
+        class="content"
+        class:about={currentRoute !== "/"}
+        class:instant={!shouldTransition()}
+        transition:fly={{ y: -50, duration: shouldTransition() ? 500 : 0 }}
+    >
         <div class="header">
             <h1>Noah Syrkis</h1>
         </div>
@@ -30,7 +55,7 @@
             <nav>
                 <a href="/about" class:active={currentRoute === "/about"}>about</a>
                 <a href="/">|</a>
-                <a href="/#works" on:click={handleWorksClick} class:active={currentRoute === "/"}>works</a>
+                <a href="/" class:active={currentRoute === "/"}>works</a>
             </nav>
         </div>
     </div>
@@ -39,8 +64,8 @@
 <style>
     .container {
         position: relative;
-        height: 80vh;
-        transition: all 500ms ease-out;
+        height: 85vh;
+        transition: all 1000ms ease-in-out;
     }
     .container.about {
         height: 25vh;
@@ -48,9 +73,10 @@
     .content {
         position: relative;
         z-index: 1;
-        transition: transform 500ms ease-out;
+        transition: transform 1000ms ease-in-out;
     }
     .content.about {
+        transition: transform 1000ms ease-in-out;
         transform: translateY(calc(-100% + 100px)); /* Move up, leaving 50px visible */
     }
     .header {
@@ -80,7 +106,7 @@
     .bg {
         position: absolute;
         top: 0;
-        transition: all 500ms ease-out;
+        transition: all 1000ms ease-in-out;
         left: 0;
         width: 100%;
         height: 110vh;

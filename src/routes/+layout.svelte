@@ -1,7 +1,7 @@
 <!-- syrkis.com/src/routes/+layout.svelte -->
 <script>
-    import Footer from "$lib/comps/footer.svelte";
-    import Header from "$lib/comps/header.svelte";
+    import Footer from "$lib/comps/Footer.svelte";
+    import Header from "$lib/comps/Header.svelte";
 </script>
 
 <div class="layout">
