@@ -1,0 +1,42 @@
+:root {
+    --color-primary: #333;
+}
+
+body,
+html {
+    font-family: "Latin Modern Roman", serif;
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0;
+    color: var(--color-primary);
+    line-height: 2em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 2rem;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.container {
+    padding-top: 15vh;
+}
+
+.text {
+    width: 666px;
+    max-width: 90%;
+    margin: auto;
+    text-align: justify;
+    text-align-last: center;
+}
