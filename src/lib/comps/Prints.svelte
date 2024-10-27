@@ -36,7 +36,7 @@
                 {#each seriesData.prints as print}
                     <div class="print-item">
                         <!-- Click handler on the content div -->
-                        <div class="print-content" on:click={() => handlePrintClick(print)}>
+                        <button class="print-content" onclick={() => handlePrintClick(print)}>
                             {#if print.image}
                                 <img src={print.image} alt={print.title} class="print-image" />
                             {/if}
@@ -45,7 +45,7 @@
                                     {print.title}, {seriesData.series.material}
                                 </p>
                             </div>
-                        </div>
+                        </button>
 
                         <!-- Mollie component shows only when this print is selected -->
                         {#if selectedPrint === print}
@@ -65,6 +65,12 @@
 </div>
 
 <style>
+    .print-content {
+        all: unset;
+        width: 100%;
+        display: block;
+    }
+
     .prints-container {
         display: flex;
         flex-direction: column;
@@ -94,8 +100,9 @@
 
     .print-info {
         padding-top: 20px;
-        margin: 0;
+        margin: auto;
         font-size: 1em;
+        max-width: 90%;
     }
 
     .purchase-section {

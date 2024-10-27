@@ -2,9 +2,18 @@
     import type { Series, Print } from "$lib/types";
     export let print: Print;
     export let series: Series;
+
     const basePrice = 1000;
     const framingPrice = 500;
 
+    let stochasticPrice = 0;
+
+    function formatPrice(price: number): string {
+        return price.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+        });
+    }
     function generateBillNumber(seriesSlug: string, printSlug: string): number {
         const combined = `${seriesSlug}-${printSlug}`;
         let hash = 0;
@@ -18,35 +27,17 @@
 
     const billNumber = generateBillNumber(series.slug, print.slug);
 
-    function getOrdinalSuffix(day: number): string {
-        if (day > 3 && day < 21) return "th";
-        switch (day % 10) {
-            case 1:
-                return "st";
-            case 2:
-                return "nd";
-            case 3:
-                return "rd";
-            default:
-                return "th";
-        }
-    }
-
-    function formatDate(date: Date): string {
-        const day = date.getDate();
-        const month = date.toLocaleString("en-GB", { month: "long" });
-        const year = date.getFullYear();
-        const suffix = getOrdinalSuffix(day);
-        return `${day}${suffix} of ${month} ${year}`;
-    }
-
-    const currentDate = formatDate(new Date());
+    const currentDate = new Date().toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+    });
 </script>
 
 <div class="purchase-container">
     <div class="header-row">
-        <span>BILL OF SALE | № {billNumber}</span>
-        <span>{currentDate}</span>
+        <span>Art Transfer Document</span>
+        <span> № {billNumber} | {currentDate}</span>
     </div>
 
     <div class="content">
@@ -58,25 +49,33 @@
 
         <div class="pricing">
             <div class="price-row">
-                <span>Edition 4 out of {series.editions} (signed and numbered by the artist)</span>
-                <span>€{basePrice}</span>
+                <span>Stochastic Price Increase</span>
+                <span class="input-container">
+                    € <input type="number" bind:value={stochasticPrice} min="0" step="100" class="price-input" />
+                </span>
             </div>
             <div class="price-row">
-                <span>Museum Grade Hand Crafted Float Framing in Hazelnut</span>
-                <span>€{framingPrice}</span>
+                <span>Edition 4 out of {series.editions} of {print.title}</span>
+                <span>€ {formatPrice(basePrice)}</span>
+            </div>
+            <div class="price-row">
+                <span>Hand Crafted Float Framing in Hazelnut</span>
+                <span>€ {formatPrice(framingPrice)}</span>
             </div>
             <div class="price-row total">
                 <span>Total</span>
-                <span>€{basePrice + framingPrice}</span>
+                <span>€ {formatPrice(basePrice + framingPrice + stochasticPrice)}</span>
             </div>
         </div>
 
-        <div class="terms">Includes certificate of authenticity, worldwide shipping and insurance.</div>
-
+        <div class="terms">
+            Includes certificate of authenticity, worldwide shipping and insurance. Signed and numbered by the artist.
+        </div>
+        <!--
         <button class="apple-pay-button">
             <span>Buy with</span>
             <span class="apple-pay-text">Apple Pay</span>
-        </button>
+        </button> -->
     </div>
 </div>
 
@@ -96,7 +95,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        /* font-size: 1rem; */
         margin-bottom: 1.5rem;
     }
 
@@ -164,7 +162,36 @@
     }
     @media (max-width: 768px) {
         .purchase-container {
-            /* font-size: 0.8em; */
+            font-size: 0.9em;
         }
+        .header-row {
+            font-size: 0.9em;
+        }
+        .content {
+            font-size: 0.9em;
+        }
+    }
+
+    .price-input {
+        width: 80px;
+        margin-left: 4px;
+        border: none;
+        border-bottom: 1px solid #000;
+        padding: 2px 4px;
+        text-align: right;
+        font-family: inherit;
+        font-size: inherit;
+        -moz-appearance: textfield; /* Firefox */
+    }
+
+    .price-input::-webkit-outer-spin-button,
+    .price-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .price-input:focus {
+        outline: none;
+        border-bottom: 2px solid #000;
     }
 </style>
