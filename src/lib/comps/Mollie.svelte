@@ -82,11 +82,11 @@
 
 <style>
     .purchase-container {
-        width: 100%;
-        max-width: 600px;
+        max-width: 80%;
+        width: 666px;
         margin: auto;
         padding: 1.5rem;
-        border: 1px solid #000;
+        /* border: 1px solid #000; */
         border-radius: 2px;
         background-color: #fff;
         letter-spacing: 0.02em;
