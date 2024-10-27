@@ -16,4 +16,5 @@ export interface Print {
   description: string;
   image: string;
   series: string;
+  sold: number;
 }

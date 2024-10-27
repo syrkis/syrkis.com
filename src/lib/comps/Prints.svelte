@@ -1,9 +1,11 @@
 <script lang="ts">
+    import Mollie from "$lib/comps/Mollie.svelte";
     import type { Print, Series } from "$lib/types";
 
     const { slug } = $props<{ slug: string }>();
 
     let seriesData = $state<{ series: Series; prints: Print[] } | null>(null);
+    let selectedPrint: Print | null = $state(null);
 
     $effect(() => {
         Promise.all([
@@ -18,6 +20,10 @@
                 seriesData = null;
             });
     });
+
+    function handlePrintClick(print: Print) {
+        selectedPrint = selectedPrint === print ? null : print;
+    }
 </script>
 
 <div class="container">
@@ -29,12 +35,24 @@
             <div class="prints-container">
                 {#each seriesData.prints as print}
                     <div class="print-item">
-                        {#if print.image}
-                            <img src={print.image} alt={print.title} class="print-image" />
-                        {/if}
-                        <div class="print-info">
-                            <p>{print.title}, {seriesData.series.material}</p>
+                        <!-- Click handler on the content div -->
+                        <div class="print-content" on:click={() => handlePrintClick(print)}>
+                            {#if print.image}
+                                <img src={print.image} alt={print.title} class="print-image" />
+                            {/if}
+                            <div class="print-info">
+                                <p>
+                                    {print.title}, {seriesData.series.material}
+                                </p>
+                            </div>
                         </div>
+
+                        <!-- Mollie component shows only when this print is selected -->
+                        {#if selectedPrint === print}
+                            <div class="purchase-section">
+                                <Mollie {print} series={seriesData.series} />
+                            </div>
+                        {/if}
                     </div>
                 {/each}
             </div>
@@ -52,25 +70,34 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        /* padding: 2rem 1rem; */
         padding: 15vh 0;
     }
 
     .print-item {
         text-align: center;
-        width: 100%;
         width: 80%;
         padding: 10vh 0;
+    }
+
+    .print-content {
+        cursor: pointer;
     }
 
     .print-image {
         width: 100%;
         height: auto;
+        max-width: 80vw;
+        max-height: 90vh;
+        object-fit: contain;
     }
 
-    .print-info p {
+    .print-info {
         padding: 20px 0;
         margin: 0;
         font-size: 1em;
+    }
+
+    .purchase-section {
+        margin-top: 2rem;
     }
 </style>
