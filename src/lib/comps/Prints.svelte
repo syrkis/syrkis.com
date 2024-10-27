@@ -75,7 +75,8 @@
 
     .print-item {
         text-align: center;
-        width: 80%;
+        /* width: 80%; */
+        width: 100%;
         padding: 10vh 0;
     }
 
@@ -92,12 +93,17 @@
     }
 
     .print-info {
-        padding: 20px 0;
+        padding-top: 20px;
         margin: 0;
         font-size: 1em;
     }
 
     .purchase-section {
         margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+        .print-info {
+            font-size: 0.8em;
+        }
     }
 </style>

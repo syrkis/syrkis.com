@@ -52,13 +52,13 @@
     <div class="content">
         <div class="seller">Noah Syrkis · Virian ApS · CVR 42950457 · København</div>
 
-        <div class="artwork-details">
-            {print.title} · {series.material}
-        </div>
+        <!-- <div class="artwork-details"> -->
+        <!-- {print.title} · {series.material} -->
+        <!-- </div> -->
 
         <div class="pricing">
             <div class="price-row">
-                <span>Edition 4 out of {series.editions} of {print.title} (signed and numbered by the artist)</span>
+                <span>Edition 4 out of {series.editions} (signed and numbered by the artist)</span>
                 <span>€{basePrice}</span>
             </div>
             <div class="price-row">
@@ -82,10 +82,10 @@
 
 <style>
     .purchase-container {
-        max-width: 80%;
+        max-width: 95%;
         width: 666px;
         margin: auto;
-        padding: 1.5rem;
+        /* padding: 1.5rem; */
         /* border: 1px solid #000; */
         border-radius: 2px;
         background-color: #fff;
@@ -96,7 +96,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: 0.8rem;
+        /* font-size: 1rem; */
         margin-bottom: 1.5rem;
     }
 
@@ -108,7 +108,7 @@
 
     .seller,
     .artwork-details {
-        font-size: 0.9rem;
+        font-size: 1rem;
         color: #000;
     }
 
@@ -116,12 +116,13 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        text-align: justify;
     }
 
     .price-row {
         display: flex;
         justify-content: space-between;
-        font-size: 0.9rem;
+        /* font-size: 1rem; */
         line-height: 1.5;
     }
 
@@ -131,7 +132,7 @@
     }
 
     .terms {
-        font-size: 0.8rem;
+        font-size: 1rem;
         color: #333;
     }
 
@@ -159,6 +160,11 @@
 
         .apple-pay-text {
             font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+    }
+    @media (max-width: 768px) {
+        .purchase-container {
+            /* font-size: 0.8em; */
         }
     }
 </style>
