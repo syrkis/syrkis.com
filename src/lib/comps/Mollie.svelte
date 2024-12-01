@@ -35,17 +35,56 @@
     });
 
     function calculateTotalPrice(): number {
-        const stochasticPrice = (1 + stochasticPercentage / 100) * basePrice;
+        const stochasticPrice = (1 + stochasticPercentage) * basePrice;
         return stochasticPrice + framingPrice;
     }
 
-    function validatePercentage(value: number): number {
-        if (value < 0) return 0;
-        if (value > 100) return 100;
-        return value;
-    }
+    async function handleApplePay() {
+        const totalPrice = calculateTotalPrice();
+        const paymentRequest = {
+            countryCode: "US",
+            currencyCode: "EUR",
+            total: {
+                label: "Total",
+                amount: (totalPrice / 100).toFixed(2),
+            },
+            supportedNetworks: ["visa", "masterCard", "amex", "discover"],
+            merchantCapabilities: ["supports3DS"],
+        };
 
-    $: stochasticPercentage = validatePercentage(stochasticPercentage);
+        const session = new ApplePaySession(3, paymentRequest);
+
+        session.onvalidatemerchant = async (event) => {
+            const validationData = await fetch("/.netlify/functions/validate-merchant", {
+                method: "POST",
+                body: JSON.stringify({ validationURL: event.validationURL }),
+            }).then((res) => res.json());
+
+            session.completeMerchantValidation(validationData);
+        };
+
+        session.onpaymentauthorized = async (event) => {
+            const paymentData = event.payment;
+            const response = await fetch("/.netlify/functions/create-payment", {
+                method: "POST",
+                body: JSON.stringify({
+                    amount: totalPrice,
+                    description: `Purchase of ${print.title}`,
+                    email: paymentData.shippingContact.emailAddress,
+                    name: paymentData.shippingContact.givenName + " " + paymentData.shippingContact.familyName,
+                }),
+            }).then((res) => res.json());
+
+            if (response.success) {
+                session.completePayment(ApplePaySession.STATUS_SUCCESS);
+                window.location.href = "https://syrkis.com/success";
+            } else {
+                session.completePayment(ApplePaySession.STATUS_FAILURE);
+            }
+        };
+
+        session.begin();
+    }
 </script>
 
 <div class="purchase-container">
@@ -88,6 +127,8 @@
         <div class="terms">
             Includes certificate of authenticity, worldwide shipping and insurance. Signed and numbered by the artist.
         </div>
+
+        <button on:click={handleApplePay} class="apple-pay-button">Buy with Apple Pay</button>
     </div>
 </div>
 
@@ -165,5 +206,15 @@
     .price-input:focus {
         outline: none;
         border-bottom: 2px solid #000;
+    }
+
+    .apple-pay-button {
+        display: inline-block;
+        background: black;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
     }
 </style>

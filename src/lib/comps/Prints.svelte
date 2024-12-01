@@ -104,14 +104,11 @@
         width: 100%;
         height: 100%;
         object-fit: contain;
-    }
-
-    img {
-        border-radius: 10px;
         transition: all 1s ease-in-out;
     }
 
     .print-image:hover {
+        border-radius: 10px;
         transform: scale(1.05);
     }
 
