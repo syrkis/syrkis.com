@@ -6,7 +6,7 @@
     const basePrice = 1000;
     const framingPrice = 500;
 
-    let stochasticPrice = 0;
+    let stochasticPercentage = 0;
 
     function formatPrice(price: number): string {
         return price.toLocaleString("en-US", {
@@ -14,6 +14,7 @@
             maximumFractionDigits: 2,
         });
     }
+
     function generateBillNumber(seriesSlug: string, printSlug: string): number {
         const combined = `${seriesSlug}-${printSlug}`;
         let hash = 0;
@@ -32,6 +33,19 @@
         month: "long",
         year: "numeric",
     });
+
+    function calculateTotalPrice(): number {
+        const stochasticPrice = (1 + stochasticPercentage / 100) * basePrice;
+        return stochasticPrice + framingPrice;
+    }
+
+    function validatePercentage(value: number): number {
+        if (value < 0) return 0;
+        if (value > 100) return 100;
+        return value;
+    }
+
+    $: stochasticPercentage = validatePercentage(stochasticPercentage);
 </script>
 
 <div class="purchase-container">
@@ -43,15 +57,18 @@
     <div class="content">
         <div class="seller">Noah Syrkis · Virian ApS · CVR 38793993 · Copenhagen</div>
 
-        <!-- <div class="artwork-details"> -->
-        <!-- {print.title} · {series.material} -->
-        <!-- </div> -->
-
         <div class="pricing">
             <div class="price-row">
-                <span>Stochastic Price Increase</span>
+                <span>Stochastic Price Increase (%)</span>
                 <span class="input-container">
-                    <input type="number" bind:value={stochasticPrice} min="0" step="100" class="price-input" /> €
+                    <input
+                        type="number"
+                        bind:value={stochasticPercentage}
+                        min="0"
+                        max="100"
+                        step="1"
+                        class="price-input"
+                    /> %
                 </span>
             </div>
             <div class="price-row">
@@ -64,7 +81,7 @@
             </div>
             <div class="price-row total">
                 <span>Total</span>
-                <span>{formatPrice(basePrice + framingPrice + stochasticPrice)} €</span>
+                <span>{formatPrice(calculateTotalPrice())} €</span>
             </div>
         </div>
 
