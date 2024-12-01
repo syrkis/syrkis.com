@@ -11,10 +11,10 @@
     const isSubPage = derived(page, ($page) => $page.url.pathname !== "/");
 </script>
 
-<!-- <div class="background-wrapper" class:subpage={$isSubPage}> -->
-<!-- <div class="background" class:subpage={$isSubPage}></div> -->
-<!-- </div> -->
 <header class:subpage={$isSubPage}>
+    <div class="background-wrapper">
+        <div class="background" class:subpage={$isSubPage}></div>
+    </div>
     <div class="content">
         <h1>
             <a href="/">NOAH SYRKIS</a>
@@ -35,14 +35,14 @@
 
 <style>
     header {
+        position: relative;
         display: flex;
-        overflow: hidden;
         align-items: center;
-        justify-content: center; /* Center children horizontally */
+        justify-content: center;
         font-size: 1.1em;
         margin: 0 auto;
-        width: 100vw; /* Ensure full width */
-        height: 100vh; /* Default height for the homepage */
+        width: 100vw;
+        height: 100vh;
         overflow: hidden;
         transition:
             transform 1s ease-in-out,
@@ -51,7 +51,36 @@
 
     header.subpage {
         transform: translateY(-2em);
-        height: 120px; /* Reduced height for other pages */
+        height: 120px;
+    }
+
+    .background-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        z-index: -1;
+        transition: transform 1s ease-in-out;
+    }
+
+    .background {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 1)),
+            url("/images/aurelian-1.jpg");
+        background-size: cover;
+        background-position: center;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .background.subpage {
+        opacity: 0;
+    }
+
+    .content {
+        z-index: 1;
     }
 
     nav ul {
@@ -65,5 +94,18 @@
     nav li {
         display: inline;
         margin: 0 31px;
+    }
+
+    @keyframes slideUp {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-2em);
+        }
+    }
+
+    header.subpage .background-wrapper {
+        animation: slideUp 1s ease-in-out forwards;
     }
 </style>
