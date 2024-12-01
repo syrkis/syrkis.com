@@ -1,10 +1,10 @@
 <script lang="ts">
     const content = $state(`
-        Noah Syrkis creates at the intersection of technology and art. His work transforms complex ideas into visual experiences, from microscopic nanowires to abstract mathematical concepts.
+      Noah Syrkis's work explores the aesthetics of archives and mathematics, as well as variations on geospatial and organic themes.
 
-        Through photography and digital art, Noah explores themes of emergence, cultural dynamics, and the nature of intelligence. His projects, including the Virian Project, blend data science with artistic expression.
+      Working between Copenhagen, Rio de Janeiro, and New York, Noah develops systems that map from complex data to typographics and aesthetics.
 
-        Noah's background in artificial intelligence informs his unique perspective on creativity and systems thinking. He teaches, researches, and continually seeks new ways to visualize our interconnected world.
+      Through pattern and form, his work examines the relationship between entropy and experience.
     `);
 </script>
 
@@ -18,6 +18,6 @@
     .about {
         text-align: justify;
         text-align-last: center;
-        padding: 5vh 0 15vh 0;
+        padding: 10vh 0 10vh 0;
     }
 </style>

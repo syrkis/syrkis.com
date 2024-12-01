@@ -41,7 +41,7 @@
     </div>
 
     <div class="content">
-        <div class="seller">Noah Syrkis · Virian ApS · CVR 42950457 · København</div>
+        <div class="seller">Noah Syrkis · Virian ApS · CVR 38793993 · Copenhagen</div>
 
         <!-- <div class="artwork-details"> -->
         <!-- {print.title} · {series.material} -->

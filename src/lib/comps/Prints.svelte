@@ -1,6 +1,7 @@
 <script lang="ts">
     import Mollie from "$lib/comps/Mollie.svelte";
     import type { Print, Series } from "$lib/types";
+    import { fade, slide } from "svelte/transition";
 
     const { slug } = $props<{ slug: string }>();
 
@@ -49,7 +50,7 @@
 
                         <!-- Mollie component shows only when this print is selected -->
                         {#if selectedPrint === print}
-                            <div class="purchase-section">
+                            <div class="purchase-section" transition:slide>
                                 <Mollie {print} series={seriesData.series} />
                             </div>
                         {/if}
@@ -92,10 +93,26 @@
 
     .print-image {
         width: 100%;
-        height: auto;
         max-width: 80vw;
         max-height: 90vh;
+        overflow: hidden;
+        /* transtion on border and transform*/
+        /* transition: all 1s ease-in-out; */
+    }
+
+    .print-image {
+        width: 100%;
+        height: 100%;
         object-fit: contain;
+    }
+
+    img {
+        border-radius: 10px;
+        transition: all 1s ease-in-out;
+    }
+
+    .print-image:hover {
+        transform: scale(1.05);
     }
 
     .print-info {
