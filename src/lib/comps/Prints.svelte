@@ -7,6 +7,7 @@
 
     let seriesData = $state<{ series: Series; prints: Print[] } | null>(null);
     let selectedPrint: Print | null = $state(null);
+    let applePaySupported = false;
 
     $effect(() => {
         Promise.all([
@@ -20,6 +21,11 @@
                 console.error("Error fetching data:", error);
                 seriesData = null;
             });
+
+        // Check if Apple Pay is supported
+        if (window.ApplePaySession && ApplePaySession.canMakePayments()) {
+            applePaySupported = true;
+        }
     });
 
     function handlePrintClick(print: Print) {
@@ -48,8 +54,8 @@
                             </div>
                         </button>
 
-                        <!-- Mollie component shows only when this print is selected -->
-                        {#if selectedPrint === print}
+                        <!-- Mollie component shows only when this print is selected and Apple Pay is supported -->
+                        {#if selectedPrint === print && applePaySupported}
                             <div class="purchase-section" transition:slide>
                                 <Mollie {print} series={seriesData.series} />
                             </div>
