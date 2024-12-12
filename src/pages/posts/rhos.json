@@ -1,6 +1,14 @@
 {
   "slug": "rhos",
   "title": "RHOS",
-  "content": "This is the about page content.",
-  "cover": "rhos-1.jpg"
+  "content": " RHOS is a computer generated collection of derivatives of derivatives ... of ... of derivatives of rotating Gaussians",
+  "cover": "rhos-1.jpg",
+  "material": " Procedurally Generated Motif on Fine Art Cotton Rag Paper",
+  "works": [
+    { "cover": "rhos-1.jpg", "title": "RHOS 1" },
+    { "cover": "rhos-2.jpg", "title": "RHOS 2" },
+    { "cover": "rhos-3.jpg", "title": "RHOS 3" },
+    { "cover": "rhos-4.jpg", "title": "RHOS 4" },
+    { "cover": "rhos-5.jpg", "title": "RHOS 5" }
+  ]
 }

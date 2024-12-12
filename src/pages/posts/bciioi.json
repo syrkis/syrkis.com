@@ -1,6 +1,14 @@
 {
   "slug": "bciioi",
   "title": "BCIIOI",
-  "content": "This is the about page content.",
-  "cover": "bciioi-5.jpg"
+  "content": "BCIIOI is a series of images of etched nano wires (potential uses include single neuron interfacing) captured through a microscope lens",
+  "cover": "bciioi-5.jpg",
+  "material": " Archival of Microscopy Photograph of Etched Nano Wires",
+  "works": [
+    { "cover": "bciioi-1.jpg", "title": "BCIIOI 1" },
+    { "cover": "bciioi-2.jpg", "title": "BCIIOI 2" },
+    { "cover": "bciioi-3.jpg", "title": "BCIIOI 3" },
+    { "cover": "bciioi-4.jpg", "title": "BCIIOI 4" },
+    { "cover": "bciioi-5.jpg", "title": "BCIIOI 5" }
+  ]
 }
