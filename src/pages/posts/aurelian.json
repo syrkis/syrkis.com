@@ -4,9 +4,7 @@
   "content": "This is the about page content.",
   "cover": "aurelian-1.jpg",
   "works": [
-    {
-      "slug": "aurelian",
-      "title": "Aurelian"
-    }
+    { "cover": "aurelian-1.jpg", "title": "Aurelian 1" },
+    { "cover": "aurelian-2.jpg", "title": "Aurelian 2" }
   ]
 }

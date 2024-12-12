@@ -27,19 +27,56 @@ const { post } = Astro.props;
     <main>
         <h1>{post.title}</h1>
         <p>{post.date}</p>
-        <div set:html={post.content} />
+        <div set:html={post.content}  class="content" />
+        <div class="works-grid">
+            {post.works.map((work) => (
+                <div class="work-item">
+                    <div class="image-container">
+                        <img src=`https://s3.syrk.is/${work.cover}` alt={work.title} />
+                    </div>
+                    <h3>{work.title}</h3>
+                </div>
+            ))}
+        </div>
     </main>
 </Layout>
 
-<script>
-    document.addEventListener("astro:page-load", () => {
-        const path = window.location.pathname;
-        if (path !== "/" && path !== "/code" && path !== "/text") {
-            window.scrollTo({
-                top: 200,
-                left: 0,
-                behavior: "instant",
-            });
-        }
-    });
-</script>
+<style>
+.content{
+    width: 80%;
+    text-align: center;
+    margin: 0 auto;
+}
+    .works-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        padding: 2rem 0;
+    }
+
+    .work-item {
+        display: flex;
+        flex-direction: column;
+        /* gap: 1rem; */
+        align-items: center;
+    }
+
+    .image-container {
+        width: 95vw;
+        height: 95vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-container img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .work-item h3 {
+        margin: 0;
+        font-size: 1.2rem;
+    }
+</style>
