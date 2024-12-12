@@ -1,0 +1,73 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+const text = Astro.props.text;
+
+const allPosts = await Promise.all(
+    Object.entries(import.meta.glob("./posts/*.json")).map(async ([path, loader]) => {
+        const { default: post } = await loader();
+        return { ...post };
+    }),
+);
+---
+
+<Layout>
+    <Header />
+    <div class="posts-list">
+        <span class="text">{text}</span>
+        {
+            allPosts.map((post: any) => (
+                <a href={post.slug}>
+                    <div class="post-item" style={`background-image: url(https://s3.syrk.is/${post.cover})`}>
+                        <h2>{post.title}</h2>
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</Layout>
+
+<style>
+    .text {
+        font-size: 1.1em;
+        text-align: center;
+        width: 700px;
+        margin: 0 auto;
+        max-width: 100%;
+    }
+    .posts-list {
+        display: grid;
+        gap: 150px;
+        padding: 100px 0;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .post-item {
+        height: 70vh;
+        border-radius: 20px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        text-transform: uppercase;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .post-item:hover {
+        transform: scale(1.05);
+    }
+</style>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const path = window.location.pathname;
+        if (path !== "/" && path !== "/code" && path !== "/text") {
+            window.scrollTo({
+                top: 100,
+                left: 0,
+                behavior: "instant",
+            });
+        }
+    });
+</script>

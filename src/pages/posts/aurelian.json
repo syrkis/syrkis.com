@@ -1,0 +1,12 @@
+{
+  "slug": "aurelian",
+  "title": "Aurelian",
+  "content": "This is the about page content.",
+  "cover": "aurelian-1.jpg",
+  "works": [
+    {
+      "slug": "aurelian",
+      "title": "Aurelian"
+    }
+  ]
+}

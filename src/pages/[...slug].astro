@@ -1,0 +1,45 @@
+---
+import Header from "../components/Header.astro";
+import Layout from "../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+    const posts = import.meta.glob("../pages/posts/*.json");
+
+    const paths = await Promise.all(
+        Object.entries(posts).map(async ([path, loader]) => {
+            const { default: postData } = await loader();
+            const slug = path.split("/").pop()?.replace(".json", "");
+            return {
+                params: { slug },
+                props: { post: postData },
+            };
+        }),
+    );
+
+    return paths;
+}
+
+const { post } = Astro.props;
+---
+
+<Layout title={post.title}>
+    <Header />
+    <main>
+        <h1>{post.title}</h1>
+        <p>{post.date}</p>
+        <div set:html={post.content} />
+    </main>
+</Layout>
+
+<script>
+    document.addEventListener("astro:page-load", () => {
+        const path = window.location.pathname;
+        if (path !== "/" && path !== "/code" && path !== "/text") {
+            window.scrollTo({
+                top: 200,
+                left: 0,
+                behavior: "instant",
+            });
+        }
+    });
+</script>
