@@ -1,7 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
-const text = Astro.props.text;
 
 const allPosts = await Promise.all(
     Object.entries(import.meta.glob("./posts/*.json")).map(async ([path, loader]) => {
@@ -9,6 +8,8 @@ const allPosts = await Promise.all(
         return { ...post };
     }),
 );
+const text = "These works investigate the visual principles of systems, from archival structures to organic patterns"
+
 ---
 
 <Layout>
@@ -30,13 +31,7 @@ const allPosts = await Promise.all(
 </Layout>
 
 <style>
-    .text {
-        font-size: 1.1em;
-        text-align: center;
-        width: 700px;
-        margin: 0 auto;
-        max-width: 100%;
-    }
+
     .posts-list {
         display: grid;
         gap: 150px;
