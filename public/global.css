@@ -19,6 +19,10 @@ h3 {
     font-weight: normal;
     margin: 0;
 }
+.post-item h2 {
+    mix-blend-mode: difference;
+    color: white;
+}
 h3 {
     letter-spacing: 0.5em;
     font-size: 1.1em;
