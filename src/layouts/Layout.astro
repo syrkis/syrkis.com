@@ -1,13 +1,13 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Footer from "../components/Footer.astro";
-import "/public/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
         <ClientRouter />
+        <link rel="stylesheet" href="/global.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -25,15 +25,6 @@ import "/public/global.css";
         <Footer />
     </body>
 </html>
-
-<style>
-    html,
-    body {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-    }
-</style>
 
 <script>
     document.addEventListener("astro:page-load", () => {

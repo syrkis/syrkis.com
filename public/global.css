@@ -27,25 +27,10 @@ a {
     text-decoration: none;
 }
 
-/* light and dark mode theme stuff below */
-/* @media (prefers-color-scheme: dark) { */
-/* html, */
-/* body { */
-/* background-color: black; */
-/* color: white; */
-/* } */
-/* svg, */
-/* img { */
-/* filter: invert(1); */
-/* } */
-/* } */
-
-.typst {
-    display: flex;
-    justify-content: center;
-    padding: 0 1rem;
-}
-
-:root {
-    --astro-transition-duration: 500ms; /* Set your desired duration here */
+.text {
+    font-size: 1.1em;
+    text-align: center;
+    width: 700px;
+    margin: 0 auto;
+    max-width: 100%;
 }
