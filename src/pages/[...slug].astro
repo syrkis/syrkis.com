@@ -27,31 +27,37 @@ const { post } = Astro.props;
     <main>
         <h1>{post.title}</h1>
         <p>{post.date}</p>
-        <div set:html={post.content}  class="content" />
+        <div set:html={post.content} class="content" />
         <div class="works-grid">
-            {post.works.map((work) => (
-                <div class="work-item">
-                    <div class="image-container">
-                        <img src=`https://s3.syrk.is/${work.cover}` alt={work.title} />
+            {
+                post.works.map((work) => (
+                    <div class="work-item">
+                        <div class="image-container">
+                            <img src={"https://s3.syrk.is/" + work.cover} alt={work.title} />{" "}
+                        </div>
+                        <h3>
+                            {work.title}, {post.material}, {post.year}
+                        </h3>
                     </div>
-                    <h3>{work.title}</h3>
-                </div>
-            ))}
+                ))
+            }
         </div>
     </main>
 </Layout>
 
 <style>
-h1 {
-    text-transform: uppercase;
-}
+    h1 {
+        text-transform: uppercase;
+        padding-top: 10vh;
+    }
 
-
-.content{
-    width: 80%;
-    text-align: center;
-    margin: 0 auto;
-}
+    .content {
+        max-width: 90vw;
+        width: 700px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 10vh 0;
+    }
     .works-grid {
         display: flex;
         flex-direction: column;
@@ -83,5 +89,7 @@ h1 {
     .work-item h3 {
         margin: 0;
         font-size: 1.2rem;
+        letter-spacing: 0.1rem;
+        font-weight: normal;
     }
 </style>

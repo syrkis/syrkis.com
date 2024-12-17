@@ -2,14 +2,11 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
-const allPosts = await Promise.all(
-    Object.entries(import.meta.glob("./posts/*.json")).map(async ([path, loader]) => {
-        const { default: post } = await loader();
-        return { ...post };
-    }),
+const allPosts = Object.values(import.meta.glob("./posts/*.json", { eager: true })).sort((a, b) =>
+    a.year < b.year ? 1 : -1,
 );
-const text = "These works investigate the visual principles of systems, from archival structures to organic patterns"
 
+const text = "These works investigate the visual principles of systems, from archival structures to organic patterns";
 ---
 
 <Layout>
@@ -18,20 +15,22 @@ const text = "These works investigate the visual principles of systems, from arc
         <span class="text">{text}</span>
         {
             allPosts.map((post: any) => (
-            <div transition:name=`page-${post.slug}`>
-                <a href=`/${post.slug}`>
-                    <div class="post-item" style={`background-image: url(https://s3.syrk.is/${post.cover})`}>
-                        <h2>{post.title}</h2>
-                    </div>
-                </a>
-            </div>
+                <div transition:name={post.slug}>
+                    <a href={`/${post.slug}`}>
+                        <div class="post-item" style={`background-image: url(https://s3.syrk.is/${post.cover})`}>
+                            <h2>{post.title}</h2>
+                        </div>
+                    </a>
+                </div>
             ))
         }
     </div>
 </Layout>
 
 <style>
-
+    h2 {
+        letter-spacing: 0.3em;
+    }
     .posts-list {
         display: grid;
         gap: 150px;

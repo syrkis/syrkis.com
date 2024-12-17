@@ -1,0 +1,14 @@
+{
+  "slug": "esch",
+  "title": "esch",
+  "content": "The Aurelian Textures is a collection of images of butterfly wings captured through a microscopic lens",
+  "cover": "esch-4.svg",
+  "year": 2024,
+  "material": "Microscopy Photograph of Butterfly Wings",
+  "works": [
+    { "cover": "esch-1.svg", "title": "Aurelian 1" },
+    { "cover": "esch-2.svg", "title": "Aurelian 2" },
+    { "cover": "esch-3.svg", "title": "Aurelian 3" },
+    { "cover": "esch-4.svg", "title": "Aurelian 4" }
+  ]
+}
