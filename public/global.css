@@ -6,7 +6,7 @@ body {
     height: 100%;
     line-height: 2.5;
     letter-spacing: 0.05rem;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-family: "Latin Modern Roman", serif;
 }
 
@@ -37,5 +37,5 @@ a {
     text-align: center;
     width: 700px;
     margin: 0 auto;
-    max-width: 100%;
+    max-width: 95%;
 }
