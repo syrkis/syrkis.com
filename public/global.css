@@ -34,7 +34,8 @@ a {
 
 .text {
     font-size: 1.1em;
-    text-align: center;
+    text-align: justify;
+    text-align-last: center;
     width: 700px;
     margin: 0 auto;
     max-width: 90vw;
