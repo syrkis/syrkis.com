@@ -1,0 +1,61 @@
+---
+import fs from "node:fs/promises";
+import path from "node:path";
+import { Typst } from "astro-typst/src/components";
+
+interface Params {
+    filePath: string;
+}
+const { filePath } = Astro.props;
+---
+
+<div class="slides-container">
+    <Typst
+        src={filePath}
+        remPx={10}
+        props={{ width: "100%", height: "auto" }}
+    />
+</div>
+
+<style>
+    .slides-container {
+        text-align: center;
+        padding: 2rem;
+        border: 1px solid #ccc;
+        margin: 2rem 0;
+    }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        let pageNumber = 0; // Default page number
+
+        const typstPages = document.querySelectorAll(".typst-page");
+        const typstPagesArray = Array.from(typstPages);
+        const typstDoc = document.querySelector(".typst-doc");
+
+        function showPage(pageNumber) {
+            typstPagesArray.forEach((page, index) => {
+                if (index === pageNumber) {
+                    page.style.display = "block";
+                    page.setAttribute("transform", "translate(0, 0)");
+                    const pageWidth = page.getAttribute("data-page-width");
+                    const pageHeight = page.getAttribute("data-page-height");
+                    typstDoc.setAttribute(
+                        "viewBox",
+                        `0 0 ${pageWidth} ${pageHeight}`,
+                    );
+                } else {
+                    page.style.display = "none";
+                }
+            });
+        }
+
+        showPage(pageNumber); // Show the default page
+
+        console.log(
+            `Number of typst-page instances: ${typstPagesArray.length}`,
+        );
+        console.log(typstPagesArray);
+    });
+</script>

@@ -1,47 +1,57 @@
 ---
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
+import Series from "../components/Series.astro";
+import Slides from "../components/Slides.astro";
 
 export async function getStaticPaths() {
-    const posts = import.meta.glob("../pages/posts/*.json");
+    const seriesPosts = import.meta.glob("../pages/series/*.json");
+    const slidesPosts = import.meta.glob("../pages/slides/*.typ");
 
-    const paths = await Promise.all(
-        Object.entries(posts).map(async ([path, loader]) => {
+    const seriesPaths = await Promise.all(
+        Object.entries(seriesPosts).map(async ([path, loader]) => {
             const { default: postData } = await loader();
             const slug = path.split("/").pop()?.replace(".json", "");
             return {
                 params: { slug },
-                props: { post: postData },
+                props: { post: postData, type: "series" },
             };
         }),
     );
 
-    return paths;
+    const slidesPaths = Object.keys(slidesPosts).map((path) => {
+        const slug = path.split("/").pop()?.replace(".typ", "");
+        return {
+            params: { slug },
+            props: { slug, type: "slides" },
+        };
+    });
+
+    return [...seriesPaths, ...slidesPaths];
 }
 
-const { post } = Astro.props;
+const { post, slug, type } = Astro.props;
+const filePath =
+    type === "series"
+        ? `src/pages/series/${slug}.json`
+        : `src/pages/slides/${slug}.typ`;
 ---
 
-<Layout title={post.title}>
+<Layout title={type === "series" ? post.title : `Slides: ${slug}`}>
     <Header />
     <main>
-        <h1>{post.title}</h1>
-        <p>{post.date}</p>
-        <div set:html={post.content} class="content" />
-        <div class="works-grid">
-            {
-                post.works.map((work) => (
-                    <div class="work-item">
-                        <div class="image-container">
-                            <img src={"https://s3.syrk.is/" + work.cover} alt={work.title} />{" "}
-                        </div>
-                        <h3>
-                            <i>{work.title}</i>, {post.material}, {post.year}
-                        </h3>
-                    </div>
-                ))
-            }
-        </div>
+        {
+            type === "series" ? (
+                <>
+                    <h1>{post.title}</h1>
+                    <p>{post.date}</p>
+                    <div set:html={post.content} class="content" />
+                    <Series post={post} />
+                </>
+            ) : (
+                <Slides {filePath} />
+            )
+        }
     </main>
 </Layout>
 
@@ -57,39 +67,5 @@ const { post } = Astro.props;
         text-align: center;
         margin: 0 auto;
         padding: 10vh 0;
-    }
-    .works-grid {
-        display: flex;
-        flex-direction: column;
-        gap: 4rem;
-        padding: 2rem 0;
-    }
-
-    .work-item {
-        display: flex;
-        flex-direction: column;
-        /* gap: 1rem; */
-        align-items: center;
-    }
-
-    .image-container {
-        width: 95vw;
-        height: 95vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .image-container img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-    }
-
-    .work-item h3 {
-        margin: 0;
-        font-size: 1.2rem;
-        letter-spacing: 0.1rem;
-        font-weight: normal;
     }
 </style>
