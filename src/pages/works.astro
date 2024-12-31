@@ -2,9 +2,13 @@
 import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
-const allPosts = Object.values(
+const allSeries = Object.values(
     import.meta.glob("./series/*.json", { eager: true }),
 ).sort((a, b) => (a.year < b.year ? 1 : -1));
+
+const allSlides = Object.values(
+    import.meta.glob("./slides/*.typ", { eager: true }),
+);
 
 const text =
     "Exclusive limited edition archival prints are available upon request. For any inquiries, contact us at desk[at]syrkis.com";
@@ -15,7 +19,7 @@ const text =
     <div class="posts-list">
         <span class="text">{text}</span>
         {
-            allPosts.map((post: any) => (
+            allSeries.map((post: any) => (
                 <div transition:name={post.slug}>
                     <a href={`/${post.slug}`}>
                         <div
@@ -28,12 +32,33 @@ const text =
                 </div>
             ))
         }
+        <center>———————</center>
+        <h2>TALKS</h2>
+        {
+            allSlides.map((post: any) => (
+                <div transition:name={post.slug}>
+                    <center>
+                        <div class="slide">
+                            <span>
+                                <i>{post.frontmatter.title}</i>
+                            </span>
+                            <br />
+                            <a href={`/${post.frontmatter.slug}`}>slide</a> |
+                            video
+                        </div>
+                    </center>
+                </div>
+            ))
+        }
     </div>
 </Layout>
 
 <style>
     h2 {
         letter-spacing: 0.3em;
+    }
+    .slide {
+        font-size: 1.2em;
     }
     .posts-list {
         display: grid;

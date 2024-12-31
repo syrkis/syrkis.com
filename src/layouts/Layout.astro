@@ -27,14 +27,17 @@ import Footer from "../components/Footer.astro";
 </html>
 
 <script>
-    document.addEventListener("astro:page-load", () => {
-        const path = window.location.pathname;
-        if (path !== "/") {
+    let previousPath = window.location.pathname;
+
+    document.addEventListener("astro:after-swap", () => {
+        const currentPath = window.location.pathname;
+        if (currentPath !== previousPath && currentPath !== "/") {
             window.scrollTo({
-                top: 123,
+                top: 150,
                 left: 0,
                 behavior: "instant",
             });
         }
+        previousPath = currentPath;
     });
 </script>
