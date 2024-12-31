@@ -20,15 +20,15 @@ const { filePath } = Astro.props;
 <style>
     .slides-container {
         text-align: center;
-        padding: 2rem;
-        border: 1px solid #ccc;
-        margin: 2rem 0;
+        /* padding: 2rem; */
+        /* margin: 2rem 0; */
     }
 </style>
 
+<!--
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        let pageNumber = 0; // Default page number
+        let pageNumber = 1; // Default page number
 
         const typstPages = document.querySelectorAll(".typst-page");
         const typstPagesArray = Array.from(typstPages);
@@ -59,3 +59,22 @@ const { filePath } = Astro.props;
         console.log(typstPagesArray);
     });
 </script>
+-->
+
+<style is:global>
+    @media (prefers-color-scheme: dark) {
+        html,
+        body {
+            background-color: black;
+            color: white;
+        }
+        svg,
+        img {
+            filter: invert(1);
+        }
+    }
+    header,
+    footer {
+        display: none;
+    }
+</style>
