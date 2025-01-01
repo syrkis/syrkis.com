@@ -55,21 +55,3 @@ const { post } = Astro.props;
         font-weight: normal;
     }
 </style>
-
-<style is:global>
-    @media (prefers-color-scheme: dark) {
-        html,
-        body {
-            background-color: white;
-            color: black;
-        }
-        svg,
-        img {
-            filter: invert(0);
-        }
-    }
-    header,
-    footer {
-        display: true;
-    }
-</style>
