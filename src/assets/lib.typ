@@ -48,7 +48,7 @@
 
 /// Outline slide for the presentation.
 #let cover-slide(leading: 50pt) = touying-slide-wrapper(self => {
-  set text(size: 28pt)
+  set text(size: 24pt)
   set par(leading: leading)
 
   let body = {
@@ -61,7 +61,7 @@
         {
           set par(leading: 20pt)
           context {
-            text(self.info.title)
+            text(self.info.title, size: 28pt)
             v(1em)
             text(size: 20pt, weight: "regular", self.info.author)
             if self.info.institution != none {
@@ -118,7 +118,7 @@
   ..args,
   body,
 ) = {
-  set text(size: 20pt)
+  set text(size: 18pt)
   // set heading(numbering: "1 |")
   show heading.where(level: 1): set heading(numbering: "1 |")
   show heading.where(level: 2): set heading(numbering: "1.1 |")
