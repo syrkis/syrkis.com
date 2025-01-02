@@ -5,7 +5,7 @@ import Series from "../components/Series.astro";
 import Slides from "../components/Slides.astro";
 
 export async function getStaticPaths() {
-    const seriesPosts = import.meta.glob("../pages/series/*.json");
+    const seriesPosts = import.meta.glob("../series/*.json");
     const slidesPosts = import.meta.glob("../pages/slides/*.typ");
 
     const seriesPaths = await Promise.all(

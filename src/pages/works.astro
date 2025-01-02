@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 
 const allSeries = Object.values(
-    import.meta.glob("./series/*.json", { eager: true }),
+    import.meta.glob("../series/*.json", { eager: true }),
 ).sort((a, b) => (a.year < b.year ? 1 : -1));
 
 const allSlides = Object.values(
