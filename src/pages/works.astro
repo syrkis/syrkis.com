@@ -43,8 +43,13 @@ const text =
                                 <i>{post.frontmatter.title}</i>
                             </span>
                             <br />
-                            <a href={`/${post.frontmatter.slug}`}>slide</a> |
-                            video
+                            <a
+                                href={`/${post.frontmatter.slug}`}
+                                onclick={`window.location.href='/${post.frontmatter.slug}'; return false;`}
+                            >
+                                slide
+                            </a>{" "}
+                            | video
                         </div>
                     </center>
                 </div>
