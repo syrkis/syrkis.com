@@ -30,3 +30,11 @@ Hello, Touying!
 = second
 
 Hello, Typst!
+
+= bub
+
+Hello, Typst!
+
+= blah
+
+Hello, Typst!
