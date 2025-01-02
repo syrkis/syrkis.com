@@ -21,16 +21,17 @@ const { filePath } = Astro.props;
     .slides-container {
         text-align: center;
         width: 95%;
-        /* height: 100vh; */
         margin: 0 auto;
-        overflow: hidden;
-        /* padding: 2rem; */
-        /* margin: 2rem 0; */
     }
     .typst-doc {
-        /* margin: auto; */
         margin: auto 0;
-        /* height: 100vh; */
+    }
+    body.slides-active {
+        overflow: hidden;
+    }
+    .slides-container.slides-active {
+        overflow: hidden;
+        height: 100vh;
     }
 </style>
 <script is:inline>
@@ -43,6 +44,9 @@ const { filePath } = Astro.props;
             const typstPages = document.querySelectorAll(".typst-page");
             const typstPagesArray = Array.from(typstPages);
             const typstDoc = document.querySelector(".typst-doc");
+            const slidesContainer = document.querySelector(".slides-container");
+
+            typstDoc.setAttribute("height", "100vh");
 
             function showPage(pageNumber) {
                 typstPagesArray.forEach((page, index) => {
@@ -77,18 +81,29 @@ const { filePath } = Astro.props;
             if (header) header.style.display = "none";
             if (footer) footer.style.display = "none";
 
-            // Optionally, you can add a class to the body to indicate the component is active
+            // Add a class to the body and slides-container to indicate the component is active
             document.body.classList.add("slides-active");
+            slidesContainer.classList.add("slides-active");
 
             // Add event listener for keydown events
             document.addEventListener("keydown", (event) => {
-                if (event.key === "ArrowRight") {
+                if (
+                    event.key === "ArrowRight" ||
+                    event.key === "ArrowDown" ||
+                    event.key === "j" ||
+                    event.key === " " // Space key
+                ) {
                     // Go to the next slide
                     if (pageNumber < typstPagesArray.length - 1) {
                         pageNumber++;
                         showPage(pageNumber);
                     }
-                } else if (event.key === "ArrowLeft") {
+                } else if (
+                    event.key === "ArrowLeft" ||
+                    event.key === "ArrowUp" ||
+                    event.key === "k" ||
+                    (event.key === " " && event.shiftKey) // Shift + Space key
+                ) {
                     // Go to the previous slide
                     if (pageNumber > 0) {
                         pageNumber--;
@@ -102,6 +117,7 @@ const { filePath } = Astro.props;
                 if (header) header.style.display = "";
                 if (footer) footer.style.display = "";
                 document.body.classList.remove("slides-active");
+                slidesContainer.classList.remove("slides-active");
             });
         }
     });
