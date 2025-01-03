@@ -47,7 +47,6 @@
   )
 })
 
-
 /// Outline slide for the presentation.
 #let cover-slide(leading: 50pt) = touying-slide-wrapper(self => {
   set text(size: 24pt)
@@ -103,7 +102,6 @@
   touying-slide(self: self, body)
 })
 
-
 #let focus-slide(body) = touying-slide-wrapper(self => {
   self = utils.merge-dicts(
     self,
@@ -112,8 +110,9 @@
   touying-slide(self: self, align(horizon + center, body))
 })
 
+#let appendix-ref-format = (..nums) => "Appendix " + numbering("A", ..nums)
+
 #let esch-appendix(body) = {
-  // Set heading numbering to letters for the appendix
   counter(heading).update(0)
   show heading.where(level: 1): set heading(
     numbering: (..nums) => "Appendix " + numbering("A", ..nums) + " |",
@@ -122,7 +121,6 @@
 
   body
 }
-
 
 #let esch-bibliography(file, title: "References", style: "ieee") = {
   // Set heading numbering to none for the bibliography

@@ -27,6 +27,13 @@
 #show figure.caption: emph
 
 // body /////////////////////////////////////////////////////////////////////////
+//
+#let appendix(body) = {
+  set heading(numbering: "A", supplement: [Appendix])
+  counter(heading).update(0)
+  body
+}
+
 #cover-slide()
 
 #focus-slide[
@@ -57,7 +64,8 @@
   - Grokking @power2022 is "sudden generalization" #pause
   - MI neceitates a mechanism #pause
   - Grokking is thus convenient for MI #pause
-  - #cite(<lee2024a>, form: "prose", style:"american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast
+  - #cite(<lee2024a>, form: "prose", style:"american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast #pause
+  - For more see @ssp
 ][
   // #meanwhile
   $
@@ -156,9 +164,9 @@
 = Embeddings
 
 #slide[
-  - The pos. embs. of @pos_emb shows $cal(T)_"nanda"$ is commutative and $cal(T)_"miiii"$ is not
-  - Pearsons correlation is $0.95$ for $cal(T)_"nanda"$ and $-0.64$ for $cal(T)_"miiii"$
-  - Conjecture: The pos. embs. correct for non-commutativity of $cal(T)_"miiii"$
+  - The position embs. of @pos_emb reflects that $cal(T)_"nanda"$ is commutative and $cal(T)_"miiii"$ is not
+  - Idea: this corrects non-comm. of $cal(T)_"miiii"$?
+  - Corr. is $0.95$ for $cal(T)_"nanda"$ and $-0.64$ for $cal(T)_"miiii"$
 ][
   #figure(
     image("/src/assets/figs/miiii/pos_emb.svg", width: 100%),
@@ -255,7 +263,7 @@
       align: center,
       inset: 10pt,
       table.header(
-        [*epoch*],
+        [time],
         "256",
         "1024",
         "4096",
@@ -281,7 +289,24 @@
 ]
 
 
-#set align(top)
-#show heading.where(level: 1): set heading(numbering: none)
-= References <touying:unoutlined>
-#bibliography("/src/assets/zotero.bib", title: none, style: "ieee")
+#esch-bibliography("/src/assets/zotero.bib")
+
+
+#pagebreak()
+
+#esch-appendix[
+
+  = Stochastic Signal Processing<ssp>
+
+  test
+
+  = Discrete Fourier Transform<dft>
+
+  Function can be expressed as a linear combination of cosine and sine waves.
+  A similar thing can be done for data / vectors.
+
+  = Singular Value Decomposition<svd>
+
+  An $n times m$ matrix $M$ can be represented as a $U Sigma V^*$, where $U$ is an $m times m$ complex unitary matrix, $Sigma$ a rectangular $m times n$ diagonal matrix (padded with zeros), and $V$ an $n times n$ complex unitary matrix. Multiplying by $M$ can this be viewed as first rotating in the $m$-space with $U$, then scaling by $Sigma$ and then rotating by $V$ in the $n$-space.
+
+]

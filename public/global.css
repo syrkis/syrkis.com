@@ -39,3 +39,15 @@ a {
     margin: 0 auto;
     max-width: 90vw;
 }
+
+/* light and dark mode theme stuff below */
+@media (prefers-color-scheme: dark) {
+    html,
+    body {
+        background-color: black;
+        color: white;
+    }
+    svg {
+        filter: invert(1);
+    }
+}

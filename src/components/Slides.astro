@@ -15,7 +15,7 @@ const { filePath } = Astro.props;
     />
 </div>
 
-<style is:global>
+<style>
     .slides-container {
         text-align: center;
         width: 95%;
@@ -32,6 +32,7 @@ const { filePath } = Astro.props;
         height: 100vh;
     }
 </style>
+
 <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
         const isWiderThanTall = window.innerWidth > window.innerHeight;
