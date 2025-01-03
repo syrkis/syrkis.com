@@ -195,8 +195,8 @@
 
 #slide[
   - Masking $q in {2,3,5,7}$ yields we see a slight decrease in token emb. freqs. #pause
-  - Sanity check: $cal(T)_"bline"$ has no periodicity
-  - Conjecture: The tok. embs. encode a basis per subtask
+  - Sanity check: $cal(T)_"baseline"$ has no periodicity
+  - The tok. embs. encode a basis per subtask?
 ][
   #figure(
     stack(
@@ -205,7 +205,7 @@
       image("/src/assets/figs/miiii/fourier_masks_m.svg"),
       image("/src/assets/figs/miiii/fourier_basis_m.svg"),
     ),
-    caption: [$cal(T)_"nanda"$ (top) and $cal(T)_"miiii"$ (bottom) token embeddings in Fourier basis],
+    caption: [$cal(T)_"masked"$ (top) and $cal(T)_"baseline"$ (bottom) token embeddings in Fourier basis],
   )<tok_emb>
 ]
 
@@ -249,7 +249,7 @@
 ]
 
 
-= $omega$-Spike
+= The $omega$-Spike
 
 #slide[
   // - We reach our central finding
@@ -291,8 +291,6 @@
 
 #esch-bibliography("/src/assets/zotero.bib")
 
-
-#pagebreak()
 
 #esch-appendix[
 
