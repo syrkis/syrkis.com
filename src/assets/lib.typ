@@ -25,7 +25,9 @@
     place(
       right,
       dx: -2em,
-      utils.slide-counter.display() + " of " + utils.last-slide-number,
+      context {
+        utils.slide-counter.display() + " of " + utils.last-slide-number
+      },
     )
   }
   let self = utils.merge-dicts(
@@ -110,6 +112,31 @@
   touying-slide(self: self, align(horizon + center, body))
 })
 
+#let appendix(body) = {
+  // Set heading numbering to letters for the appendix
+  counter(heading).update(0)
+  show heading.where(level: 1): set heading(numbering: "Appendix A |")
+  show heading.where(level: 2): set heading(numbering: "A.1 |")
+
+  // Hide appendix headings from the main outline
+  show heading.where(supplement: [Appendix]): set heading(visible: false)
+
+  // Reset the heading counter for the appendix
+
+  body
+}
+
+
+#let zotero(file, title: "References", style: "ieee") = {
+  // Set heading numbering to none for the bibliography
+  show heading.where(level: 1): set heading(numbering: none)
+  set align(top)
+  // Display the bibliography
+  [
+    = #title <touying:unoutlined>
+    #bibliography(file, title: none, style: style)
+  ]
+}
 
 #let escher-theme(
   aspect-ratio: "16-9",
@@ -121,12 +148,12 @@
   set text(size: 18pt)
   // set heading(numbering: "1 |")
   show heading.where(level: 1): set heading(numbering: "1 |")
-  show heading.where(level: 2): set heading(numbering: "1.1 |")
+  show heading.where(level: 2): set heading(numbering: (..nums) => "1 |")
 
   show: touying-slides.with(
     config-page(
       paper: "presentation-" + aspect-ratio,
-      margin: (x: 4em, top: 4.5em, bottom: 3em),
+      margin: (x: 2.5em, top: 4.5em, bottom: 3em),
     ),
     config-common(
       slide-fn: slide,
