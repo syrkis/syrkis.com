@@ -12,7 +12,7 @@
 #show: escher-theme.with(
   aspect-ratio: "16-9",
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: false), // <- for presentations
+  config-common(handout: true), // <- for presentations
 )
 
 
