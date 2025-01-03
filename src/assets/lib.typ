@@ -112,22 +112,19 @@
   touying-slide(self: self, align(horizon + center, body))
 })
 
-#let appendix(body) = {
+#let esch-appendix(body) = {
   // Set heading numbering to letters for the appendix
   counter(heading).update(0)
-  show heading.where(level: 1): set heading(numbering: "Appendix A |")
-  show heading.where(level: 2): set heading(numbering: "A.1 |")
-
-  // Hide appendix headings from the main outline
-  show heading.where(supplement: [Appendix]): set heading(visible: false)
-
-  // Reset the heading counter for the appendix
+  show heading.where(level: 1): set heading(
+    numbering: (..nums) => "Appendix " + numbering("A", ..nums) + " |",
+    outlined: false,
+  )
 
   body
 }
 
 
-#let zotero(file, title: "References", style: "ieee") = {
+#let esch-bibliography(file, title: "References", style: "ieee") = {
   // Set heading numbering to none for the bibliography
   show heading.where(level: 1): set heading(numbering: none)
   set align(top)
