@@ -12,7 +12,7 @@
 #show: escher-theme.with(
   aspect-ratio: "16-9",
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: true), // <- for presentations
+  config-common(handout: false), // <- for presentations
 )
 
 
@@ -80,7 +80,7 @@
   - MI use creativity ... #pause but there are tricks: #pause
     - For two-token samples, plot them varying one on each axis (@mi_tricks) #pause
     - When a matrix is periodic use Fourier #pause
-    - Singular value decomp. ($upright(bold(M)) = upright(bold(U)) upright(bold(Sigma))upright(bold(V^*))$)
+    - Singular value decomposition (see @svd).
 ][
   #meanwhile
   #figure(
