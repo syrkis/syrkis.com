@@ -292,8 +292,8 @@
 #esch-bibliography("/src/assets/zotero.bib")
 
 
-#esch-appendix[
 
+#esch-appendix[
   = Stochastic Signal Processing<ssp>
 
   test

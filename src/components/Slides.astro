@@ -38,6 +38,12 @@ const { filePath } = Astro.props;
         const isWiderThanTall = window.innerWidth > window.innerHeight;
 
         if (isWiderThanTall) {
+            // Hide header and footer when this component is active
+            const header = document.querySelector("header");
+            const footer = document.querySelector("footer");
+
+            if (header) header.style.display = "none";
+            if (footer) footer.style.display = "none";
             let pageNumber = 0; // Default page number (0-based index)
 
             const typstPages = document.querySelectorAll(".typst-page");
@@ -72,13 +78,6 @@ const { filePath } = Astro.props;
                 `Number of typst-page instances: ${typstPagesArray.length}`,
             );
             console.log(typstPagesArray);
-
-            // Hide header and footer when this component is active
-            const header = document.querySelector("header");
-            const footer = document.querySelector("footer");
-
-            if (header) header.style.display = "none";
-            if (footer) footer.style.display = "none";
 
             // Add a class to the body and slides-container to indicate the component is active
             document.body.classList.add("slides-active");

@@ -114,11 +114,12 @@
 
 #let esch-appendix(body) = {
   counter(heading).update(0)
+  // set heading(numbering: "A", supplement: [Appendix])
   show heading.where(level: 1): set heading(
-    numbering: (..nums) => "Appendix " + numbering("A", ..nums) + " |",
+    numbering: "A |",
     outlined: false,
+    supplement: [Appendix],
   )
-
   body
 }
 
@@ -178,4 +179,21 @@
   /////////////////////////////////////////////////////////////////
 
   body
+}
+
+#show ref: it => {
+  let el = it.element
+  if el != none and el.func() == heading and el.numbering != none {
+    let num = counter(heading).at(el.location())
+    if el.numbering.starts-with("Appendix") {
+      // Custom formatting for appendix references
+      link(el.location(), "Appendix " + num.display().replace("Appendix ", ""))
+    } else {
+      // Default formatting for other references
+      link(el.location(), "Section " + num.display())
+    }
+  } else {
+    // Default reference formatting
+    it
+  }
 }
