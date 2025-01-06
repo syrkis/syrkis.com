@@ -329,7 +329,10 @@
 #esch-appendix[
   = Stochastic Signal Processing<ssp>
 
-  test
+  We denote the weights of a model as $Theta$. The gradient of $Theta$ with respect to our loss function at time $t$ we denote $g(t)$.
+  As we train the model, $g(t)$ varies, going up and down. This can be thought of as a stocastic signal.
+  We can represent this signal with a Fourier basis (@dft). GrokFast posits that the slow varying frequencies contribute to grokking.
+  Higer frequencies are then muted, and grokking is indeed accelerated.
 
   = Discrete Fourier Transform<dft>
 
