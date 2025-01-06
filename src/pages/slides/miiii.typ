@@ -6,13 +6,11 @@
 
 // head /////////////////////////////////////////////////////////////////////////
 #let miiii_hash = "50115caac50c4fbfa6bce4cc"
-
-
 #let title = "Mechanistic Interpretability on multi-task Irreducible Integer Identifiers"
+
 #show: escher-theme.with(
-  aspect-ratio: "16-9",
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: false), // <- for presentations
+  config-common(handout: true),
 )
 
 
@@ -27,19 +25,13 @@
 #show figure.caption: emph
 
 // body /////////////////////////////////////////////////////////////////////////
-//
-#let appendix(body) = {
-  set heading(numbering: "A", supplement: [Appendix])
-  counter(heading).update(0)
-  body
-}
 
 #cover-slide()
 
 #focus-slide[
   #figure(
     image("/src/assets/figs/miiii/polar.svg"),
-    caption: [$NN < p^2$ multiples of 13 or 27 (L), 11 (M), or primes (R)],
+    caption: [$NN < p^2$ multiples of 13 or 27 (left) 11 (mid.) or primes (right)],
   )
 ]
 
@@ -62,12 +54,12 @@
 
 #slide[
   - Grokking @power2022 is "sudden generalization" #pause
-  - MI neceitates a mechanism #pause
+  - MI (often) needs a mechanism #pause
   - Grokking is thus convenient for MI #pause
-  - #cite(<lee2024a>, form: "prose", style:"american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast #pause
+  - #cite(<lee2024a>, form: "prose", style:"american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast
   - For more see @ssp
 ][
-  // #meanwhile
+  #meanwhile
   $
     h(t) &= h(t-1) alpha + g(t)(1-alpha)\
     hat(g)(t) &= g(t) + lambda h(t)
@@ -77,10 +69,11 @@
 == Visualizing
 
 #slide[
-  - MI use creativity ... #pause but there are tricks: #pause
-    - For two-token samples, plot them varying one on each axis (@mi_tricks) #pause
-    - When a matrix is periodic use Fourier #pause
-    - Singular value decomposition (see @svd).
+  - MI needs creativity ... #pause but there are tricks: #pause
+    - For two-token samples, plot them varying one on each axis (@mi_tricks)
+    - When a matrix is periodic use Fourier
+    - Singular value decomp. (@svd).
+    - Take away: get commfy with `esch`-plots
 ][
   #meanwhile
   #figure(
@@ -96,10 +89,19 @@
   )<mi_tricks>
 ]
 
+
+#focus-slide[
+
+  #figure(
+    image("/src/assets/figs/miiii/neuroscope.svg", width: 75%),
+    caption: [Shamleless plug: visit `github.com/syrkis/esch` for more esch plots],
+  )
+]
+
 = Modular Arithmetic
 
 #slide[
-  - "Seminal" MI paper by #cite(<nanda2023>, form: "prose", style:"american-psychological-association") focus on modular additon (@nanda_task)
+  - "Seminal" MI paper by #cite(<nanda2023>, form: "prose", style:"american-psychological-association") focuses on modular additon (@nanda_task)
     // #footnote[Nanda worked at Anthropic under the great Chris Olah, and popularized
     // #footnote[To the extent there is such a thing as popularity in this niece a subject] MI]
   - Their final setup trains on $p=113$
@@ -117,6 +119,18 @@
     (x_0 p^0 + x_1 p^1) mod q, quad forall q < p
   $<miiii_task>
 ]
+
+
+#slide[
+  - $cal(T)_"miiii"$ is non-commutative ...
+  - ... and multi-task: $q$ ranges from 2 to 109#footnote[Largest prime less than $p=113$]
+  - $cal(T)_"nanda"$ use a single layer transformer
+  - Note that these tasks are synthetic and trivial to solve with conventional programming
+  - They are used in the MI literature to turn black boxes opaque
+]
+
+
+
 
 
 
@@ -164,19 +178,19 @@
 = Embeddings
 
 #slide[
-  - The position embs. of @pos_emb reflects that $cal(T)_"nanda"$ is commutative and $cal(T)_"miiii"$ is not
-  - Idea: this corrects non-comm. of $cal(T)_"miiii"$?
+  - The position embs. of @pos_emb reflects that $cal(T)_"nanda"$ is commutative and $cal(T)_"miiii"$ is not #pause
+  - Maybe: this corrects non-comm. of $cal(T)_"miiii"$?
   - Corr. is $0.95$ for $cal(T)_"nanda"$ and $-0.64$ for $cal(T)_"miiii"$
 ][
+  #meanwhile
   #figure(
     image("/src/assets/figs/miiii/pos_emb.svg", width: 100%),
     caption: [Positional embeddings for $cal(T)_"nanda"$ (top) and $cal(T)_"miiii"$ (bottom).],
   )<pos_emb>
 ]
 
-== Token Embeddings
-
 #slide[
+  #meanwhile
   - For $cal(T)_"nanda"$ token embs. are essentially linear combinations of 5 frequencies ($omega$)
   - For $cal(T)_"miiii"$ more frequencies are in play
   - Each $cal(T)_"miiii"$ subtask targets unique prime
@@ -185,7 +199,6 @@
   #figure(
     stack(
       spacing: 1em,
-      // image("figs/fourier_basis_m.svg"),
       image("/src/assets/figs/miiii/fourier_nanda_m.svg"),
       image("/src/assets/figs/miiii/fourier_miiii_m.svg"),
     ),
@@ -288,6 +301,26 @@
   )
 ]
 
+#slide[
+  - GrokFast @lee2024a shows time gradient sequences is (arguably) a stocastical signal with:
+    - A fast varying overfitting component
+    - A slow varying generealizing component
+  - My work confirms this to be true for $cal(T)_"miiii"$ ...
+  - ... and observes a strucutre that seems to fit _neither_ of the two
+]
+
+#slide[
+  - Future work:
+    - Modify GrokFast to assume a third stochastic component
+    - Relate to signal processing literature
+]
+
+
+#focus-slide[
+  TAK
+]
+
+
 
 #esch-bibliography("/src/assets/zotero.bib")
 
@@ -305,6 +338,5 @@
 
   = Singular Value Decomposition<svd>
 
-  An $n times m$ matrix $M$ can be represented as a $U Sigma V^*$, where $U$ is an $m times m$ complex unitary matrix, $Sigma$ a rectangular $m times n$ diagonal matrix (padded with zeros), and $V$ an $n times n$ complex unitary matrix. Multiplying by $M$ can this be viewed as first rotating in the $m$-space with $U$, then scaling by $Sigma$ and then rotating by $V$ in the $n$-space.
-
+  An $n times m$ matrix $M$ can be represented as a $U Sigma V^*$, where $U$ is an $m times m$ complex unitary matrix, $Sigma$ a rectangular $m times n$ diagonal matrix (padded with zeros), and $V$ an $n times n$ complex unitary matrix. Multiplying by $M$ can thus be viewed as first rotating in the $m$-space with $U$, then scaling by $Sigma$ and then rotating by $V$ in the $n$-space.
 ]

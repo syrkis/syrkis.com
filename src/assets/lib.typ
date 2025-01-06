@@ -181,19 +181,19 @@
   body
 }
 
-#show ref: it => {
-  let el = it.element
-  if el != none and el.func() == heading and el.numbering != none {
-    let num = counter(heading).at(el.location())
-    if el.numbering.starts-with("Appendix") {
-      // Custom formatting for appendix references
-      link(el.location(), "Appendix " + num.display().replace("Appendix ", ""))
-    } else {
-      // Default formatting for other references
-      link(el.location(), "Section " + num.display())
-    }
-  } else {
-    // Default reference formatting
-    it
-  }
-}
+// #show ref: it => {
+//   let el = it.element
+//   if el != none and el.func() == heading and el.numbering != none {
+//     let num = counter(heading).at(el.location())
+//     if el.numbering.starts-with("Appendix") {
+//       // Custom formatting for appendix references
+//       link(el.location(), "Appendix " + num.display().replace("Appendix ", ""))
+//     } else {
+//       // Default formatting for other references
+//       link(el.location(), "Section " + num.display())
+//     }
+//   } else {
+//     // Default reference formatting
+//     it
+//   }
+// }
