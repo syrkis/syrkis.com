@@ -41,13 +41,13 @@ a {
 }
 
 /* light and dark mode theme stuff below */
-@media (prefers-color-scheme: dark) {
-    html,
-    body {
-        background-color: black;
-        color: white;
-    }
-    svg {
-        filter: invert(1);
-    }
-}
+/* @media (prefers-color-scheme: dark) { */
+/* html, */
+/* body { */
+/* background-color: black; */
+/* color: white; */
+/* } */
+/* svg { */
+/* filter: invert(1); */
+/* } */
+/* } */

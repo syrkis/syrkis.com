@@ -6,7 +6,7 @@
 
 // head /////////////////////////////////////////////////////////////////////////
 #let miiii_hash = "50115caac50c4fbfa6bce4cc"
-#let title = "Mechanistic Interpretability on multi-task Irreducible Integer Identifiers"
+#let title = "Mechanistic Interpretability on (multi-task) Irreducible Integer Identifiers"
 
 #show: escher-theme.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
@@ -25,7 +25,6 @@
 #show figure.caption: emph
 
 // body /////////////////////////////////////////////////////////////////////////
-
 #cover-slide()
 
 #focus-slide[
@@ -215,10 +214,11 @@
     stack(
       spacing: 1em,
       // image("figs/fourier_basis_m.svg"),
-      image("/src/assets/figs/miiii/fourier_masks_m.svg"),
       image("/src/assets/figs/miiii/fourier_basis_m.svg"),
+      image("/src/assets/figs/miiii/fourier_miiii_m.svg"),
+      image("/src/assets/figs/miiii/fourier_masks_m.svg"),
     ),
-    caption: [$cal(T)_"masked"$ (top) and $cal(T)_"baseline"$ (bottom) token embeddings in Fourier basis],
+    caption: [$cal(T)_"baseline"$ (top), $cal(T)_"miiii"$ (middle) and $cal(T)_"masked"$ (bottom) token embeddings in Fourier basis],
   )<tok_emb>
 ]
 
@@ -251,6 +251,24 @@
   )<fft_neurs>
 ]
 
+
+#focus-slide[
+  #figure(
+    stack(
+      dir: ltr,
+      stack(
+        image("/src/assets/figs/miiii/neurs_113_basis.svg", width: 50%),
+        image("/src/assets/figs/miiii/neurs_113_miiii.svg", width: 50%),
+      ),
+      stack(
+        image("/src/assets/figs/miiii/neurs_113_basis_fft.svg", width: 50%),
+        image("/src/assets/figs/miiii/neurs_113_miiii_fft.svg", width: 50%),
+      ),
+    ),
+    caption: [Neurons as archive and algorithm. $cal(T)_"basline"$ on top, FFT on right.],
+  )<ava>
+]
+
 #focus-slide[
   #figure(
     stack(
@@ -267,7 +285,7 @@
 #slide[
   // - We reach our central finding
   - Neurs. periodic on solving $q in {2,3,5,7}$
-  - When we generalize to the reamining tasks, many frequencies activate
+  - When we generalize to the reamining tasks, many frequencies activate (64-sample)
   // - Quickly after generalization $omega$'s merge
   - Those $omega$'s are not useful for memory and not useful after generalization
   #figure(
@@ -313,6 +331,7 @@
   - Future work:
     - Modify GrokFast to assume a third stochastic component
     - Relate to signal processing literature
+    - Can more depth make tok-embedding sparse?
 ]
 
 
