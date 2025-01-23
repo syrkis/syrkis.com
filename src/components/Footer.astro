@@ -1,16 +1,25 @@
 ---
 const isRoot = Astro.url.pathname === "/";
+const emailUser = "desk";
+const emailDomain = "syrkis.com";
 ---
 
 {
     !isRoot && (
-        <footer class="footer" transition:name="footer" transition:name="footer">
+        <footer class="footer" transition:name="footer">
             <div class="content">
                 ———————
                 <br />
                 for any inquiries, write
                 <br />
-                <a href="mailto:desk@syrkis.com">desk[at]syrkis.com</a>
+                <a
+                    href="#"
+                    class="email-link"
+                    data-user={emailUser}
+                    data-domain={emailDomain}
+                >
+                    {emailUser}[at]{emailDomain}
+                </a>
             </div>
         </footer>
     )
@@ -35,3 +44,24 @@ const isRoot = Astro.url.pathname === "/";
         text-decoration: underline;
     }
 </style>
+
+<script>
+    function attachEmailHandler() {
+        const emailLink = document.querySelector(".email-link");
+        if (emailLink) {
+            const user = emailLink.getAttribute("data-user");
+            const domain = emailLink.getAttribute("data-domain");
+
+            emailLink.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.location.href = `mailto:${user}@${domain}`;
+            });
+        }
+    }
+
+    // Initial load
+    attachEmailHandler();
+
+    // Handle view transitions
+    document.addEventListener("astro:page-load", attachEmailHandler);
+</script>
