@@ -12,14 +12,9 @@ const emailDomain = "syrkis.com";
                 <br />
                 for any inquiries, write
                 <br />
-                <a
-                    href="#"
-                    class="email-link"
-                    data-user={emailUser}
-                    data-domain={emailDomain}
-                >
+                <email-link data-user={emailUser} data-domain={emailDomain}>
                     {emailUser}[at]{emailDomain}
-                </a>
+                </email-link>
             </div>
         </footer>
     )
@@ -35,33 +30,28 @@ const emailDomain = "syrkis.com";
         line-height: 2.5;
     }
 
-    a {
+    email-link {
         color: inherit;
         text-decoration: none;
+        cursor: pointer;
+        display: inline;
     }
 
-    a:hover {
+    email-link:hover {
         text-decoration: underline;
     }
 </style>
 
 <script>
-    function attachEmailHandler() {
-        const emailLink = document.querySelector(".email-link");
-        if (emailLink) {
-            const user = emailLink.getAttribute("data-user");
-            const domain = emailLink.getAttribute("data-domain");
-
-            emailLink.addEventListener("click", (e) => {
-                e.preventDefault();
+    class EmailLink extends HTMLElement {
+        connectedCallback() {
+            this.addEventListener("click", () => {
+                const user = this.dataset.user;
+                const domain = this.dataset.domain;
                 window.location.href = `mailto:${user}@${domain}`;
             });
         }
     }
 
-    // Initial load
-    attachEmailHandler();
-
-    // Handle view transitions
-    document.addEventListener("astro:page-load", attachEmailHandler);
+    customElements.define("email-link", EmailLink);
 </script>
