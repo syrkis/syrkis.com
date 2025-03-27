@@ -3,23 +3,16 @@ const isRoot = Astro.url.pathname === "/";
 ---
 
 <header transition:name="header">
-    <h1><a href="/">NOAH SYRKIS</a></h1>
     <nav>
         <ul>
-            <li><a href="/about">about</a></li>
-            <li class="separator"><a href="/">|</a></li>
             <li><a href="/works">works</a></li>
+            <li class="separator"><a href="/">|</a></li>
+            <li><a href="/about">about</a></li>
         </ul>
     </nav>
 </header>
 
 <style>
-    header {
-        text-align: center;
-        padding: 2rem 0;
-        letter-spacing: 0.4em;
-    }
-
     ul {
         list-style: none;
         padding: 0;
@@ -32,7 +25,6 @@ const isRoot = Astro.url.pathname === "/";
     li {
         display: inline-block;
         padding: 0.5em;
-        font-size: 1.2em;
     }
 
     a {
@@ -42,5 +34,27 @@ const isRoot = Astro.url.pathname === "/";
 
     .separator {
         color: inherit;
+    }
+
+    header {
+        text-align: center;
+        padding: 2rem 0;
+        font-size: clamp(1.5rem, 3vw, 1.5em);
+        letter-spacing: 0.4em;
+    }
+
+    @media (max-width: 768px) {
+        header {
+            padding: 1rem 0;
+            letter-spacing: 0.2em;
+        }
+
+        ul {
+            gap: 0.5rem;
+        }
+
+        li {
+            padding: 0.3em;
+        }
     }
 </style>

@@ -6,20 +6,30 @@ body {
     height: 100%;
     line-height: 2.5;
     letter-spacing: 0.05rem;
-    font-size: 1.1em;
-    font-family: "Latin Modern Roman", serif;
+    hyphens: auto;
+    font-size: 1.2em;
+    font-family: "Libertinus Serif", serif;
+}
+
+@media (max-width: 600px) {
+    html,
+    body {
+        font-size: 1em;
+    }
 }
 
 h1,
-h2 {
-    /* letter-spacing: 0.01em; */
-    font-size: 2rem;
+h2,
+h3 {
     text-align: center;
     font-weight: normal;
     margin: 0;
+    letter-spacing: 0.2em;
 }
+
 .post-item h2 {
     mix-blend-mode: difference;
+    filter: grayscale(100%) !important;
     color: white;
 }
 h3 {
@@ -31,23 +41,42 @@ a {
     text-decoration: none;
 }
 
+/* light and dark mode theme stuff below */
 .text {
-    font-size: 1.1em;
-    text-align: justify;
-    text-align-last: center;
-    width: 700px;
+    font-size: clamp(0.9rem, 3vw, 1.1em);
+    text-align: center;
+    width: 90%;
+    max-width: 777px;
     margin: 0 auto;
-    max-width: 90vw;
+    padding: 10vh 1rem;
 }
 
-/* light and dark mode theme stuff below */
-/* @media (prefers-color-scheme: dark) { */
-/* html, */
-/* body { */
-/* background-color: black; */
-/* color: white; */
-/* } */
-/* svg { */
-/* filter: invert(1); */
-/* } */
-/* } */
+.line {
+    padding-bottom: 10vh;
+}
+.exLibirs {
+    overflow: hidden;
+    padding: 10vh 0;
+    position: relative;
+}
+
+p {
+    margin: 0 auto;
+    /* max-width: 700px; */
+    /* width: 800px; */
+    /* text-align: justify; */
+    text-justify: inter-word;
+}
+
+/* .typst-page {
+    display: none;
+}
+.typst-page.active {
+    display: block;
+} */
+
+.typst {
+    width: 95vw;
+    max-width: 1200px;
+    margin: 0 auto;
+}

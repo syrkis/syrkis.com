@@ -14,8 +14,8 @@ import Footer from "../components/Footer.astro";
         <meta name="generator" content={Astro.generator} />
         <title>Noah Syrkis</title>
         <link
+            href="https://fonts.cdnfonts.com/css/libertinus-serif"
             rel="stylesheet"
-            href="https://lalten.github.io/lmweb/style/latinmodern-roman.css"
             type="text/css"
             charset="utf-8"
         />
@@ -30,7 +30,12 @@ import Footer from "../components/Footer.astro";
     let previousPath = window.location.pathname;
     document.addEventListener("astro:after-swap", () => {
         const currentPath = window.location.pathname;
-        if (currentPath !== previousPath && currentPath !== "/") {
+        if (
+            currentPath !== previousPath &&
+            currentPath !== "/" &&
+            currentPath !== "/about" &&
+            currentPath !== "/works"
+        ) {
             window.scrollTo({
                 top: 123,
                 left: 0,

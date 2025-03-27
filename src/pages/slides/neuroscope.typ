@@ -4,11 +4,12 @@
 #import "@preview/touying:0.5.5": *
 #import "@preview/equate:0.2.1": equate
 #import "/src/assets/lib.typ": *
+#show: lilka
 
 
 // head /////////////////
 #let title = "Deep Decoding the Cerebral Cortex"
-#show: escher-theme.with(
+#show: slides.with(
   aspect-ratio: "16-9",
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
   config-common(handout: false), // <- for presentations
@@ -20,7 +21,7 @@
 ))<frontmatter>
 
 // body ///////////////////////
-#cover-slide()
+#title-slide()
 
 
 = Title

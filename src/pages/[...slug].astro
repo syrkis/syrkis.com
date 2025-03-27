@@ -1,5 +1,4 @@
 ---
-import Header from "../components/Header.astro";
 import Layout from "../layouts/Layout.astro";
 import Series from "../components/Series.astro";
 import Slides from "../components/Slides.astro";
@@ -38,34 +37,8 @@ const filePath =
 ---
 
 <Layout title={type === "series" ? post.title : `Slides: ${slug}`}>
-    <Header />
+    <!-- <Header /> -->
     <main>
-        {
-            type === "series" ? (
-                <>
-                    <h1>{post.title}</h1>
-                    <p>{post.date}</p>
-                    <div set:html={post.content} class="content" />
-                    <Series post={post} />
-                </>
-            ) : (
-                <Slides {filePath} />
-            )
-        }
+        {type === "series" ? <Series post={post} /> : <Slides {filePath} />}
     </main>
 </Layout>
-
-<style>
-    h1 {
-        text-transform: uppercase;
-        padding-top: 10vh;
-    }
-
-    .content {
-        max-width: 90vw;
-        width: 700px;
-        text-align: center;
-        margin: 0 auto;
-        padding: 10vh 0;
-    }
-</style>

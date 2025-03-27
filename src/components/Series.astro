@@ -1,7 +1,12 @@
 ---
 const { post } = Astro.props;
+import Header from "./Header.astro";
 ---
 
+<Header />
+<h1>{post.title}</h1>
+<p>{post.date}</p>
+<div set:html={post.content} class="content" />
 <div class="works-grid">
     {
         post.works.map((work) => (
@@ -30,7 +35,17 @@ const { post } = Astro.props;
         gap: 4rem;
         padding: 2rem 0;
     }
-
+    h1 {
+        text-transform: uppercase;
+        padding-top: 10vh;
+    }
+    .content {
+        max-width: 90vw;
+        width: 700px;
+        text-align: center;
+        margin: 0 auto;
+        padding: 10vh 0;
+    }
     .work-item {
         display: flex;
         flex-direction: column;

@@ -1,14 +1,16 @@
 
 // imports ///////////////
-#import "@preview/touying:0.5.5": *
+#import "@preview/touying:0.6.1": *
 #import "/src/assets/lib.typ": *
+#show: lilka
 #import "@preview/equate:0.2.1": equate
+
 
 // head /////////////////////////////////////////////////////////////////////////
 #let miiii_hash = "50115caac50c4fbfa6bce4cc"
 #let title = "Mechanistic Interpretability on (multi-task) Irreducible Integer Identifiers"
 
-#show: escher-theme.with(
+#show: slides.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
   config-common(handout: true),
 )
@@ -25,7 +27,7 @@
 #show figure.caption: emph
 
 // body /////////////////////////////////////////////////////////////////////////
-#cover-slide()
+#title-slide()
 
 #focus-slide[
   #figure(
@@ -101,8 +103,8 @@
 
 #slide[
   - "Seminal" MI paper by #cite(<nanda2023>, form: "prose", style:"american-psychological-association") focuses on modular additon (@nanda_task)
-    // #footnote[Nanda worked at Anthropic under the great Chris Olah, and popularized
-    // #footnote[To the extent there is such a thing as popularity in this niece a subject] MI]
+  // #footnote[Nanda worked at Anthropic under the great Chris Olah, and popularized
+  // #footnote[To the extent there is such a thing as popularity in this niece a subject] MI]
   - Their final setup trains on $p=113$
   - They train a one-layer transformer
   // #footnote[MLP would have been better / simpler according to Nanda]
@@ -341,11 +343,11 @@
 
 
 
-#esch-bibliography("/src/assets/zotero.bib")
+#references("/src/assets/zotero.bib")
 
 
 
-#esch-appendix[
+#appendix[
   = Stochastic Signal Processing<ssp>
 
   We denote the weights of a model as $theta$. The gradient of $theta$ with respect to our loss function at time $t$ we denote $g(t)$.
