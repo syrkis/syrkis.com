@@ -12,7 +12,7 @@
 
 #show: slides.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: true),
+  config-common(handout: false),
 )
 
 
@@ -57,7 +57,7 @@
   - Grokking @power2022 is "sudden generalization" #pause
   - MI (often) needs a mechanism #pause
   - Grokking is thus convenient for MI #pause
-  - #cite(<lee2024a>, form: "prose", style:"american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast
+  - #cite(<lee2024a>, form: "prose", style: "american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast
   - For more see @ssp
 ][
   #meanwhile
@@ -102,7 +102,7 @@
 = Modular Arithmetic
 
 #slide[
-  - "Seminal" MI paper by #cite(<nanda2023>, form: "prose", style:"american-psychological-association") focuses on modular additon (@nanda_task)
+  - "Seminal" MI paper by #cite(<nanda2023>, form: "prose", style: "american-psychological-association") focuses on modular additon (@nanda_task)
   // #footnote[Nanda worked at Anthropic under the great Chris Olah, and popularized
   // #footnote[To the extent there is such a thing as popularity in this niece a subject] MI]
   - Their final setup trains on $p=113$

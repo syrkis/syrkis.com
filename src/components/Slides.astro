@@ -1,5 +1,5 @@
 ---
-/* pressing down, space, up, j, k, or f, should start presentation mode. Scrolling should disable it. */
+/* pressing down, space, up, j, k, or f, should start present. Scrolling should disable it. */
 import { Typst } from "astro-typst/src/components";
 import Layout from "../layouts/Layout.astro";
 import fs from "node:fs";
@@ -9,158 +9,140 @@ interface Params {
     filePath: string;
 }
 const { filePath } = Astro.props;
-const slideContent = fs.readFileSync(filePath, "utf-8");
-const scrollSlides = slideContent.replace("handout: false", "handout: true");
-const presentSlides = slideContent.replace("handout: true", "handout: false");
-let showPresentationMode = true;
+const code = fs.readFileSync(filePath, "utf-8");
+// const scrollSlides = slideContent.replace("handout: false", "handout: true");
+// const presentSlides = slideContent.replace("handout: true", "handout: false");
 ---
 
-<div class="slides-container">
+<div>
     <Header />
-    <Typst
-        code={showPresentationMode ? presentSlides : scrollSlides}
-        remPx={10}
-        props={{ width: "100%", height: "100%" }}
-    />
+    <div class="slides-container">
+        <Typst {code} remPx={10} props={{ width: "100%", height: "100%" }} />
+    </div>
 </div>
 
 <style is:global>
-    /* @media (prefers-color-scheme: dark) { */
-    /* svg { */
-    /* filter: invert(1); */
-    /* } */
-    /* body { */
-    /* color: white; */
-    /* background: black; */
-    /* } */
-    /* } */
-    /* @media (orientation: landscape) {
-        .header {
-            display: none;
-        }
-    } */
-    .slides-container {
+    body {
+        margin: 0;
+    }
+    .slides-container.present {
         text-align: center;
         width: 95%;
-        margin: 0 auto;
+        height: 100vh;
+        margin: auto;
+        overflow: hidden;
     }
-    .typst-doc {
+    svg.typst-doc {
+        margin: auto;
+    }
+    .present header,
+    .present footer {
+        display: none;
+    }
+
+    g .present .typst-page {
+        transform: translate(0, 0);
+        display: flex;
         margin: auto 0;
     }
-    body.slides-active {
-        overflow: hidden;
-    }
-    .slides-container.slides-active {
-        overflow: hidden;
+
+    .present.typst-doc {
+        margin: auto 0;
         height: 100vh;
     }
 </style>
 
 <script is:inline>
-    const showPresentationMode = window.matchMedia(
-        "(orientation: portrait)",
-    ).matches;
     document.addEventListener("DOMContentLoaded", () => {
-        const isWiderThanTall = window.innerWidth > window.innerHeight;
+        // page number and typst slides
+        let pageNumber = 0; // Default page number (0-based index)
+        const typstPages = Array.from(document.querySelectorAll(".typst-page"));
+        const typstDoc = document.querySelector(".typst-doc");
+        const clientHeight = typstDoc.clientHeight;
+        const clientWidth = typstDoc.clientWidth;
+        const pageHeight = typstPages[0].getAttribute("data-page-height");
+        const docWidth = typstDoc.getAttribute("data-width");
+        const docHeight = typstDoc.getAttribute("data-height");
 
-        if (isWiderThanTall) {
-            // Hide header and footer when this component is active
-            const header = document.querySelector("header");
-            const footer = document.querySelector("footer");
-
-            if (header) header.style.display = "none";
-            if (footer) footer.style.display = "none";
-            let pageNumber = 0; // Default page number (0-based index)
-
-            const typstPages = document.querySelectorAll(".typst-page");
-            const typstPagesArray = Array.from(typstPages);
-            const typstDoc = document.querySelector(".typst-doc");
-            const slidesContainer = document.querySelector(".slides-container");
-
-            typstDoc.setAttribute("height", "100vh");
-
-            function showPage(pageNumber) {
-                typstPagesArray.forEach((page, index) => {
-                    if (index === pageNumber) {
-                        page.style.display = "block";
-                        page.setAttribute("transform", "translate(0, 0)");
-                        const pageWidth = page.getAttribute("data-page-width");
-                        const pageHeight =
-                            page.getAttribute("data-page-height");
-                        typstDoc.setAttribute(
-                            "viewBox",
-                            `0 0 ${pageWidth} ${pageHeight}`,
-                        );
-                    } else {
-                        page.style.display = "none";
-                        page.setAttribute("transform", "translate(0, -10000)");
-                    }
-                });
+        // keydown event listener
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "f") {
+                togglePresentation();
             }
+            if (e.key === "k" && document.body.classList.contains("present")) {
+                pageNumber = Math.max(0, pageNumber - 1);
+                showPage(pageNumber);
+            } else if (
+                e.key === "j" &&
+                document.body.classList.contains("present")
+            ) {
+                pageNumber = Math.min(typstPages.length - 1, pageNumber + 1);
+                showPage(pageNumber);
+            }
+        });
 
-            showPage(pageNumber); // Show the default page
-
-            console.log(
-                `Number of typst-page instances: ${typstPagesArray.length}`,
+        function togglePresentation() {
+            document.body.classList.toggle("present");
+            const isPresent = document.body.classList.contains("present");
+            document
+                .querySelector(".slides-container")
+                .classList.toggle("present");
+            document.querySelector(".typst-doc").classList.toggle("present");
+            window.scrollTo(0, 0);
+            typstDoc.setAttribute(
+                "data-height",
+                isPresent ? pageHeight : docHeight,
             );
-            console.log(typstPagesArray);
-
-            // Add a class to the body and slides-container to indicate the component is active
-            document.body.classList.add("slides-active");
-            slidesContainer.classList.add("slides-active");
-
-            // Add event listener for keydown events
-            document.addEventListener("keydown", (event) => {
+            typstDoc.setAttribute(
+                "viewBox",
+                `0 0 ${docWidth} ${isPresent ? pageHeight : docHeight}`,
+            );
+            typstPages.forEach((page, index) => {
+                page.classList.toggle("present");
+                page.setAttribute(
+                    "transform",
+                    `translate(0, ${isPresent ? 0 : index * page.getAttribute("data-page-height")})`,
+                );
                 if (
-                    event.key === "ArrowRight" ||
-                    event.key === "ArrowDown" ||
-                    event.key === "j" ||
-                    event.key === " " // Space key
+                    index == pageNumber &&
+                    document.body.classList.contains("present")
                 ) {
-                    // Go to the next slide
-                    if (pageNumber < typstPagesArray.length - 1) {
-                        pageNumber++;
-                        showPage(pageNumber);
-                    }
-                } else if (
-                    event.key === "ArrowLeft" ||
-                    event.key === "ArrowUp" ||
-                    event.key === "k" ||
-                    (event.key === " " && event.shiftKey) // Shift + Space key
-                ) {
-                    // Go to the previous slide
-                    if (pageNumber > 0) {
-                        pageNumber--;
-                        showPage(pageNumber);
-                    }
+                    window.scrollTo(0, 0);
+                    page.style.display = "";
+                } else if (document.body.classList.contains("present")) {
+                    page.style.display = "none";
+                } else {
+                    page.style.display = "";
+                    page.setAttribute(
+                        "transform",
+                        `translate(0, ${index * page.getAttribute("data-page-height")})`,
+                    );
                 }
             });
+        }
 
-            // Clean up when the component is no longer active
-            window.addEventListener("beforeunload", () => {
-                if (header) header.style.display = "";
-                if (footer) footer.style.display = "";
-                document.body.classList.remove("slides-active");
-                slidesContainer.classList.remove("slides-active");
+        function showPage(pageNumber) {
+            typstPages.forEach((p, i) => {
+                p.style.display = i === pageNumber ? "" : "none";
             });
         }
     });
 
     /**
-    Copyright 2025 Myriad-Dreamin
+  Copyright 2025 Myriad-Dreamin
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
-        http://www.apache.org/licenses/LICENSE-2.0
+      http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-    */
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+  */
     function findAncestor(el, cls) {
         while ((el = el.parentElement) && !el.classList.contains(cls));
         return el;
