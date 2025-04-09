@@ -32,9 +32,28 @@ const code = fs.readFileSync(filePath, "utf-8");
         margin: auto;
         overflow: hidden;
     }
+
     svg.typst-doc {
         margin: auto;
     }
+
+    @media (prefers-color-scheme: dark) {
+        .present {
+            background: black;
+        }
+        g.present {
+            filter: invert(1);
+            background: black;
+        }
+        svg.present {
+            background: black;
+        }
+        /* .svg { */
+        /* background: black; */
+        /* color: white; */
+        /* } */
+    }
+
     .present header,
     .present footer {
         display: none;
