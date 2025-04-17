@@ -1,6 +1,5 @@
 #import "@preview/touying:0.6.1": *
 #import "@preview/equate:0.2.1": equate
-// #import "utils.typ": format-date, format-title
 
 #let format-date(date) = {
   date.display("[month repr:long] [day padding:none], [year]")
@@ -14,7 +13,6 @@
 // Base slide configuration
 #let slide-defaults = (
   aspect-ratio: "16-9",
-  // margins: (x: 2.5em, top: 4.5em, bottom: 3em),
   header: self => utils.display-current-heading(depth: self.slide-level),
   footer: context utils.slide-counter.display(),
 )
@@ -148,6 +146,7 @@
   set align(horizon)
   set text(size: 1.7em)
   set par(leading: 1.3em)
+  title-slide()
   body
 }
 

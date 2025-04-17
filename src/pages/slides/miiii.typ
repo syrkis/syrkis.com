@@ -1,47 +1,30 @@
 
 // imports ///////////////
 #import "@preview/touying:0.6.1": *
-#import "/src/assets/lib.typ": *
-#show: lilka
-#import "@preview/equate:0.2.1": equate
+#import "@local/lilka:0.0.0": *
 
 
 // head /////////////////////////////////////////////////////////////////////////
 #let miiii_hash = "50115caac50c4fbfa6bce4cc"
 #let title = "Mechanistic Interpretability on (multi-task) Irreducible Integer Identifiers"
 
+#show: equate.with(breakable: true, sub-numbering: true)
+#set math.equation(numbering: "(1.1)", supplement: "Eq.")
+#show figure.caption: emph
+
+#show: lilka
 #show: slides.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
   config-common(handout: false),
 )
-
 
 #metadata((
   title: title,
   slug: "miiii",
 ))<frontmatter>
 
-#show: equate.with(breakable: true, sub-numbering: true)
-#set math.equation(numbering: "(1.1)", supplement: "Eq.")
-
-#show figure.caption: emph
-
-// body /////////////////////////////////////////////////////////////////////////
-#title-slide()
-
-#focus-slide[
-  #figure(
-    image("/src/assets/figs/miiii/polar.svg"),
-    caption: [$NN < p^2$ multiples of 13 or 27 (left) 11 (mid.) or primes (right)],
-  )
-]
-
 = Mechanistic Interpretability (MI)
 
-
-#focus-slide[
-  "This disgusting pile of matrices is actually just an astoundingly poorly written, elegant and consice algorithm" — Neel Nanda#footnote[Not verbatim, but the gist of it]
-]
 
 #slide[
   - Sub-symbolic nature of deep learning obscures model mechanisms #pause
@@ -341,10 +324,14 @@
   TAK
 ]
 
+#pagebreak()
 
-
-#references("/src/assets/zotero.bib")
-
+#[
+  #show heading.where(level: 1): set heading(numbering: none)
+  = References <touying:unoutlined>
+  #set align(top)
+  #pad(y: 2em, bibliography("/src/assets/zotero.bib", title: none))
+]
 
 
 #appendix[

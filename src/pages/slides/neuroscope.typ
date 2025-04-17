@@ -21,9 +21,6 @@
 ))<frontmatter>
 
 // body ///////////////////////
-#title-slide()
-
-
 = Title
 
 Hello, Touying!
