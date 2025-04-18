@@ -2,7 +2,7 @@
 const isRoot = Astro.url.pathname === "/";
 ---
 
-<header transition:name="header">
+<header transition:name="header" class={`header ${isRoot ? "root" : ""}`}>
     <nav>
         <ul>
             <li><a href="/works">works</a></li>
@@ -13,6 +13,12 @@ const isRoot = Astro.url.pathname === "/";
 </header>
 
 <style>
+    header.header.root {
+        padding-top: 42vh;
+    }
+    header.header {
+        padding-top: 5vh;
+    }
     ul {
         list-style: none;
         padding: 0;

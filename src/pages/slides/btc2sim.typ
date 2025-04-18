@@ -15,6 +15,42 @@
 )
 
 
+#let bt = [
+  #diagram(
+    node-inset: 0pt,
+    node-stroke: 1.5pt,
+    edge-stroke: 1pt,
+    spacing: 1em,
+
+    // Root node
+    // node((0, -2), [State], radius: 1.5em),
+
+    node((0, 0), [$F$], radius: 1em),
+
+    // Layer 2
+    node((-2, 2), [$A_0$], radius: 1em, stroke: (dash: "dashed")),
+    node((0, 2), [$S$], radius: 1em, stroke: (dash: "dashed")),
+    node((2, 2), [$A_2$], radius: 1em, stroke: 3pt),
+
+    // Layer 3
+    node((-1, 4), [$C_0$], radius: 1em, stroke: (dash: "dashed")),
+    node((1, 4), [$A_1$], radius: 1em),
+
+    // State to root
+    edge((0, 0), (2, -1), "-|>", bend: 20deg)[$a_t$],
+    edge((0, 0), (-2, -1), "<|-", bend: -20deg)[$o_t$],
+
+
+    // Root to layer 2
+    edge((0, 0), (-2, 2), "<|--|>"),
+    edge((0, 0), (0, 2), "<|--|>"),
+    edge((0, 0), (2, 2), "<|-|>"),
+
+    // Layer 2 to 3
+    edge((0, 2), (-1, 4), "<|--|>"),
+    edge((0, 2), (1, 4), "--/--"),
+  )]
+
 #metadata((
   title: title,
   slug: "btc2sim",
@@ -59,7 +95,7 @@
         emph[leaf],
         {
           Or[A (#emph[move] | #emph[stand])][action]
-          Or[C (is_alive | in_range)][condition]
+          Or[C ( #emph[reach] )][condition]
         },
       ),
       Prod(
@@ -89,6 +125,43 @@
   )<dsl>
 ]
 
+
+= Behavior Tree Arrays
+
+#slide[
+  - Trees versus arrays
+  - Leaf nodes are actions and conditions
+  - Rest are sequence or fallback combinators
+][
+
+  #figure(
+    bt,
+    caption: [Behavior tree example],
+  )<tree>
+]
+
+
+#slide[
+  #figure(
+    stack(
+      dir: ltr,
+      spacing: 4em,
+      bt,
+      table(
+        columns: 4,
+        align: center,
+        inset: 10pt,
+        [*index*], [*parent*], [*follows*], [*skips*],
+        [$A_0$], [F], [–], [3],
+        [$C_0$], [S], [S], [1],
+        [$A_1$], [S], [F], [1],
+        [$A_2$], [F], [S], [0],
+      ),
+    ),
+    caption: [Behavior tree (left) and corresponding behavior array (right)],
+    supplement: "Figure",
+  )
+]
 
 #[
   #show heading.where(level: 1): set heading(numbering: none)
