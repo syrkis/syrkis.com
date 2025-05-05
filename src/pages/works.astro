@@ -1,91 +1,123 @@
 ---
-// import Header from "../components/Header.astro";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import Title from "../components/Title.astro";
+const series = await getCollection("series");
+const slides = await getCollection("slides");
 
-const allSeries = Object.values(
-    import.meta.glob("../series/*.json", { eager: true }),
-).sort((a, b) => (a.year < b.year ? 1 : -1));
-
-const allSlides = Object.values(
-    import.meta.glob("./slides/*.typ", { eager: true }),
-);
-
-const text =
-    "Exclusive limited edition archival prints are available upon request. For any inquiries, contact us at desk[at]syrkis.com";
+const text = "Limited edition archival prints are available upon request to";
+const emailUser = "desk";
+const emailDomain = "syrkis.com";
 ---
 
 <Layout>
-    <!-- <Header /> -->
-    <div class="posts-list">
-        <span class="text">{text}</span>
-        {
-            allSeries.map((post: any) => (
-                <div transition:name={post.slug}>
-                    <a href={`/${post.slug}`}>
+    <div class="wrapper">
+        <div id="works">
+            {text}
+            <email-link data-user={emailUser} data-domain={emailDomain}>
+                {emailUser}[at]{emailDomain}
+            </email-link>
+        </div>
+        <div id="series">
+            {
+                series.map((entry) => (
+                    <a href={`${entry.id}`}>
                         <div
-                            class="post-item"
-                            style={`background-image: url(https://syrkis.ams3.cdn.digitaloceanspaces.com/${post.cover})`}
+                            class="series"
+                            style={`background: url(https://s3.syrkis.com/${entry.id}/${entry.data.cover}) no-repeat center center / cover`}
                         >
-                            <h2>{post.title}</h2>
+                            <h2>
+                                <Title {entry} />
+                            </h2>
                         </div>
                     </a>
-                </div>
-            ))
-        }
-        <center>———————</center>
-        <h2>TALKS</h2>
-        {
-            allSlides.map((post: any) => (
-                <div transition:name={post.slug}>
-                    <center>
-                        <div class="slide">
-                            <span>
-                                <i>{post.frontmatter.title}</i>
-                            </span>
-                            <br />
-                            <a
-                                href={`/${post.frontmatter.slug}`}
-                                onclick={`window.location.href='/${post.frontmatter.slug}'; return false;`}
-                            >
-                                slide
-                            </a>{" "}
-                            | video
-                        </div>
-                    </center>
-                </div>
-            ))
-        }
+                ))
+            }
+        </div>
+
+        <center> ——————— </center>
+        <div id="talks">
+            <span class="section">TALKS</span>
+            {
+                slides.map((entry) => (
+                    <div class="slide">
+                        <span class="slide-name">
+                            <i>{entry.data.title}</i>
+                        </span>
+                        <span class="slide-info">
+                            <a href={`/${entry.id}`}>slide</a>|<a>video</a>
+                        </span>
+                    </div>
+                ))
+            }
+        </div>
     </div>
 </Layout>
 
 <style>
-    h2 {
-        letter-spacing: 0.3em;
+    #works {
+        width: 600px;
+        max-width: 95%;
+        padding: 10vh 0;
+        text-align: center;
+        margin: auto;
     }
-    .slide {
-        font-size: 1.2em;
+    #series {
+        padding: 0vh 0;
     }
-    .posts-list {
-        display: grid;
-        gap: 150px;
-        padding: 100px 0;
-        width: 90%;
-        margin: 0 auto;
+    #talks {
+        padding: 15vh 0;
+        text-align: center;
     }
-    .post-item {
-        height: 70vh;
-        border-radius: 20px;
-        background-size: cover;
-        width: 100%;
-        background-position: center;
-        display: flex;
+    .section {
+        font-size: 1.5em;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        align-items: center;
-        justify-content: center;
-        transition: transform 1s ease-in-out;
-        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
     }
-    .post-item:hover {
+    .series {
+        height: 80vh;
+        margin: 20vh 5vw;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition:
+            transform 0.5s ease-in-out,
+            opacity 0.5s ease-in-out;
+    }
+    h2 {
+        mix-blend-mode: difference;
+        color: black;
+        filter: saturate(0) opacity(1) invert(1);
+    }
+    .series:hover {
         transform: scale(1.05);
     }
+    .slide {
+        text-align: center;
+        font-size: 1.2em;
+        line-height: 2.5;
+        padding-top: 6rem;
+    }
+    .slide-info {
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+        margin: auto;
+    }
 </style>
+
+<script>
+    class EmailLink extends HTMLElement {
+        connectedCallback() {
+            this.addEventListener("click", () => {
+                const user = this.dataset.user;
+                const domain = this.dataset.domain;
+                window.location.href = `mailto:${user}@${domain}`;
+            });
+        }
+    }
+
+    customElements.define("email-link", EmailLink);
+</script>

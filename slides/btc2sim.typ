@@ -5,14 +5,18 @@
 #import "@preview/simplebnf:0.1.1": *
 
 
-
-// head /////////////////
+// head /////////////////////////////////////////////////////////////////////////
 #let title = "Behavior Tree Based Simulated Command and Control"
+
 #show: lilka
 #show: slides.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: false), // <- for presentations
+  config-common(handout: false),
 )
+
+#metadata((
+  title: title,
+))<frontmatter>
 
 
 #let bt = [
@@ -51,13 +55,8 @@
     edge((0, 2), (1, 4), "--|--|--"),
   )]
 
-#metadata((
-  title: title,
-  slug: "btc2sim",
-))<frontmatter>
 
 // body ///////////////////////
-
 
 = Granular decision making
 

@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import Series from "../components/Series.astro";
+import Slides from "../components/Slides.astro";
+import Layout from "../layouts/Layout.astro";
+
+// 1. Generate paths for both series and slides collections
+export async function getStaticPaths() {
+    const seriesEntries = await getCollection("series");
+    const slidesEntries = await getCollection("slides");
+
+    // Map series entries
+    const seriesPaths = seriesEntries.map((entry) => ({
+        params: { id: entry.id },
+        props: { entry, type: "series" },
+    }));
+
+    // Map slides entries
+    const slidesPaths = slidesEntries.map((entry) => ({
+        params: { id: entry.id },
+        props: { entry, type: "slides" },
+    }));
+
+    // Combine both collections
+    return [...seriesPaths, ...slidesPaths];
+}
+
+// 2. Get the entry and its type from props
+const { entry, type } = Astro.props;
+---
+
+<Layout pageType={type}>
+    {type === "series" ? <Series {entry} /> : <Slides {entry} />}
+</Layout>

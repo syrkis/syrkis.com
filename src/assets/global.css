@@ -1,0 +1,63 @@
+/* Base styles */
+html,
+body {
+    margin: 0;
+    width: 100%;
+    font-size: 1.2em;
+    height: 100%;
+    line-height: 2.5;
+    font-family: "Libertinus Serif", serif;
+    letter-spacing: 0.02em;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    /* Only apply dark mode to body when it has the slides class */
+    body.slides {
+        background-color: black;
+        color: white;
+    }
+
+    /* Keep the SVG inversion for typst documents */
+    body.slides svg.typst-doc,
+    body.slides g {
+        filter: invert(1);
+    }
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 1.8rem;
+    font-weight: normal;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+svg.typst-doc {
+    height: auto !important; /* Override the inline height */
+    width: 100% !important;
+    margin: auto;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+email-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline;
+}

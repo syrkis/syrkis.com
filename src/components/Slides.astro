@@ -1,163 +1,43 @@
 ---
-/* pressing down, space, up, j, k, or f, should start present. Scrolling should disable it. */
-import { Typst } from "astro-typst/src/components";
-import Layout from "../layouts/Layout.astro";
-import fs from "node:fs";
+import type { CollectionEntry } from "astro:content";
+import { render } from "astro:content";
 
-interface Params {
-    filePath: string;
+interface Props {
+    entry: CollectionEntry<"slides">;
 }
-const { filePath } = Astro.props;
-const code = fs.readFileSync(filePath, "utf-8");
+
+const { entry } = Astro.props;
+const { title } = entry.data;
+const { Content } = await render(entry);
 ---
 
-<div>
-    <div class="slides-container">
-        <Typst {code} remPx={10} props={{ width: "100%", height: "100%" }} />
-    </div>
+<div class="slides">
+    <Content />
 </div>
 
-<style is:global>
-    body {
-        margin: 0;
-    }
-    .slides-container.present {
-        text-align: center;
-        width: 95%;
-        height: 100vh;
-        margin: auto;
-        overflow: hidden;
-    }
-
-    svg.typst-doc {
-        margin: auto;
-    }
-
-    @media (prefers-color-scheme: dark) {
-        .present {
-            background: black;
-        }
-        g.present {
-            filter: invert(1);
-            background: black;
-        }
-        svg.present {
-            background: black;
-        }
-        /* .svg { */
-        /* background: black; */
-        /* color: white; */
-        /* } */
-    }
-
-    .present header,
-    .present footer {
-        display: none;
-    }
-
-    g .present .typst-page {
-        transform: translate(0, 0);
-        display: flex;
-        margin: auto 0;
-    }
-
-    .present.typst-doc {
-        margin: auto 0;
-        height: 100vh;
+<style>
+    .slides {
+        max-width: 100%;
+        margin: 0 auto;
     }
 </style>
 
-<script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        // page number and typst slides
-        let pageNumber = 0; // Default page number (0-based index)
-        const typstPages = Array.from(document.querySelectorAll(".typst-page"));
-        const typstDoc = document.querySelector(".typst-doc");
-        const clientHeight = typstDoc.clientHeight;
-        const clientWidth = typstDoc.clientWidth;
-        const pageHeight = typstPages[0].getAttribute("data-page-height");
-        const docWidth = typstDoc.getAttribute("data-width");
-        const docHeight = typstDoc.getAttribute("data-height");
-
-        // keydown event listener
-        document.addEventListener("keydown", function (e) {
-            if (e.key === "f") {
-                togglePresentation();
-            }
-            if (e.key === "k" && document.body.classList.contains("present")) {
-                pageNumber = Math.max(0, pageNumber - 1);
-                showPage(pageNumber);
-            } else if (
-                e.key === "j" &&
-                document.body.classList.contains("present")
-            ) {
-                pageNumber = Math.min(typstPages.length - 1, pageNumber + 1);
-                showPage(pageNumber);
-            }
-        });
-
-        function togglePresentation() {
-            document.body.classList.toggle("present");
-            const isPresent = document.body.classList.contains("present");
-            document
-                .querySelector(".slides-container")
-                .classList.toggle("present");
-            document.querySelector(".typst-doc").classList.toggle("present");
-            window.scrollTo(0, 0);
-            typstDoc.setAttribute(
-                "data-height",
-                isPresent ? pageHeight : docHeight,
-            );
-            typstDoc.setAttribute(
-                "viewBox",
-                `0 0 ${docWidth} ${isPresent ? pageHeight : docHeight}`,
-            );
-            typstPages.forEach((page, index) => {
-                page.classList.toggle("present");
-                page.setAttribute(
-                    "transform",
-                    `translate(0, ${isPresent ? 0 : index * page.getAttribute("data-page-height")})`,
-                );
-                if (
-                    index == pageNumber &&
-                    document.body.classList.contains("present")
-                ) {
-                    window.scrollTo(0, 0);
-                    page.style.display = "";
-                } else if (document.body.classList.contains("present")) {
-                    page.style.display = "none";
-                } else {
-                    page.style.display = "";
-                    page.setAttribute(
-                        "transform",
-                        `translate(0, ${index * page.getAttribute("data-page-height")})`,
-                    );
-                }
-            });
-        }
-
-        function showPage(pageNumber) {
-            typstPages.forEach((p, i) => {
-                p.style.display = i === pageNumber ? "" : "none";
-            });
-        }
-    });
-
+<script>
     /**
-  Copyright 2025 Myriad-Dreamin
+Copyright 2025 Myriad-Dreamin
 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-      http://www.apache.org/licenses/LICENSE-2.0
+    http://www.apache.org/licenses/LICENSE-2.0
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  */
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
     function findAncestor(el, cls) {
         while ((el = el.parentElement) && !el.classList.contains(cls));
         return el;
@@ -196,17 +76,6 @@ const code = fs.readFileSync(filePath, "utf-8");
                 console.log("scrolling to", xOffset, yOffset, left, top);
 
                 window.scrollTo(xOffset, yOffset);
-                const ripple = document.createElement("div");
-                ripple.className = "typst-ripple";
-                docRoot.appendChild(ripple);
-
-                ripple.style.left = left.toString() + "px";
-                ripple.style.top = top.toString() + "px";
-
-                ripple.style.animation = "typst-ripple-effect .4s linear";
-                ripple.onanimationend = () => {
-                    docRoot.removeChild(ripple);
-                };
                 return;
             }
         }

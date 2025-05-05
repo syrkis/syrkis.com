@@ -1,0 +1,16 @@
+title: Aurelian
+desc: The Aurelian Textures is a collection of images of butterfly wings captured through a microscopic lens
+cover: aurelian-1.jpg
+year: "2016"
+material: Microscopy Photograph of Butterfly Wings
+works:
+  - file: aurelian-1.jpg
+    name: Aurelian 1
+  - file: aurelian-2.jpg
+    name: Aurelian 2
+  - file: aurelian-3.jpg
+    name: Aurelian 3
+  - file: aurelian-4.jpg
+    name: Aurelian 4
+  - file: aurelian-5.jpg
+    name: Aurelian 5

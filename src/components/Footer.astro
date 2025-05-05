@@ -6,39 +6,26 @@ const emailDomain = "syrkis.com";
 
 {
     !isRoot && (
-        <footer class="footer" transition:name="footer">
-            <div class="content">
-                ———————
-                <br />
-                for any inquiries, write
-                <br />
-                <email-link data-user={emailUser} data-domain={emailDomain}>
-                    {emailUser}[at]{emailDomain}
-                </email-link>
-            </div>
+        <footer transition:name="footer">
+            ———————
+            <br />
+            for all inquiries, write
+            <br />
+            <email-link data-user={emailUser} data-domain={emailDomain}>
+                {emailUser}[at]{emailDomain}
+            </email-link>
         </footer>
     )
 }
 
 <style>
-    .footer {
+    .root {
+        display: none;
+    }
+    footer {
         text-align: center;
         padding: 5vh 0;
-    }
-
-    .content {
         line-height: 2.5;
-    }
-
-    email-link {
-        color: inherit;
-        text-decoration: none;
-        cursor: pointer;
-        display: inline;
-    }
-
-    email-link:hover {
-        text-decoration: underline;
     }
 </style>
 

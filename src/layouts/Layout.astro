@@ -1,23 +1,17 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { ClientRouter } from "astro:transitions";
+import "../assets/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
-        <ClientRouter />
-        <link rel="stylesheet" href="/global.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <script
-            defer
-            is:inline
-            src="https://cloud.umami.is/script.js"
-            data-website-id="5d4d1d04-96de-428a-9fdf-364a81b64f9b"></script>
         <title>Noah Syrkis</title>
         <link
             href="https://fonts.cdnfonts.com/css/libertinus-serif"
@@ -25,30 +19,11 @@ import Header from "../components/Header.astro";
             type="text/css"
             charset="utf-8"
         />
+        <ClientRouter />
     </head>
-    <body>
+    <body class={Astro.props.pageType}>
         <Header />
         <slot />
         <Footer />
     </body>
 </html>
-
-<script>
-    let previousPath = window.location.pathname;
-    document.addEventListener("astro:after-swap", () => {
-        const currentPath = window.location.pathname;
-        if (
-            currentPath !== previousPath &&
-            currentPath !== "/" &&
-            currentPath !== "/about" &&
-            currentPath !== "/works"
-        ) {
-            window.scrollTo({
-                top: 123,
-                left: 0,
-                behavior: "instant",
-            });
-        }
-        previousPath = currentPath;
-    });
-</script>

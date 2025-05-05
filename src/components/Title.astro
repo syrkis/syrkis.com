@@ -1,0 +1,8 @@
+---
+const { entry } = Astro.props;
+const { title } = entry.data;
+---
+
+<div transition:name={entry.id}>
+    {title}
+</div>
