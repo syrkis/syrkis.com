@@ -10,6 +10,3 @@ command = """
   npm run build
 """
 publish = "dist"
-
-[build.environment]
-ASTRO_KEY = "xl0Zq5Wv7ICkwyRPQn6r2IBNJ7Otq/RySVQSds9q2oc="

@@ -12,6 +12,6 @@
     "@astrojs/netlify": "^6.3.2",
     "@astrojs/sitemap": "^3.3.1",
     "astro": "^5.7.10",
-    "astro-typst": "^0.8.1"
+    "astro-typst": "^0.8.2"
   }
 }
