@@ -1,4 +1,3 @@
-[submodule "src/assets/figs"]
-	path = src/assets/figs
-	url = https://github.com/syrkis/syrk.is.git
-	branch = main
+[submodule "slides/s3"]
+	path = slides/s3
+	url = https://github.com/syrkis/s3.git
