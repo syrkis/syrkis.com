@@ -7,9 +7,7 @@ command = """
   git clone https://github.com/syrkis/lilka.git ~/.local/share/typst/packages/local/lilka/0.0.0/
 
   # Download s3 files
-  echo pwd
-  echo ls
-  git clone https://github.com/syrkis/s3.git ./slides/s3
+  git clone https://github.com/syrkis/s3.git /opt/build/repo/slides/s3
 
   # Run your regular build command
   npm run build
