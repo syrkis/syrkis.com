@@ -1,21 +1,41 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { render } from "astro:content";
+import { Typst } from "astro-typst/src/components";
+// import { render } from "astro:content";
 
 interface Props {
     entry: CollectionEntry<"slides">;
 }
 
 const { entry } = Astro.props;
-const { title } = entry.data;
-const { Content } = await render(entry);
+const mainFilePath = `slides/${entry.id}.typ`;
+// const { title } = entry.data;
+// const { Content } = await render(entry);
 ---
 
+<!-- <div class="slides">
+    <Content input={{ name: "noah" }} />
+</div> -->
 <div class="slides">
-    <Content />
+    <div id="handout">
+        <Typst
+            input={{ mainFilePath: mainFilePath, inputs: { handout: "true" } }}
+        />
+    </div>
+    <div id="present">
+        <Typst
+            input={{ mainFilePath: mainFilePath, inputs: { handout: "false" } }}
+        />
+    </div>
 </div>
 
 <style>
+    #present {
+        display: none;
+    }
+    #handout {
+        display: block;
+    }
     .slides {
         max-width: 100%;
         margin: 0 auto;
@@ -23,6 +43,18 @@ const { Content } = await render(entry);
 </style>
 
 <script>
+    let isHandout = false;
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "f" || event.key === "F") {
+            isHandout = !isHandout;
+            document.getElementById("present").style.display = isHandout
+                ? "none"
+                : "block";
+            document.getElementById("handout").style.display = isHandout
+                ? "block"
+                : "none";
+        }
+    });
     /**
 Copyright 2025 Myriad-Dreamin
 
