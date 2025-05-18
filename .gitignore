@@ -1,6 +1,7 @@
 .netlify/
 node_modules
 **/*.pdf
+slides/s3
 
 # Output
 .output
