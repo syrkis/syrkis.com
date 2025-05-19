@@ -40,30 +40,185 @@ const mainFilePath = `slides/${entry.id}.typ`;
         max-width: 100%;
         margin: 0 auto;
     }
+    /* Add transition for header and footer */
+    /* :global(header), */
+    /* :global(footer) { */
+    /* transition: opacity 0.3s ease; */
+    /* } */
 </style>
-
 <script>
-    let isHandout = false;
+    let currentPage = 0;
+    let totalPages = 0;
+    let typstPages = [];
+
+    // Function to update display based on fullscreen state
+    function updateDisplayMode() {
+        const isFullscreen = !!document.fullscreenElement;
+        document.getElementById("present").style.display = isFullscreen
+            ? "block"
+            : "none";
+        document.getElementById("handout").style.display = isFullscreen
+            ? "none"
+            : "block";
+
+        // Toggle header and footer visibility with smooth transition
+        const header = document.querySelector("header");
+        const footer = document.querySelector("footer");
+
+        if (header) {
+            header.style.display = isFullscreen ? "none" : "";
+        }
+        if (footer) {
+            footer.style.display = isFullscreen ? "none" : "";
+        }
+
+        if (isFullscreen) {
+            // Reset to first page on entering presentation mode
+            setTimeout(() => {
+                collectPages();
+                showPage(0);
+            }, 0);
+        }
+        if (isFullscreen) {
+            document.body.classList.add("presentation-mode");
+        } else {
+            document.body.classList.remove("presentation-mode");
+        }
+    }
+
+    // Function to toggle fullscreen mode
+    function toggleFullscreen() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen().catch((err) => {
+                console.error(`Error exiting fullscreen: ${err.message}`);
+            });
+        } else {
+            document.documentElement.requestFullscreen().catch((err) => {
+                console.error(`Error entering fullscreen: ${err.message}`);
+            });
+        }
+    }
+
+    // Listen for fullscreen changes
+    document.addEventListener("fullscreenchange", updateDisplayMode);
+
+    // Listen for keyboard events
     document.addEventListener("keydown", function (event) {
         if (event.key === "f" || event.key === "F") {
-            isHandout = !isHandout;
-            document.getElementById("present").style.display = isHandout
-                ? "none"
-                : "block";
-            document.getElementById("handout").style.display = isHandout
-                ? "block"
-                : "none";
+            toggleFullscreen();
+        }
+        // Handle page navigation
+        if (!!document.fullscreenElement) {
+            if (event.key === "j" || event.key === "J") {
+                nextPage();
+            }
+            if (event.key === "k" || event.key === "K") {
+                prevPage();
+            }
         }
     });
+
+    // Initialize display mode on page load
+    document.addEventListener("DOMContentLoaded", updateDisplayMode);
+
+    function removeTransformsFromPresent() {
+        const presentDiv = document.getElementById("present");
+        if (!presentDiv) return;
+        // Query all typst-page elements within #present
+        const typstPages = presentDiv.querySelectorAll(
+            "g.typst-page[transform]",
+        );
+        typstPages.forEach((g) => g.removeAttribute("transform"));
+    }
+
+    // Function to sync typst-doc SVG height to first typst-page
+    function setDocToPageHeight() {
+        const presentDiv = document.getElementById("present");
+        if (!presentDiv) return;
+        const svgDoc = presentDiv.querySelector("svg.typst-doc");
+        if (!svgDoc) return;
+        const firstPage = svgDoc.querySelector("g.typst-page");
+        if (!firstPage) return;
+
+        const pageWidth = firstPage.getAttribute("data-page-width");
+        const pageHeight = firstPage.getAttribute("data-page-height");
+
+        if (pageWidth && pageHeight) {
+            svgDoc.setAttribute("height", pageHeight + "px");
+            svgDoc.setAttribute("width", pageWidth + "px");
+            svgDoc.setAttribute("data-height", pageHeight);
+            svgDoc.setAttribute("data-width", pageWidth);
+            svgDoc.setAttribute("viewBox", `0 0 ${pageWidth} ${pageHeight}`);
+        }
+    }
+
+    function presentObserverCallback() {
+        removeTransformsFromPresent();
+        setDocToPageHeight();
+        // Refresh page list and show the current page
+        collectPages();
+        showPage(currentPage);
+    }
+
+    // Since Typst rendering could be async, observe for mutations in #present
+    const presentObserver = new MutationObserver(presentObserverCallback);
+    document.addEventListener("DOMContentLoaded", () => {
+        const presentDiv = document.getElementById("present");
+        if (presentDiv) {
+            presentObserver.observe(presentDiv, {
+                subtree: true,
+                childList: true,
+            });
+            // In case content is already there on load
+            removeTransformsFromPresent();
+            setDocToPageHeight();
+            collectPages();
+            showPage(0);
+        }
+    });
+
+    // ---- Single-page presentation logic ----
+
+    function collectPages() {
+        // Grabs all g.typst-page in #present's .typst-doc SVG, sorted as NodeList
+        const presentDiv = document.getElementById("present");
+        if (!presentDiv) return;
+        const svgDoc = presentDiv.querySelector("svg.typst-doc");
+        if (!svgDoc) return;
+        typstPages = Array.from(svgDoc.querySelectorAll("g.typst-page"));
+        totalPages = typstPages.length;
+        if (currentPage >= totalPages)
+            currentPage = Math.max(totalPages - 1, 0);
+    }
+
+    function showPage(idx) {
+        collectPages();
+        if (typstPages.length === 0) return;
+        if (idx < 0 || idx >= typstPages.length) return;
+
+        typstPages.forEach((page, i) => {
+            page.style.display = i === idx ? "" : "none";
+        });
+        currentPage = idx;
+    }
+
+    function nextPage() {
+        if (currentPage < totalPages - 1) {
+            showPage(currentPage + 1);
+        }
+    }
+    function prevPage() {
+        if (currentPage > 0) {
+            showPage(currentPage - 1);
+        }
+    }
+
     /**
 Copyright 2025 Myriad-Dreamin
-
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
-
     http://www.apache.org/licenses/LICENSE-2.0
-
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
