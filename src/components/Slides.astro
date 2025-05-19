@@ -72,14 +72,27 @@ const mainFilePath = `slides/${entry.id}.typ`;
             footer.style.display = isFullscreen ? "none" : "";
         }
 
+        // --- Add this block ---
         if (isFullscreen) {
-            // Reset to first page on entering presentation mode
+            const presentDiv = document.getElementById("present");
+            const svg = presentDiv?.querySelector("svg.typst-doc");
+            if (svg) {
+                svg.removeAttribute("width");
+                svg.removeAttribute("height");
+                // if your JS sets style width/height, clear those too
+                svg.style.width = "";
+                svg.style.height = "";
+            }
+        }
+        // --- End block ---
+
+        if (isFullscreen) {
             setTimeout(() => {
                 collectPages();
                 showPage(0);
+                setDocToPageHeight(); // <- Add this AFTER showPage (not before)
+                removeTransformsFromPresent();
             }, 0);
-        }
-        if (isFullscreen) {
             document.body.classList.add("presentation-mode");
         } else {
             document.body.classList.remove("presentation-mode");
