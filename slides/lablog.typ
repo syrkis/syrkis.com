@@ -16,6 +16,7 @@
 
 #metadata((
   title: title,
+  date: datetime.today(),
 ))<frontmatter>
 
 

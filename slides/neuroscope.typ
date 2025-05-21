@@ -4,7 +4,7 @@
 
 
 // head /////////////////////////////////////////////////////////////////////////
-#let title = "Mechanistic Interpretability on (multi-task) Irreducible Integer Identifiers"
+#let title = "Neuroscope"
 
 #show: lilka
 #show: slides.with(
@@ -14,6 +14,7 @@
 
 #metadata((
   title: title,
+  date: datetime(year: 2025, month: 5, day: 6),
 ))<frontmatter>
 
 

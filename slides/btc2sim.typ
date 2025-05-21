@@ -16,6 +16,7 @@
 
 #metadata((
   title: title,
+  date: datetime(year: 2025, month: 5, day: 6),
 ))<frontmatter>
 
 
@@ -83,43 +84,23 @@
           Or[#emph[tree] $(triangle.stroked.r$ #emph[tree])$star$][program]
         },
       ),
-      Prod(
-        delim: $→$,
-        emph[tree],
-        {
-          Or[#emph[leaf] | #emph[node]][node or leaf]
-        },
-      ),
-      Prod(
-        delim: $→$,
-        emph[leaf],
-        {
-          Or[A (#emph[move] | #emph[attack])][action]
-          Or[C ( #emph[reachable] )][condition]
-        },
-      ),
-      Prod(
-        delim: $→$,
-        emph[node],
-        {
-          Or[S (#emph[root])][sequence]
-          Or[F (#emph[root])][fallback]
-        },
-      ),
-      Prod(
-        delim: $→$,
-        emph[move],
-        {
-          Or[#emph[move direction]][move action]
-        },
-      ),
-      Prod(
-        delim: $→$,
-        emph[direction],
-        {
-          Or[to | from][direction]
-        },
-      ),
+      Prod(delim: $→$, emph[tree], {
+        Or[#emph[leaf] | #emph[node]][node or leaf]
+      }),
+      Prod(delim: $→$, emph[leaf], {
+        Or[A (#emph[move] | #emph[attack])][action]
+        Or[C ( #emph[reachable] )][condition]
+      }),
+      Prod(delim: $→$, emph[node], {
+        Or[S (#emph[root])][sequence]
+        Or[F (#emph[root])][fallback]
+      }),
+      Prod(delim: $→$, emph[move], {
+        Or[#emph[move direction]][move action]
+      }),
+      Prod(delim: $→$, emph[direction], {
+        Or[to | from][direction]
+      }),
     ),
     caption: [Behavior tree grammar],
   )<dsl>

@@ -25,6 +25,7 @@ const slides = defineCollection({
     loader: glob({ pattern: "*.typ", base: "./slides" }),
     schema: z.object({
         title: z.string(),
+        date: z.string(),
     }),
 });
 
