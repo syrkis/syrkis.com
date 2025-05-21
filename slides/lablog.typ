@@ -42,18 +42,33 @@
 
 = btc2sim
 
-- Not updated code #footnote[#link("https://github.com/syrkis/btc2sim", "github.com/syrkis/btc2sim")]
+- I want to move plan logic into the code #footnote[#link("https://github.com/syrkis/btc2sim", "github.com/syrkis/btc2sim")]
 - TODO:
   - Add more atomics / grammar
   - Speed test to keep parabellum millions
-
-= JAX Plan
-
+- Plan a an directed acyclic graph.
 - Trying to use `jraph` for storing plan (graph)
 
-// = MIIII
+= MIIII
 
-// - Test
+- Aiming for ICLR
+- Need to write Anders
+
+= Other
+
+- Awaiting response from Janette Systematic
+- Conflict between user study and $10^6$ unit sims (given current approach)
+  - Could visualize distribution of units groups?
+  - Decide now if $10^6$ is must (all levels of code has to support)
+
+= TODO
+
+- [ ] Smart JAX plan data structure
+- [x] Assign bt to units in jax-native way
+- [ ] Add more atomics to `bct2sim`
+- [ ] Do speed test (improvements) for `btc2sim` supporting $10^6+$ units
+- [ ] Setup backend to run persitently on some server
+- [ ] Complete JAX plan datastructure
 
 // = EEMBRYO
 
@@ -63,13 +78,40 @@
 
 // - Constructing graphs in julia
 
-= Reading
+// = Reading
 
--
+// -
 
 #[
   #show heading.where(level: 1): set heading(numbering: none)
   = Index of Sources <touying:unoutlined>
   #set align(top)
   #pad(y: 2em, bibliography("zotero.bib", title: none, style: "ieee"))
+]
+
+#appendix[
+  = PLANAX
+
+  ```python
+  def plan_fn(plan, state):
+      target = random.randint(rng, (env.num_units,), 0, marks.shape[0])
+      idxs = random.randint(rng, (env.num_units,), 0, 2)  # random bt idxs for units
+      behavior = tree.map(lambda x: jnp.take(x, idxs, axis=0), bts)  # behavior
+      return behavior, target
+  ```
+
+  = Memory hack
+
+  ```python
+  def knn(coords, k, n):
+      def aux(inputs):
+          batch_coord, batch_norms = inputs
+          dots = jnp.dot(batch_coord, coords.T)
+          dist = jnp.maximum(batch_norms[:, None] + norms[None, :] - 2 * dots, 0)
+          return lax.approx_min_k(dist, k=k)
+
+      norms = jnp.sum(coords**2, axis=1)
+      dist, idxs = lax.map(aux, (coords.reshape((n, n, 2)), norms.reshape(n, n)))
+      return dist.reshape((-1, k)), idxs.reshape((-1, k))
+  ```
 ]
