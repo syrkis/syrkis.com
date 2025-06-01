@@ -1,17 +1,22 @@
 // imports ///////////////
 #import "@preview/touying:0.6.1": *
+#import "@preview/arborly:0.3.1": tree
+#import "@preview/diagraph:0.3.3": raw-render
 #import "@local/lilka:0.0.0": *
-#show: lilka
 
+#show: lilka
+// #show raw.where(lang: "dot-render"): it => render-image(it.text)
 
 // head /////////////////////////////////////////////////////////////////////////
 #let title = "Lab Log"
 
 #show: slides.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: (
-    sys.inputs.at("handout", default: "false") == "true"
-  )),
+  config-common(
+    handout: (
+      sys.inputs.at("handout", default: "false") == "true"
+    ),
+  ),
 )
 
 #metadata((
@@ -22,33 +27,64 @@
 
 
 // body //////////////////////////////////////////
-= Parabellum
-
-#slide[
-  - Blog post (draft) at virian.com/parabellum
-  - Running millions of units
-  - On #link("https://parabellum.syrkis.com", `parabellum.syrkis.com`) (no backend)
-  - No code change#footnote[#link("https://github.com/syrkis/parabellum", "github.com/syrkis/parabellum")]
-  - Gymnasium like (could be used with RL, etc.)
-  - TODO: add unit communication? Promote?
-][
-  #figure(
-    image("s3/esch/parabellum_new.svg", width: 80%),
-    caption: [Random actions taken in Parabellum
-
-      (shown with #link("https://github.com/syrkis/esch", `esch`))
-    ],
-  )
-]
 
 = btc2sim
 
-- I want to move plan logic into the code #footnote[#link("https://github.com/syrkis/btc2sim", "github.com/syrkis/btc2sim")]
+- I want to move plan logic into the code #footnote[#link(
+      "https://github.com/syrkis/btc2sim",
+      "github.com/syrkis/btc2sim",
+    )]
 - TODO:
   - Add more atomics / grammar
   - Speed test to keep parabellum millions
 - Plan a an directed acyclic graph.
 - Trying to use `jraph` for storing plan (graph)
+
+== Language
+
+
+#figure(raw-render(
+  ```dot
+  digraph G {
+  A [label="alpha move knight scout"]
+  B [label="bravo move queen scout"]
+  C [label="alpha attack king scout"]
+
+  A -> C
+  B -> C
+  }
+  ```,
+  labels: ("A": "Node A", "B": "Node B", "C": "Node C"),
+))
+
+= Parabellum
+
+// #figure(
+// tree(style: (fit: "band"))[F [S [C [ in_range enemy ]] [A [ shoot closest ]] ]
+// [A [ move target ]]
+// ],
+// caption: [behavior tree],
+// )
+
+#slide[
+  - Blog post (draft) at virian.com/parabellum
+  - Running millions of units
+  - On #link("https://parabellum.syrkis.com", `parabellum.syrkis.com`) (no
+    backend)
+  - No code change#footnote[#link(
+        "https://github.com/syrkis/parabellum",
+        "github.com/syrkis/parabellum",
+      )]
+  - Gymnasium like (could be used with RL, etc.)
+  - TODO: add unit communication? Promote?
+][
+  #figure(image("s3/btc2sim/sim.svg", height: 80%), caption: [Random actions
+    taken in Parabellum
+
+    // (shown with #link("https://github.com/syrkis/esch", `esch`))
+  ])
+]
+
 
 = MIIII
 
@@ -57,19 +93,25 @@
 
 = Other
 
-- Awaiting response from Janette Systematic
+// - Awaiting response from Janette Systematic
+- Talked to Kristian Knus (Senior Manager, defence operations, Systematic)
+  - He said timing was exceptionally good, and that they will contact ITU
+    directly.
+    - Sebastian will hear from them (seems a bit elaborate, but this is big
+      business stuff)
 - Conflict between user study and $10^6$ unit sims (given current approach)
   - Could visualize distribution of units groups?
   - Decide now if $10^6$ is must (all levels of code has to support)
 
 = TODO
 
-- [ ] Smart JAX plan data structure
+- [ ] JAX plan data structure
+- [ ] gun shots and colors on svg plots (and small multiples)
 - [x] Assign bt to units in jax-native way
-- [ ] Add more atomics to `bct2sim`
-- [ ] Do speed test (improvements) for `btc2sim` supporting $10^6+$ units
+- [x] Add more atomics to `bct2sim`
 - [ ] Setup backend to run persitently on some server
-- [ ] Complete JAX plan datastructure
+- [ ] User study plan (nice to have, etc.)
+- [ ] Do speed test (improvements) for `btc2sim` supporting $10^6+$ units
 
 // = EEMBRYO
 

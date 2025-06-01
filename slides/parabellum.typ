@@ -24,7 +24,8 @@
 = Beyond Real Time Strategy
 
 - Real life is high fidelity but expensive, unparallizable, and slow
-- Parabellum is a StarCraft II#footnote[Famous Real-time strategy (RTS) game] like war-game simulator where:
+- Parabellum is a StarCraft II#footnote[Famous Real-time strategy (RTS) game]
+  like war-game simulator where:
   - Arbitrary numbers of parallel simulations can be run ... #pause
   - ... at speeds far beyond real-time ... #pause
   - ... with 10s of thousands of units each
@@ -80,7 +81,8 @@
           "--|>",
         )[State $s_(t+1)$],
       )],
-    caption: [Diagram of rewardless partially observable markov decision process (POMDP)],
+    caption: [Diagram of rewardless partially observable markov decision process
+      (POMDP)],
   )<gameflow>
 ]
 
@@ -94,16 +96,22 @@
 #page[
   - A given state is a (position, health, cooldown)–tuple
   - Non-changing features of the game are encoded in a scene object
-  - The scene includes terrain raster map unit-type information (attack and sight ranges, etc.)
-  - Any location on Earth can be loaded into the terrain #footnote[Based on OpenStreetMap data]
-  - The observation includes location, health, type and team information on units in sight
+  - The scene includes terrain raster map unit-type information (attack and
+    sight ranges, etc.)
+  - Any location on Earth can be loaded into the terrain #footnote[Based on
+      OpenStreetMap data]
+  - The observation includes location, health, type and team information on
+    units in sight
 ]
 
 = Projects using Parabellum
 
-- `HIVE`: Behavior tree based approaches for unit control @anne2024
-- `llllll`#footnote[#link("https://llllll.syrkis.com", "llllll.syrkis.com")]: a large language / foundation model based command and control simulator
-- The Nebellum Project#footnote[#link("https://nebellum.com", "nebellum.com")]: Monitoring to what extent rules of engagement are followed in specific military encounters
+- `HIVE`: Behavior tree based approaches for unit control @anne2025
+- `llllll`#footnote[#link("https://llllll.syrkis.com", "llllll.syrkis.com")]: a
+  large language / foundation model based command and control simulator
+- The Nebellum Project#footnote[#link("https://nebellum.com", "nebellum.com")]:
+  Monitoring to what extent rules of engagement are followed in specific
+  military encounters
 // - `esch`:
 
 

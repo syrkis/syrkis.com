@@ -2,34 +2,75 @@
 html,
 body {
     margin: 0;
+    padding: 0;
     width: 100%;
-    font-size: 1.2em;
     height: 100%;
+    font-size: 1.2em;
     line-height: 2.5;
     font-family: "Libertinus Serif", serif;
     letter-spacing: 0.02em;
 }
 
+/* CSS Custom Properties for theme switching */
+:root {
+    --svg-filter: none;
+    --text-color: inherit;
+}
+
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
-    /* Only apply dark mode to body when it has the slides class */
-    body.slides {
-        background-color: black;
-        color: white;
+    :root {
+        --svg-filter: invert(1) hue-rotate(180deg);
+        --text-color: white;
     }
 
-    /* Keep the SVG inversion for typst documents */
-    body.slides svg.typst-doc,
-    body.slides g {
-        filter: invert(1);
+    body.slides {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    /* Standard browsers - apply filter to entire SVG */
+    body.slides svg.typst-doc {
+        filter: var(--svg-filter);
+        -webkit-filter: var(--svg-filter);
+    }
+
+    /* Firefox-specific approach - separate filters for text and non-text */
+    @-moz-document url-prefix() {
+        body.slides svg.typst-doc {
+            filter: invert(1) hue-rotate(180deg);
+            -moz-filter: invert(1) hue-rotate(180deg);
+        }
+        
+        /* Override filter for text elements and apply direct styling */
+        body.slides svg.typst-doc text,
+        body.slides svg.typst-doc tspan {
+            filter: none !important;
+            -moz-filter: none !important;
+            fill: white !important;
+            stroke: none !important;
+            opacity: 1 !important;
+        }
+        
+        /* Handle any grouped text elements */
+        body.slides svg.typst-doc g text,
+        body.slides svg.typst-doc g tspan {
+            filter: none !important;
+            -moz-filter: none !important;
+            fill: white !important;
+            stroke: none !important;
+            opacity: 1 !important;
+        }
     }
 }
 
+/* Link styles */
 a {
     text-decoration: none;
     color: inherit;
 }
 
+/* Heading styles */
 h1,
 h2,
 h3,
@@ -44,17 +85,26 @@ h6 {
     padding: 0;
     text-align: center;
     transition: all 0.3s ease;
-}
-svg.typst-doc {
-    height: auto !important; /* Override the inline height */
-    width: 100% !important;
-    margin: auto;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
 }
 
+/* SVG document styles */
+svg.typst-doc {
+    height: auto !important;
+    width: 100% !important;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Wrapper styles */
 .wrapper {
     text-align: center;
 }
 
+/* Email link component */
 email-link {
     color: inherit;
     text-decoration: none;
@@ -62,6 +112,7 @@ email-link {
     display: inline;
 }
 
+/* Presentation mode styles */
 body.presentation-mode #present {
     display: flex !important;
     align-items: center;
@@ -73,15 +124,50 @@ body.presentation-mode #present {
     left: 0;
     z-index: 1000;
     overflow: hidden;
+    background-color: inherit;
 }
 
 body.presentation-mode #present svg.typst-doc {
-    /* This is the key! */
     width: 100vw !important;
     height: 100vh !important;
     max-width: 100vw;
     max-height: 100vh;
     object-fit: contain;
+    -o-object-fit: contain;
+    -webkit-object-fit: contain;
+    -moz-object-fit: contain;
     display: block;
     margin: 0 auto;
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+    svg.typst-doc {
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    
+    body.presentation-mode #present svg.typst-doc {
+        -moz-transform: scale(1);
+        transform: scale(1);
+    }
+    
+    /* Presentation mode dark theme fixes */
+    @media (prefers-color-scheme: dark) {
+        body.presentation-mode.slides #present svg.typst-doc {
+            filter: invert(1) hue-rotate(180deg);
+            -moz-filter: invert(1) hue-rotate(180deg);
+        }
+        
+        body.presentation-mode.slides #present svg.typst-doc text,
+        body.presentation-mode.slides #present svg.typst-doc tspan,
+        body.presentation-mode.slides #present svg.typst-doc g text,
+        body.presentation-mode.slides #present svg.typst-doc g tspan {
+            filter: none !important;
+            -moz-filter: none !important;
+            fill: white !important;
+            stroke: none !important;
+            opacity: 1 !important;
+        }
+    }
 }
