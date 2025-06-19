@@ -1,51 +1,26 @@
 // imports ///////////////
 #import "@preview/touying:0.6.1": *
 #import "@local/lilka:0.0.0": *
-#import "@preview/fletcher:0.5.7": *
-#import "@preview/simplebnf:0.1.1": *
+#import "@local/esch:0.0.0": *
+#show: lilka
 
 
 // head /////////////////////////////////////////////////////////////////////////
-#let title = "Esch — A Framework for Numerical Typography"
+#let title = "Esch — Numerical Typography"
 
-#show: lilka
 #show: slides.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: true),
+  config-common(
+    handout: (
+      sys.inputs.at("handout", default: "false") == "true"
+    ),
+  ),
 )
 
 #metadata((
   title: title,
   date: datetime(year: 2025, month: 5, day: 6),
 ))<frontmatter>
-
-#focus-slide[
-  #figure(stack(
-    // spacing: 1em,
-    image("s3/esch/multi_grid.svg", width: 100%),
-    image(
-      "s3/esch/multi_anim_grid.svg",
-      width: 100%,
-    ),
-  ))
-]
-
-#focus-slide[
-  #figure(stack(
-    dir: ltr,
-    spacing: 0.5em,
-    stack(spacing: 1em, image("s3/esch/mesh.svg", height: 50%), image(
-      "s3/esch/sims.svg",
-      height: 50%,
-    )),
-    stack(spacing: 1em, image("s3/esch/grid.svg", height: 50%), image(
-      "s3/esch/anim_grid.svg",
-      height: 50%,
-    )),
-  ))
-]
-
-
 
 = Symbols and Letters
 
@@ -54,8 +29,8 @@
   ${s_i : i in RR}$ #pause
 - The family of alphabets famously include ${A, B, ..., Z}$, ${0, 1}$, and
   ${A, C, T, G}$ #pause
-- A shared quality between all symbols is the care with which they so often are
-  drawn
+- A shared fact of these sets is the care with which their members have so often
+  been drawn
 
 
 #slide[
@@ -76,61 +51,137 @@
 
 ]
 
-#slide[
-  - The embryology of topography is frequently present in the symbols fenotype
-  - Worked laboriously into metal plates, symbols were assembled into strings
-]
+// #slide[
+// - The embryology of topography is frequently present in the symbols fenotype
+// - Worked laboriously into metal plates, symbols were assembled into strings
+// ]
 
-= Drawing ${s_i : i in RR}$
+// #focus-slide[
+// #figure(stack(
+// spacing: 1em,
+// image("s3/esch/multi_grid.svg", width: 100%),
+// image(
+// "s3/esch/multi_anim_grid.svg",
+// width: 100%,
+// ),
+// ))
+// ]
 
-- ESCH is a typography for representing quantity and strings here of
+// #focus-slide[
+//   #figure(stack(
+//     dir: ltr,
+//     spacing: 0.5em,
+//     stack(spacing: 1em, image("s3/esch/mesh.svg", height: 50%), image(
+//       "s3/esch/sims.svg",
+//       height: 50%,
+//     )),
+//     stack(spacing: 1em, image("s3/esch/grid.svg", height: 50%), image(
+//       "s3/esch/anim_grid.svg",
+//       height: 50%,
+//     )),
+//   ))
+// ]
+
+
+= Strings of quantity...
+
+- esch is a typography for representing quantity and strings thereof:
 - [$8 space 2 space 4 space 2 space 6 space 8$] becomes
   [$square.filled.big square.filled.tiny square.filled.small square.filled.tiny square.filled.medium square.filled.big$]
   ... or, depending on the font,
   [$circle.filled.big circle.filled.tiny circle.filled.small circle.filled.tiny circle.filled circle.filled.big$]
-- Negative numbers become
+- Accordingly, negative numbers become
   [$square.stroked.big square.stroked.tiny square.stroked.small square.stroked.tiny square.stroked.medium square.stroked.big$]
   (or
   [$circle.stroked.big circle.stroked.tiny circle.stroked.small circle.stroked.tiny circle.stroked circle.stroked.big$])
+- esch—using $tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))$ to map
+  $RR -> [-1, 1]$—thus targets a continuous alphabet
 
+#focus-slide[
+  #figure(
+    stack(image("s3/esch/esch-11.svg"), image("s3/esch/esch-10.svg"), rotate(
+      180deg,
+      image("s3/esch/esch-11.svg"),
+    )),
+    caption: [Three strings (or vectors) of varying length typed in esch],
+  )
+]
 
-= ${M in RR^(n times m)}$
+= ... and strings thereof...
 
 #slide[
-  -
+  - Stack esch strings to represent matrices...
+  // - Show patterns not apparent in conventional matrix form
+
 ][
-  #figure(image("s3/esch/grid.svg", width: 100%), caption: [Esch representation
-    of $J_(5,10)$])
+  #esch(
+    image("s3/miiii/nanda_y.svg", width: 80%),
+    caption: [Target for mech. interp. task @nanda2023],
+    xlabel: $x_0$,
+    ylabel: $x_1$,
+    title: [$y = x_0 + x_1 mod p, quad p=13$],
+  )
 ]
 
 #focus-slide[
-  #figure(image("s3/esch/anim_grid.svg", width: 100%), caption: [Esch of
-    $A in RR^(5 times 10 times 100)$ (last dimension is temporal)])
+  #figure(image("s3/esch/multi_grid.svg", width: 100%), caption: [Four
+    $16 times 16$ uniformly random matrices])
 ]
 
-= Position and Quantity
+= ... and strings thereof
 
-#figure(image("s3/esch/neuroscope.svg", width: 70%), caption: [Esch
-  representation of $J_(5,10)$])
+#slide[
+  #figure(
+    image("s3/esch/anim_grid.svg", width: 80%),
+    caption: [$16 times 16 times 80$ tensor (last dim. temporal)],
+  )
+][
+  - Temporal interpretations of a given dimension
+  - Show training dynamics in deep learning...#pause
+  - ... and whatever else
+]
 
-= Simulation and Simulacra
+= Meshes
 
-#figure(image("s3/esch/anim_sims.svg", height: 60%), caption: [Esch
-  representation of random actions in Parabellum @anne2025])
+#slide[
+  - Allow for arbitrary positions of points
+  - @neuro shows fMRI (brain scan) data @gifford2023 @allen2022
+][
+  #figure(
+    rotate(180deg, image("s3/esch/neuroscope.svg", width: 110%)),
+    caption: [fMRI data],
+  )<neuro>
+]
+
+= Simulations
+
+#slide[
+  #figure(
+    image("s3/esch/sims.svg", width: 100%),
+    caption: [$tilde U(0,1) -> tilde U(0, 1)$ simulated in Parabellum @anne2025
+    ],
+  )
+][
+  - Fix sizes and animate positions
+]
+
+// #figure(image("s3/esch/anim_sims.svg", height: 60%), caption: [Esch
+//   representation of random actions in Parabellum @anne2025])
 
 #[
   #show heading.where(level: 1): set heading(numbering: none)
+  #set text(size: 18pt)
   = References <touying:unoutlined>
   #set align(top)
-  #pad(y: 2em, bibliography("/src/assets/zotero.bib", title: none))
+  #pad(y: 3em, bibliography("/src/assets/zotero.bib", title: none))
 ]
 
-#appendix[
-  = Trees vs. Arrays<array>
-
-  #slide[
-    - Trees versus arrays
-    - Leaf nodes are actions and conditions
-    - Rest are sequence or fallback combinators
-  ]
-]
+// #appendix[
+// = Trees vs. Arrays<array>
+//
+// #slide[
+// - Trees versus arrays
+// - Leaf nodes are actions and conditions
+// - Rest are sequence or fallback combinators
+// ]
+// ]
