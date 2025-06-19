@@ -47,7 +47,7 @@
     caption: [The Latin alphabet in double-struck (top) and Fraktur (middle),
 
       and the Cyrillics in Libertinus Serif (bottom)],
-  )
+  )<symbol>
 
 ]
 
@@ -85,15 +85,18 @@
 
 = Strings of quantity...
 
-- esch is a typography for representing quantity and strings thereof:
+- esch is a framwork inspired by the aeshtics in @symbol for representing
+  strings of quantity #pause
 - [$8 space 2 space 4 space 2 space 6 space 8$] becomes
-  [$square.filled.big square.filled.tiny square.filled.small square.filled.tiny square.filled.medium square.filled.big$]
+  [$mono(square.filled.big square.filled.tiny square.filled.small square.filled.tiny square.filled.medium square.filled.big)$]
   ... or, depending on the font,
-  [$circle.filled.big circle.filled.tiny circle.filled.small circle.filled.tiny circle.filled circle.filled.big$]
+  [$mono(circle.filled.big circle.filled.tiny circle.filled.small circle.filled.tiny circle.filled circle.filled.big)$]
+  #pause
 - Accordingly, negative numbers become
-  [$square.stroked.big square.stroked.tiny square.stroked.small square.stroked.tiny square.stroked.medium square.stroked.big$]
+  [$mono(square.stroked.big square.stroked.tiny square.stroked.small square.stroked.tiny square.stroked.medium square.stroked.big)$]
   (or
-  [$circle.stroked.big circle.stroked.tiny circle.stroked.small circle.stroked.tiny circle.stroked circle.stroked.big$])
+  [$mono(circle.stroked.big circle.stroked.tiny circle.stroked.small circle.stroked.tiny circle.stroked circle.stroked.big)$])
+  #pause
 - esch—using $tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))$ to map
   $RR -> [-1, 1]$—thus targets a continuous alphabet
 
