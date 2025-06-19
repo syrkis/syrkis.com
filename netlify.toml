@@ -5,6 +5,7 @@ command = """
   mkdir -p ~/.local/share/typst/packages/local/esch/0.0.0/
 
   # Clone your package repository
+  git clone https://github.com/syrkis/lilka.git ~/.local/share/typst/packages/local/lilka/0.0.0/
   git clone https://github.com/syrkis/esch.git ~/.local/share/typst/packages/local/esch/0.0.0/
 
   # Download s3 images (for typst as it does not support remote url)
