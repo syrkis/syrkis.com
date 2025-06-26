@@ -61,7 +61,7 @@
         edge((0.5, 1.5), (1, 0.5), "-|>"),
 
         // Edge from state to state
-        edge((-1, 0.25), (-1, 0.25), "-|>", bend: -130deg),
+        edge((-1, 0.25), (-1, 0.25), "--|>", bend: 110deg)[$quad quad s_(t+1)$],
         // edge((-1, 0.25), (1, 0.5), "--|>", bend: 25deg),
 
         // edge from state to observation
@@ -74,7 +74,7 @@
 
         // edge from action to new state (with radius 3em)
         // edge((2, 0), (3, 0.25), "-|>"),
-        edge((2, 0), (-1, 0.25), bend: -70deg, "-|>")[$s_(t+1)$],
+        edge((2, 0), (-1, 0.25), bend: -60deg, "--|>"),
       )
     ],
     caption: [State $s_t$, intel $i_t$, behavior $b_t$ (assigned to units by
