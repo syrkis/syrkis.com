@@ -16,7 +16,7 @@
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
   config-common(
     handout: (
-      sys.inputs.at("handout", default: "false") == "true"
+      sys.inputs.at("handout", default: "true") == "true"
     ),
   ),
 )
@@ -84,7 +84,7 @@
 ][
   // - In real world state $s_t$ is estimated from intel $i_t$
   - Policy / plan $pi$ gets intel _about_ $s_t$ (not $s_t$ itself)
-  - `intel_fn` that map $s_t$ to $i_t$ (see @intel)
+  - `intel_fn` that map $s_t$ to $i_t$ (see @intel).
   - Next: use intel (not state) during plan eval #pause
   // - Currently $lambda$ is the identity function
   - For now $lambda$ is identity, but could do MCTS
@@ -207,7 +207,7 @@
 
   = Intel templates<intel>
 
-  #[
+  #block[
 
     #set text(size: 10pt)
     ```
@@ -215,7 +215,7 @@
     > "Hey, did you hear? My cousin saw someone lurking around {pos} yesterday. They looked pretty beat up, maybe only {hp} health left. Be careful out there."
     > "URGENT DISPATCH: Target acquired at coordinates {pos}. Visual assessment indicates {hp} vitality points. Proceed with caution."
     > "Journal Entry, Day 47: Today I encountered a strange figure at {pos}. They appeared wounded, perhaps {hp} strength remaining.."
-    > "According to reliable sources, an individual was recently sighted at {pos} in poor condition, estimated at {hp} health. Local authorities have been notified."
+    > "According to reliable sources, an individual was recently sighted at {pos} in poor condition, estimated at {hp} health. Local authorities knows."
     > "Overheard at the tavern: 'I'm telling you, I saw them clear as day at {pos}! Could barely stand, maybe {hp} health at most. Something's not right.'"
     > "Scout's Log: Entity detected at position {pos}. Current status: {hp} hit points. Monitoring situation closely."
     > "My grandmother always said to watch out for strangers at {pos}. Well, I just saw one there, and they only had about {hp} health by the looks of it."

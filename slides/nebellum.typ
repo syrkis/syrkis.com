@@ -9,7 +9,11 @@
 #show: lilka
 #show: slides.with(
   config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
-  config-common(handout: false),
+  config-common(
+    handout: (
+      sys.inputs.at("handout", default: "true") == "false"
+    ),
+  ),
 )
 
 #metadata((
@@ -24,7 +28,7 @@
 = Fog of War
 
 #slide[
-  - _Parabellum_ is a vectorized war game
+  - _Parabellum_ is a vectorized war game.
   - _aic2sim_ plays parabellum, where at time $t$:
     1. Behavior trees (BT) are assigned to units based on game state $s_t$
     2. Units map observation $o_t$ to action $a_t$ based on BT, yielding
