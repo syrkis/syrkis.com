@@ -1,6 +1,6 @@
 .netlify/
 node_modules
-**/*.pdf
+#**/*.pdf
 slides/s3
 
 # Output
@@ -46,3 +46,4 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+#**/*.pdf

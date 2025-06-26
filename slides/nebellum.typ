@@ -32,7 +32,7 @@
   - _Nebellum_ introduces fog of war
     -
 ][
-  #figure(image("s3/btc2sim/sims.svg", width: 100%), caption: [
+  #figure(image("s3/aic2sim/sims.svg", width: 100%), caption: [
     Parabellum simulation of Colosseo Quadrato in Rome
   ])<parabellum>
 ]

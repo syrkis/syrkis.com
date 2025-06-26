@@ -50,6 +50,46 @@
 - How does a given model work? How can we train it faster? Is it safe?
 
 #slide[
+  - Early MI work focus on modular addition@nanda2023#pause
+  - $cal(T)_"nanda"$ focus on a model mapping $(x_0, x_1) -> y$#pause
+  - True mapping given by $y = x_0 + x_1 mod p$#pause
+  // -
+
+][
+  #figure(
+    table(
+      columns: 3,
+      inset: 0.5em,
+      [(0,0)], [(1,0)], [(2,0)],
+      [(0,1)], [(1,1)], [(2,1)],
+      [(0,2)], [(1,2)], [(2,2)],
+    ),
+    caption: [Table of $(x_0, x_1)$-tuples for $p=3$],
+  )
+  #esch(
+    image("s3/miiii/5_x.svg", width: 100%),
+    xlabel: $x_1$,
+    // ylabel: $x_0$,
+    // title: [All ($x_0, x_1$)-tuples for $p=5$],
+    caption: [esch of $(x_0, x_1)$-tuples for $p=5$],
+  )<nandax>
+
+]
+
+#slide[
+  - on $y$ from $cal(T)_"nanda"$
+][
+  #esch(
+    image("s3/miiii/13_nanda_y.svg", height: 80%),
+    xlabel: $x_1$,
+    ylabel: $x_0$,
+    title: [Remainders],
+    caption: [esch diagram of $y$ from $cal(T)_"nanda"$],
+  )<nanday>
+]
+
+
+#slide[
   - Array
 ][
   #figure(table(
