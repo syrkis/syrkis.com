@@ -9,6 +9,7 @@ interface Props {
 
 const { entry } = Astro.props;
 const mainFilePath = `slides/${entry.id}.typ`;
+const entryId = entry.id;
 // const { title } = entry.data;
 // const { Content } = await render(entry);
 ---
@@ -46,7 +47,7 @@ const mainFilePath = `slides/${entry.id}.typ`;
     /* transition: opacity 0.3s ease; */
     /* } */
 </style>
-<script>
+<script define:vars={{ entryId }}>
     let currentPage = 0;
     let totalPages = 0;
     let typstPages = [];
@@ -112,13 +113,16 @@ const mainFilePath = `slides/${entry.id}.typ`;
         }
     }
 
-    // Listen for fullscreen changes
+    // ""Listen for fullscreen changes
     document.addEventListener("fullscreenchange", updateDisplayMode);
 
     // Listen for keyboard events
     document.addEventListener("keydown", function (event) {
         if (event.key === "f" || event.key === "F") {
             toggleFullscreen();
+        }
+        if (event.key === "d" || event.key === "D") {
+            downloadPDF();
         }
         // Handle page navigation
         if (!!document.fullscreenElement) {
@@ -224,6 +228,20 @@ const mainFilePath = `slides/${entry.id}.typ`;
         if (currentPage > 0) {
             showPage(currentPage - 1);
         }
+    }
+
+    // Function to download PDF
+    function downloadPDF() {
+        const pdfUrl = `https://raw.githubusercontent.com/syrkis/syrkis.com/main/slides/${entryId}.pdf`;
+
+        // Create a temporary anchor element to trigger download
+        const link = document.createElement("a");
+        link.href = pdfUrl;
+        link.download = `${entryId}.pdf`;
+        link.target = "_blank";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     }
 
     /**
