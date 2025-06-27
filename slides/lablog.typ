@@ -2,6 +2,7 @@
 #import "@preview/touying:0.6.1": *
 #import "@preview/arborly:0.3.1": tree
 #import "@preview/diagraph:0.3.3": raw-render
+#import "@preview/lovelace:0.3.0": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node, shapes
 #import "@local/lilka:0.0.0": *
 #import "@local/esch:0.0.0": *
@@ -33,62 +34,110 @@
 
 #slide[
 
-  #figure(
-    // #import fletcher.shapes: diamond
-    // #set text(font: "Comic Neue", weight: 600) // testing: omit
+  #esch(
+    figure(
+      // #import fletcher.shapes: diamond
+      // #set text(font: "Comic Neue", weight: 600) // testing: omit
 
-    [
-      #set text(10pt)
-      #diagram(
-        node-inset: 1em,
-        node-stroke: 1pt,
-        spacing: 2.5em,
-
-
-        // State node
-        node((-1, 0.25), [$s_t$], extrude: (0, 3), radius: 2.5em),
-        node((0.5, 1.5), [$pi$], radius: 2.5em),
-        node((0, 0.5), [$i_t$], radius: 2.5em),
-        node((0.5, -0.5), [$o_t$], radius: 2.5em),
-        node((2, 0), [$a_t$], radius: 2.5em),
-        // node((3, 0.25), [Step], radius: 2.5em),
-        node((1, 0.5), [$lambda->b_t$], radius: 2.5em),
+      [
+        #set text(10pt)
+        #diagram(
+          node-inset: 1em,
+          node-stroke: 1pt,
+          spacing: 2.5em,
 
 
-        // s_t to intel and plan
-        edge((0, 0.5), (1, 0.5), "-|>"),
-        edge((-1, 0.25), (0, 0.5), "-|>"),
-        edge((0.5, 1.5), (1, 0.5), "-|>"),
+          // State node
+          node((-1, 0.25), [$s_t$], extrude: (0, 3), radius: 2.6em),
+          node((0.5, 1.5), [$pi$], radius: 2.6em),
+          node((0, 0.5), [$i_t -> hat(s)_t$], radius: 2.6em),
+          node((0.5, -0.5), [$o_t$], radius: 2.6em),
+          node((2, 0.25), [$a_t$], radius: 2.6em),
+          // node((3, 0.25), [Step], radius: 2.6em),
+          node((1, 0.5), [$b_t$], radius: 2.6em),
 
-        // Edge from state to state
-        edge((-1, 0.25), (-1, 0.25), "--|>", bend: 110deg)[$quad quad s_(t+1)$],
-        // edge((-1, 0.25), (1, 0.5), "--|>", bend: 25deg),
 
-        // edge from state to observation
-        edge((-1, 0.25), (0.5, -0.5), "-|>"), //, bend: 35deg),
-        // edge((-1, 0.25), (1, 0.5), "-|>"),
+          // s_t to intel and plan
+          edge((0, 0.5), (1, 0.5), "-|>"),
+          edge((-1, 0.25), (0, 0.5), "-|>"),
+          edge((0.5, 1.5), (1, 0.5), "-|>"),
 
-        // edge from state to action
-        edge((0.5, -0.5), (2, 0), "-|>"),
-        edge((1, 0.5), (2, 0), "-|>"),
+          // Edge from state to state
+          edge(
+            (-1, 0.25),
+            (-1, 0.25),
+            "--|>",
+            bend: 110deg,
+          )[$quad quad s_(t+1)$],
+          // edge((-1, 0.25), (1, 0.5), "--|>", bend: 25deg),
 
-        // edge from action to new state (with radius 3em)
-        // edge((2, 0), (3, 0.25), "-|>"),
-        edge((2, 0), (-1, 0.25), bend: -60deg, "--|>"),
-      )
-    ],
-    caption: [State $s_t$, intel $i_t$, behavior $b_t$ (assigned to units by
-      policy $pi$ weighing $i_t$), and action $a_t$ (by $b_t$ weighing
-      observation $o_t$)],
+          // edge from state to observation
+          edge((-1, 0.25), (0.5, -0.5), "-|>"), //, bend: 35deg),
+          // edge((-1, 0.25), (1, 0.5), "-|>"),
+
+          // edge from state to action
+          edge((0.5, -0.5), (2, 0.25), "-|>"),
+          edge((1, 0.5), (2, 0.25), "-|>"),
+
+          // edge from action to new state (with radius 3em)
+          // edge((2, 0.25), (3, 0.25), "-|>"),
+          edge((2, 0.25), (-1, 0.25), bend: -60deg, "--|>"),
+        )
+      ],
+      caption: [State $s_t$, intel $i_t$, behavior $b_t$ (assigned to units by
+        policy $pi$ weighing $i_t$), and action $a_t$ (by $b_t$ weighing
+        observation $o_t$)],
+    ),
+    title: [Interaction diagram idea],
   )
 ][
-  // - In real world state $s_t$ is estimated from intel $i_t$
-  - Policy / plan $pi$ gets intel _about_ $s_t$ (not $s_t$ itself)
-  - `intel_fn` that map $s_t$ to $i_t$ (see @intel).
-  - Next: use intel (not state) during plan eval #pause
-  // - Currently $lambda$ is the identity function
-  - For now $lambda$ is identity, but could do MCTS
-  // Make $lambda$ Monte Carlo search instead of identity?
+  - Policy $pi$ gets intel based $s_hat(t)$ (not $s_t$ itself)
+  - `intel_fn` map $s_t$ to $i_t$. `detel_fn` map $i_t$ to $s_hat(t)$
+  - $pi$ map from $s_hat(t)$ to $b_t$ (could use MCTS also)
+  // - Ne
+  // - Next: use intel based state during plan eval #pause
+]
+
+
+== `detel_fn(intel_fn(s))`
+
+#slide[
+  - Using `gamma` (`jax` native and easy fine tuning)
+  - As per @code we:
+    1. We generate langauge intel $i_t$ from state $s_t$
+    2. Mask away some (maybe all) of state ($s_(m t)$)
+    3. Decode $i_t$ and $s_(m t)$ to get estimate $s_hat(t)$
+  - See @intel for intel string templates
+  - Status: did `intel_fn` and doing `detel_fn`
+
+][
+  #block[
+    // #set text(size: 10pt)
+    #figure(
+      stack(
+        pseudocode-list(booktabs: true, stroke: none, indentation: 1em)[
+          + *Function* IntelFunction($s_t$)
+            + Generate mask for units not in sight
+            + Generate $i_t$ from $s_t$ (could be lies)
+            + Hide parts of $s_t$ using mask to produce $s_(m t)$
+            // mask only enemy not in sight of ally
+            + *return* $i_t$, $s_(m t)$
+          + *end*
+          +
+          + *Function* DetelFunction($i_t$, $s_(m t)$)
+            + Create prompt requesting indices to update
+            + Use model to interpret $i_t$ and $s_(m t)$
+            + Update $s_(m t)$ with interpreted values
+            + *return* updated state estimate $hat(s)_t$
+          + *end*
+          + $hat(s)_t)$ = DetelFunction(IntelFunction($s_t$))
+          // + Output example $i_t$ entry
+        ],
+        v(1em),
+      ),
+      caption: [Pseudo code],
+    )<code>
+  ]
 ]
 
 // = Mechanistic Interpretability
@@ -140,10 +189,6 @@
 = miiii
 
 #slide[
-  - Grads have leaning and memory comps @lee2024a
-  - @noah Indicate a third, support-wheel comp
-  - Goal: publish in ICLR (better establish comp?)
-][
 
   // stack
   #[
@@ -157,6 +202,32 @@
         component],
     )<noah>
   ]
+][
+  - Grads have leaning and memory comps @leeGrokfastAcceleratedGrokking2024
+  - @noah Indicate a third, support-wheel comp
+  - Goal: publish in ICLR (better establish comp?)
+  - Now: chaning to better show spike across runs
+]
+
+
+= aigs
+
+#slide[
+  #align(center)[MCTS]
+
+  - Connect 4 pettingZoo @terry2021pettingzoo
+  - Implement MCTS
+  - Tweak params and compete
+][
+  #align(center)[DRL]
+  - Get unity ml-agent to run
+  - pick game. Use PPO.
+  - play against
+][
+  #align(center)[QD]
+  - implement map elite
+  - generate dataset of levels
+  - Play lebel with drl bot
 ]
 
 // - Aiming for ICLR
