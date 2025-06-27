@@ -120,7 +120,7 @@
 ][
   #esch(
     image("s3/miiii/nanda_y.svg", width: 80%),
-    caption: [Target for mech. interp. task @nanda2023],
+    caption: [Target for mech. interp. task @nandaProgressMeasuresGrokking2023],
     xlabel: $x_0$,
     ylabel: $x_1$,
     title: [$y = x_0 + x_1 mod p, quad p=13$],
@@ -162,7 +162,8 @@
 #slide[
   #figure(
     image("s3/esch/sims.svg", width: 100%),
-    caption: [$tilde U(0,1) -> tilde U(0, 1)$ simulated in Parabellum @anne2025
+    caption: [$tilde U(0,1) -> tilde U(0, 1)$ simulated in Parabellum
+      @anneHarnessingLanguageCoordination2025
     ],
   )
 ][
@@ -170,14 +171,14 @@
 ]
 
 // #figure(image("s3/esch/anim_sims.svg", height: 60%), caption: [Esch
-//   representation of random actions in Parabellum @anne2025])
+//   representation of random actions in Parabellum @anneHarnessingLanguageCoordination2025])
 
 #[
   #show heading.where(level: 1): set heading(numbering: none)
   #set text(size: 18pt)
   = References <touying:unoutlined>
   #set align(top)
-  #pad(y: 3em, bibliography("/src/assets/zotero.bib", title: none))
+  #pad(y: 3em, bibliography("zotero.bib", title: none))
 ]
 
 // #appendix[

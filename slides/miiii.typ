@@ -50,7 +50,8 @@
 - How does a given model work? How can we train it faster? Is it safe?
 
 #slide[
-  - Early MI work focus on modular addition@nanda2023#pause
+  - Early MI work focus on modular
+    addition@nandaProgressMeasuresGrokking2023#pause
   - $cal(T)_"nanda"$ focus on a model mapping $(x_0, x_1) -> y$#pause
   - True mapping given by $y = x_0 + x_1 mod p$#pause
   // -
@@ -139,14 +140,14 @@
     $x_0 + x_1 mod p = y$])
 ]
 
-== Grokking @power2022
+== Grokking @powerGrokkingGeneralizationOverfitting2022
 
 #slide[
   - Sudden generalization long after overfitting #pause
   - MI (by definition) needs a mechanism #pause
   // - Grokking has been shown to need heavy L2 regulaization
   - Grokking is thus convenient for MI
-  // - #cite(<lee2024a>, form: "prose", style:"american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast
+  // - #cite(<leeGrokfastAcceleratedGrokking2024>, form: "prose", style:"american-psychological-association") speeds up grokking by boosting slow gradients as per @grokfast
   // - For more see @svd
 ][
   #meanwhile
@@ -176,7 +177,7 @@
 
 #slide[
   - "Seminal" MI paper by #cite(
-      <nanda2023>,
+      <nandaProgressMeasuresGrokking2023>,
       form: "prose",
       style: "american-psychological-association",
     ) focuses on modular addition ($cal(T)_"nanda"$)
@@ -247,7 +248,8 @@
 #slide[
 
   - The model groks on $cal(T)_"miiii"$ (@training_acc)
-  - Needed GrokFast #cite(<lee2024a>) on compute budget
+  - Needed GrokFast #cite(<leeGrokfastAcceleratedGrokking2024>) on compute
+    budget
   - Final hyperparams are seen in @hyper_param_search_result
 
   #figure(
@@ -422,8 +424,8 @@ $cal(T)_"miiii"$
 ]
 
 #slide[
-  - GrokFast @lee2024a shows time gradient sequences is (arguably) a stocastical
-    signal with:
+  - GrokFast @leeGrokfastAcceleratedGrokking2024 shows time gradient sequences
+    is (arguably) a stocastical signal with:
     - A fast varying overfitting component
     - A slow varying generealizing component
   - My work confirms this to be true for $cal(T)_"miiii"$ ...
@@ -439,14 +441,15 @@ $cal(T)_"miiii"$
 
 
 #focus-slide[
-  TAK
+  // TAK
 ]
 
 #[
   #show heading.where(level: 1): set heading(numbering: none)
   = References <touying:unoutlined>
   #set align(top)
-  #pad(y: 2em, bibliography("zotero.bib", title: none, style: "ieee"))
+  #bibliography("zotero.bib", title: none)
+  // #("zotero.bib", title: none, style: "ieee")
 ]
 
 #appendix[

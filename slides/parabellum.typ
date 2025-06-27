@@ -41,7 +41,7 @@
 = Simulation Design
 
 #slide[
-  - Follows the industry Gym API @towers2025
+  - Follows the industry Gym API @towersGymnasiumStandardInterface2024
   - Trajectories are ($s_t$, $a_t$)–tuple sequences
   - As per @gameflow there are no rewards
 ][
@@ -106,7 +106,8 @@
 
 = Projects using Parabellum
 
-- `HIVE`: Behavior tree based approaches for unit control @anne2025
+- `HIVE`: Behavior tree based approaches for unit control
+  @anneHarnessingLanguageCoordination2025
 - `llllll`#footnote[#link("https://llllll.syrkis.com", "llllll.syrkis.com")]: a
   large language / foundation model based command and control simulator
 - The Nebellum Project#footnote[#link("https://nebellum.com", "nebellum.com")]:
