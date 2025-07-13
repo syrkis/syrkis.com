@@ -17,6 +17,7 @@
 #metadata((
   title: title,
   date: datetime(year: 2025, month: 5, day: 6),
+  hidden: true,
 ))<frontmatter>
 
 
@@ -64,7 +65,8 @@
 - Control problems are inherently hierarchical
 - An order from a general commanding the task of a betalion is high-level
 - In action of each individual solder is not specified there
-- The simulation strategic encounters has been saturated with deep learning algorithms
+- The simulation strategic encounters has been saturated with deep learning
+  algorithms
 - @colledanchise2018
 
 

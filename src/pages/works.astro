@@ -3,7 +3,9 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Title from "../components/Title.astro";
 const series = await getCollection("series");
-const slides = await getCollection("slides");
+const slides = (await getCollection("slides")).filter(
+    (entry) => !entry.data.hidden,
+);
 
 const text = "Limited edition archival prints are available upon request to";
 const emailUser = "desk";
@@ -21,7 +23,7 @@ const emailDomain = "syrkis.com";
         <div id="series">
             {
                 series.map((entry) => (
-                    <a href={`${entry.id}`}>
+                    <a href={`/${entry.id}`}>
                         <div
                             class="series"
                             style={`background: url(https://s3.syrkis.com/${entry.id}/${entry.data.cover}) no-repeat center center / cover`}

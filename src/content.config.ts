@@ -26,6 +26,7 @@ const slides = defineCollection({
     schema: z.object({
         title: z.string(),
         date: z.string(),
+        hidden: z.boolean().default(false),
     }),
 });
 
