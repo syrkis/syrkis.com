@@ -11,6 +11,12 @@ body {
     letter-spacing: 0.02em;
 }
 
+@media (max-width: 600px) {
+    body {
+        font-size: 1rem;
+    }
+}
+
 /* CSS Custom Properties for theme switching */
 :root {
     --svg-filter: none;
@@ -41,7 +47,7 @@ body {
             filter: invert(1) hue-rotate(180deg);
             -moz-filter: invert(1) hue-rotate(180deg);
         }
-        
+
         /* Override filter for text elements and apply direct styling */
         body.slides svg.typst-doc text,
         body.slides svg.typst-doc tspan {
@@ -51,7 +57,7 @@ body {
             stroke: none !important;
             opacity: 1 !important;
         }
-        
+
         /* Handle any grouped text elements */
         body.slides svg.typst-doc g text,
         body.slides svg.typst-doc g tspan {
@@ -146,19 +152,19 @@ body.presentation-mode #present svg.typst-doc {
         -moz-box-sizing: border-box;
         box-sizing: border-box;
     }
-    
+
     body.presentation-mode #present svg.typst-doc {
         -moz-transform: scale(1);
         transform: scale(1);
     }
-    
+
     /* Presentation mode dark theme fixes */
     @media (prefers-color-scheme: dark) {
         body.presentation-mode.slides #present svg.typst-doc {
             filter: invert(1) hue-rotate(180deg);
             -moz-filter: invert(1) hue-rotate(180deg);
         }
-        
+
         body.presentation-mode.slides #present svg.typst-doc text,
         body.presentation-mode.slides #present svg.typst-doc tspan,
         body.presentation-mode.slides #present svg.typst-doc g text,

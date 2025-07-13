@@ -6,7 +6,9 @@
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node, shapes
 #import "@local/lilka:0.0.0": *
 #import "@local/esch:0.0.0": *
+#import "@preview/lilaq:0.3.0" as lq
 
+#show: lq.set-grid(stroke: white)
 #show: lilka
 // #show raw.where(lang: "dot-render"): it => render-image(it.text)
 
@@ -30,73 +32,118 @@
 
 
 // body //////////////////////////////////////////
-= c2sim
+= Nebellum
 
 #slide[
 
-  #esch(
-    figure(
-      // #import fletcher.shapes: diamond
-      // #set text(font: "Comic Neue", weight: 600) // testing: omit
+  #figure(
+    diagram(
+      node((0, 0), $s_t$),
+      node((1, -0.5), $i_t$),
+      node((1, 0.5), $s_t_m$),
+      node((2, 0), $hat(s)_t$),
+      node((3, 0), $vec(hat(s)_m_1 \ hat(s)_m_2 \ dots.v \ hat(s)_m_k)$),
 
-      [
-        #set text(10pt)
-        #diagram(
-          node-inset: 1em,
-          node-stroke: 1pt,
-          spacing: 2.5em,
+      // s_t to hat(s)_t
+      edge((0, 0), (1, -0.5), "->"),
+      edge((0, 0), (1, 0.5), "->"),
+      edge((1, 0.5), (2, 0), "->"),
+      edge((1, -0.5), (2, 0), "->"),
 
-
-          // State node
-          node((-1, 0.25), [$s_t$], extrude: (0, 3), radius: 2.6em),
-          node((0.5, 1.5), [$pi$], radius: 2.6em),
-          node((0, 0.5), [$i_t -> hat(s)_t$], radius: 2.6em),
-          node((0.5, -0.5), [$o_t$], radius: 2.6em),
-          node((2, 0.25), [$a_t$], radius: 2.6em),
-          // node((3, 0.25), [Step], radius: 2.6em),
-          node((1, 0.5), [$b_t$], radius: 2.6em),
-
-
-          // s_t to intel and plan
-          edge((0, 0.5), (1, 0.5), "-|>"),
-          edge((-1, 0.25), (0, 0.5), "-|>"),
-          edge((0.5, 1.5), (1, 0.5), "-|>"),
-
-          // Edge from state to state
-          edge(
-            (-1, 0.25),
-            (-1, 0.25),
-            "--|>",
-            bend: 110deg,
-          )[$quad quad s_(t+1)$],
-          // edge((-1, 0.25), (1, 0.5), "--|>", bend: 25deg),
-
-          // edge from state to observation
-          edge((-1, 0.25), (0.5, -0.5), "-|>"), //, bend: 35deg),
-          // edge((-1, 0.25), (1, 0.5), "-|>"),
-
-          // edge from state to action
-          edge((0.5, -0.5), (2, 0.25), "-|>"),
-          edge((1, 0.5), (2, 0.25), "-|>"),
-
-          // edge from action to new state (with radius 3em)
-          // edge((2, 0.25), (3, 0.25), "-|>"),
-          edge((2, 0.25), (-1, 0.25), bend: -60deg, "--|>"),
-        )
-      ],
-      caption: [State $s_t$, intel $i_t$, behavior $b_t$ (assigned to units by
-        policy $pi$ weighing $i_t$), and action $a_t$ (by $b_t$ weighing
-        observation $o_t$)],
+      // hat(s)_t to hat(s)_n
+      edge((2, 0), (3, 0), "~>", bend: 25deg),
+      edge((2, 0), (3, 0), "~>"),
+      edge((2, 0), (3, 0), "~>", bend: -25deg),
     ),
-    title: [Interaction diagram idea],
+    caption: [At time $t in {1, 2, ..., n}$ we have state $s_t$, intel $i_t$
+      and, masked state $s_t_m$. We combine these into $hat(s)_t$. Simulating
+      $k$ trajectories $arrow(hat(s))_m$, $hat(s)_t$ is used to estimate the
+      importance of different aspects of $hat(s)_t$.
+    ],
   )
 ][
-  - Policy $pi$ gets intel based $s_hat(t)$ (not $s_t$ itself)
-  - `intel_fn` map $s_t$ to $i_t$. `detel_fn` map $i_t$ to $s_hat(t)$
-  - $pi$ map from $s_hat(t)$ to $b_t$ (could use MCTS also)
-  // - Ne
-  // - Next: use intel based state during plan eval #pause
+  - `encode` maps $s_t$ to intel $i_t$ and masked state $s_m$
+  - `decode` maps $i_t$ and $s_m$ to estimated state $hat(s)_t$ #pause
+  - `sample` maps $hat(s)_t$ to $k$ potential final states $arrow(hat(s))_n$
 ]
+
+#slide[
+  #figure(
+    stack(
+      stack(
+        dir: ltr,
+        image("s3/nebellum/seqs.svg", width: 45%),
+        stack(
+          image("s3/nebellum/sims.svg", width: 45%),
+          image("s3/nebellum/sims.svg", width: 45%),
+        ),
+      ),
+      image("s3/nebellum/diff.svg", width: 90%),
+    ),
+    caption: [
+      A 100 step trajectory (left) and four associated imagined trajectories
+
+      (right) with starting at time points 1, 25, 50, and 75
+    ],
+  )
+]
+
+
+// #slide[
+//   // #set text(size: 12pt)
+//   #figure(
+//     table(
+//       stroke: none,
+//       columns: 3,
+//       inset: 1em,
+//       lq.diagram(
+//         lq.scatter(
+//           ..lq.load-txt(read("s3/c2sim/state_hat_pos.csv")),
+//           color: black,
+//           // size: 0.1em,
+//         ),
+//         title: $hat(s)$,
+//         yaxis: none,
+//         xaxis: none,
+//         width: 8cm,
+//         height: 8cm,
+//       ),
+//       lq.diagram(
+//         lq.scatter(
+//           ..lq.load-txt(read("s3/c2sim/state_pos.csv")),
+//           color: black,
+//           // size: 0.1em,
+//         ),
+//         title: $s$,
+//         yaxis: none,
+//         xaxis: none,
+//         width: 8cm,
+//         height: 8cm,
+//       ),
+
+//       lq.diagram(
+//         lq.scatter(
+//           ..lq.load-txt(read("s3/c2sim/state_m_pos.csv")),
+//           color: black,
+//           // size: 0.1em,
+//         ),
+//         title: $s_m$,
+//         yaxis: none,
+//         xaxis: none,
+//         width: 8cm,
+//         height: 8cm,
+//       ),
+//       [$"CD"(hat(s), s) = 102$],
+//       [$"CD"(s, s_m) = 686$],
+
+//       [$"CD"(hat(s), s_m) = 712$],
+//     ),
+//     caption: [TLDR: It works! $hat(s)$, $s$, and $s_m$ and associated Chamfer
+//       Distances. Note $s$ is much closer to the estimate $hat(s)$ than the
+//       masked $s_m$, showing that the LMM's processing of intel $i$ is helpful.],
+//   )
+// ]
+
 
 
 == `detel_fn(intel_fn(s))`
@@ -104,7 +151,7 @@
 #slide[
   - Using `gamma` (`jax` native and easy fine tuning)
   - As per @code we:
-    1. We generate langauge intel $i_t$ from state $s_t$
+    1. We generate language intel $i_t$ from state $s_t$
     2. Mask away some (maybe all) of state ($s_(m t)$)
     3. Decode $i_t$ and $s_(m t)$ to get estimate $s_hat(t)$
   - See @intel for intel string templates

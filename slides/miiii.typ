@@ -7,7 +7,7 @@
 
 
 // head /////////////////////////////////////////////////////////////////////////
-#let title = "Mechanistic Interpretability on (multi-task) Irreducible Integer Identifiers"
+#let title = "Artificial Neurology: Mechanistic Interpretability on Irreducible Integer Identifiers"
 
 
 #show: lilka
@@ -234,11 +234,14 @@
 ][
   #meanwhile
   #figure(
-    stack(image("s3/miiii/nanda_U.svg", width: 90%), stack(
-      dir: ltr,
-      // image("s3/miiii/neurs_113_nanda_one.svg", width: 45%),
-      // image("s3/miiii/neurs_113_nanda_fft_one.svg", width: 50%),
-    )),
+    stack(
+      image("s3/miiii/nanda_U.svg", width: 90%),
+      stack(
+        dir: ltr,
+        // image("s3/miiii/neurs_113_nanda_one.svg", width: 45%),
+        // image("s3/miiii/neurs_113_nanda_fft_one.svg", width: 50%),
+      ),
+    ),
     caption: [Top singular vectors of $bold(upright(U))_W_E_cal(T)_"nanda"$
       (top), varying $x_0$ and $x_1$ in sample (left) and freq. (right) space in
       $W_"out"_cal(T)_"miiii"$],
@@ -302,9 +305,13 @@ $cal(T)_"miiii"$
   - Possibility: One basis per prime task
 ][
   #figure(
-    stack(spacing: 1em, image("s3/miiii/fourier_nanda_m.svg"), image(
-      "s3/miiii/fourier_miiii_m.svg",
-    )),
+    stack(
+      spacing: 1em,
+      image("s3/miiii/fourier_nanda_m.svg"),
+      image(
+        "s3/miiii/fourier_miiii_m.svg",
+      ),
+    ),
     caption: [$cal(T)_"nanda"$ (top) and $cal(T)_"miiii"$ (bottom) token
       embeddings in Fourier basis],
   )<tok_emb>
