@@ -16,7 +16,16 @@ command = """
       git clone https://github.com/syrkis/s3.git /opt/build/repo/slides/s3
     fi
 
+    # Download Fira Code fonts for Typst
+    mkdir -p /opt/build/repo/fonts
+    cd /opt/build/repo/fonts
+    wget -O FiraCode.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
+    unzip -j FiraCode.zip "ttf/*" -d .
+    rm FiraCode.zip
+    export TYPST_FONT_PATHS="/opt/build/repo/fonts"
+
     # Run your regular build command
+    cd /opt/build/repo
     npm run build
 """
 publish = "dist"
