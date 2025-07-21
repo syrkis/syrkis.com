@@ -88,6 +88,49 @@
   )
 ]
 
+== Intel
+#slide[
+  - Recall distance was _increasing_ in previous map
+  - Map dictates convergence vs. divergence?
+  - Relationship between masks and dynamics
+
+][
+  #figure(
+    stack(
+      esch(
+        image("s3/nebellum/noah.svg", width: 100%),
+        xlabel: [time],
+        ylabel: [$k$],
+        caption: [Distance between $hat(s)_i_k$ and $s_i$ over time],
+      ),
+      // rotate(image("s3/nebellum/goya.svg", width: 100%), 90deg),
+    ),
+  )
+]
+
+#slide[
+  #esch(
+    rotate(image("s3/nebellum/goya.svg", width: 100%), 90deg),
+    xlabel: [Unit],
+    ylabel: [$k$],
+  )
+
+][
+  #figure(
+    stack(
+      esch(
+        image("s3/nebellum/noah.svg", width: 100%),
+        xlabel: [time],
+        ylabel: [$k$],
+        // caption: [Distance between $hat(s)_i_k$ and $s_i$ over time],
+      ),
+      // rotate(image("s3/nebellum/goya.svg", width: 100%), 90deg),
+    ),
+  )
+
+]
+
+
 
 // #slide[
 //   // #set text(size: 12pt)
