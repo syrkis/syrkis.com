@@ -206,7 +206,7 @@
 ]
 
 #slide[
-
+  - The intuitive idea of
 ][
 
 ]

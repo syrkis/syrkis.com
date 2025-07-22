@@ -32,6 +32,26 @@
 
 
 // body //////////////////////////////////////////
+= Gemma
+
+#slide[
+  - Comes in 1b, 4b, 12b, and 27b (and all in 4int)
+  - 99 custom tokens (using `<pos>` and `<hp>`)
+  - We can now `vmap` across pieces of intel...
+  - ... and use Gemma inside `jit`, `scan` and `vmap`
+][
+  #figure(
+    ```
+    <start_of_turn>user
+    {instruction}
+    {intel}<end_of_turn>
+    <start_of_turn>model
+    {response}
+    ```,
+    caption: [Gemma intel template],
+  )
+]
+
 = Nebellum
 
 #slide[
@@ -276,7 +296,7 @@
 // ])
 // ]
 
-= miiii
+= MIIII
 
 #slide[
 
@@ -300,7 +320,7 @@
 ]
 
 
-= aigs
+= AIGS
 
 #slide[
   #align(center)[MCTS]
