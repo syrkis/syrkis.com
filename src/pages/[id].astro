@@ -6,19 +6,19 @@ import Layout from "../layouts/Layout.astro";
 
 // 1. Generate paths for both series and slides collections
 export async function getStaticPaths() {
-    const seriesEntries = await getCollection("series");
-    const slidesEntries = await getCollection("slides");
+    const seriesEntries = await getCollection("works");
+    const slidesEntries = await getCollection("talks");
 
     // Map series entries
     const seriesPaths = seriesEntries.map((entry) => ({
         params: { id: entry.id },
-        props: { entry, type: "series" },
+        props: { entry, type: "works" },
     }));
 
     // Map slides entries
     const slidesPaths = slidesEntries.map((entry) => ({
         params: { id: entry.id },
-        props: { entry, type: "slides" },
+        props: { entry, type: "talks" },
     }));
 
     // Combine both collections
@@ -30,5 +30,5 @@ const { entry, type } = Astro.props;
 ---
 
 <Layout pageType={type}>
-    {type === "series" ? <Series {entry} /> : <Slides {entry} />}
+    {type === "works" ? <Series {entry} /> : <Slides {entry} />}
 </Layout>

@@ -5,10 +5,11 @@ const isRoot = Astro.url.pathname === "/";
 {
     (
         <div class={`${isRoot ? "root" : ""}`}>
+            <!-- Noah Syrkis -->
             <header transition:name="headers">
-                <a href="/works">works</a>
-                <a href="/">|</a>
-                <a href="/about">about</a>
+                <a href="/works" class="nav-link">works</a>
+                <a href="/" class="divider">|</a>
+                <a href="/talks" class="nav-link">talks</a>
             </header>
         </div>
     )
@@ -16,12 +17,12 @@ const isRoot = Astro.url.pathname === "/";
 
 <style>
     .root {
-        padding-top: 50vh;
+        padding-top: 70vh;
     }
 
     header {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         padding: 1em 0;
         font-size: 1.7em;
@@ -30,6 +31,16 @@ const isRoot = Astro.url.pathname === "/";
         max-width: 90%;
         margin: auto;
     }
+
+    .nav-link {
+        flex: 1;
+        text-align: center;
+    }
+
+    .divider {
+        padding: 0 0.5em;
+    }
+
     @media (max-width: 600px) {
         header {
             width: 300px;

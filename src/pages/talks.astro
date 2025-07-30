@@ -1,18 +1,17 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Title from "../components/Title.astro";
-const works = (await getCollection("works")).filter(
+const talks = (await getCollection("talks")).filter(
     (entry) => !entry.data.hidden,
 );
 
 const text =
-    "Balancing structure with decay, these works explore archival aesthetics through geospatial and organic variations. Limited edition prints are available upon request to";
+    "Bridging cognition and computation, these talks investigate mechanistic intelligence in strategic and semantic contexts. For speaking engagements, contact";
 const emailUser = "desk";
 const emailDomain = "syrkis.com";
 ---
 
-<Layout>
+<Layout pageType="talks">
     <div class="wrapper">
         <div id="text">
             {text}
@@ -20,19 +19,17 @@ const emailDomain = "syrkis.com";
                 {emailUser}[at]{emailDomain}
             </email-link>
         </div>
-        <div id="works">
+        <div id="talks">
             {
-                works.map((entry) => (
-                    <a href={`/${entry.id}`}>
-                        <div
-                            class="works"
-                            style={`background: url(https://s3.syrkis.com/${entry.id}/${entry.data.cover}) no-repeat center center / cover`}
-                        >
-                            <h2>
-                                <Title {entry} />
-                            </h2>
-                        </div>
-                    </a>
+                talks.map((entry) => (
+                    <div class="slide">
+                        <span class="slide-name">
+                            <i>{entry.data.title}</i>
+                        </span>
+                        <span class="slide-info">
+                            <a href={`/${entry.id}`}>slide</a>|<a>video</a>
+                        </span>
+                    </div>
                 ))
             }
         </div>
@@ -47,33 +44,31 @@ const emailDomain = "syrkis.com";
         text-align: center;
         margin: auto;
     }
-    #works {
-        padding: 0vh 0;
+    #talks {
+        padding: 15vh 0;
+        text-align: center;
     }
     .section {
         font-size: 1.5em;
         letter-spacing: 0.2em;
         text-transform: uppercase;
     }
-    .works {
-        height: 80vh;
-        margin: 20vh 5vw;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition:
-            transform 0.5s ease-in-out,
-            opacity 0.5s ease-in-out;
-    }
     h2 {
         mix-blend-mode: difference;
         color: black;
         filter: saturate(0) opacity(1) invert(1);
     }
-    .works:hover {
-        transform: scale(1.05);
+    .slide {
+        text-align: center;
+        font-size: 1.2em;
+        line-height: 2.5;
+        padding-top: 6rem;
+    }
+    .slide-info {
+        display: flex;
+        justify-content: space-between;
+        width: 150px;
+        margin: auto;
     }
 </style>
 

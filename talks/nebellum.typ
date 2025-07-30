@@ -59,42 +59,68 @@
 
 
 #slide[
-][
+  #let behaviorNodePos = ((0, 0), (1, -0.5), (1, 0.5), (2, -1), (2, 0))
+
   #figure(
-    stack(
-      spacing: 2em,
-      dir: ltr,
-      diagram(
-        node-stroke: 1pt,
-        node((0, 0), radius: 1em, extrude: -0.2em)[-],
+    diagram(
+      node-stroke: 1pt,
+      node(behaviorNodePos.at(0), radius: 1em, extrude: -0.2em)[-],
 
-        node((-0.5, 1), radius: 1em, extrude: -0.2em)[+],
-        node((0.5, 1), radius: 1em, extrude: -0.2em)[A],
+      node(behaviorNodePos.at(1), radius: 1em, extrude: -0.2em)[+],
+      node(behaviorNodePos.at(2), radius: 1em, extrude: -0.2em)[A],
 
-        node((-1, 2), radius: 1em, extrude: -0.2em)[C],
-        node((0, 2), radius: 1em, extrude: -0.2em)[A],
+      node(behaviorNodePos.at(3), radius: 1em, extrude: -0.2em)[C],
+      node(behaviorNodePos.at(4), radius: 1em, extrude: -0.2em)[A],
 
-        edge((0, 0), (-0.5, 1), "-|>"),
-        edge((0, 0), (0.5, 1), "-|>"),
+      edge(behaviorNodePos.at(0), behaviorNodePos.at(1), "-|>"),
+      edge(behaviorNodePos.at(0), behaviorNodePos.at(2), "-|>"),
 
-        edge((-0.5, 1), (-1, 2), "-|>"),
-        edge((-0.5, 1), (0, 2), "-|>"),
-      ),
-      diagram(
-        node-stroke: 1pt,
-        node((-0.5, 0), radius: 1em, extrude: -0.2em)[A],
-        node((0.5, 0), radius: 1em, extrude: -0.2em)[B],
-        node((0, 1), radius: 1em, extrude: -0.2em)[C],
-        node((0, 2), radius: 1em, extrude: -0.2em)[D],
-
-        edge((-0.5, 0), (0, 1), "-|>"),
-        edge((0.5, 0), (0, 1), "-|>"),
-        edge((0, 1), (0, 2), "-|>"),
-        edge((-0.5, 0), (0, 2), "-|>", bend: -20deg),
-      ),
+      edge(behaviorNodePos.at(1), behaviorNodePos.at(3), "-|>"),
+      edge(behaviorNodePos.at(1), behaviorNodePos.at(4), "-|>"),
     ),
-    caption: [(left) Behavior that attacks if an enemy is in range and moves to
-      target if not. (right) plan that waits for],
+    caption: [Behavior tree implementation of "if enemy is in range shoot them,
+      otherwise move to target"],
+  )
+][]
+
+#slide[][
+  #let planNodePos = ((-0.5, 0), (0.5, 0), (0, 1), (-0.25, 2))
+
+  #figure(
+    diagram(
+      node-stroke: 1pt,
+      node-corner-radius: 10pt,
+      node(
+        planNodePos.at(0),
+        inset: 1em,
+        extrude: -0.2em,
+      )[$g:delta quad t:gamma quad b:nabla$],
+
+      node(
+        planNodePos.at(1),
+        inset: 1em,
+        extrude: -0.2em,
+      )[$g:delta quad t:gamma quad b:nabla$],
+
+      node(
+        planNodePos.at(2),
+        inset: 1em,
+        extrude: -0.2em,
+      )[$g:delta quad t:gamma quad b:nabla$],
+
+      node(
+        planNodePos.at(3),
+        inset: 1em,
+        extrude: -0.2em,
+      )[$g:delta quad t:gamma quad b:nabla$],
+
+      edge(planNodePos.at(0), planNodePos.at(2), "-|>"),
+      edge(planNodePos.at(1), planNodePos.at(2), "-|>"),
+      edge(planNodePos.at(0), planNodePos.at(3), "-|>", bend: -30deg),
+      edge(planNodePos.at(2), planNodePos.at(3), "-|>"),
+    ),
+    caption: [Plan showing step dependency. Each step speicfies unit group $g$,
+      target $t$ and behavior $b$],
   )
 ]
 

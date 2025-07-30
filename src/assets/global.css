@@ -30,27 +30,27 @@ body {
         --text-color: white;
     }
 
-    body.slides {
+    body.talks {
         background-color: #000000;
         color: #ffffff;
     }
 
     /* Standard browsers - apply filter to entire SVG */
-    body.slides svg.typst-doc {
+    body.talks svg.typst-doc {
         filter: var(--svg-filter);
         -webkit-filter: var(--svg-filter);
     }
 
     /* Firefox-specific approach - separate filters for text and non-text */
     @-moz-document url-prefix() {
-        body.slides svg.typst-doc {
+        body.talks svg.typst-doc {
             filter: invert(1) hue-rotate(180deg);
             -moz-filter: invert(1) hue-rotate(180deg);
         }
 
         /* Override filter for text elements and apply direct styling */
-        body.slides svg.typst-doc text,
-        body.slides svg.typst-doc tspan {
+        body.talks svg.typst-doc text,
+        body.talks svg.typst-doc tspan {
             filter: none !important;
             -moz-filter: none !important;
             fill: white !important;
@@ -59,8 +59,8 @@ body {
         }
 
         /* Handle any grouped text elements */
-        body.slides svg.typst-doc g text,
-        body.slides svg.typst-doc g tspan {
+        body.talks svg.typst-doc g text,
+        body.talks svg.typst-doc g tspan {
             filter: none !important;
             -moz-filter: none !important;
             fill: white !important;
@@ -160,15 +160,15 @@ body.presentation-mode #present svg.typst-doc {
 
     /* Presentation mode dark theme fixes */
     @media (prefers-color-scheme: dark) {
-        body.presentation-mode.slides #present svg.typst-doc {
+        body.presentation-mode.talks #present svg.typst-doc {
             filter: invert(1) hue-rotate(180deg);
             -moz-filter: invert(1) hue-rotate(180deg);
         }
 
-        body.presentation-mode.slides #present svg.typst-doc text,
-        body.presentation-mode.slides #present svg.typst-doc tspan,
-        body.presentation-mode.slides #present svg.typst-doc g text,
-        body.presentation-mode.slides #present svg.typst-doc g tspan {
+        body.presentation-mode.talks #present svg.typst-doc text,
+        body.presentation-mode.talks #present svg.typst-doc tspan,
+        body.presentation-mode.talks #present svg.typst-doc g text,
+        body.presentation-mode.talks #present svg.typst-doc g tspan {
             filter: none !important;
             -moz-filter: none !important;
             fill: white !important;

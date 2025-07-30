@@ -11,8 +11,14 @@ import "../assets/global.css";
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="sitemap" href="/sitemap-index.xml" />
         <meta name="generator" content={Astro.generator} />
         <title>Noah Syrkis</title>
+        <script
+            defer
+            is:inline
+            src="https://cloud.umami.is/script.js"
+            data-website-id="5d4d1d04-96de-428a-9fdf-364a81b64f9b"></script>
         <link
             href="https://fonts.cdnfonts.com/css/libertinus-serif"
             rel="stylesheet"
@@ -23,12 +29,9 @@ import "../assets/global.css";
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@4/distr/fira_code.css"
         />
-        <script
-            defer
-            src="https://cloud.umami.is/script.js"
-            data-website-id="5d4d1d04-96de-428a-9fdf-364a81b64f9b"></script>
+        <ClientRouter />
     </head>
-    <ClientRouter />
+    <!-- props for dark mode on slides -->
     <body class={Astro.props.pageType}>
         <Header />
         <slot />

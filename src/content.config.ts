@@ -4,14 +4,15 @@ import { defineCollection, z } from "astro:content";
 import { glob, file } from "astro/loaders";
 
 // 3. Define your collection(s)
-const series = defineCollection({
-    loader: glob({ pattern: "*.yaml", base: "./series" }),
+const works = defineCollection({
+    loader: glob({ pattern: "*.yaml", base: "./works" }),
     schema: z.object({
         title: z.string(),
         year: z.string().min(4).max(4),
         desc: z.string().min(10).max(200),
         cover: z.string(), // .url()
         material: z.string(),
+        hidden: z.boolean().default(false),
         works: z.array(
             z.object({
                 name: z.string().min(1).max(100),
@@ -21,8 +22,8 @@ const series = defineCollection({
     }),
 });
 
-const slides = defineCollection({
-    loader: glob({ pattern: "*.typ", base: "./slides" }),
+const talks = defineCollection({
+    loader: glob({ pattern: "*.typ", base: "./talks" }),
     schema: z.object({
         title: z.string(),
         date: z.string(),
@@ -31,4 +32,4 @@ const slides = defineCollection({
 });
 
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = { series, slides };
+export const collections = { works, talks };

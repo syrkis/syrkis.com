@@ -1,14 +1,13 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { Typst } from "astro-typst/src/components";
-// import { render } from "astro:content";
 
 interface Props {
-    entry: CollectionEntry<"slides">;
+    entry: CollectionEntry<"talks">;
 }
 
 const { entry } = Astro.props;
-const mainFilePath = `slides/${entry.id}.typ`;
+const mainFilePath = `talks/${entry.id}.typ`;
 const entryId = entry.id;
 // const { title } = entry.data;
 // const { Content } = await render(entry);
