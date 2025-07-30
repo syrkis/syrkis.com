@@ -1,6 +1,6 @@
 .netlify/
 node_modules
-slides/s3
+talks/s3
 
 # Output
 .output
