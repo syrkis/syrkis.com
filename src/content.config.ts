@@ -26,6 +26,7 @@ const talks = defineCollection({
     loader: glob({ pattern: "*.typ", base: "./talks" }),
     schema: z.object({
         title: z.string(),
+        cover: z.string().default("https://s3.syrkis.com/miiii/13.svg"),
         date: z.string(),
         hidden: z.boolean().default(false),
     }),

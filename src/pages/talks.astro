@@ -23,6 +23,12 @@ const emailDomain = "syrkis.com";
             {
                 talks.map((entry) => (
                     <div class="slide">
+                        <div class="cover">
+                            <img
+                                src={entry.data.cover}
+                                alt={entry.data.title}
+                            />
+                        </div>
                         <span class="slide-name">
                             <i>{entry.data.title}</i>
                         </span>
@@ -37,6 +43,19 @@ const emailDomain = "syrkis.com";
 </Layout>
 
 <style>
+    .cover {
+        position: relative;
+        /* width: 700px; */
+        max-width: 90%;
+        height: 300px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .cover img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     #text {
         width: 700px;
         max-width: 95%;

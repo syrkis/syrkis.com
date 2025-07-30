@@ -30,6 +30,11 @@ body {
         --text-color: white;
     }
 
+    img {
+        filter: var(--svg-filter);
+        -webkit-filter: var(--svg-filter);
+    }
+
     body.talks {
         background-color: #000000;
         color: #ffffff;
