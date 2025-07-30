@@ -6,26 +6,13 @@ command = """
 
     # Clone your package repository
     git clone https://github.com/syrkis/lilka.git ~/.local/share/typst/packages/local/lilka/0.0.0/
+
     git clone https://github.com/syrkis/esch.git ~/.local/share/typst/packages/local/esch/0.0.0/
 
     # Download s3 images (for typst as it does not support remote url)
-    rm -rf /opt/build/repo/slides/s3
-    if [ -d "/opt/build/repo/slides/s3" ]; then
-      git -C /opt/build/repo/slides/s3 pull
-    else
-      git clone https://github.com/syrkis/s3.git /opt/build/repo/slides/s3
-    fi
-
-    # Download Fira Code fonts for Typst
-    mkdir -p /opt/build/repo/fonts
-    cd /opt/build/repo/fonts
-    wget -O FiraCode.zip https://github.com/tonsky/FiraCode/releases/download/6.2/Fira_Code_v6.2.zip
-    unzip -j FiraCode.zip "ttf/*" -d .
-    rm FiraCode.zip
-    export TYPST_FONT_PATHS="/opt/build/repo/fonts"
+    git clone https://github.com/syrkis/s3.git /opt/build/repo/posts/s3
 
     # Run your regular build command
-    cd /opt/build/repo
     npm run build
 """
 publish = "dist"
