@@ -12,6 +12,7 @@
     "@astrojs/netlify": "^6.5.3",
     "@astrojs/sitemap": "^3.4.2",
     "astro": "^5.12.5",
-    "astro-typst": "^0.8.2"
+    "astro-typst": "^0.8.2",
+    "netlify-cli": "^23.0.0"
   }
 }
