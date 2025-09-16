@@ -22,20 +22,19 @@ const emailDomain = "syrkis.com";
         <div id="talks">
             {
                 talks.map((entry) => (
-                    <div class="slide">
-                        <div class="cover">
-                            <img
-                                src={entry.data.cover}
-                                alt={entry.data.title}
-                            />
+                    <a href={`/${entry.id}`}>
+                        <div class="slide">
+                            <div class="cover">
+                                <img
+                                    src={entry.data.cover}
+                                    alt={entry.data.title}
+                                />
+                            </div>
+                            <span class="slide-name">
+                                <i>{entry.data.title}</i>
+                            </span>
                         </div>
-                        <span class="slide-name">
-                            <i>{entry.data.title}</i>
-                        </span>
-                        <span class="slide-info">
-                            <a href={`/${entry.id}`}>slide</a>|<a>video</a>
-                        </span>
-                    </div>
+                    </a>
                 ))
             }
         </div>

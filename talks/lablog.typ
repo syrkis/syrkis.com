@@ -10,7 +10,6 @@
 
 #show: lq.set-grid(stroke: white)
 #show: lilka
-// #show raw.where(lang: "dot-render"): it => render-image(it.text)
 
 // head /////////////////////////////////////////////////////////////////////////
 #let title = "Lab Log"
@@ -33,6 +32,40 @@
 
 
 // body //////////////////////////////////////////
+= August 27th, 2025
+
+#slide[
+
+  - Gemma did 8k intel pieces in 90 sec. on V100
+  - Successfully computing intel on $n/ln(n)$ units
+  - Test ran with 280k total units (runs in minutes)
+  - Opting for generating .gif instead of www?
+  - _Issue_: plan / bt split too coarse for big map?
+  - _next_: Add color to gif, and run test 2 step plan
+
+][
+
+  #figure(image("s3/nebellum/noah.gif", width: 100%), caption: [Simulating 8.000
+    units in 420 by 420 map])<gif>
+
+]
+= Updates
+
+- Gemma3 270M is now working with our code (sent pull request to Google) #pause
+- 270M helps a lot during development (and might be enough with fine tuning)
+  #pause
+- Now estimating importance _real time_ inside simulation loop by #pause
+  1. computing imagined trajs based on _all_ intel, and #pause
+  2. computing many traj baesd on random subset of intel, and #pause
+  3. fitting linear model to mask matrix, predicting distance to 1) and
+    _sorting_
+    #pause
+- Beginning to reintegrate Nebellum into Svelte frontend (Use APP-6E NATO
+  symbols?) #pause
+- Next weeks is just scaling, integrating with front end, debugging, clear
+  examples, etc.
+- `pcgym` (modified Togelius `gym-pcgrl`) for lab (and other) use #pause
+
 = Gemma
 
 #slide[
@@ -153,60 +186,60 @@
 
 
 
-// #slide[
-//   // #set text(size: 12pt)
-//   #figure(
-//     table(
-//       stroke: none,
-//       columns: 3,
-//       inset: 1em,
-//       lq.diagram(
-//         lq.scatter(
-//           ..lq.load-txt(read("s3/c2sim/state_hat_pos.csv")),
-//           color: black,
-//           // size: 0.1em,
-//         ),
-//         title: $hat(s)$,
-//         yaxis: none,
-//         xaxis: none,
-//         width: 8cm,
-//         height: 8cm,
-//       ),
-//       lq.diagram(
-//         lq.scatter(
-//           ..lq.load-txt(read("s3/c2sim/state_pos.csv")),
-//           color: black,
-//           // size: 0.1em,
-//         ),
-//         title: $s$,
-//         yaxis: none,
-//         xaxis: none,
-//         width: 8cm,
-//         height: 8cm,
-//       ),
-
-//       lq.diagram(
-//         lq.scatter(
-//           ..lq.load-txt(read("s3/c2sim/state_m_pos.csv")),
-//           color: black,
-//           // size: 0.1em,
-//         ),
-//         title: $s_m$,
-//         yaxis: none,
-//         xaxis: none,
-//         width: 8cm,
-//         height: 8cm,
-//       ),
-//       [$"CD"(hat(s), s) = 102$],
-//       [$"CD"(s, s_m) = 686$],
-
-//       [$"CD"(hat(s), s_m) = 712$],
-//     ),
-//     caption: [TLDR: It works! $hat(s)$, $s$, and $s_m$ and associated Chamfer
-//       Distances. Note $s$ is much closer to the estimate $hat(s)$ than the
-//       masked $s_m$, showing that the LMM's processing of intel $i$ is helpful.],
-//   )
-// ]
+#slide[
+  // #set text(size: 12pt)
+  #figure(
+    table(
+      stroke: none,
+      columns: 3,
+      inset: 1em,
+      lq.diagram(
+        lq.scatter(
+          ..lq.load-txt(read("s3/c2sim/state_hat_pos.csv")),
+          color: black,
+          // size: 0.1em,
+        ),
+        title: $hat(s)$,
+        yaxis: none,
+        xaxis: none,
+        width: 8cm,
+        height: 8cm,
+      ),
+      lq.diagram(
+        lq.scatter(
+          ..lq.load-txt(read("s3/c2sim/state_pos.csv")),
+          color: black,
+          // size: 0.1em,
+        ),
+        title: $s$,
+        yaxis: none,
+        xaxis: none,
+        width: 8cm,
+        height: 8cm,
+      ),
+      //
+      lq.diagram(
+        lq.scatter(
+          ..lq.load-txt(read("s3/c2sim/state_m_pos.csv")),
+          color: black,
+          // size: 0.1em,
+        ),
+        title: $s_m$,
+        yaxis: none,
+        xaxis: none,
+        width: 8cm,
+        height: 8cm,
+      ),
+      [$"CD"(hat(s), s) = 102$],
+      [$"CD"(s, s_m) = 686$],
+      //
+      [$"CD"(hat(s), s_m) = 712$],
+    ),
+    caption: [TLDR: It works! $hat(s)$, $s$, and $s_m$ and associated Chamfer
+      Distances. Note $s$ is much closer to the estimate $hat(s)$ than the
+      masked $s_m$, showing that the LMM's processing of intel $i$ is helpful.],
+  )
+]
 
 
 

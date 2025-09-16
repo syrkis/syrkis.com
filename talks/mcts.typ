@@ -13,6 +13,7 @@
 
 
 #show: lilka
+// #set text(font: "David Libre")
 #show: slides.with(
   config-info(
     author: "Noah Syrkis",
@@ -92,18 +93,19 @@ have yielded some different state $s'_(t + 1)$.
   #figure(
     kind: "algorithm",
     supplement: [Algorithm],
-    pseudocode-list(stroke: none, booktabs: true, numbered-title: [minimax(node,
-      maxim)])[
+    pseudocode-list(
+      stroke: black,
+      booktabs: true,
+      numbered-title: [minimax(state, maxim) $->$ value],
+    )[
       + *if* node is terminal
         + *return* the value of node
 
-      + bestValue = $-oo$ if maxim else $oo$
-      + condition = max if maxim else min
-
-      + *for* each child of node
+      + temp = $-oo$ if maxim else $oo$
+      + *for* each child of state
         + value = minimax(child, not maxim)
-        + bestValue = condition(bestValue, value)
-      + *return* bestValue
+        + temp = (max if maxim else min)(temp, value)
+      + *return* temp
     ],
     // caption: [Minimax pseudo code],
   )<minimax>

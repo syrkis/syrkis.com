@@ -18,6 +18,8 @@
 
 #let title = "Deep Reinforcement Learning"
 
+// TODO: task 1: make the right reward function
+// TODO: task 2:
 
 #show: lilka
 #show: slides.with(
