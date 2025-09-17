@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/netlify": "^6.5.9",
+    "@astrojs/node": "^9.4.3",
     "@astrojs/sitemap": "^3.5.1",
     "@myriaddreamin/typst-ts-node-compiler": "^0.6.1-rc2",
     "@myriaddreamin/typst-ts-renderer": "^0.6.1-rc2",

@@ -2,11 +2,13 @@
 import { defineConfig } from "astro/config";
 import { typst } from "astro-typst";
 
-import netlify from "@astrojs/netlify";
 import sitemap from "@astrojs/sitemap";
+
+import node from "@astrojs/node";
 
 export default defineConfig({
   site: "https://syrkis.com",
+
   integrations: [
     typst({
       target: () => "svg",
@@ -14,5 +16,8 @@ export default defineConfig({
     }),
     sitemap(),
   ],
-  adapter: netlify(),
+
+  adapter: node({
+    mode: "standalone",
+  }),
 });
