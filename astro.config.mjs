@@ -15,7 +15,7 @@ export default defineConfig({
   integrations: [
     typst({
       target: () => "svg",
-      fontArgs: [{ fontPaths: [path.resolve("public/fonts")] }],
+      fontArgs: [{ fontPaths: ["fonts"] }],
     }),
     sitemap(),
   ],
