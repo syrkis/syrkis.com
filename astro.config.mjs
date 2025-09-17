@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import { typst } from "astro-typst";
+import path from "node:path";
 
 import sitemap from "@astrojs/sitemap";
 
@@ -14,7 +15,7 @@ export default defineConfig({
   integrations: [
     typst({
       target: () => "svg",
-      fontArgs: [{ fontPaths: ["public/fonts"] }],
+      fontArgs: [{ fontPaths: [path.resolve("public/fonts")] }],
     }),
     sitemap(),
   ],
