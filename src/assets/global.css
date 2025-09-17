@@ -17,6 +17,12 @@ body {
     }
 }
 
+@font-face {
+    font-family: "Fira Code Nerd Font";
+    src: url("/fonts/FiraMonoNerdFont-Regular.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
 /* CSS Custom Properties for theme switching */
 :root {
     --svg-filter: none;
