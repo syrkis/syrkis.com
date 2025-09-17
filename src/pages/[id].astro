@@ -9,17 +9,20 @@ export async function getStaticPaths() {
     const seriesEntries = await getCollection("works");
     const slidesEntries = await getCollection("talks");
 
-    // Map series entries
+    // Map series entries (leave as-is, flat YAML files)
     const seriesPaths = seriesEntries.map((entry) => ({
         params: { id: entry.id },
         props: { entry, type: "works" },
     }));
 
-    // Map slides entries
-    const slidesPaths = slidesEntries.map((entry) => ({
-        params: { id: entry.id },
-        props: { entry, type: "talks" },
-    }));
+    // Map slides entries (use only slug/folder for [id], preserve full entry.id for props)
+    const slidesPaths = slidesEntries.map((entry) => {
+        const slug = entry.id.split("/")[0];
+        return {
+            params: { id: slug },
+            props: { entry, type: "talks" },
+        };
+    });
 
     // Combine both collections
     return [...seriesPaths, ...slidesPaths];

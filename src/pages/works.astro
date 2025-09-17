@@ -23,7 +23,7 @@ const emailDomain = "syrkis.com";
         <div id="works">
             {
                 works.map((entry) => (
-                    <a href={`/${entry.id}`}>
+                    <a href={"/" + entry.id.split("/")[0]}>
                         <div
                             class="works"
                             style={`background: url(https://s3.syrkis.com/${entry.id}/${entry.data.cover}) no-repeat center center / cover`}

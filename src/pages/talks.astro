@@ -22,7 +22,7 @@ const emailDomain = "syrkis.com";
         <div id="talks">
             {
                 talks.map((entry) => (
-                    <a href={`/${entry.id}`}>
+                    <a href={"/" + entry.id.split("/")[0]}>
                         <div class="slide">
                             <div class="cover">
                                 <img

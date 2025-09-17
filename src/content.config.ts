@@ -1,11 +1,11 @@
 // 1. Import utilities from `astro:content`
 import { defineCollection, z } from "astro:content";
 // 2. Import loader(s)
-import { glob, file } from "astro/loaders";
+import { glob } from "astro/loaders";
 
 // 3. Define your collection(s)
 const works = defineCollection({
-    loader: glob({ pattern: "*.yaml", base: "./works" }),
+    loader: glob({ pattern: "*.yaml", base: "./src/content/works" }),
     schema: z.object({
         title: z.string(),
         year: z.string().min(4).max(4),
@@ -23,7 +23,10 @@ const works = defineCollection({
 });
 
 const talks = defineCollection({
-    loader: glob({ pattern: "*.typ", base: "./talks" }),
+    loader: glob({
+        pattern: ["**/*.typ", "!**/appendix.typ"],
+        base: "./src/content/talks",
+    }),
     schema: z.object({
         title: z.string(),
         cover: z.string().default("https://s3.syrkis.com/miiii/13.svg"),
@@ -33,4 +36,7 @@ const talks = defineCollection({
 });
 
 // 4. Export a single `collections` object to register your collection(s)
-export const collections = { works, talks };
+export const collections = {
+    works,
+    talks,
+};
