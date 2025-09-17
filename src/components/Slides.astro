@@ -8,13 +8,10 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const mainFilePath = `src/content/talks/${entry.id}.typ`; // entry.id = esch/esch -> talks/esch/esch.typ
+const mainFilePath = `src/content/talks/${entry.id}.typ`;
 const entryId = entry.id;
 ---
 
-<!-- <div class="slides">
-    <Content input={{ name: "noah" }} />
-</div> -->
 <div class="slides">
     <div id="handout">
         <Typst

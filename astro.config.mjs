@@ -6,6 +6,8 @@ import sitemap from "@astrojs/sitemap";
 
 import node from "@astrojs/node";
 
+import netlify from "@astrojs/netlify";
+
 export default defineConfig({
   site: "https://syrkis.com",
 
@@ -17,7 +19,5 @@ export default defineConfig({
     sitemap(),
   ],
 
-  adapter: node({
-    mode: "standalone",
-  }),
+  adapter: netlify(),
 });
