@@ -33,5 +33,5 @@ const { entry, type } = Astro.props;
 ---
 
 <Layout pageType={type}>
-    {type === "works" ? <Series {entry} /> : <Slides {entry} />}
+    {type === "works" ? <Series {entry} /> : <Slides server:defer {entry} />}
 </Layout>
