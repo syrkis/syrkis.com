@@ -357,3 +357,37 @@ have yielded some different state $s'_(t + 1)$.
 // style: "ieee",
 // ))
 // ]
+
+Dear Hans —
+
+
+Sebastian can't fund my trip since our money is from the Swiss project can't use
+for this. So, this email is about me convening you that ALife 2025 is a relevant
+conference:
+
+Regarding general relevance: I believe everyone or almost everyone in my lab
+will be attending, so it is very much within our wheelhouse.
+
+Relevance for me specifically: I'll be presenting a poster on the use of Uiua
+(www.uiua.org)—a stack-based array language written in Rust—for artificial life
+research and creative computing in general. The submission on which I've been
+accepted is attached here for reference.
+
+I have shown examples of its potential use in graphical art on my website
+(virian.com/rhos). Uiua allows for much more expressive and consice code, making
+protoyping fast, and visual exceptionally quick.
+
+Two anecdotes on the relevance of Uiua in particular:
+
+1) I've recently had a conversation with Kathrine Lotz, institute leader of the
+Royal Architecture School here, and she was very intersted in in the context of
+creative computing.
+
+2) As my github shows my Uiua projects I've been contacted by a headhunter for
+one of the big AI firms to do weekly coding sessions to help them have their
+models learn Uiua better. Given Uiue's expressiveness, the same code can be
+written with very few tokens by LLMs compared to a traditional language like
+python.
+
+
+— Noah
