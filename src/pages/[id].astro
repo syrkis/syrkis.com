@@ -30,8 +30,10 @@ export async function getStaticPaths() {
 
 // 2. Get the entry and its type from props
 const { entry, type } = Astro.props;
+// const { post } = Astro.props;
+const id: string = entry.id.split("/").pop() ?? "";
 ---
 
 <Layout pageType={type}>
-    {type === "works" ? <Series {entry} /> : <Slides server:defer {entry} />}
+    {type === "works" ? <Series {entry} /> : <Slides {entry} />}
 </Layout>

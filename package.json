@@ -15,7 +15,7 @@
     "@myriaddreamin/typst-ts-node-compiler": "^0.6.1-rc2",
     "@myriaddreamin/typst-ts-renderer": "^0.6.1-rc2",
     "@myriaddreamin/typst.ts": "^0.6.1-rc2",
-    "astro": "^5.13.5",
+    "astro": "^5.13.8",
     "astro-typst": "^0.12.1"
   }
 }
