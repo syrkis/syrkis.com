@@ -139,7 +139,7 @@
   // equation numbering
   show: equate.with(breakable: true, sub-numbering: true)
 
-  show raw: set text(font: "FiraCode Nerd Font Mono")
+  // show raw: set text(font: "FiraCode Nerd Font Mono")
 
   set math.equation(numbering: "(1.1)", supplement: "Eq.")
 
