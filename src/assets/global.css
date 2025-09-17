@@ -18,7 +18,7 @@ body {
 }
 
 @font-face {
-    font-family: "Fira Code Nerd Font";
+    font-family: "FiraCode Nerd Font Mono";
     src: url("/fonts/FiraMonoNerdFont-Regular.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
