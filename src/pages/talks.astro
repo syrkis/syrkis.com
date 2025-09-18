@@ -4,7 +4,8 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import List from "../components/List.astro";
 const items = (await getCollection("talks")).filter((x) => !x.data.hidden);
-const contactText = "... your works intro ...";
+const contactText =
+    "Bridging cognition and computation, these talks investigate mechanistic intelligence in strategic and semantic contexts. For speaking engagements, contact";
 ---
 
 <Layout pageType="talks">

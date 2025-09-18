@@ -1,6 +1,7 @@
 ---
 const { entry, type } = Astro.props;
 import { Image } from "astro:assets";
+import { formatDate } from "../utils/date";
 ---
 
 {
@@ -14,7 +15,9 @@ import { Image } from "astro:assets";
             />
             <div class="talk card-info">
                 <h2 class="slide-name">{entry.data.title}</h2>
-                <span class="slide-date-year">{entry.data.date}</span>
+                <span class="slide-date-year">
+                    {formatDate(entry.data.date)}
+                </span>
             </div>
         </div>
     ) : (
