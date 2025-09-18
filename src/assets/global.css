@@ -188,3 +188,6 @@ a {
 .series {
     text-align: center;
 }
+.series-list {
+    padding: 7vh 0;
+}

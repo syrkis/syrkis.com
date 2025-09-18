@@ -5,7 +5,7 @@ import Layout from "../layouts/Layout.astro";
 import List from "../components/List.astro";
 const items = (await getCollection("talks")).filter((x) => !x.data.hidden);
 const contactText =
-    "Bridging cognition and computation, these talks investigate mechanistic intelligence in strategic and semantic contexts. For speaking engagements, contact";
+    "These talks investigate the mechanisms of intelligence in contexts ranging computational to the cognitive and purely creative. For speaking engagements, contact";
 ---
 
 <Layout pageType="talks">
