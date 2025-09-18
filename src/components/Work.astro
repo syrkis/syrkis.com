@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Title from "../components/Title.astro";
+import { Image } from "astro:assets";
 
 interface Props {
     entry: CollectionEntry<"works">;
@@ -20,9 +21,10 @@ const { title, year, desc, material, works } = entry.data;
             {
                 works.map((work) => (
                     <div class="work">
-                        <img
-                            src={`https://s3.syrkis.com/${entry.id}/${work.file}`}
+                        <Image
+                            src={`/src/assets/art/${entry.id}/${work.file}`}
                             alt={work.name}
+                            fill
                         />
                         <p>
                             {work.name}, {material}, {year}
@@ -33,26 +35,3 @@ const { title, year, desc, material, works } = entry.data;
         </div>
     </div>
 </div>
-
-<style>
-    p {
-        text-align: center;
-        max-width: 600px;
-        margin: auto;
-    }
-    .series {
-        width: 90%;
-        margin: 0 auto;
-        padding: 10vh 0;
-    }
-    .work img {
-        width: 100%;
-        height: auto;
-    }
-    .work {
-        padding: 5vh 0;
-    }
-    .works {
-        padding: 5vh 0;
-    }
-</style>

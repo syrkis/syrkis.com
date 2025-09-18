@@ -8,8 +8,9 @@
 #let date = datetime(year: 2025, month: 5, day: 6)
 #let common = config-common(handout: false)
 #let config = config-info(author: "Noah Syrkis", date: date, title: title)
+#let cover = "/src/content/talks/miiii/figs/polar.svg"
 
-#metadata((title: title, date: date))<frontmatter>
+#metadata((title: title, date: date, cover: cover))<frontmatter>
 #show: slides.with(config, common)
 
 

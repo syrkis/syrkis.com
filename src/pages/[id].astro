@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import Series from "../components/Series.astro";
-import Slides from "../components/Slides.astro";
+import Work from "../components/Work.astro";
+import Talk from "../components/Talk.astro";
 import Layout from "../layouts/Layout.astro";
 
 // 1. Generate paths for both series and slides collections
@@ -35,5 +35,5 @@ const id: string = entry.id.split("/").pop() ?? "";
 ---
 
 <Layout pageType={type}>
-    {type === "works" ? <Series {entry} /> : <Slides {entry} />}
+    {type === "works" ? <Work {entry} /> : <Talk {entry} />}
 </Layout>

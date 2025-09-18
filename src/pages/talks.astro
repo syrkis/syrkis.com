@@ -1,104 +1,12 @@
 ---
+// talks.astro
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-const talks = (await getCollection("talks")).filter(
-    (entry) => !entry.data.hidden,
-);
-
-const text =
-    "Bridging cognition and computation, these talks investigate mechanistic intelligence in strategic and semantic contexts. For speaking engagements, contact";
-const emailUser = "desk";
-const emailDomain = "syrkis.com";
+import List from "../components/List.astro";
+const items = (await getCollection("talks")).filter((x) => !x.data.hidden);
+const contactText = "... your works intro ...";
 ---
 
 <Layout pageType="talks">
-    <div class="wrapper">
-        <div id="text">
-            {text}
-            <email-link data-user={emailUser} data-domain={emailDomain}>
-                {emailUser}[at]{emailDomain}
-            </email-link>
-        </div>
-        <div id="talks">
-            {
-                talks.map((entry) => (
-                    <a href={"/" + entry.id.split("/")[0]}>
-                        <div class="slide">
-                            <div class="cover">
-                                <img
-                                    src={entry.data.cover}
-                                    alt={entry.data.title}
-                                />
-                            </div>
-                            <span class="slide-name">
-                                <i>{entry.data.title}</i>
-                            </span>
-                        </div>
-                    </a>
-                ))
-            }
-        </div>
-    </div>
+    <List items={items} type="talks" ContactText={contactText} />
 </Layout>
-
-<style>
-    .cover {
-        position: relative;
-        max-width: 90%;
-        height: 256px;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-    .cover img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    #text {
-        width: 700px;
-        max-width: 95%;
-        padding: 10vh 0;
-        text-align: center;
-        margin: auto;
-    }
-    #talks {
-        padding: 10vh 0;
-        text-align: center;
-    }
-    .section {
-        font-size: 1.5em;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-    }
-    h2 {
-        mix-blend-mode: difference;
-        color: black;
-        filter: saturate(0) opacity(1) invert(1);
-    }
-    .slide {
-        text-align: center;
-        font-size: 1.2em;
-        line-height: 2.5;
-        padding-bottom: 20vh;
-    }
-    .slide-info {
-        display: flex;
-        justify-content: space-between;
-        width: 150px;
-        margin: auto;
-    }
-</style>
-
-<script>
-    class EmailLink extends HTMLElement {
-        connectedCallback() {
-            this.addEventListener("click", () => {
-                const user = this.dataset.user;
-                const domain = this.dataset.domain;
-                window.location.href = `mailto:${user}@${domain}`;
-            });
-        }
-    }
-
-    customElements.define("email-link", EmailLink);
-</script>

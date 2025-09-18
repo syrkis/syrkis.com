@@ -19,6 +19,7 @@
   title: title,
   author: "Noah Syrkis",
   date: datetime.today(),
+  cover: "/src/content/talks/miiii/figs/polar.svg",
 ))<frontmatter>
 
 = Symbols and Letters

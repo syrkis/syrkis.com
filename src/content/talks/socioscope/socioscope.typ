@@ -3,7 +3,6 @@
 #import "@preview/diagraph:0.3.3": raw-render
 #import "@preview/lovelace:0.3.0": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node, shapes
-#import "@local/esch:0.0.0": *
 #import "@preview/lilaq:0.3.0" as lq
 #import "/src/assets/conf.typ": *
 
@@ -26,6 +25,7 @@
 #metadata((
   title: title,
   date: datetime(year: 2025, month: 5, day: 6),
+  cover: "/src/content/talks/miiii/figs/polar.svg",
 ))<frontmatter>
 
 

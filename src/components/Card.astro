@@ -1,0 +1,33 @@
+---
+const { entry, type } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+{
+    type === "talks" ? (
+        <div class="talk card" transition:name={entry.data.title}>
+            <Image
+                src={entry.data.cover}
+                alt={entry.data.title}
+                fill
+                class="cover"
+            />
+            <div class="talk card-info">
+                <h2 class="slide-name">{entry.data.title}</h2>
+                <span class="slide-date-year">{entry.data.date}</span>
+            </div>
+        </div>
+    ) : (
+        <div class="work card">
+            <Image
+                src={entry.data.cover}
+                alt={entry.data.title}
+                fill
+                class="cover"
+            />
+            <div class="work card-info">
+                <h2 class="work-name">{entry.data.title}</h2>
+            </div>
+        </div>
+    )
+}

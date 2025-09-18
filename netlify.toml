@@ -1,9 +1,3 @@
 [build]
-command = """
-    mkdir -p ~/.local/share/typst/packages/local/esch/0.0.0/
-    git clone https://github.com/syrkis/esch.git ~/.local/share/typst/packages/local/esch/0.0.0/
-
-    # Run your regular build command
-    npm run build
-"""
+command = "npm run build"
 publish = "dist"

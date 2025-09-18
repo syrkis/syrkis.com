@@ -1,7 +1,6 @@
 ---
 const isRoot = Astro.url.pathname === "/";
-const emailUser = "desk";
-const emailDomain = "syrkis.com";
+import Mail from "../components/Mail.astro";
 ---
 
 {
@@ -11,9 +10,7 @@ const emailDomain = "syrkis.com";
             <br />
             for all inquiries, write
             <br />
-            <email-link data-user={emailUser} data-domain={emailDomain}>
-                {emailUser}[at]{emailDomain}
-            </email-link>
+            <Mail user="desk" domain="syrkis.com" />
         </footer>
     )
 }

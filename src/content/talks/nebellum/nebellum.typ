@@ -1,6 +1,5 @@
 // imports /////////////////////////////////////////////////////////////////////
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node, shapes
-#import "@local/esch:0.0.0": *
 #import "/src/assets/conf.typ": *
 #import "appendix.typ": appendix
 
@@ -10,7 +9,11 @@
 #let info = config-info(author: "Noah Syrkis", date: date, title: title)
 #let handout = sys.inputs.at("handout", default: "true") == "true"
 #show: slides.with(appendix: appendix, info, config-common(handout: handout))
-#metadata((title: title, date: date))<frontmatter>
+#metadata((
+  title: title,
+  date: date,
+  cover: "/src/content/talks/miiii/figs/polar.svg",
+))<frontmatter>
 
 
 //  body ///////////////////////////////////////////////////////////////////////

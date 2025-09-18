@@ -1,95 +1,12 @@
 ---
+// works.astro
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-import Title from "../components/Title.astro";
-const works = (await getCollection("works")).filter(
-    (entry) => !entry.data.hidden,
-);
-
-const text =
-    "Exploring structure with decay, these works include archival aesthetics through geospatial and organic variations. Limited edition prints are available upon request to";
-const emailUser = "desk";
-const emailDomain = "syrkis.com";
+import List from "../components/List.astro";
+const items = (await getCollection("works")).filter((x) => !x.data.hidden);
+const contactText = "... your works intro ...";
 ---
 
-<Layout>
-    <div class="wrapper">
-        <div id="text">
-            {text}
-            <email-link data-user={emailUser} data-domain={emailDomain}>
-                {emailUser}[at]{emailDomain}
-            </email-link>
-        </div>
-        <div id="works">
-            {
-                works.map((entry) => (
-                    <a href={"/" + entry.id.split("/")[0]}>
-                        <div
-                            class="works"
-                            style={`background: url(https://s3.syrkis.com/${entry.id}/${entry.data.cover}) no-repeat center center / cover`}
-                        >
-                            <h2>
-                                <Title {entry} />
-                            </h2>
-                        </div>
-                    </a>
-                ))
-            }
-        </div>
-    </div>
+<Layout pageType="works">
+    <List items={items} type="works" ContactText={contactText} />
 </Layout>
-
-<style>
-    #text {
-        width: 700px;
-        max-width: 95%;
-        padding: 10vh 0;
-        text-align: center;
-        margin: auto;
-    }
-    #works {
-        padding: 0vh 0;
-    }
-    .section {
-        font-size: 1.5em;
-        letter-spacing: 0.2em;
-        text-transform: uppercase;
-    }
-    .works {
-        height: 80vh;
-        /* padding-top: 15vh; */
-        margin: 10vh auto 20vh auto;
-        width: 90%;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition:
-            transform 0.5s ease-in-out,
-            opacity 0.5s ease-in-out;
-    }
-
-    h2 {
-        mix-blend-mode: difference;
-        color: black;
-        filter: saturate(0) opacity(1) invert(1);
-    }
-    .works:hover {
-        transform: scale(1.05);
-    }
-</style>
-
-<script>
-    class EmailLink extends HTMLElement {
-        connectedCallback() {
-            this.addEventListener("click", () => {
-                const user = this.dataset.user;
-                const domain = this.dataset.domain;
-                window.location.href = `mailto:${user}@${domain}`;
-            });
-        }
-    }
-
-    customElements.define("email-link", EmailLink);
-</script>

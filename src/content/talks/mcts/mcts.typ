@@ -1,6 +1,5 @@
 // imports ///////////////
 #import "/src/assets/conf.typ": *
-#import "@local/esch:0.0.0": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 #import "@preview/lilaq:0.4.0" as lq
 #import "@preview/lovelace:0.3.0": *
@@ -25,6 +24,7 @@
   title: title,
   date: datetime(year: 2025, month: 5, day: 6),
   hidden: false,
+  cover: "/src/content/talks/esch/figs/anim_grid.svg",
 ))<frontmatter>
 
 

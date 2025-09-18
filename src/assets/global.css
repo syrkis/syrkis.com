@@ -1,147 +1,64 @@
-/* Base styles */
-html,
 body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    font-size: 1.2em;
-    line-height: 2.5;
     font-family: "David Libre", serif;
-    letter-spacing: 0.02em;
-}
-
-@media (max-width: 600px) {
-    body {
-        font-size: 1rem;
-    }
-}
-
-@font-face {
-    font-family: "FiraCode Nerd Font Mono";
-    src: url("/fonts/FiraMonoNerdFont-Regular.otf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
-/* CSS Custom Properties for theme switching */
-:root {
-    --svg-filter: none;
-    --text-color: inherit;
-}
-
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --svg-filter: invert(1) hue-rotate(180deg);
-        --text-color: white;
-    }
-
-    img {
-        filter: var(--svg-filter);
-        -webkit-filter: var(--svg-filter);
-    }
-
-    body.talks {
-        background-color: #000000;
-        color: #ffffff;
-    }
-
-    /* Standard browsers - apply filter to entire SVG */
-    body.talks svg.typst-doc {
-        filter: var(--svg-filter);
-        -webkit-filter: var(--svg-filter);
-    }
-
-    /* Firefox-specific approach - separate filters for text and non-text */
-    @-moz-document url-prefix() {
-        body.talks svg.typst-doc {
-            filter: invert(1) hue-rotate(180deg);
-            -moz-filter: invert(1) hue-rotate(180deg);
-        }
-
-        /* Override filter for text elements and apply direct styling */
-        body.talks svg.typst-doc text,
-        body.talks svg.typst-doc tspan {
-            filter: none !important;
-            -moz-filter: none !important;
-            fill: white !important;
-            stroke: none !important;
-            opacity: 1 !important;
-        }
-
-        /* Handle any grouped text elements */
-        body.talks svg.typst-doc g text,
-        body.talks svg.typst-doc g tspan {
-            filter: none !important;
-            -moz-filter: none !important;
-            fill: white !important;
-            stroke: none !important;
-            opacity: 1 !important;
-        }
-    }
-}
-
-/* Link styles */
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-/* Heading styles */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-size: 1.8rem;
-    font-weight: normal;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
+    font-size: 1.4em;
+    line-height: 1.5;
     margin: 0;
-    padding: 0;
+}
+
+h1,
+h2 {
+    font-weight: 100;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+}
+
+.text {
     text-align: center;
-    transition: all 0.3s ease;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
+    padding: 10vh 0;
 }
 
-/* SVG document styles */
-svg.typst-doc {
-    height: auto !important;
-    width: 100% !important;
-    max-width: 100%;
-    margin: 0 auto;
-    display: block;
+body.presentation-mode {
+    overflow: hidden;
+    height: 100vh;
 }
 
-/* Wrapper styles */
-.wrapper {
-    text-align: center;
+/* Center navigation header and style links */
+header {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+    font-size: 2em;
+    padding: 1.2em 0;
+    background: none;
+    border: none;
+    box-shadow: none;
 }
 
-/* Email link component */
-email-link {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
-    display: inline;
+.root {
+    padding-top: 70vh;
 }
 
-/* Presentation mode styles */
+header a {
+    display: inline-block;
+    margin: 0;
+    padding: 0 0.5em;
+}
+
 body.presentation-mode #present {
     display: flex !important;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
     position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
     overflow: hidden;
-    background-color: inherit;
+    margin: 0;
+    z-index: 9999;
 }
 
 body.presentation-mode #present svg.typst-doc {
@@ -150,41 +67,113 @@ body.presentation-mode #present svg.typst-doc {
     max-width: 100vw;
     max-height: 100vh;
     object-fit: contain;
-    -o-object-fit: contain;
-    -webkit-object-fit: contain;
-    -moz-object-fit: contain;
-    display: block;
     margin: 0 auto;
+    display: block;
 }
 
-/* Firefox-specific fixes */
-@-moz-document url-prefix() {
-    svg.typst-doc {
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
+/* SVG basics for embedded docs or assets */
+svg.typst-doc {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+}
 
-    body.presentation-mode #present svg.typst-doc {
-        -moz-transform: scale(1);
-        transform: scale(1);
-    }
+#present {
+    display: none;
+}
 
-    /* Presentation mode dark theme fixes */
-    @media (prefers-color-scheme: dark) {
-        body.presentation-mode.talks #present svg.typst-doc {
-            filter: invert(1) hue-rotate(180deg);
-            -moz-filter: invert(1) hue-rotate(180deg);
-        }
+#handout {
+    display: block;
+}
 
-        body.presentation-mode.talks #present svg.typst-doc text,
-        body.presentation-mode.talks #present svg.typst-doc tspan,
-        body.presentation-mode.talks #present svg.typst-doc g text,
-        body.presentation-mode.talks #present svg.typst-doc g tspan {
-            filter: none !important;
-            -moz-filter: none !important;
-            fill: white !important;
-            stroke: none !important;
-            opacity: 1 !important;
-        }
-    }
+.card {
+    width: 90vw;
+    /* height is determined by the image (80vh) + info (auto) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible;
+    /*background: #fff;*/
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 10vh 0;
+}
+
+.cover {
+    transition: transform 1s cubic-bezier(0.4, 0.05, 0.2, 1);
+}
+.cover:hover {
+    transform: scale(1.03);
+}
+
+.cover {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+/* Only apply 30vh height to images in a .talk.card */
+.talk.card .cover {
+    height: 30vh;
+}
+
+/* Only apply rounded corners to images in a .work.card */
+.work.card .cover {
+    border-radius: 20px;
+}
+
+.work.card {
+    position: relative;
+}
+.work.card .card-info {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Or any contrasting color for text over the image */
+    /* Optionally add background for readability: */
+    /* background: rgba(0,0,0,0.4); */
+    pointer-events: none;
+}
+
+.work.card .card-info > * {
+    margin: 0;
+    /* ensures there is no default margin affecting centering */
+}
+
+.card-info {
+    text-align: center;
+}
+
+.card-list {
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap; /* If you have multiple cards and want them to wrap to the next line */
+    justify-content: center; /* Center all cards horizontally */
+    gap: 2rem; /* Space between cards, adjust as you like */
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Reset all default and inherited link styling */
+a {
+    color: inherit;
+    text-decoration: none;
+    background: none;
+    font-style: normal;
+    font-weight: normal;
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.slides {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

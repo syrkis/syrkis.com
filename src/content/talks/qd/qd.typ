@@ -1,7 +1,6 @@
 // imports ///////////////
 #import "@preview/touying:0.6.1": *
 // #import "@local/lilka:0.0.0": *
-#import "@local/esch:0.0.0": *
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 #import "@preview/lilaq:0.4.0" as lq
 #import "@preview/lovelace:0.3.0": *
@@ -38,6 +37,7 @@
   title: title,
   date: datetime(year: 2025, month: 5, day: 6),
   hidden: true,
+  cover: "/src/content/talks/miiii/figs/polar.svg",
 ))<frontmatter>
 
 // TODO: 1. evolutionary strategy

@@ -1,0 +1,21 @@
+---
+const { items, type, ContactText } = Astro.props;
+import Mail from "../components/Mail.astro";
+import Card from "../components/Card.astro";
+---
+
+<div class="wrapper">
+    <div class="text">
+        {ContactText}
+        <Mail user="desk" domain="syrkis.com" />
+    </div>
+    <div id={type} class="card-list">
+        {
+            items.map((entry: any) => (
+                <a href={"/" + entry.id.split("/")[0]}>
+                    <Card entry={entry} type={type} />
+                </a>
+            ))
+        }
+    </div>
+</div>

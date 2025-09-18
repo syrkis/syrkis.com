@@ -1,0 +1,32 @@
+---
+import Jump from "../components/Jump.astro";
+import Show from "../components/Show.astro";
+import Card from "../components/Card.astro";
+import type { CollectionEntry } from "astro:content";
+import { Typst } from "astro-typst/src/components";
+
+interface Props {
+    entry: CollectionEntry<"talks">;
+}
+
+const { entry } = Astro.props;
+const mainFilePath = `src/content/talks/${entry.id}.typ`;
+
+const variants = [
+    { id: "handout", handout: "true" },
+    { id: "present", handout: "false" },
+];
+---
+
+<div class="slides">
+    <Card entry={entry} type="talks" />
+    {
+        variants.map(({ id, handout }) => (
+            <div id={id}>
+                <Typst input={{ mainFilePath, inputs: { handout } }} />
+            </div>
+        ))
+    }
+    <Jump />
+    <Show entryId={entry.id} />
+</div>

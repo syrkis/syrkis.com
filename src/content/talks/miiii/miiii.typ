@@ -1,6 +1,5 @@
 // imports ///////////////
 #import "@preview/lilaq:0.4.0" as lq
-#import "@local/esch:0.0.0": *
 #import "/src/assets/conf.typ": *
 #import "appendix.typ": appendix
 
@@ -14,7 +13,11 @@
 )
 
 #show: slides.with(info, common, appendix: appendix)
-#metadata((title: title, date: date))<frontmatter>
+#metadata((
+  title: title,
+  date: date,
+  cover: "/src/content/talks/miiii/figs/polar.svg",
+))<frontmatter>
 
 
 #let miiii_hash = "50115caac50c4fbfa6bce4cc"

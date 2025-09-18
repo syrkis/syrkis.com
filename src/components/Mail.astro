@@ -1,0 +1,37 @@
+---
+const { user, domain } = Astro.props;
+---
+
+<span
+    class="obfuscated-mail"
+    data-user={user}
+    data-domain={domain}
+    tabindex="0"
+>
+    {user}[at]{domain}
+</span>
+
+<style>
+    .obfuscated-mail {
+        cursor: pointer;
+        /*text-decoration: underline;*/
+        user-select: text;
+    }
+</style>
+
+<script type="text/javascript">
+    // Isolated script so it only runs in this context
+    setTimeout(() => {
+        const el = document.currentScript.previousElementSibling;
+        if (el?.classList?.contains("obfuscated-mail")) {
+            el.addEventListener("click", () => {
+                const user = el.getAttribute("data-user");
+                const domain = el.getAttribute("data-domain");
+                window.location.href = `mailto:${user}@${domain}`;
+            });
+            el.addEventListener("keydown", (e) => {
+                if (e.key === "Enter" || e.key === " ") el.click();
+            });
+        }
+    }, 0);
+</script>

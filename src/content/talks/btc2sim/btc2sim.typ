@@ -1,6 +1,5 @@
 // imports ///////////////
 #import "@preview/touying:0.6.1": *
-// #import "@local/lilka:0.0.0": *
 #import "/src/assets/conf.typ": *
 #import "@preview/fletcher:0.5.7": *
 #import "@preview/simplebnf:0.1.1": *
@@ -19,6 +18,7 @@
   title: title,
   date: datetime(year: 2025, month: 5, day: 6),
   hidden: true,
+  cover: "/src/content/talks/miiii/figs/polar.svg",
 ))<frontmatter>
 
 

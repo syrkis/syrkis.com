@@ -1,49 +1,10 @@
 ---
-import Jump from "../components/Jump.astro";
-import type { CollectionEntry } from "astro:content";
-import { Typst } from "astro-typst/src/components";
-
-interface Props {
-    entry: CollectionEntry<"talks">;
-}
-
-const { entry } = Astro.props;
-const mainFilePath = `src/content/talks/${entry.id}.typ`;
-const entryId = entry.id;
+// src/components/SlidesLogic.astro
+const { entryId } = Astro.props;
 ---
 
-<div class="slides">
-    <div id="handout">
-        <Typst
-            input={{ mainFilePath: mainFilePath, inputs: { handout: "true" } }}
-        />
-    </div>
-    <div id="present">
-        <Typst
-            input={{ mainFilePath: mainFilePath, inputs: { handout: "false" } }}
-        />
-    </div>
-    <Jump />
-</div>
-
-<style>
-    #present {
-        display: none;
-    }
-    #handout {
-        display: block;
-    }
-    .slides {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    /* Add transition for header and footer */
-    /* :global(header), */
-    /* :global(footer) { */
-    /* transition: opacity 0.3s ease; */
-    /* } */
-</style>
 <script define:vars={{ entryId }}>
+    // ... (your entire presentation logic here, exactly as in your original <script>)
     let currentPage = 0;
     let totalPages = 0;
     let typstPages = [];

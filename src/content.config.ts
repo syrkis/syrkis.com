@@ -29,8 +29,9 @@ const talks = defineCollection({
     }),
     schema: z.object({
         title: z.string(),
-        cover: z.string().default("https://s3.syrkis.com/miiii/13.svg"),
+        cover: z.string(),
         date: z.string(),
+        location: z.string().default(""),
         hidden: z.boolean().default(false),
     }),
 });
