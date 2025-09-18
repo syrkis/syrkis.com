@@ -10,11 +10,11 @@
 
 // head /////////////////////////////////////////////////////////////////////////
 #let title = "Socioscope — Cultural Geometry Based Cybernetic Sensor"
+#let date = datetime(year: 2025, month: 5, day: 6)
 
-// #show: lilka
 
 #show: slides.with(
-  config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
+  config-info(author: "Noah Syrkis", date: date, title: title),
   config-common(
     handout: (
       sys.inputs.at("handout", default: "true") == "true"
@@ -24,8 +24,9 @@
 
 #metadata((
   title: title,
-  date: datetime(year: 2025, month: 5, day: 6),
-  cover: "/src/content/talks/miiii/figs/polar.svg",
+  date: date,
+  cover: "/src/content/talks/miiii/figs/y.svg",
+  hidden: true,
 ))<frontmatter>
 
 

@@ -7,8 +7,8 @@
 #show: lq.set-diagram(yaxis: (format-ticks: none))
 #show: lq.set-grid(stroke: none)
 
-#let title = "Monte Carlo Tree Search"
-#let date = datetime(year: 2025, month: 8, day: 29)
+#let title = "A Modern Array Language for Artificial Life Research"
+#let date = datetime(year: 2025, month: 10, day: 6)
 
 #show: slides.with(
   config-info(
@@ -24,8 +24,8 @@
 #metadata((
   title: title,
   date: date,
-  hidden: false,
-  cover: "/src/content/talks/esch/figs/anim_grid.svg",
+  hidden: true,
+  cover: "/src/content/talks/nebellum/figs/diff.svg",
 ))<frontmatter>
 
 

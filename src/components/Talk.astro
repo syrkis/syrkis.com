@@ -20,6 +20,11 @@ const variants = [
 
 <div class="slides">
     <Card entry={entry} type="talks" />
+    <!-- <span>{entry.data.location}</span> -->
+    <div class="text">
+        On desktop press D to download as a PDF and F to toggle presentation
+        mode. Navigate up and down with K and J when presenting
+    </div>
     {
         variants.map(({ id, handout }) => (
             <div id={id}>

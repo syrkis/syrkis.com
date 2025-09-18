@@ -16,7 +16,9 @@
 #metadata((
   title: title,
   date: date,
-  cover: "/src/content/talks/miiii/figs/polar.svg",
+  location: "ICLR 2026, Rio de Janeiro, Brazil",
+  desc: "Talk on Mechanistic Interpre",
+  cover: "/src/content/talks/miiii/figs/13_mod_2.svg",
 ))<frontmatter>
 
 

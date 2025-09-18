@@ -10,7 +10,12 @@
 
 // #show: lilka
 #show: slides.with(
-  config-info(author: "Noah Syrkis", date: datetime.today(), title: title),
+  config-info(
+    author: "Noah Syrkis",
+    date: datetime.today(),
+    title: title,
+    hidden: true,
+  ),
   config-common(handout: false),
 )
 

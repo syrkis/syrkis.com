@@ -31,6 +31,11 @@ const talks = defineCollection({
         title: z.string(),
         cover: z.string(),
         date: z.string(),
+        description: z
+            .string()
+            .min(10)
+            .max(200)
+            .default("Please write a descr"),
         location: z.string().default(""),
         hidden: z.boolean().default(false),
     }),

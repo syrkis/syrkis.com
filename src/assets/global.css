@@ -15,10 +15,10 @@ h2 {
 
 .text {
     text-align: center;
-    padding: 10vh 0;
+    padding: 7vh 0;
     width: 700px;
     max-width: 90%;
-    margin: auto;
+    margin: 0 auto;
 }
 
 body.presentation-mode {
@@ -34,7 +34,7 @@ header {
     align-items: center;
     gap: 1em;
     font-size: 2rem;
-    padding: 1.2em 0;
+    padding: 1.2em 0 7vh 0;
     background: none;
     border: none;
     box-shadow: none;
@@ -98,9 +98,9 @@ svg.typst-doc {
     justify-content: flex-start;
     overflow: visible;
     /*background: #fff;*/
-    position: relative;
-    margin-bottom: 2rem;
-    padding: 10vh 0;
+    /*position: relative;*/
+    /*margin-bottom: 2rem;*/
+    padding: 14vh 0;
 }
 
 .cover {

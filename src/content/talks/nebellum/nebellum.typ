@@ -13,6 +13,7 @@
   title: title,
   date: date,
   cover: "/src/content/talks/miiii/figs/polar.svg",
+  hidden: true,
 ))<frontmatter>
 
 
