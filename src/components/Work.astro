@@ -12,10 +12,10 @@ const { title, year, desc, material, works } = entry.data;
 ---
 
 <div class="series">
-    <h1>
+    <h2>
         {title}
-    </h1>
-    <p class="description">{desc}</p>
+    </h2>
+    <p class="text">{desc}</p>
     <div class="works">
         <div class="works-grid">
             {
@@ -26,9 +26,11 @@ const { title, year, desc, material, works } = entry.data;
                             alt={work.name}
                             fill
                         />
-                        <p>
-                            {work.name}, {material}, {year}
-                        </p>
+                        <div class="art-descr">
+                            <p>
+                                {work.name}, {material}, {year}
+                            </p>
+                        </div>
                     </div>
                 ))
             }
