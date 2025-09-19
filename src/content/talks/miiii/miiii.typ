@@ -9,7 +9,7 @@
 #let date = datetime(day: 8, month: 1, year: 2025)
 #let info = config-info(author: "Noah Syrkis", date: date, title: title)
 #let common = config-common(
-  handout: (sys.inputs.at("handout", default: "false") == "true"),
+  handout: (sys.inputs.at("handout", default: "false") == "true"), // this could be better
 )
 
 #show: slides.with(info, common, appendix: appendix)

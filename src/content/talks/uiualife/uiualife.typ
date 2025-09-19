@@ -1,5 +1,7 @@
 // imports ///////////////
 #import "/src/assets/conf.typ": *
+#import "appendix.typ": appendix
+
 #import "@preview/fletcher:0.5.8" as fletcher: diagram, edge, node
 #import "@preview/lilaq:0.4.0" as lq
 #import "@preview/lovelace:0.3.0": *
@@ -11,6 +13,8 @@
 #let date = datetime(year: 2025, month: 10, day: 6)
 
 #show: slides.with(
+  appendix: appendix,
+
   config-info(
     author: "Noah Syrkis",
     date: date,
@@ -29,315 +33,165 @@
 ))<frontmatter>
 
 
-= Introduction
+= Motivation
 
-The future is a garden of forking paths @borges1962garden. Action $a$ at state
-$s_t$ yields a new state $s_(t + 1)$. A different action $a'$, however, might
-have yielded some different state $s'_(t + 1)$.
+For legacy reasons ALife research overwhelmingly largely use Python. This talk
+presents an alternative: Uiua, a stack based array language written in Rust
+inspired by APL. Working with non-coders (architects and artists), I've found
+that they find Uiua intuitive. Further, Uiua's array orientedness and visual
+compactness makes it a winner (for me), and it's already used in neuroevolutiuon
+@kaikalii_evonet_github
 
-= Minimax
-
-#slide[
-  - Suppose we have a function that:
-  - given a state and an action returns a new state,
-  - and another that given a state returns who won
-  - What can we do? #pause Play perfectly and never loose
-][
-  #meanwhile
-  #figure(
-    diagram(
-      node((2, 0))[min],
-      node((2, 1))[max],
-      node((2, 2))[min],
-
-      node((0, 0))[$a$],
-
-      node((-1, 1))[$b$],
-      node((1, 1))[$c$],
-
-      node((-1.5, 2))[$d$],
-      node((-0.5, 2))[$e$],
-      node((0.5, 2))[$f$],
-      node((1.5, 2))[$g$],
-
-      node((-1.5, 2.5))[$+$],
-      node((-0.5, 2.5))[$-$],
-      node((0.5, 2.5))[$+$],
-      node((1.5, 2.5))[$+$],
-
-      edge((0, 0), (-1, 1), "->"),
-      edge((0, 0), (1, 1), "->"),
-
-      edge((-1, 1), (-1.5, 2), "->"),
-      edge((-1, 1), (-0.5, 2), "->"),
-      edge((1, 1), (0.5, 2), "->"),
-      edge((1, 1), (1.5, 2), "->"),
-    ),
-    // caption: [Minimax tree],
-  )
-]
-
-
-#slide[
-  - We can win (or at least not loose) any game#footnote[
-      that is two player, winnable, deterministic, etc.
-    ] by:
-    1. Calling the minimax function for all actions
-    2. Storing the values of each action in a list
-    3. Taking the action with the highest value
-  - How can we do better? What are the issues?
-][
-  #figure(
-    kind: "algorithm",
-    supplement: [Algorithm],
-    pseudocode-list(
-      stroke: black,
-      booktabs: true,
-      numbered-title: [minimax(state, maxim) $->$ value],
-    )[
-      + *if* node is terminal
-        + *return* the value of node
-
-      + temp = $-oo$ if maxim else $oo$
-      + *for* each child of state
-        + value = minimax(child, not maxim)
-        + temp = (max if maxim else min)(temp, value)
-      + *return* temp
-    ],
-    // caption: [Minimax pseudo code],
-  )<minimax>
-
-]
-
-= $alpha-beta$ pruning
-
-
-#slide[
-  #figure(
-    diagram(
-      node((-2, 0))[max],
-      node((-2, 1))[min],
-      node((-2, 2))[max],
-
-      node((0, 0))[$a$],
-
-      node((-1, 1))[$b$],
-      node((1, 1))[$c$],
-
-      node((-1.5, 2))[$d$],
-      node((-0.5, 2))[$e$],
-      node((0.5, 2))[$f$],
-      node((1.5, 2))[$g$],
-
-      node((-1.5, 2.5))[$+$],
-      node((-0.5, 2.5))[$+$],
-      node((0.5, 2.5))[$-$],
-      node((1.5, 2.5))[$+$],
-
-      edge((0, 0), (-1, 1), "->"),
-      edge((0, 0), (1, 1), "->"),
-
-      edge((-1, 1), (-1.5, 2), "->"),
-      edge((-1, 1), (-0.5, 2), "->"),
-      edge((1, 1), (0.5, 2), "->"),
-      edge((1, 1), (1.5, 2), "--|--"),
-    ),
-    // caption: [Minimax tree],
-  )
-][
-  - Skip branches worse than current floor
-  - $alpha$ and $beta$ refer to those precisely floors
-]
-
-#slide[
-  - @alphabeta looks daunting but the idea is:
-  - Stop exploring paths you already know are bad
-][
-
-  #figure(
-    kind: "algorithm",
-    supplement: [Algorithm],
-    pseudocode-list(
-      stroke: none,
-      booktabs: true,
-      numbered-title: [$alpha-beta$ pruning(node, maxim, $alpha$, $beta$)],
-    )[
-      + *if* node is terminal
-        + *return* the value of node
-
-      + bestValue = $-oo$ if maxim else $oo$
-      + condition = max if maxim else min
-
-      + *for* each child of node
-        + value = minimax(child, not maxim, $alpha$, $beta$)
-        + bestValue = condition(bestValue, value)
-        + $alpha$ = (condition($alpha$, value) if maxim else $alpha$)
-        + $beta$ = (condition($beta$, value) if not maxim else $beta$)
-        + *if* $alpha$ >= $beta$; *break*
-      + *return* bestValue
-    ],
-  )<alphabeta>
-]
-
-
-= MCTS
-
-- We haven't actually _looked_ at the board
-- Humans don't mentally finish $n$ games
-
-#slide[
-  - Monte Carlo (random) tree search @browne2012
-  - Core idea: sample from bottom of each branch
-  - How much to sample from each branch?
-  - How should we reach the bottom?
-][
-
-  #let nodePos = (
-    (0, 0),
-    (-1, 1),
-    (1, 1),
-    (-1, 2),
-    (-1, 1.5),
-    (-1, 2.3),
-    (0.5, 2),
-    (1.5, 2),
-  )
-  #figure(diagram(
-    node(nodePos.at(0))[$a$],
-
-    node(nodePos.at(1))[$b$],
-    node(nodePos.at(2))[$c$],
-
-    node(nodePos.at(3))[$triangle$],
-    node(nodePos.at(4))[$dots.c$],
-
-    node(nodePos.at(6))[$d$],
-    node(nodePos.at(7))[$e$],
-
-    edge(nodePos.at(0), nodePos.at(2), "->"),
-    edge(nodePos.at(0), nodePos.at(1), "->"),
-
-    edge(nodePos.at(1), nodePos.at(3), "~>", bend: -30deg),
-    edge(nodePos.at(1), nodePos.at(3), "<~", bend: 30deg),
-
-    edge(nodePos.at(2), nodePos.at(6), "->"),
-    edge(nodePos.at(2), nodePos.at(7), "->"),
-
-    // edge((0.5, 1), (0.5, 2), "~>", bend: -30deg),
-    // edge((0.5, 1), (0.5, 2), "~>", bend: 30deg),
-  ))
-]
-
-
-== Explore /  exploit
-
-
-#slide[
-
-  - When do we exploit the best tool we have?
-  - When should we explore for a new tool?
-  - There is a good entropy based solution @robbinsASPECTSSEQUENTIALDESIGN1952
-
-][
-  #let x = lq.linspace(0, 1)
-  #let gauss(x, mu, sigma) = (
-    (1 / (sigma * calc.sqrt(2 * calc.pi)))
-      * calc.pow(
-        calc.e,
-        -(calc.pow(x - mu, 2) / (2 * calc.pow(sigma, 2))),
-      )
-  )
-
-
-  #figure(
-    lq.diagram(
-      legend: (position: top + left, stroke: none, fill: none),
-      width: 12cm,
-      height: 8cm,
-      lq.plot(
-        x,
-        x.map(x => gauss(x, 0.75, 0.05)),
-        mark: none,
-        smooth: true,
-        stroke: (paint: black),
-        label: [$cal(N)(0.75, 0.05)$],
-      ),
-      lq.plot(
-        x,
-        x.map(x => gauss(x, 0.5, 0.5)),
-        mark: none,
-        smooth: true,
-        stroke: (paint: black, dash: "dashed"),
-        label: [$cal(N)(0.5, 0.5)$],
-      ),
-    ),
-    caption: [
-      Which distribution would you sample from? Which is more likely to reach
-      $1$?
-    ],
-  )
-]
-
-= Python
-
-#slide[
-  - You will see code that looks like @code
-  - In some games $s!=o$, so we need seperate `obs`
-  - Multi player setup will have inner player loop
-][
-  #figure(
-    kind: "script",
-    supplement: "Script",
-    ```
-    import gymnasium as gym
-    env = gym.game("tic_tac_toe")
-    state, done = env.init()
-
-    while not done:
-      action = action_fn(state)
-      state, done = env.step(state, action)
-    ```,
-    caption: [Playing games in Python usually look something like this],
-  )<code>
-]
-
-// == Packages
-
-#slide[
-  - Some useful packages
-  - Understanding gymnasium is a must
-  - Get comfy with `.reset` and `.step`
-  - Sometimes `state` has a valid action mask!
-][
-  #table(
-    columns: (auto, 1fr),
+#figure(
+  grid(
+    columns: (1fr, 1fr),
     inset: 1em,
-    [`aigs`], [package for our course],
-    [`gymnasium` @towersGymnasiumStandardInterface2025], [Basic env package],
-    [`petting-zoo` @terry2021pettingzoo], [gym for multiplayer],
-    // [`pgx` @koyamada2023pgx], [parallel envs],
-    // [`mlxp` @arbelMLXPFrameworkConducting2024], [experiment tracking],
-    // [`parabellum` @syrkisParabellum2025], [shameless plug],
+    ```
+    lambda x, y, z: x + y + z
+    ```,
+    ```
+    + +
+    ```,
+
+    "Python", "Uiua",
+  ),
+  caption: [Two implementations of anonymous function that adds three numbers],
+)<tripadd>
+
+
+// = The Stack
+
+= Glyphs
+
+Uiua uses special symbols (glyphs). Two frequent initial reactions to these are
+intrigue (can you feel it?) and incredulity #footnote[I just got my drivers
+  license and learning the signs of the road was harder than learning Uiua]. If
+you play with Uiua both quickly subside. A few common glyphs are:
+
+#figure(
+  grid(
+    inset: 1em,
+    columns: 9,
+    `.`, `:`, `ₙ`, `⚂`, `⇡`, `⧻`, `⌊`, `⌵`, `≡`,
+    [duplicate],
+    [flip],
+    [power],
+    [random],
+    [range],
+    [shape],
+    [floor],
+    [abs],
+    [map],
+  ),
+  caption: [A few common glyphs],
+)<glyphs>
+
+
+#slide[
+
+  Some glyphs are more high-level. To visualize points, you could use `⍜`
+  (under), which transforms, applies a function, and undoes transform, on an
+  $n times n$ array of zeros, by selecting the index of the particles in the
+  array (transform), adding 1 (function), and putting the values back in the
+  array.
+
+  #figure(
+    grid(
+      columns: (1fr, 1fr, 1fr),
+      inset: 0.75em,
+      align: center,
+      `∧ fold`, `⍜ under`, `≡ rows`,
+      [Apply a function to aggregate arrays],
+      [Operate on a transformed array, then undo transform],
+      [Apply a function to each row of an array],
+
+      [`∧+ [1 2 3] 10` $->$ `16`],
+      [`⍜+(×2) 1 5` $->$ `11`],
+      [`≡∧+ [1_2 4_5] 0` $->$ `3_9`],
+    ),
+    caption: [Glyphs with descriptions and examples],
+  )<fns2>
+
+]
+
+= The Stack
+
+#slide[
+
+  - Functions pop and push values on the stack
+  - Functions apply seamlessly across array dims
+][
+
+  #box[
+
+    ```
+      1 2 3   # stack: 1 2 3
+    ```
+    #pause
+    ```
+      + +     # stack: 6
+    ```#pause
+
+    ```
+      ⇡       # stack: [0 1 2 3 4 5]
+    ```
+    #pause
+    ```
+      + 1     # stack: [1 2 3 4 5 6]
+    ```
+    #pause
+    ```
+      \+      # stack: [1 3 6 10 15 21]
+    ```#pause
+    ```
+      /+      # stack: 56
+    ```
+  ]
+]
+
+= Example: RHOS
+
+#slide[
+  ```
+  R ← ⁿ:e ¯÷ ×2 ⁿ2 : √ /+ ⁿ2 ⌵
+  ```
+
+  ```
+  G ← ≡₁R ⌵ - ⌊ ÷ 2 ⊸ ⧻ ⇡ ⊟ .
+  ```
+
+  ```
+  D ← ÷ ⊸⍥/↥ 2 √ ⌵ - ⊸ ↻ 0_1
+  ```
+][
+
+  #figure(
+    stack(
+      // columns: 1,
+      // inset: 1em,
+      image("figs/out 6.png", width: 45%),
+      image("figs/out 7.png", width: 45%),
+      // image("figs/out.png", height: 33%),
+      // image("figs/inverted_zero.png", height: 50%),
+    ),
+    caption: [Two works from RHOS],
   )
 ]
 
-// = Abrolhos
+= Example: Sortsol
 
-// - We haven't actually _looked_ at the board
-// - Humans don't mentally finish $n$ games
-// // - Often have a value function $v(s) -> {+, -}$
-// - We've learned a set of patterns that we liks or not
-// - The sampling in MCTS could be used to learn those patterns
-// - Taken it its extreme in 2024 an algorithm _only_ looked at the board
-//   @ruossGrandmasterLevelChessSearch2024
+#slide[
 
-// #[
-// #show heading.where(level: 1): set heading(numbering: none)
-// = Index of Sources <touying:unoutlined>
-// #set align(top)
-// #pad(y: 2em, bibliography(
-// "/src/assets/zotero.bib",
-// title: none,
-// style: "ieee",
-// ))
-// ]
+  #grid(
+    columns: (1fr, 1fr),
+    box[
+      ```
+      Init ← + ÷ 2 W × S - 0.5 gen N_2
+      Step ← + × S -0.5 gen N_2
+      Draw ←  ⍜(⊡|+1) ↥ 0 ↧ -1 W ⌊ : × 0 °△ W_W
+      ```
+    ],
+    figure(image("figs/out.gif"), caption: [200 steps of a simple particle
+      simulation with particles moving randomly]),
+  )
+]
